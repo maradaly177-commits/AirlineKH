@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SKYLINK PREMIUM DESIGN SYSTEM — Global Tokens & Utilities
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Glass Tokens ── */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(148, 163, 184, 0.25);
+  --glass-border-hover: rgba(148, 163, 184, 0.45);
+  --glass-blur: 24px;
+
+  /* ── Ambient Glow Tokens ── */
+  --glow-blue: rgba(59, 130, 246, 0.08);
+  --glow-indigo: rgba(99, 102, 241, 0.06);
+  --glow-violet: rgba(139, 92, 246, 0.05);
+
+  /* ── Premium Shadows ── */
+  --shadow-card: 0 4px 24px -4px rgba(0,0,0,0.06), 0 1px 8px -1px rgba(0,0,0,0.03);
+  --shadow-card-hover: 0 20px 60px -12px rgba(0,0,0,0.12), 0 4px 16px -4px rgba(0,0,0,0.06);
+  --shadow-elevated: 0 8px 40px -4px rgba(0,0,0,0.14), 0 2px 12px -2px rgba(0,0,0,0.08);
+
+  /* ── Typography ── */
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Base Reset ── */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* ── Selection Color ── */
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+  color: #1e293b;
+}
+
+/* ── Premium Scrollbar Hide ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Ticket Voucher Clip Path (Punch Holes) ── */
+.ticket-punch-left {
+  position: absolute;
+  left: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.ticket-punch-right {
+  position: absolute;
+  right: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* ── Shimmer Animation for CTA Buttons ── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-on-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: none;
+  pointer-events: none;
+}
+.shimmer-on-hover:hover::after {
+  animation: shimmer 0.7s ease-in-out;
+}
+
+/* ── Ambient Glow Utility ── */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(120px);
+}
+
+/* ── Glass Surface ── */
+.glass-surface {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.glass-surface-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--glass-border);
+}
+
+/* ── Display Font Utility ── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ── Smooth Image Loading ── */
+img {
+  transition: opacity 0.4s ease;
+}
+
+/* ── Focus Visible ── */
+*:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
