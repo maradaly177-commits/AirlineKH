@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\Admin\DashboardController;
 use App\Http\Controllers\Api\CheckInController;
 use App\Http\Controllers\Api\UserProfileController;
+use App\Http\Controllers\Api\AI\AIChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,10 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // API cho chức năng Hủy vé
     Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel']);
+
+    // AI ASSISTANT
+    Route::post('/ai/chat', [AIChatController::class, 'chat']);
+    Route::get('/ai/conversations/{conversationId}', [AIChatController::class, 'history']);
 });
 
 /*
