@@ -104,14 +104,18 @@ export default function HomePage() {
       <section className="relative pt-20 flex flex-col items-center w-full">
         {/* Background Image Area - Full Bleed Edge-to-Edge */}
         <div className="w-full h-[75vh] md:h-[85vh] overflow-hidden relative">
-          <motion.img 
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            src="/hero-bg.png" 
-            alt="Luxury airplane view at golden hour" 
-            className="w-full h-full object-cover"
-          />
+          <motion.video
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              src="/hero.mp4"
+              poster="/hero-bg.png"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
           {/* Multi-layer gradient overlay for premium depth */}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-900/40 to-transparent"></div>
           
@@ -140,7 +144,7 @@ export default function HomePage() {
             />
           </svg>
           
-          <div className="absolute top-[28%] -translate-y-1/2 left-8 md:left-16 max-w-2xl text-white z-10">
+            <div style={{ fontFamily: '"Times New Roman", Times, serif' }} className="absolute top-[28%] -translate-y-1/2 left-8 md:left-16 max-w-2xl text-white z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 border border-white/20">
               ✈ Hàng không 5 sao
             </motion.div>
