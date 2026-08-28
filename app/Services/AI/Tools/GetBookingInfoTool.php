@@ -10,28 +10,24 @@ class GetBookingInfoTool
     public function definition(): array
     {
         return [
-            'type' => 'function',
+            'name' => 'get_booking_info',
 
-            'function' => [
-                'name' => 'get_booking_info',
+            'description' =>
+                'Lấy thông tin booking của người dùng đang đăng nhập từ database SkyLink.',
 
-                'description' =>
-                    'Get booking information belonging to the authenticated user.',
+            'parameters' => [
+                'type' => 'OBJECT',
 
-                'parameters' => [
-                    'type' => 'object',
-
-                    'properties' => [
-                        'booking_id' => [
-                            'type' => 'integer',
-                            'description' =>
-                                'Booking ID.',
-                        ],
+                'properties' => [
+                    'booking_id' => [
+                        'type' => 'INTEGER',
+                        'description' =>
+                            'ID của booking cần kiểm tra.',
                     ],
+                ],
 
-                    'required' => [
-                        'booking_id',
-                    ],
+                'required' => [
+                    'booking_id',
                 ],
             ],
         ];
@@ -46,17 +42,27 @@ class GetBookingInfoTool
             return [
                 'success' => false,
                 'message' =>
-                    'User must be authenticated.',
+                    'User must be authenticated to view booking information.',
+            ];
+        }
+
+        $bookingId =
+            (int) ($arguments['booking_id'] ?? 0);
+
+        if (!$bookingId) {
+            return [
+                'success' => false,
+                'message' => 'Booking ID is required.',
             ];
         }
 
         $booking = Booking::where(
             'id',
-            $arguments['booking_id']
+            $bookingId
         )
         ->where(
             'user_id',
-            $user->id
+            $user->getKey()
         )
         ->first();
 
@@ -75,7 +81,7 @@ class GetBookingInfoTool
                 'id' => $booking->id,
                 'status' => $booking->status ?? null,
                 'amount' => $booking->amount ?? null,
-                'created_at' => $booking->created_at,
+                'created_at' => $booking->created_at?->toDateTimeString(),
             ],
         ];
     }

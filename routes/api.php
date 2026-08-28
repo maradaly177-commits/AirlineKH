@@ -32,6 +32,17 @@ Route::get('/check-in', [CheckInController::class, 'query']);
 
 /*
 |--------------------------------------------------------------------------
+| AI ASSISTANT
+|--------------------------------------------------------------------------
+*/
+
+// Normal JSON
+Route::post('/ai/chat', [AIChatController::class, 'chat']);
+
+// Real-time streaming
+Route::post('/ai/chat/stream',[AIChatController::class, 'stream']);
+/*
+|--------------------------------------------------------------------------
 | AUTH ROUTES
 |--------------------------------------------------------------------------
 */
@@ -73,8 +84,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // API cho chức năng Hủy vé
     Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel']);
 
-    // AI ASSISTANT
-    Route::post('/ai/chat', [AIChatController::class, 'chat']);
     Route::get('/ai/conversations/{conversationId}', [AIChatController::class, 'history']);
 });
 

@@ -39,14 +39,14 @@ return [
         'model' => env('OPENAI_MODEL', 'gpt-4o-mini'),
         'embedding_model' => env('OPENAI_EMBEDDING_MODEL', 'text-embedding-3-small'),
     ],
-    'ollama' => [
-        'url' => env('OLLAMA_URL', 'http://127.0.0.1:11434'),
-        'chat_model' => env('OLLAMA_CHAT_MODEL', 'qwen2.5:3b'),
-        'embedding_model' => env('OLLAMA_EMBEDDING_MODEL', 'nomic-embed-text'),
+    'gemini' => [
+        'api_key' => env('GEMINI_API_KEY'),
+        'model' => env('GEMINI_MODEL', 'gemini-3.1-flash-lite'),
     ],
+
     'qdrant' => [
-        'url' => env('QDRANT_URL'),
+        'url' => env('QDRANT_URL', 'http://[IP_ADDRESS]/'),
         'api_key' => env('QDRANT_API_KEY'),
         'collection' => env('QDRANT_COLLECTION', 'airline_knowledge'),
-    ],
+],
 ];

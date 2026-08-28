@@ -8,7 +8,7 @@ import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 
 export default function ChatWindow() {
-  const { messages, status, sendMessage, close, reset } = useChat();
+  const { messages, status, sendMessage, editMessage, close, reset } = useChat();
   const navigate = useNavigate();
   const isSending = status === "sending";
 
@@ -17,24 +17,57 @@ export default function ChatWindow() {
     if (!payload) return;
 
     if (typeof payload === "string" && payload.startsWith("open:")) {
-      navigate(payload.slice(5));
+      const targetPath = payload.slice(5);
+      const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
       close();
+      if (!token && (targetPath.includes("seat-selection") || targetPath.includes("booking") || targetPath.includes("checkout"))) {
+        navigate("/login", {
+          state: {
+            from: targetPath,
+            message: "Vui lòng đăng ký hoặc đăng nhập để tiếp tục đặt vé máy bay.",
+          },
+        });
+      } else {
+        navigate(targetPath);
+      }
       return;
     }
     sendMessage(payload);
   };
 
   const handleSelectFlight = (flight) => {
+    const flightId = flight?.id ?? flight?.flight_id ?? flight?.flightId;
+
+    if (!flightId) {
+      console.error("handleSelectFlight: Không tìm thấy flight ID", flight);
+      return;
+    }
+
+    // Lưu vào localStorage làm fallback
     localStorage.setItem("selected_flights", JSON.stringify([flight]));
-    localStorage.removeItem("selected_flight");
+    localStorage.removeItem("selected_seats");
+
     if (!localStorage.getItem("search_params")) {
       localStorage.setItem(
         "search_params",
         JSON.stringify({ passengers: { adults: 1, children: 0 } })
       );
     }
+
     close();
-    navigate("/seat-selection");
+
+    const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
+    if (!token) {
+      navigate("/login", {
+        state: {
+          from: `/seat-selection?flight_id=${encodeURIComponent(flightId)}`,
+          message: "Vui lòng đăng ký hoặc đăng nhập để tiếp tục chọn ghế & đặt vé.",
+        },
+      });
+    } else {
+      // Navigate với flight_id trong URL — đúng theo flow AI
+      navigate(`/seat-selection?flight_id=${encodeURIComponent(flightId)}`);
+    }
   };
 
   return (
@@ -87,6 +120,7 @@ export default function ChatWindow() {
           isSending={isSending}
           onQuickReply={handleQuickReply}
           onSelectFlight={handleSelectFlight}
+          onEditMessage={editMessage}
         />
       </div>
 

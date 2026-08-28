@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import MessageBubble from "./MessageBubble";
 import TypingIndicator from "./TypingIndicator";
 
-export default function MessageList({ messages, isSending, onQuickReply, onSelectFlight }) {
+export default function MessageList({ messages, isSending, onQuickReply, onSelectFlight, onEditMessage }) {
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export default function MessageList({ messages, isSending, onQuickReply, onSelec
           message={message}
           onQuickReply={onQuickReply}
           onSelectFlight={onSelectFlight}
+          onEditMessage={onEditMessage}
           disabled={isSending}
         />
       ))}

@@ -421,9 +421,13 @@ export default function SeatSelection() {
                       CHUYẾN {idx === 0 ? "ĐI" : "VỀ"}
                     </div>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-xl font-bold tracking-tighter text-zinc-900">{f.departure_airport?.code}</span>
+                      <span className="text-xl font-bold tracking-tighter text-zinc-900">
+                        {f.departure_airport?.code || f.departureAirport?.code || f.origin || "HAN"}
+                      </span>
                       <AirplaneTilt size={16} weight="fill" className="text-zinc-300 mx-2" />
-                      <span className="text-xl font-bold tracking-tighter text-zinc-900">{f.arrival_airport?.code}</span>
+                      <span className="text-xl font-bold tracking-tighter text-zinc-900">
+                        {f.arrival_airport?.code || f.arrivalAirport?.code || f.destination || "SGN"}
+                      </span>
                     </div>
                     <div className="mt-4 p-4 rounded-xl bg-zinc-50 border border-zinc-100 flex justify-between items-center">
                       <p className="text-zinc-500 font-medium mb-1">Đã chọn ({selectedSeats[stageKey].length}/{totalPassengers})</p>
