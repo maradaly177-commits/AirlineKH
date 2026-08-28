@@ -30,8 +30,6 @@ class GetFlightDetailsTool
                     'required' => [
                         'flight_id',
                     ],
-
-                    'additionalProperties' => false,
                 ],
             ],
         ];
@@ -42,7 +40,7 @@ class GetFlightDetailsTool
         $flight = Flight::with([
             'departureAirport',
             'arrivalAirport',
-        ])->find($arguments['flight_id']);
+        ])->find($arguments['flight_id'] ?? null);
 
         if (!$flight) {
             return [

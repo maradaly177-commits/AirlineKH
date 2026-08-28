@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('ai_conversations', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('title', 160)->nullable();
             $table->timestamps();
 

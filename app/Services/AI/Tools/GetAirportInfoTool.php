@@ -9,28 +9,24 @@ class GetAirportInfoTool
     public function definition(): array
     {
         return [
-            'type' => 'function',
+            'name' => 'get_airport_info',
 
-            'function' => [
-                'name' => 'get_airport_info',
+            'description' =>
+                'Lấy thông tin sân bay từ database SkyLink.',
 
-                'description' =>
-                    'Get information about an airport.',
+            'parameters' => [
+                'type' => 'OBJECT',
 
-                'parameters' => [
-                    'type' => 'object',
-
-                    'properties' => [
-                        'code' => [
-                            'type' => 'string',
-                            'description' =>
-                                'Airport IATA code such as HAN, SGN or DAD.',
-                        ],
+                'properties' => [
+                    'code' => [
+                        'type' => 'STRING',
+                        'description' =>
+                            'Mã sân bay IATA, ví dụ HAN, SGN, DAD.',
                     ],
+                ],
 
-                    'required' => [
-                        'code',
-                    ],
+                'required' => [
+                    'code',
                 ],
             ],
         ];
@@ -38,15 +34,26 @@ class GetAirportInfoTool
 
     public function execute(array $arguments): array
     {
+        $code = strtoupper(
+            trim((string) ($arguments['code'] ?? ''))
+        );
+
+        if ($code === '') {
+            return [
+                'success' => false,
+                'message' => 'Airport code is required.',
+            ];
+        }
+
         $airport = Airport::where(
             'code',
-            strtoupper($arguments['code'])
+            $code
         )->first();
 
         if (!$airport) {
             return [
                 'success' => false,
-                'message' => 'Airport not found.',
+                'message' => 'Airport not found in database.',
             ];
         }
 

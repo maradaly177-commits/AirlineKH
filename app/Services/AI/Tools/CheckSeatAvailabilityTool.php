@@ -9,28 +9,23 @@ class CheckSeatAvailabilityTool
     public function definition(): array
     {
         return [
-            'type' => 'function',
+            'name' => 'check_seat_availability',
 
-            'function' => [
-                'name' => 'check_seat_availability',
+            'description' =>
+                'Kiểm tra các ghế còn trống của một chuyến bay trong database SkyLink.',
 
-                'description' =>
-                    'Check available seats for a flight.',
+            'parameters' => [
+                'type' => 'OBJECT',
 
-                'parameters' => [
-                    'type' => 'object',
-
-                    'properties' => [
-                        'flight_id' => [
-                            'type' => 'integer',
-                            'description' =>
-                                'Flight ID.',
-                        ],
+                'properties' => [
+                    'flight_id' => [
+                        'type' => 'INTEGER',
+                        'description' => 'ID của chuyến bay.',
                     ],
+                ],
 
-                    'required' => [
-                        'flight_id',
-                    ],
+                'required' => [
+                    'flight_id',
                 ],
             ],
         ];
@@ -38,25 +33,33 @@ class CheckSeatAvailabilityTool
 
     public function execute(array $arguments): array
     {
-        $seats = Seat::where(
-            'flight_id',
-            $arguments['flight_id']
-        )
-        ->where(function ($query) {
-            $query
-                ->whereNull('status')
-                ->orWhere('status', 'available');
-        })
-        ->get();
+        $flightId = (int) ($arguments['flight_id'] ?? 0);
+
+        if (!$flightId) {
+            return [
+                'success' => false,
+                'message' => 'Flight ID is required.',
+            ];
+        }
+
+        $seats = Seat::where('flight_id', $flightId)
+            ->where(function ($query) {
+                $query
+                    ->whereNull('status')
+                    ->orWhere('status', 'available');
+            })
+            ->get();
 
         return [
             'success' => true,
 
-            'flight_id' =>
-                $arguments['flight_id'],
+            'flight_id' => $flightId,
 
             'available_seats' =>
-                $seats->pluck('seat_number')->values(),
+                $seats
+                    ->pluck('seat_number')
+                    ->values()
+                    ->toArray(),
 
             'total_available' =>
                 $seats->count(),

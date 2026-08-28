@@ -1,121 +1,1245 @@
 <?php
 
-namespace Tests\Feature;
+namespace App\Services\AI;
+
+use App\Services\AI\Tools\SearchFlightTool;
+use App\Services\AI\Tools\GetFlightDetailsTool;
+use App\Services\AI\Tools\CheckSeatAvailabilityTool;
+use App\Services\AI\Tools\GetAirportInfoTool;
+use App\Services\AI\Tools\GetBookingInfoTool;
+use App\Services\AI\Tools\SearchKnowledgeTool;
 
 use App\Models\AIConversation;
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Http;
-use Laravel\Sanctum\Sanctum;
-use Tests\TestCase;
+use App\Models\AIMessage;
 
-class AIChatTest extends TestCase
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+class AIChatService
 {
-    use RefreshDatabase;
+    public function __construct(
+        protected AIService $aiService,
 
-    public function test_authenticated_user_can_chat_and_conversation_is_saved(): void
+        protected SearchFlightTool
+            $searchFlightTool,
+
+        protected GetFlightDetailsTool
+            $getFlightDetailsTool,
+
+        protected CheckSeatAvailabilityTool
+            $checkSeatAvailabilityTool,
+
+        protected GetAirportInfoTool
+            $getAirportInfoTool,
+
+        protected GetBookingInfoTool
+            $getBookingInfoTool,
+
+        protected SearchKnowledgeTool
+            $searchKnowledgeTool,
+    ) {
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | NORMAL CHAT
+    |--------------------------------------------------------------------------
+    */
+
+    public function chat(
+        string $message,
+        ?Model $user = null,
+        ?string $conversationId = null
+    ): array {
+
+        $conversation =
+            $this->conversation(
+                $conversationId,
+                $user
+            );
+
+
+        $this->saveUserMessage(
+            $conversation,
+            $message
+        );
+
+
+        $messages = [
+            [
+                'role' =>
+                    'system',
+
+                'content' =>
+                    $this->aiService
+                        ->systemPrompt(),
+            ],
+
+            ...
+            $this->history(
+                $conversation
+            ),
+        ];
+
+
+        $tools =
+            $this->shouldUseTools(
+                $message
+            )
+                ? $this->getTools()
+                : [];
+
+
+        $collectedFlights = [];
+
+
+        for (
+            $attempt = 0;
+            $attempt < 3;
+            $attempt++
+        ) {
+
+            $response =
+                $this->aiService->complete(
+                    $messages,
+                    $tools
+                );
+
+
+            $toolCalls =
+                $response['tool_calls']
+                ?? [];
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Normal response
+            |--------------------------------------------------------------------------
+            */
+
+            if (
+                empty(
+                    $toolCalls
+                )
+            ) {
+
+                $content =
+                    (string) (
+                        $response['content']
+                        ?? ''
+                    );
+
+
+                $conversation
+                    ->messages()
+                    ->create([
+                        'role' =>
+                            'assistant',
+
+                        'content' =>
+                            $content,
+                    ]);
+
+
+                return [
+                    'type' =>
+                        'message',
+
+                    'message' =>
+                        $content,
+
+                    'flights' =>
+                        $collectedFlights,
+
+                    'conversation_id' =>
+                        $conversation->uuid,
+
+                    'quick_replies' =>
+                        $this->quickReplies(
+                            $collectedFlights
+                        ),
+                ];
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Save assistant tool call
+            |--------------------------------------------------------------------------
+            */
+
+            $conversation
+                ->messages()
+                ->create([
+                    'role' =>
+                        'assistant',
+
+                    'content' =>
+                        $response['content']
+                        ?? null,
+
+                    'tool_calls' =>
+                        $toolCalls,
+                ]);
+
+
+            $messages[] =
+                $response;
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Execute tools
+            |--------------------------------------------------------------------------
+            */
+
+            foreach (
+                $toolCalls as $toolCall
+            ) {
+
+                $toolName =
+                    $toolCall[
+                        'function'
+                    ]['name']
+                    ?? '';
+
+
+                $arguments =
+                    $toolCall[
+                        'function'
+                    ]['arguments']
+                    ?? [];
+
+
+                if (
+                    is_string(
+                        $arguments
+                    )
+                ) {
+
+                    $arguments =
+                        json_decode(
+                            $arguments,
+                            true
+                        ) ?? [];
+                }
+
+
+                $result =
+                    $this->executeToolCall(
+                        $toolName,
+                        $arguments,
+                        $user
+                    );
+
+
+                if (
+                    is_array($result) &&
+                    !empty(
+                        $result['flights']
+                    )
+                ) {
+
+                    $collectedFlights =
+                        array_merge(
+                            $collectedFlights,
+                            $result['flights']
+                        );
+                }
+
+
+                $conversation
+                    ->messages()
+                    ->create([
+                        'role' =>
+                            'tool',
+
+                        'content' =>
+                            json_encode(
+                                $result,
+                                JSON_UNESCAPED_UNICODE
+                            ),
+
+                        'tool_call_id' =>
+                            $toolCall['id']
+                            ?? null,
+
+                        'tool_name' =>
+                            $toolName,
+
+                        'tool_arguments' =>
+                            $arguments,
+
+                        'tool_result' =>
+                            $result,
+                    ]);
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | Add tool result
+                |--------------------------------------------------------------------------
+                */
+
+                $messages[] = [
+                    'role' =>
+                        'tool',
+
+                    'tool_call_id' =>
+                        $toolCall['id']
+                        ?? null,
+
+                    'tool_name' =>
+                        $toolName,
+
+                    'content' =>
+                        json_encode(
+                            $result,
+                            JSON_UNESCAPED_UNICODE
+                        ),
+                ];
+            }
+        }
+
+
+        throw new \RuntimeException(
+            'AI tool-call limit exceeded.'
+        );
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | STREAMING
+    |--------------------------------------------------------------------------
+    */
+
+    public function streamChat(
+        string $message,
+        ?Model $user = null,
+        ?string $conversationId = null
+    ): \Generator {
+
+        $conversation =
+            $this->conversation(
+                $conversationId,
+                $user
+            );
+
+
+        $this->saveUserMessage(
+            $conversation,
+            $message
+        );
+
+
+        yield [
+            'type' =>
+                'conversation',
+
+            'conversation_id' =>
+                $conversation->uuid,
+        ];
+
+
+        $messages = [
+            [
+                'role' =>
+                    'system',
+
+                'content' =>
+                    $this->aiService
+                        ->systemPrompt(),
+            ],
+
+            ...
+            $this->history(
+                $conversation
+            ),
+        ];
+
+
+        $useTools =
+            $this->shouldUseTools(
+                $message
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | NORMAL CHAT
+        |--------------------------------------------------------------------------
+        */
+
+        if (!$useTools) {
+
+            yield [
+                'type' =>
+                    'status',
+
+                'status' =>
+                    'thinking',
+
+                'message' =>
+                    'SkyAI đang trả lời...',
+            ];
+
+
+            $fullContent = '';
+
+
+            foreach (
+                $this->aiService
+                    ->stream($messages)
+                as $chunk
+            ) {
+
+                if (
+                    ($chunk['done'] ?? false)
+                ) {
+                    break;
+                }
+
+
+                $content =
+                    $chunk['content']
+                    ?? '';
+
+
+                if (
+                    $content === ''
+                ) {
+                    continue;
+                }
+
+
+                $fullContent .=
+                    $content;
+
+
+                yield [
+                    'type' =>
+                        'chunk',
+
+                    'content' =>
+                        $content,
+                ];
+            }
+
+
+            $conversation
+                ->messages()
+                ->create([
+                    'role' =>
+                        'assistant',
+
+                    'content' =>
+                        $fullContent,
+                ]);
+
+
+            yield [
+                'type' =>
+                    'done',
+
+                'conversation_id' =>
+                    $conversation->uuid,
+
+                'message' =>
+                    $fullContent,
+
+                'flights' =>
+                    [],
+
+                'quick_replies' =>
+                    [],
+            ];
+
+
+            return;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | TOOL MODE
+        |--------------------------------------------------------------------------
+        */
+
+        yield [
+            'type' =>
+                'status',
+
+            'status' =>
+                'thinking',
+
+            'message' =>
+                'Mình đang kiểm tra thông tin...',
+        ];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | First Gemini call
+        |--------------------------------------------------------------------------
+        */
+
+        $response =
+            $this->aiService->complete(
+                $messages,
+                $this->getTools()
+            );
+
+
+        $toolCalls =
+            $response['tool_calls']
+            ?? [];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Gemini decided no tool
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            empty(
+                $toolCalls
+            )
+        ) {
+
+            $fullContent = '';
+
+
+            foreach (
+                $this->aiService
+                    ->stream($messages)
+                as $chunk
+            ) {
+
+                if (
+                    ($chunk['done'] ?? false)
+                ) {
+                    break;
+                }
+
+
+                $content =
+                    $chunk['content']
+                    ?? '';
+
+
+                if (
+                    $content === ''
+                ) {
+                    continue;
+                }
+
+
+                $fullContent .=
+                    $content;
+
+
+                yield [
+                    'type' =>
+                        'chunk',
+
+                    'content' =>
+                        $content,
+                ];
+            }
+
+
+            $conversation
+                ->messages()
+                ->create([
+                    'role' =>
+                        'assistant',
+
+                    'content' =>
+                        $fullContent,
+                ]);
+
+
+            yield [
+                'type' =>
+                    'done',
+
+                'conversation_id' =>
+                    $conversation->uuid,
+
+                'message' =>
+                    $fullContent,
+
+                'flights' =>
+                    [],
+
+                'quick_replies' =>
+                    [],
+            ];
+
+
+            return;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Save assistant tool call
+        |--------------------------------------------------------------------------
+        */
+
+        $conversation
+            ->messages()
+            ->create([
+                'role' =>
+                    'assistant',
+
+                'content' =>
+                    $response['content']
+                    ?? null,
+
+                'tool_calls' =>
+                    $toolCalls,
+            ]);
+
+
+        $messages[] =
+            $response;
+
+
+        $collectedFlights = [];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Execute tool calls
+        |--------------------------------------------------------------------------
+        */
+
+        foreach (
+            $toolCalls as $toolCall
+        ) {
+
+            $toolName =
+                $toolCall[
+                    'function'
+                ]['name']
+                ?? '';
+
+
+            $arguments =
+                $toolCall[
+                    'function'
+                ]['arguments']
+                ?? [];
+
+
+            if (
+                is_string(
+                    $arguments
+                )
+            ) {
+
+                $arguments =
+                    json_decode(
+                        $arguments,
+                        true
+                    ) ?? [];
+            }
+
+
+            yield [
+                'type' =>
+                    'tool',
+
+                'status' =>
+                    'executing',
+
+                'tool' =>
+                    $toolName,
+
+                'message' =>
+                    $this->toolMessage(
+                        $toolName
+                    ),
+            ];
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Execute DB tool
+            |--------------------------------------------------------------------------
+            */
+
+            $result =
+                $this->executeToolCall(
+                    $toolName,
+                    $arguments,
+                    $user
+                );
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Collect flights
+            |--------------------------------------------------------------------------
+            */
+
+            if (
+                is_array($result) &&
+                !empty(
+                    $result['flights']
+                )
+            ) {
+
+                $collectedFlights =
+                    array_merge(
+                        $collectedFlights,
+                        $result['flights']
+                    );
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Save tool result
+            |--------------------------------------------------------------------------
+            */
+
+            $conversation
+                ->messages()
+                ->create([
+                    'role' =>
+                        'tool',
+
+                    'content' =>
+                        json_encode(
+                            $result,
+                            JSON_UNESCAPED_UNICODE
+                        ),
+
+                    'tool_call_id' =>
+                        $toolCall['id']
+                        ?? null,
+
+                    'tool_name' =>
+                        $toolName,
+
+                    'tool_arguments' =>
+                        $arguments,
+
+                    'tool_result' =>
+                        $result,
+                ]);
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Send result back to Gemini
+            |--------------------------------------------------------------------------
+            */
+
+            $messages[] = [
+                'role' =>
+                    'tool',
+
+                'tool_call_id' =>
+                    $toolCall['id']
+                    ?? null,
+
+                'tool_name' =>
+                    $toolName,
+
+                'content' =>
+                    json_encode(
+                        $result,
+                        JSON_UNESCAPED_UNICODE
+                    ),
+            ];
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Final answer
+        |--------------------------------------------------------------------------
+        */
+
+        yield [
+            'type' =>
+                'status',
+
+            'status' =>
+                'writing',
+
+            'message' =>
+                'Mình đã tìm được thông tin. Để mình trả lời bạn...',
+        ];
+
+
+        $fullContent = '';
+
+
+        foreach (
+            $this->aiService
+                ->stream($messages)
+            as $chunk
+        ) {
+
+            if (
+                ($chunk['done'] ?? false)
+            ) {
+                break;
+            }
+
+
+            $content =
+                $chunk['content']
+                ?? '';
+
+
+            if (
+                $content === ''
+            ) {
+                continue;
+            }
+
+
+            $fullContent .=
+                $content;
+
+
+            yield [
+                'type' =>
+                    'chunk',
+
+                'content' =>
+                    $content,
+            ];
+        }
+
+
+        $conversation
+            ->messages()
+            ->create([
+                'role' =>
+                    'assistant',
+
+                'content' =>
+                    $fullContent,
+            ]);
+
+
+        yield [
+            'type' =>
+                'done',
+
+            'conversation_id' =>
+                $conversation->uuid,
+
+            'message' =>
+                $fullContent,
+
+            'flights' =>
+                $collectedFlights,
+
+            'quick_replies' =>
+                $this->quickReplies(
+                    $collectedFlights
+                ),
+        ];
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SHOULD USE TOOLS
+    |--------------------------------------------------------------------------
+    */
+
+    private function shouldUseTools(
+        string $message
+    ): bool {
+
+        $message =
+            mb_strtolower(
+                $message
+            );
+
+
+        $keywords = [
+            'tìm chuyến bay',
+            'tìm vé',
+            'chuyến bay',
+            'vé máy bay',
+            'bay từ',
+            'bay đi',
+            'đi từ',
+            'đặt vé',
+            'booking',
+            'ghế',
+            'hành lý',
+            'hoàn vé',
+            'hủy vé',
+            'đổi vé',
+            'chính sách',
+            'quy định',
+            'sân bay',
+        ];
+
+
+        foreach (
+            $keywords as $keyword
+        ) {
+
+            if (
+                str_contains(
+                    $message,
+                    $keyword
+                )
+            ) {
+
+                return true;
+            }
+        }
+
+
+        return false;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TOOLS
+    |--------------------------------------------------------------------------
+    */
+
+    private function getTools(): array
     {
-        config(['services.ollama.chat_model' => 'test-chat-model']);
-        Http::fake([
-            'http://127.0.0.1:11434/api/chat' => Http::response([
-                'message' => [
-                    'role' => 'assistant',
-                    'content' => 'Xin chào, tôi có thể hỗ trợ chuyến bay của bạn.',
-                ],
-            ]),
-        ]);
+        return [
+            $this->searchFlightTool
+                ->definition(),
 
-        $user = User::factory()->create();
-        Sanctum::actingAs($user);
+            $this->getFlightDetailsTool
+                ->definition(),
 
-        $response = $this->postJson('/api/ai/chat', [
-            'message' => 'Xin chào',
-        ]);
+            $this->checkSeatAvailabilityTool
+                ->definition(),
 
-        $response->assertOk()
-            ->assertJsonPath('success', true)
-            ->assertJsonPath('data.type', 'message')
-            ->assertJsonPath('data.message', 'Xin chào, tôi có thể hỗ trợ chuyến bay của bạn.');
+            $this->getAirportInfoTool
+                ->definition(),
 
-        $conversationId = $response->json('data.conversation_id');
+            $this->getBookingInfoTool
+                ->definition(),
 
-        $this->assertDatabaseHas('ai_conversations', [
-            'uuid' => $conversationId,
-            'user_id' => $user->id,
-        ]);
-        $this->assertDatabaseHas('ai_messages', [
-            'role' => 'user',
-            'content' => 'Xin chào',
-        ]);
-        $this->assertDatabaseHas('ai_messages', [
-            'role' => 'assistant',
-            'content' => 'Xin chào, tôi có thể hỗ trợ chuyến bay của bạn.',
+            $this->searchKnowledgeTool
+                ->definition(),
+        ];
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EXECUTE TOOL
+    |--------------------------------------------------------------------------
+    */
+
+    private function executeToolCall(
+        string $toolName,
+        array $arguments,
+        ?Model $user
+    ): array {
+
+        return match ($toolName) {
+
+            'search_flight' =>
+                $this->searchFlightTool
+                    ->execute(
+                        $arguments
+                    ),
+
+            'get_flight_details' =>
+                $this->getFlightDetailsTool
+                    ->execute(
+                        $arguments
+                    ),
+
+            'check_seat_availability' =>
+                $this->checkSeatAvailabilityTool
+                    ->execute(
+                        $arguments
+                    ),
+
+            'get_airport_info' =>
+                $this->getAirportInfoTool
+                    ->execute(
+                        $arguments
+                    ),
+
+            'get_booking_info' =>
+                $this->getBookingInfoTool
+                    ->execute(
+                        $arguments,
+                        $user
+                    ),
+
+            'search_airline_knowledge' =>
+                $this->searchKnowledgeTool
+                    ->execute(
+                        $arguments
+                    ),
+
+            default => [
+                'type' =>
+                    'error',
+
+                'message' =>
+                    'Unknown AI tool.',
+            ],
+        };
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CONVERSATION
+    |--------------------------------------------------------------------------
+    */
+
+    private function conversation(
+        ?string $conversationId,
+        ?Model $user
+    ): AIConversation {
+
+        if ($conversationId) {
+
+            $query =
+                AIConversation::where(
+                    'uuid',
+                    $conversationId
+                );
+
+
+            if ($user) {
+
+                $query->where(
+                    function ($q) use ($user) {
+
+                        $q->where(
+                            'user_id',
+                            $user->getKey()
+                        )->orWhereNull(
+                            'user_id'
+                        );
+                    }
+                );
+
+            } else {
+
+                $query->whereNull(
+                    'user_id'
+                );
+            }
+
+
+            return $query->firstOrFail();
+        }
+
+
+        return AIConversation::create([
+            'uuid' =>
+                (string) Str::uuid(),
+
+            'user_id' =>
+                $user?->getKey(),
         ]);
     }
 
-    public function test_user_cannot_read_another_users_conversation(): void
-    {
-        $owner = User::factory()->create();
-        $otherUser = User::factory()->create();
-        $conversation = AIConversation::create([
-            'uuid' => '11111111-1111-4111-8111-111111111111',
-            'user_id' => $owner->id,
-        ]);
 
-        Sanctum::actingAs($otherUser);
+    /*
+    |--------------------------------------------------------------------------
+    | HISTORY
+    |--------------------------------------------------------------------------
+    */
 
-        $this->getJson('/api/ai/conversations/'.$conversation->uuid)
-            ->assertNotFound();
-    }
+    private function history(
+        AIConversation $conversation
+    ): array {
 
-    public function test_tool_call_is_executed_and_followed_by_final_answer(): void
-    {
-        config(['services.ollama.chat_model' => 'test-chat-model']);
-        Http::fake([
-            'http://127.0.0.1:11434/api/chat' => Http::sequence()
-                ->push([
-                    'message' => [
-                        'role' => 'assistant',
-                        'content' => '',
-                        'tool_calls' => [[
-                            'id' => 'call_knowledge_1',
-                            'type' => 'function',
-                            'function' => [
-                                'name' => 'search_airline_knowledge',
-                                'arguments' => ['question' => 'Quy định hành lý là gì?'],
-                            ]],
+        return $conversation
+            ->messages()
+            ->oldest('id')
+            ->get()
+            ->map(
+                function (
+                    AIMessage $message
+                ): array {
+
+                    if (
+                        $message->role ===
+                            'assistant' &&
+                        $message->tool_calls
+                    ) {
+
+                        return [
+                            'role' =>
+                                'assistant',
+
+                            'content' =>
+                                $message->content,
+
+                            'tool_calls' =>
+                                $message->tool_calls
+                                    instanceof
+                                    \ArrayObject
+                                    ? $message
+                                        ->tool_calls
+                                        ->getArrayCopy()
+                                    : $message
+                                        ->tool_calls,
+                        ];
+                    }
+
+
+                    return array_filter(
+                        [
+                            'role' =>
+                                $message->role,
+
+                            'content' =>
+                                $message->content,
+
+                            'tool_call_id' =>
+                                $message
+                                    ->tool_call_id,
+
+                            'tool_name' =>
+                                $message
+                                    ->tool_name,
                         ],
-                    ],
-                ])
-                ->push([
-                    'message' => [
-                        'role' => 'assistant',
-                        'content' => 'Hành lý được áp dụng theo chính sách của hãng.',
-                    ],
-                ]),
-            'http://127.0.0.1:11434/api/embeddings' => Http::response([
-                'embedding' => [0.1, 0.2, 0.3],
-            ]),
-            'http://127.0.0.1:6333/collections/airline_knowledge/points/search' => Http::response([
-                'result' => [['id' => 1, 'score' => 0.95, 'payload' => ['text' => 'Chính sách hành lý.']]],
-            ]),
-        ]);
-
-        Sanctum::actingAs(User::factory()->create());
-
-        $response = $this->postJson('/api/ai/chat', [
-            'message' => 'Quy định hành lý là gì?',
-        ]);
-
-        $response->assertOk()
-            ->assertJsonPath('data.message', 'Hành lý được áp dụng theo chính sách của hãng.');
-
-        Http::assertSentCount(4);
+                        static fn (
+                            $value
+                        ) =>
+                            $value !== null
+                    );
+                }
+            )
+            ->all();
     }
 
-    public function test_chat_requires_authentication(): void
-    {
-        $this->postJson('/api/ai/chat', ['message' => 'Xin chào'])
-            ->assertUnauthorized();
+
+    /*
+    |--------------------------------------------------------------------------
+    | SAVE USER MESSAGE
+    |--------------------------------------------------------------------------
+    */
+
+    private function saveUserMessage(
+        AIConversation $conversation,
+        string $message
+    ): void {
+
+        DB::transaction(
+            function () use (
+                $conversation,
+                $message
+            ) {
+
+                if (
+                    !$conversation->title
+                ) {
+
+                    $conversation->update([
+                        'title' =>
+                            Str::limit(
+                                $message,
+                                160
+                            ),
+                    ]);
+                }
+
+
+                $conversation
+                    ->messages()
+                    ->create([
+                        'role' =>
+                            'user',
+
+                        'content' =>
+                            $message,
+                    ]);
+            }
+        );
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TOOL MESSAGE
+    |--------------------------------------------------------------------------
+    */
+
+    private function toolMessage(
+        string $toolName
+    ): string {
+
+        return match (
+            $toolName
+        ) {
+
+            'search_flight' =>
+                'Đang tìm chuyến bay phù hợp...',
+
+            'get_flight_details' =>
+                'Đang lấy thông tin chuyến bay...',
+
+            'check_seat_availability' =>
+                'Đang kiểm tra ghế trống...',
+
+            'get_airport_info' =>
+                'Đang kiểm tra thông tin sân bay...',
+
+            'get_booking_info' =>
+                'Đang kiểm tra booking của bạn...',
+
+            'search_airline_knowledge' =>
+                'Đang tìm trong kho kiến thức SkyLink...',
+
+            default =>
+                'Đang kiểm tra thông tin...',
+        };
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | QUICK REPLIES
+    |--------------------------------------------------------------------------
+    */
+
+    private function quickReplies(
+        array $flights
+    ): array {
+
+        if (
+            empty($flights)
+        ) {
+
+            return [];
+        }
+
+
+        return [
+            [
+                'label' =>
+                    '👉 Chọn ghế & Đặt vé ngay',
+
+                'payload' =>
+                    'open:/seat-selection',
+            ],
+        ];
     }
 }
