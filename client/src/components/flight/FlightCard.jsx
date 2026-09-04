@@ -9,71 +9,98 @@ import {
   AirplaneTakeoff,
 } from "@phosphor-icons/react";
 
+// Real Airline Brand SVG Logos
+const VietnamAirlinesLogo = () => (
+  <div className="w-9 h-9 rounded-xl bg-[#00557B] flex items-center justify-center shadow-md shadow-blue-900/20 flex-shrink-0 p-1">
+    <svg viewBox="0 0 40 40" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 6C20 6 22 13 25 15C28 17 34 18 34 18C34 18 28 20 25 23C22 26 20 34 20 34C20 34 18 26 15 23C12 20 6 18 6 18C6 18 12 17 15 15C18 13 20 6 20 6Z" fill="#F4B41A"/>
+      <circle cx="20" cy="19" r="2.5" fill="#00557B"/>
+    </svg>
+  </div>
+);
+
+const VietjetLogo = () => (
+  <div className="w-9 h-9 rounded-xl bg-[#ED1B24] flex items-center justify-center shadow-md shadow-red-600/20 flex-shrink-0 p-1">
+    <svg viewBox="0 0 40 40" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 12L20 28L32 12" stroke="#FFF200" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="20" cy="20" r="3" fill="#FFFFFF"/>
+    </svg>
+  </div>
+);
+
+const BambooAirwaysLogo = () => (
+  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#006633] to-[#009933] flex items-center justify-center shadow-md shadow-emerald-700/20 flex-shrink-0 p-1">
+    <svg viewBox="0 0 40 40" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 28C14 20 20 14 28 10C24 18 18 24 12 28Z" fill="#FFFFFF"/>
+      <path d="M15 32C17 25 22 20 29 17C26 23 21 28 15 32Z" fill="#00AEEF"/>
+    </svg>
+  </div>
+);
+
+const SkyLinkFlightLogo = () => (
+  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-500/20 flex-shrink-0">
+    <AirplaneTilt size={20} weight="fill" className="text-white" />
+  </div>
+);
+
 // ─── Airline Config ───────────────────────────────────────────────────────────
-// Derives airline identity from flight_number prefix.
-// This is purely a UI display concern — no backend data is modified.
 const AIRLINE_CONFIG = {
   VN: {
     name: "Vietnam Airlines",
     shortName: "VNA",
-    badge: "bg-blue-600",
+    badge: "bg-[#00557B]",
     badgeText: "text-white",
-    accent: "from-blue-600 to-yellow-400",
-    accentSolid: "bg-blue-600",
+    accent: "from-[#00557B] to-yellow-500",
+    accentSolid: "bg-[#00557B]",
     dot: "bg-blue-600",
     icon: "✈",
-    logo: (
-      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-700 to-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 flex-shrink-0">
-        <span className="text-yellow-300 font-black text-xs tracking-tight">VNA</span>
-      </div>
-    ),
+    logo: <VietnamAirlinesLogo />,
   },
   VJ: {
     name: "VietJet Air",
     shortName: "VJA",
-    badge: "bg-red-500",
+    badge: "bg-[#ED1B24]",
     badgeText: "text-white",
-    accent: "from-red-600 to-red-400",
-    accentSolid: "bg-red-500",
+    accent: "from-red-600 to-yellow-400",
+    accentSolid: "bg-[#ED1B24]",
     dot: "bg-red-500",
     icon: "✈",
-    logo: (
-      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-red-600 to-red-400 flex items-center justify-center shadow-md shadow-red-500/20 flex-shrink-0">
-        <span className="text-white font-black text-xs tracking-tight">VJA</span>
-      </div>
-    ),
+    logo: <VietjetLogo />,
+  },
+  QH: {
+    name: "Bamboo Airways",
+    shortName: "BAV",
+    badge: "bg-[#006633]",
+    badgeText: "text-white",
+    accent: "from-[#006633] to-sky-400",
+    accentSolid: "bg-[#006633]",
+    dot: "bg-emerald-600",
+    icon: "✈",
+    logo: <BambooAirwaysLogo />,
   },
   FB: {
-    name: "FlightBus",
-    shortName: "FBS",
-    badge: "bg-violet-600",
+    name: "Bamboo Airways",
+    shortName: "BAV",
+    badge: "bg-[#006633]",
     badgeText: "text-white",
-    accent: "from-violet-600 to-purple-400",
-    accentSolid: "bg-violet-600",
-    dot: "bg-violet-500",
+    accent: "from-[#006633] to-sky-400",
+    accentSolid: "bg-[#006633]",
+    dot: "bg-emerald-600",
     icon: "✈",
-    logo: (
-      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-700 to-purple-500 flex items-center justify-center shadow-md shadow-violet-500/20 flex-shrink-0">
-        <span className="text-white font-black text-xs tracking-tight">FBS</span>
-      </div>
-    ),
+    logo: <BambooAirwaysLogo />,
   },
 };
 
 const DEFAULT_AIRLINE = {
-  name: "SkyLink",
+  name: "SkyLink Airlines",
   shortName: "SKY",
-  badge: "bg-zinc-700",
+  badge: "bg-blue-600",
   badgeText: "text-white",
-  accent: "from-zinc-700 to-zinc-500",
-  accentSolid: "bg-zinc-700",
-  dot: "bg-zinc-500",
+  accent: "from-blue-600 to-indigo-600",
+  accentSolid: "bg-blue-600",
+  dot: "bg-blue-500",
   icon: "✈",
-  logo: (
-    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-zinc-700 to-zinc-500 flex items-center justify-center shadow-md flex-shrink-0">
-      <span className="text-white font-black text-xs">SKY</span>
-    </div>
-  ),
+  logo: <SkyLinkFlightLogo />,
 };
 
 function getAirline(flightNumber = "") {

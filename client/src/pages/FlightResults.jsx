@@ -8,6 +8,7 @@ import FlightCard from "../components/flight/FlightCard";
 import FlightFilterSidebar from "../components/flight/FlightFilterSidebar";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import RescheduleModal from "../components/RescheduleModal";
 
 /**
@@ -312,6 +313,10 @@ export default function FlightResults() {
         </div>
 
       </main>
+
+      <div className="mt-20">
+        <Footer />
+      </div>
 
       {/* Reschedule Modal */}
       <RescheduleModal
