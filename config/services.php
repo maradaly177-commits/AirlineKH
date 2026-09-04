@@ -48,5 +48,11 @@ return [
         'url' => env('QDRANT_URL', 'http://[IP_ADDRESS]/'),
         'api_key' => env('QDRANT_API_KEY'),
         'collection' => env('QDRANT_COLLECTION', 'airline_knowledge'),
-],
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI', 'http://127.0.0.1:8000/api/auth/google/callback'),
+    ],
 ];
