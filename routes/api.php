@@ -41,6 +41,8 @@ Route::post('/ai/chat', [AIChatController::class, 'chat']);
 
 // Real-time streaming
 Route::post('/ai/chat/stream',[AIChatController::class, 'stream']);
+use App\Http\Controllers\Api\GoogleAuthController;
+
 /*
 |--------------------------------------------------------------------------
 | AUTH ROUTES
@@ -51,6 +53,11 @@ Route::prefix('auth')->group(function () {
 
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
+
+    // Google OAuth 2.0
+    Route::get('/google', [GoogleAuthController::class, 'redirectToGoogle']);
+    Route::get('/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
+    Route::post('/google/one-tap', [GoogleAuthController::class, 'oneTap']);
 
     Route::middleware('auth:sanctum')->group(function () {
 

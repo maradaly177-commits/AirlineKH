@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import BoardingPassDisplay from '../components/BoardingPassDisplay';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import './CheckInPage.css';
 
 /**
@@ -140,12 +142,14 @@ export default function CheckInPage() {
 
   // Form Check-in
   return (
-    <div className="check-in-page">
-      <div className="check-in-container">
-        <div className="check-in-header">
-          <h1>✈️ Check-in Điện Tử SkyLink Airlines</h1>
-          <p>Vui lòng nhập thông tin của bạn để Check-in 24 giờ trước khi cất cánh</p>
-        </div>
+    <div className="min-h-[100dvh] bg-zinc-50 flex flex-col justify-between">
+      <Navbar />
+      <div className="check-in-page pt-24 pb-16 flex-1">
+        <div className="check-in-container">
+          <div className="check-in-header">
+            <h1>✈️ Check-in Điện Tử SkyLink Airlines</h1>
+            <p>Vui lòng nhập thông tin của bạn để Check-in 24 giờ trước khi cất cánh</p>
+          </div>
 
         <form className="check-in-form" onSubmit={handleCheckIn}>
           {/* Thông báo lỗi */}
@@ -261,10 +265,12 @@ export default function CheckInPage() {
             <strong>Yêu cầu:</strong> Đến sân bay ít nhất 2 giờ trước cho chuyến bay nước ngoài, 1 giờ cho chuyến bay nội địa
           </p>
           <p>
-            <strong>Cần hỗ trợ?</strong> Liên hệ với chúng tôi qua <a href="mailto:support@skylink.com" className="link">support@skylink.com</a>
+            <strong>Cần hỗ trợ?</strong> Liên hệ với chúng tôi qua <a href="mailto:vakhimkhean@gmail.com" className="link">vakhimkhean@gmail.com</a>
           </p>
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

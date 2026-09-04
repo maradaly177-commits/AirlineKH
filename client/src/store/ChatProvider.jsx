@@ -1,10 +1,39 @@
-import { useMemo, useReducer } from "react";
-import { ChatContext, chatReducer, initialChatState } from "./chatContext";
+import {
+  useMemo,
+  useReducer,
+} from "react";
 
-export function ChatProvider({ children }) {
-  const [state, dispatch] = useReducer(chatReducer, initialChatState);
+import {
+  ChatContext,
+  chatReducer,
+  initialChatState,
+} from "./chatContext";
 
-  const value = useMemo(() => ({ state, dispatch }), [state]);
+export function ChatProvider({
+  children,
+}) {
 
-  return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>;
+  const [
+    state,
+    dispatch,
+  ] = useReducer(
+    chatReducer,
+    initialChatState
+  );
+
+  const value = useMemo(
+    () => ({
+      state,
+      dispatch,
+    }),
+    [state]
+  );
+
+  return (
+    <ChatContext.Provider
+      value={value}
+    >
+      {children}
+    </ChatContext.Provider>
+  );
 }

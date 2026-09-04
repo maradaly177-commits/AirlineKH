@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { Crown, Star, AirplaneInFlight, Percent, ShieldCheck } from "@phosphor-icons/react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function SkyClub() {
   const navigate = useNavigate();
@@ -177,6 +178,9 @@ export default function SkyClub() {
             </button>
           </div>
         )}
+      </div>
+      <div className="mt-20">
+        <Footer />
       </div>
     </div>
   );

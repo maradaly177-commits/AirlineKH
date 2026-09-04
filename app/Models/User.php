@@ -23,7 +23,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'google_id',
+        'avatar',
         'membership_tier',  // Thêm cột hạng thành viên (standard, gold...)
+        'email_verified_at',
     ];
 
     /**

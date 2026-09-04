@@ -5,6 +5,7 @@ import axios from "axios";
 import { motion } from "motion/react";
 import { AirplaneTakeoff, MapPinLine, CalendarBlank, ArrowsLeftRight, Users, PaperPlaneTilt, CaretLeft, CaretRight, ArrowRight, CheckCircle } from "@phosphor-icons/react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const MetricBadge = ({ text }) => (
   <div
@@ -733,32 +734,7 @@ export default function HomePage() {
       </section>
 
       {/* 7. FOOTER */}
-      <footer className="border-t border-zinc-200/60 bg-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/50 to-white pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                <PaperPlaneTilt size={20} weight="fill" className="text-white" />
-              </div>
-              <div>
-                <span className="text-lg font-black tracking-tight text-zinc-900">SKYLINK</span>
-                <span className="text-[8px] font-bold tracking-[0.2em] text-zinc-400 uppercase block -mt-1">Airlines</span>
-              </div>
-            </div>
-            <div className="flex gap-8 text-sm font-semibold text-zinc-500">
-              <span className="hover:text-blue-600 cursor-pointer transition-colors">Về chúng tôi</span>
-              <span className="hover:text-blue-600 cursor-pointer transition-colors">Điều khoản</span>
-              <span className="hover:text-blue-600 cursor-pointer transition-colors">Bảo mật</span>
-              <span className="hover:text-blue-600 cursor-pointer transition-colors">Liên hệ</span>
-            </div>
-          </div>
-          <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent mb-8"></div>
-          <p className="text-sm text-zinc-400 font-medium text-center">
-            © 2026 Skylink Aviation. Nâng tầm mọi chuyến đi.
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
     </motion.div>
   );

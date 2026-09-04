@@ -1,10 +1,31 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { CreditCard, DeviceMobile, QrCode, CheckCircle, AirplaneTilt } from "@phosphor-icons/react";
+import { CreditCard, CheckCircle, AirplaneTilt } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import CountdownTimer from "../components/CountdownTimer";
+
+// Real Brand Payment Logos
+const VnpayBrandLogo = () => (
+  <svg className="h-8 w-auto" viewBox="0 0 76 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="76" height="22" rx="4" fill="#005BAA"/>
+    <text x="7" y="16" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="13" fill="#FFFFFF" letterSpacing="0.5">VN</text>
+    <text x="31" y="16" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="13" fill="#E31837" letterSpacing="0.5">PAY</text>
+    <path d="M60 4L66 11L60 18H65L71 11L65 4H60Z" fill="#E31837"/>
+    <path d="M66 4L72 11L66 18H71L77 11L71 4H66Z" fill="#FFFFFF" fillOpacity="0.4"/>
+  </svg>
+);
+
+const MomoBrandLogo = () => (
+  <svg className="h-8 w-auto" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="28" height="28" rx="6" fill="#A50064"/>
+    <circle cx="9" cy="11" r="4.2" stroke="#FFFFFF" strokeWidth="2.5" fill="none"/>
+    <circle cx="19" cy="11" r="4.2" stroke="#FFFFFF" strokeWidth="2.5" fill="none"/>
+    <path d="M7 18C7 18 9 22 14 22C19 22 21 18 21 18" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round"/>
+  </svg>
+);
 
 export default function PaymentRetry() {
   const location = useLocation();
@@ -170,20 +191,34 @@ export default function PaymentRetry() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {[
-              { id: 'vnpay', label: 'Cổng VNPAY', icon: QrCode },
-              { id: 'momo', label: 'Ví MoMo', icon: DeviceMobile }
+              { id: 'vnpay', label: 'Cổng VNPAY / Thẻ ATM', Logo: VnpayBrandLogo, badge: 'Hỗ trợ 40+ ngân hàng' },
+              { id: 'momo', label: 'Ví Điện Tử MoMo', Logo: MomoBrandLogo, badge: 'Thanh toán tức thì' }
             ].map((method) => (
               <div 
                 key={method.id} 
                 onClick={() => setPaymentMethod(method.id)}
-                className={`p-6 border rounded-xl cursor-pointer transition-all flex flex-col items-center gap-3
-                  ${paymentMethod === method.id ? "border-blue-600 bg-blue-50 ring-1 ring-blue-600" : "border-zinc-200 bg-white hover:border-zinc-300"}
+                className={`p-5 border rounded-2xl cursor-pointer transition-all flex items-center justify-between gap-4
+                  ${paymentMethod === method.id 
+                    ? (method.id === 'vnpay' ? "border-blue-600 bg-blue-50/70 ring-2 ring-blue-600/30" : "border-pink-600 bg-pink-50/70 ring-2 ring-pink-600/30") 
+                    : "border-zinc-200 bg-white hover:border-zinc-300 hover:bg-zinc-50/50"}
                 `}
               >
-                 <method.icon size={32} weight={paymentMethod === method.id ? "fill" : "duotone"} className={paymentMethod === method.id ? "text-blue-600" : "text-zinc-400"} />
-                 <span className={`text-sm font-semibold ${paymentMethod === method.id ? "text-blue-700" : "text-zinc-600"}`}>
-                   {method.label}
-                 </span>
+                <div className="flex items-center gap-3.5">
+                  <div className="p-2 rounded-xl bg-white border border-zinc-200/80 shadow-xs flex items-center justify-center">
+                    <method.Logo />
+                  </div>
+                  <div>
+                    <span className="text-sm font-bold text-zinc-900 block leading-tight">
+                      {method.label}
+                    </span>
+                    <span className="text-xs text-zinc-500 font-medium">
+                      {method.badge}
+                    </span>
+                  </div>
+                </div>
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${paymentMethod === method.id ? "border-blue-600 bg-blue-600" : "border-zinc-300"}`}>
+                  {paymentMethod === method.id && <div className="w-2 h-2 rounded-full bg-white" />}
+                </div>
               </div>
             ))}
           </div>
@@ -239,6 +274,9 @@ export default function PaymentRetry() {
             {!loading && <CheckCircle size={20} weight="bold" />}
           </button>
         </div>
+      </div>
+      <div className="mt-20">
+        <Footer />
       </div>
     </motion.div>
   );
