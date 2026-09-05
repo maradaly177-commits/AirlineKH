@@ -3,6 +3,7 @@ import { AirplaneTilt, Headset, EnvelopeSimpleOpen, Ticket, SuitcaseRolling, For
 import { motion } from "motion/react";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Support() {
   const [ticketSubject, setTicketSubject] = useState("");
@@ -201,6 +202,9 @@ export default function Support() {
           </div>
         </div>
 
+      </div>
+      <div className="mt-20">
+        <Footer />
       </div>
     </motion.div>
   );

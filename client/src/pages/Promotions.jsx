@@ -4,6 +4,7 @@ import { Copy, Gift, EnvelopeSimple, ArrowRight, CheckCircle, Trophy, Clock } fr
 import { motion } from "motion/react";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 /**
  * Promotions Bento Page
@@ -310,6 +311,9 @@ export default function Promotions() {
           </div>
         </motion.div>
 
+      </div>
+      <div className="mt-20">
+        <Footer />
       </div>
     </motion.div>
   );

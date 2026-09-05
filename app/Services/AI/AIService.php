@@ -115,42 +115,60 @@ PROMPT;
             if (!empty($geminiTools)) $payload['tools'] = $geminiTools;
         }
 
-        $candidateModels = array_values(array_unique([
+        $candidateModels = array_values(array_filter(array_unique([
             $this->model ?: 'gemini-3.1-flash-lite',
             'gemini-3.1-flash-lite',
-            'gemini-3.5-flash',
-        ]));
+            'gemini-2.5-flash',
+            'gemini-2.0-flash',
+            'gemini-1.5-flash',
+        ])));
 
         $lastError = null;
 
         foreach ($candidateModels as $model) {
             $url = $this->baseUrl . '/models/' . $model . ':generateContent';
 
-            Log::info('Gemini complete request', ['model' => $model, 'messages' => count($messages), 'tools' => count($tools)]);
+            // Retry up to 3 times for transient errors (503 High demand or 429 Rate limit)
+            $maxAttempts = 3;
+            for ($attempt = 1; $attempt <= $maxAttempts; $attempt++) {
+                Log::info('Gemini complete request', ['model' => $model, 'attempt' => $attempt, 'messages' => count($messages), 'tools' => count($tools)]);
 
-            $start = microtime(true);
+                $start = microtime(true);
 
-            $response = Http::acceptJson()
-                ->connectTimeout(5)
-                ->timeout(15)
-                ->withQueryParameters(['key' => $this->apiKey])
-                ->post($url, $payload);
+                $response = Http::acceptJson()
+                    ->connectTimeout(5)
+                    ->timeout(20)
+                    ->withQueryParameters(['key' => $this->apiKey])
+                    ->post($url, $payload);
 
-            Log::info('Gemini complete response', [
-                'duration' => round(microtime(true) - $start, 2),
-                'status' => $response->status(),
-                'model' => $model,
-            ]);
+                Log::info('Gemini complete response', [
+                    'duration' => round(microtime(true) - $start, 2),
+                    'status' => $response->status(),
+                    'model' => $model,
+                    'attempt' => $attempt,
+                ]);
 
-            if ($response->successful()) {
-                return $this->parseGeminiResponse($response->json());
+                if ($response->successful()) {
+                    return $this->parseGeminiResponse($response->json());
+                }
+
+                $status = $response->status();
+                $lastError = $response->body();
+
+                // If 503 (high demand) or 429 (rate limit), wait and retry
+                if (in_array($status, [503, 429], true) && $attempt < $maxAttempts) {
+                    $sleepSec = $attempt * 1; // 1s, 2s
+                    Log::warning("Gemini model {$model} busy (HTTP {$status}), retrying in {$sleepSec}s (attempt {$attempt}/{$maxAttempts})...");
+                    sleep($sleepSec);
+                    continue;
+                }
+
+                Log::warning("Gemini model {$model} failed (HTTP {$status}), moving to next option...");
+                break;
             }
-
-            $lastError = $response->body();
-            Log::warning("Gemini model {$model} failed (HTTP {$response->status()}), trying next model...");
         }
 
-        Log::error('Gemini All Models Failed', ['error' => $lastError]);
+        Log::error('Gemini All Models and Retries Failed', ['error' => $lastError]);
         throw new RuntimeException('Gemini Chat Error: ' . $lastError);
     }
 
@@ -162,11 +180,13 @@ PROMPT;
             'generationConfig' => ['temperature' => 0.2],
         ];
 
-        $candidateModels = array_values(array_unique([
+        $candidateModels = array_values(array_filter(array_unique([
             $this->model ?: 'gemini-3.1-flash-lite',
             'gemini-3.1-flash-lite',
-            'gemini-3.5-flash',
-        ]));
+            'gemini-2.5-flash',
+            'gemini-2.0-flash',
+            'gemini-1.5-flash',
+        ])));
 
         $response = null;
         $lastError = null;
@@ -174,20 +194,33 @@ PROMPT;
         foreach ($candidateModels as $model) {
             $url = $this->baseUrl . '/models/' . $model . ':streamGenerateContent';
 
-            $res = Http::withOptions(['stream' => true])
-                ->acceptJson()
-                ->connectTimeout(5)
-                ->timeout(15)
-                ->withQueryParameters(['key' => $this->apiKey, 'alt' => 'sse'])
-                ->post($url, $payload);
+            $maxAttempts = 3;
+            for ($attempt = 1; $attempt <= $maxAttempts; $attempt++) {
+                $res = Http::withOptions(['stream' => true])
+                    ->acceptJson()
+                    ->connectTimeout(5)
+                    ->timeout(20)
+                    ->withQueryParameters(['key' => $this->apiKey, 'alt' => 'sse'])
+                    ->post($url, $payload);
 
-            if ($res->successful()) {
-                $response = $res;
+                if ($res->successful()) {
+                    $response = $res;
+                    break 2;
+                }
+
+                $status = $res->status();
+                $lastError = $res->body();
+
+                if (in_array($status, [503, 429], true) && $attempt < $maxAttempts) {
+                    $sleepSec = $attempt * 1;
+                    Log::warning("Gemini stream model {$model} busy (HTTP {$status}), retrying in {$sleepSec}s...");
+                    sleep($sleepSec);
+                    continue;
+                }
+
+                Log::warning("Gemini stream model {$model} failed: {$lastError}, moving to next option...");
                 break;
             }
-
-            $lastError = $res->body();
-            Log::warning("Gemini stream model {$model} failed: {$lastError}, trying next model...");
         }
 
         if (!$response) {

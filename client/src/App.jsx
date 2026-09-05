@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import AuthCallback from "./pages/AuthCallback";
 import HomePage from "./pages/HomePage";
 import FlightResults from "./pages/FlightResults";
 import ServiceSelection from "./pages/ServiceSelection";
@@ -32,6 +33,7 @@ import Bookings from "./pages/admin/Bookings";
 import Payments from "./pages/admin/Payments";
 import Profile from "./pages/admin/Profile";
 import ChatWidget from "./components/ai/ChatWidget";
+import GoogleOneTap from "./components/auth/GoogleOneTap";
 import { ChatProvider } from "./store/ChatProvider";
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
 
           <Route path="/flights" element={<FlightResults />} />
           <Route path="/search" element={<FlightResults />} />
@@ -83,6 +86,7 @@ function App() {
         </Routes>
 
         <ChatWidget />
+        <GoogleOneTap />
       </ChatProvider>
     </BrowserRouter>
   );
