@@ -26,12 +26,12 @@ class FlightFactory extends Factory
         // Nếu chưa có máy bay nào, ta có thể tạo nhanh 1 cái (hoặc mặc định ID 1)
         $aircraft_id = $aircraft->id ?? 1;
 
-        // 3. Logic thời gian (Em viết phần này rất tốt, anh giữ nguyên)
-        $departureTime = Carbon::instance(fake()->dateTimeBetween('now', '+1 month'));
+        // 3. Logic thời gian (Đặt khoảng từ 01/09/2026 đến 31/10/2026)
+        $departureTime = Carbon::instance(fake()->dateTimeBetween('2026-09-01', '2026-10-31'));
         $arrivalTime = (clone $departureTime)->addHours(rand(1, 4));
 
         return [
-            'flight_number' => fake()->randomElement(['VN', 'VJ', 'QH', 'VU']) . fake()->unique()->numberBetween(100, 999),
+            'flight_number' => fake()->randomElement(['VN', 'VJ', 'QH', 'VU']) . fake()->numberBetween(100, 9999),
             
             'departure_airport_id' => $departure_id,
             'arrival_airport_id' => $arrival_id,

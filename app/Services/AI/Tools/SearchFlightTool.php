@@ -165,7 +165,6 @@ class SearchFlightTool
                 'required' => [
                     'origin',
                     'destination',
-                    'date',
                 ],
             ],
         ];
@@ -217,6 +216,7 @@ class SearchFlightTool
             ?? ''
         ));
 
+        $hasSpecificDate = true;
         // Tự động phân giải các từ khóa ngày nếu có
         $rawDateLower = mb_strtolower($rawDate);
         if ($rawDateLower === 'tomorrow' || $rawDateLower === 'ngày mai' || $rawDateLower === 'mai') {
@@ -224,7 +224,8 @@ class SearchFlightTool
         } elseif ($rawDateLower === 'today' || $rawDateLower === 'hôm nay' || $rawDateLower === 'nay') {
             $date = date('Y-m-d');
         } elseif ($rawDate === '') {
-            $date = date('Y-m-d', strtotime('+1 day'));
+            $date = '';
+            $hasSpecificDate = false;
         } else {
             $date = $rawDate;
         }
@@ -282,7 +283,7 @@ class SearchFlightTool
         |--------------------------------------------------------------------------
         */
 
-        if ($date === '') {
+        if ($date === '' && $hasSpecificDate) {
             Log::warning('SearchFlightTool ERROR: date is empty');
 
             return [
@@ -300,33 +301,35 @@ class SearchFlightTool
         |--------------------------------------------------------------------------
         */
 
-        try {
-            $parsedDate = Carbon::createFromFormat(
-                'Y-m-d',
-                $date
-            );
+        if ($hasSpecificDate) {
+            try {
+                $parsedDate = Carbon::createFromFormat(
+                    'Y-m-d',
+                    $date
+                );
 
-            /*
-             * createFromFormat đôi khi chấp nhận ngày không hợp lệ
-             * theo cách không mong muốn, nên kiểm tra lại format.
-             */
-            if ($parsedDate->format('Y-m-d') !== $date) {
-                throw new \Exception('Invalid date');
+                /*
+                 * createFromFormat đôi khi chấp nhận ngày không hợp lệ
+                 * theo cách không mong muốn, nên kiểm tra lại format.
+                 */
+                if ($parsedDate->format('Y-m-d') !== $date) {
+                    throw new \Exception('Invalid date');
+                }
+            } catch (Throwable $e) {
+
+                Log::warning('SearchFlightTool ERROR: invalid date', [
+                    'date' => $date,
+                    'error' => $e->getMessage(),
+                ]);
+
+                return [
+                    'success' => false,
+                    'type' => 'validation_error',
+                    'message' =>
+                        'Ngày bay không hợp lệ. Định dạng phải là YYYY-MM-DD.',
+                    'flights' => [],
+                ];
             }
-        } catch (Throwable $e) {
-
-            Log::warning('SearchFlightTool ERROR: invalid date', [
-                'date' => $date,
-                'error' => $e->getMessage(),
-            ]);
-
-            return [
-                'success' => false,
-                'type' => 'validation_error',
-                'message' =>
-                    'Ngày bay không hợp lệ. Định dạng phải là YYYY-MM-DD.',
-                'flights' => [],
-            ];
         }
 
         /*
@@ -436,12 +439,13 @@ class SearchFlightTool
             /*
              * QUAN TRỌNG:
              *
-             * User hỏi ngày nào thì chỉ tìm đúng ngày đó.
+             * User hỏi ngày nào thì chỉ tìm đúng ngày đó. Nếu không truyền ngày, lấy từ hôm nay trở đi.
              */
-            ->whereDate(
-                'departure_time',
-                $date
-            );
+            ->when($hasSpecificDate, function ($query) use ($date) {
+                return $query->whereDate('departure_time', $date);
+            }, function ($query) {
+                return $query->where('departure_time', '>=', \Carbon\Carbon::now());
+            });
 
             /*
             |--------------------------------------------------------------------------

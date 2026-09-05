@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
-import { PaperPlaneTilt, Image as ImageIcon, Paperclip, X, FileText } from "@phosphor-icons/react";
+import { PaperPlaneTilt, Image as ImageIcon, X, FileText, Paperclip } from "@phosphor-icons/react";
 
-export const ChatInput = ({ onSendMessage, onSend, isLoading, disabled, placeholder = "Nhập tin nhắn hoặc gửi ảnh..." }) => {
+export const ChatInput = ({ onSendMessage, onSend, isLoading, disabled, placeholder = "Nhập tin nhắn của bạn..." }) => {
   const [text, setText] = useState("");
   const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null);
@@ -70,7 +70,7 @@ export const ChatInput = ({ onSendMessage, onSend, isLoading, disabled, placehol
   };
 
   return (
-    <div className="p-2.5 bg-white border-t border-slate-100 shrink-0">
+    <div className="p-3 bg-white border-t border-slate-100 shrink-0">
       {/* File Previews Bar */}
       {files.length > 0 && (
         <div className="flex items-center gap-2 mb-2 px-1 overflow-x-auto pb-1">
@@ -97,7 +97,7 @@ export const ChatInput = ({ onSendMessage, onSend, isLoading, disabled, placehol
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="flex items-center gap-1.5 w-full">
+      <form onSubmit={handleSubmit} className="flex items-center w-full px-0.5">
         {/* Hidden File Input */}
         <input
           ref={fileInputRef}
@@ -109,37 +109,41 @@ export const ChatInput = ({ onSendMessage, onSend, isLoading, disabled, placehol
           disabled={isBlocked}
         />
 
-        {/* Attachment Button */}
-        <button
-          type="button"
-          onClick={() => fileInputRef.current?.click()}
-          disabled={isBlocked}
-          title="Đính kèm ảnh hoặc tài liệu"
-          className="w-8 h-8 rounded-full text-slate-500 hover:text-blue-600 hover:bg-blue-50 disabled:opacity-30 flex items-center justify-center cursor-pointer transition-colors shrink-0"
-        >
-          <ImageIcon size={18} weight="bold" />
-        </button>
+        {/* Unified Capsule Control */}
+        <div className="flex-1 flex items-center gap-2 bg-slate-100/70 hover:bg-slate-100/90 border border-slate-200/40 focus-within:border-blue-400 focus-within:bg-white rounded-full px-2 py-1 transition-all duration-200 shadow-2xs">
+          
+          {/* Left paperclip button */}
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isBlocked}
+            title="Đính kèm ảnh hoặc tài liệu"
+            className="w-8 h-8 rounded-full text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 flex items-center justify-center cursor-pointer transition-colors shrink-0"
+          >
+            <Paperclip size={18} weight="bold" />
+          </button>
 
-        {/* Text Input */}
-        <div className="relative flex-1 flex items-center">
+          {/* Text input */}
           <input
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
             onPaste={handlePaste}
-            placeholder={files.length > 0 ? "Thêm mô tả cho ảnh..." : placeholder}
+            placeholder={files.length > 0 ? "Thêm mô tả..." : placeholder}
             disabled={isBlocked}
-            className="w-full pl-3.5 pr-10 py-2 bg-slate-100/90 focus:bg-white rounded-full text-[13px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 border border-transparent focus:border-blue-300 transition-all"
+            className="flex-1 bg-transparent text-[13px] text-slate-800 placeholder-slate-400 focus:outline-none py-1.5 px-0.5 select-text"
           />
 
+          {/* Send button on the right */}
           <button
             type="submit"
             disabled={(!text.trim() && files.length === 0) || isBlocked}
             aria-label="Send message"
-            className="absolute right-1 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-blue-600 hover:bg-blue-700 disabled:opacity-30 disabled:bg-slate-300 text-white flex items-center justify-center cursor-pointer transition-all active:scale-95 shadow-xs"
+            className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-750 disabled:opacity-30 disabled:bg-slate-300 text-white flex items-center justify-center cursor-pointer transition-all active:scale-95 shadow-md resize-none shrink-0"
           >
-            <PaperPlaneTilt size={13} weight="fill" />
+            <PaperPlaneTilt size={14} weight="fill" />
           </button>
+
         </div>
       </form>
     </div>

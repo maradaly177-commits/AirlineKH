@@ -29,6 +29,7 @@ import Flights from "./pages/admin/Flights";
 import Airports from "./pages/admin/Airports";
 import Users from "./pages/admin/Users";
 import Bookings from "./pages/admin/Bookings";
+import Payments from "./pages/admin/Payments";
 import Profile from "./pages/admin/Profile";
 import ChatWidget from "./components/ai/ChatWidget";
 import { ChatProvider } from "./store/ChatProvider";
@@ -73,6 +74,7 @@ function App() {
               <Route path="flights" element={<Flights />} />
               <Route path="users" element={<Users />} />
               <Route path="bookings" element={<Bookings />} />
+              <Route path="payments" element={<Payments />} />
               <Route path="airports" element={<Airports />} />
               <Route path="profile" element={<Profile />} />
             </Route>

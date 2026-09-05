@@ -99,13 +99,18 @@ export default function MessageBubble({ message, onQuickReply, onSelectFlight, o
             </form>
           ) : (
             message.text && (
-              <div className="px-4 py-2.5 rounded-2xl rounded-br-xs bg-blue-600 text-white text-[13.5px] leading-relaxed shadow-2xs">
+              <div className="px-4.5 py-2.5 rounded-2xl rounded-br-xs bg-[#1b64f2] text-white text-[13.5px] font-medium leading-relaxed shadow-2xs">
                 {message.text}
               </div>
             )
           )}
 
-          {timeLabel && <span className="text-[10px] text-slate-400 px-1">{timeLabel}</span>}
+          {timeLabel && (
+            <span className="text-[9.5px] text-slate-400/90 px-1.5 mt-0.5 flex items-center gap-1 justify-end">
+              <span>{timeLabel}</span>
+              <span className="text-blue-500 font-extrabold select-none leading-none -mt-[1px]">✓✓</span>
+            </span>
+          )}
         </div>
 
         <div className="w-6 h-6 shrink-0 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center ring-1 ring-white">
@@ -121,50 +126,52 @@ export default function MessageBubble({ message, onQuickReply, onSelectFlight, o
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.18 }}
-      className="flex items-end gap-2 mb-3"
+      className="flex flex-col mb-3.5 w-full"
     >
-      <div className="mb-0.5 shrink-0">
-        <AssistantAvatar size="sm" />
-      </div>
-
-      <div className="flex flex-col items-start gap-2 max-w-[90%] flex-1">
-        {message.text && (
-          <div className="flex flex-col gap-0.5 w-full">
+      {/* 2.1 Main Bubble Row: Avatar + Text */}
+      {message.text && (
+        <div className="flex items-start gap-2 max-w-[90%] mb-1">
+          <div className="mt-0.5 shrink-0">
+            <AssistantAvatar size="sm" />
+          </div>
+          <div className="flex flex-col gap-0.5 min-w-0">
             <div
-              className={`px-4 py-2.5 rounded-2xl rounded-bl-xs text-[13.5px] leading-relaxed ${message.isError
+              className={`px-4.5 py-2.5 rounded-2xl rounded-bl-xs text-[13.5px] leading-relaxed ${message.isError
                   ? "bg-rose-50 border border-rose-200 text-rose-700"
-                  : "bg-white border border-slate-200/80 text-slate-800 shadow-2xs"
+                  : "bg-[#ecf3fe] border border-blue-200/20 text-slate-800 shadow-[0_2px_8px_rgba(37,99,235,0.02)]"
                 }`}
             >
               {message.text}
             </div>
 
-            {timeLabel && <span className="text-[10px] text-slate-400 px-1">{timeLabel}</span>}
+            {timeLabel && <span className="text-[9.5px] text-slate-400 px-1.5 mt-0.5">{timeLabel}</span>}
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Quick Replies */}
-        {quickRepliesList.length > 0 && (
-          <div className="w-full">
-            <QuickReplies
-              items={quickRepliesList}
-              onSelect={onQuickReply}
-              disabled={disabled}
-            />
-          </div>
-        )}
+      {/* 2.2 Quick Replies - Full-width below the text bubble */}
+      {quickRepliesList.length > 0 && (
+        <div className="w-full mt-1">
+          <QuickReplies
+            items={quickRepliesList}
+            onSelect={onQuickReply}
+            disabled={disabled}
+          />
+        </div>
+      )}
 
-        {/* Flight Cards */}
-        {message.flights?.length > 0 && (
-          <div className="w-full flex flex-col gap-2 pt-0.5">
-            {message.flights.map((flight) => (
-              <FlightCardMessage key={flight.id} flight={flight} onSelect={onSelectFlight} />
-            ))}
-          </div>
-        )}
+      {/* 2.3 Flight Cards - Full-width below the text bubble */}
+      {message.flights?.length > 0 && (
+        <div className="w-full bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] mt-1.5">
+          {message.flights.map((flight) => (
+            <FlightCardMessage key={flight.id} flight={flight} onSelect={onSelectFlight} />
+          ))}
+        </div>
+      )}
 
-        {/* Retry Button */}
-        {message.isError && message.retry && (
+      {/* 2.4 Retry Button */}
+      {message.isError && message.retry && (
+        <div className="pl-8 mt-1">
           <button
             type="button"
             disabled={disabled}
@@ -174,8 +181,8 @@ export default function MessageBubble({ message, onQuickReply, onSelectFlight, o
             <ArrowClockwise size={12} weight="bold" />
             Retry
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </motion.div>
   );
 }

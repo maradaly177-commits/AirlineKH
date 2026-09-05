@@ -5,17 +5,32 @@ use App\Models\User;
 
 class UserRepository
 {
-    public function getAll($search = null)
+    public function getAll($search = null, $role = null, $sortDir = 'asc')
     {
-        return User::with('roles')
-            ->when($search, function ($q) use ($search) {
-                $q->where(function ($query) use ($search) {
-                    $query->where('name', 'like', "%$search%")
-                          ->orWhere('email', 'like', "%$search%");
+        $query = User::with('roles');
+
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        if (!empty($role) && $role !== 'All Users') {
+            $roleName = strtolower(trim($role));
+            if ($roleName === 'user') {
+                $query->whereHas('roles', function ($r) {
+                    $r->whereIn('name', ['user', 'member']);
                 });
-            })
-            ->latest()
-            ->paginate(10); // ✅ 10 rows per page
+            } else {
+                $query->whereHas('roles', function ($r) use ($roleName) {
+                    $r->where('name', $roleName);
+                });
+            }
+        }
+
+        $direction = strtolower($sortDir) === 'desc' ? 'desc' : 'asc';
+        return $query->orderBy('id', $direction)->paginate(10);
     }
 
     public function find($id)
