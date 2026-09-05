@@ -1,9 +1,10 @@
-import React from "react";
-import { AirplaneTilt, ArrowRight } from "@phosphor-icons/react";
+import React, { useState } from "react";
+import { AirplaneTilt, ArrowRight, CaretDown, CaretUp, Leaf } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 
 export const FlightCardMessage = ({ flight }) => {
   const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!flight) return null;
 
@@ -182,113 +183,114 @@ export const FlightCardMessage = ({ flight }) => {
   // ============================================================
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-xl p-3.5 shadow-2xs hover:shadow-xs transition-all w-full my-1">
-
-      {/* HEADER */}
-
-      <div className="flex items-center justify-between gap-2">
-
-        <div className="flex items-center gap-1.5 min-w-0">
-
-          <div className="w-5.5 h-5.5 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-
-            <AirplaneTilt
-              size={12}
-              weight="fill"
-              className="transform -rotate-45"
-            />
-
+    <div className="p-4 w-full flex flex-col font-sans select-none border-b last:border-b-0 border-slate-100 bg-white">
+      
+      {/* 1. Header: Logo + Operator name + Ticket class */}
+      <div className="flex items-center justify-between mb-3.5">
+        <div className="flex items-center gap-2">
+          {/* Blue solid paper plane logo like Vietnam Airlines/mockup */}
+          <div className="w-5 h-5 flex items-center justify-center text-blue-600 shrink-0">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-[18px] h-[18px] transform -rotate-45">
+              <path d="M22.4 2L2 10.3c-.6.2-.6.9 0 1.1l5.4 1.8 1.8 5.4c.2.6.9.6 1.1 0l8.3-20.4L22.4 2zM8.5 12.5L16 6.5l-4.5 7.5L8.5 12.5z" />
+            </svg>
           </div>
-
-          <span className="text-[13px] font-semibold text-slate-800 truncate">
-            {flightNumber}
+          <span className="text-[12.5px] font-bold text-slate-800 tracking-tight">
+            {flightNumber.includes("VJ") ? "Vietjet Air" : flightNumber.includes("VN") ? "Vietnam Airlines" : "SkyLink Airline"}
           </span>
-
         </div>
-
-        <span className="text-[13.5px] font-bold text-blue-600 shrink-0">
-          {new Intl.NumberFormat("vi-VN").format(price)} đ
+        <span className="text-[9.5px]/none font-semibold text-slate-400 bg-slate-50 border border-slate-100 rounded-md px-1.5 py-1 uppercase tracking-wider">
+          Phổ thông
         </span>
-
       </div>
 
-      {/* FLIGHT SCHEDULE */}
-
-      <div className="flex items-center justify-between text-xs py-2.5 my-2 border-y border-slate-100">
-
+      {/* 2. Middle Row: Time HAN -> Line -> Time DAD */}
+      <div className="grid grid-cols-[1fr_1.2fr_1fr] items-center gap-2 mb-4">
         {/* Departure */}
-
-        <div>
-
-          <div className="font-bold text-slate-800 text-[13.5px]">
+        <div className="flex flex-col items-start">
+          <span className="text-lg font-bold text-slate-800 tracking-tight leading-none">
             {departureTime}
-          </div>
-
-          <div className="text-[11px] text-slate-400 font-medium">
+          </span>
+          <span className="text-[10px] font-bold text-slate-450 tracking-wider mt-1.5 uppercase">
             {origin}
-          </div>
-
+          </span>
         </div>
 
-        {/* Duration */}
-
-        <div className="flex flex-col items-center px-2">
-
-          <span className="text-[10px] text-slate-400 font-medium">
-            {durationLabel ?? "—"}
+        {/* Duration line */}
+        <div className="flex flex-col items-center justify-center px-1">
+          <span className="text-[9px] font-bold text-slate-400 leading-none mb-1">
+            {durationLabel ?? "1h 20m"}
           </span>
-
-          <div className="w-14 h-px bg-slate-200 relative my-0.5">
-
-            <AirplaneTilt
-              size={9}
-              weight="fill"
-              className="text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform -rotate-45"
-            />
-
+          
+          <div className="relative w-full flex items-center justify-center">
+            {/* Horizontal line */}
+            <div className="absolute inset-x-0 h-[1px] bg-slate-200"></div>
+            {/* Center airplane icon */}
+            <div className="relative bg-white px-1.5 text-slate-400">
+              <AirplaneTilt size={11} weight="fill" className="transform rotate-90" />
+            </div>
           </div>
 
-          <span className="text-[9px] text-emerald-600 font-semibold">
-            Direct
+          <span className="text-[9px] font-bold text-slate-400 leading-none mt-1">
+            Bay thẳng
           </span>
-
         </div>
 
         {/* Arrival */}
-
-        <div className="text-right">
-
-          <div className="font-bold text-slate-800 text-[13.5px]">
+        <div className="flex flex-col items-end">
+          <span className="text-lg font-bold text-slate-800 tracking-tight leading-none">
             {arrivalTime}
-          </div>
-
-          <div className="text-[11px] text-slate-400 font-medium">
+          </span>
+          <span className="text-[10px] font-bold text-slate-450 tracking-wider mt-1.5 uppercase">
             {destination}
-          </div>
-
+          </span>
         </div>
-
       </div>
 
-      {/* BOOK BUTTON */}
+      {/* 3. Footer Row: Price + Toggle Detail on left, "Chọn chuyến" button on right */}
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col items-start gap-1">
+          {/* Price: Blue large bold text */}
+          <span className="text-[15px] font-extrabold text-blue-600 leading-none tracking-tight">
+            {new Intl.NumberFormat("vi-VN").format(price)} VND
+          </span>
+          {/* Detailed toggle link */}
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-[10.5px] font-bold text-blue-500 hover:text-blue-605 flex items-center gap-0.5 transition-colors cursor-pointer select-none leading-none mt-1"
+          >
+            <span>Chi tiết</span>
+            {isExpanded ? <CaretUp size={11} weight="bold" /> : <CaretDown size={11} weight="bold" />}
+          </button>
+        </div>
 
-      <button
-        type="button"
-        onClick={handleBookFlight}
-        disabled={!flightId}
-        className="w-full py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed active:scale-[0.98] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
-      >
+        {/* Select button */}
+        <button
+          type="button"
+          onClick={handleBookFlight}
+          className="bg-blue-600 hover:bg-blue-750 active:scale-[0.98] text-white font-extrabold text-[12px] px-4.5 py-2.5 rounded-xl transition-all shadow-[0_2px_8px_rgba(37,99,235,0.12)] hover:shadow-[0_4px_16px_rgba(37,99,235,0.22)] flex items-center justify-center cursor-pointer select-none"
+        >
+          Chọn chuyến
+        </button>
+      </div>
 
-        <span>
-          👉 Chọn ghế & Đặt vé ngay
-        </span>
-
-        <ArrowRight
-          size={12}
-          weight="bold"
-        />
-
-      </button>
+      {/* 4. Expanded section for flight info */}
+      {isExpanded && (
+        <div 
+          className="mt-3.5 pt-3.5 border-t border-dashed border-slate-100 flex flex-col gap-2.5"
+        >
+          <div className="text-[11px] text-slate-500 bg-slate-50 border border-slate-100 rounded-xl p-2.5 flex justify-between items-center leading-normal">
+            <span>Hãng bay: <strong className="text-slate-800 font-bold">{flight.airline ?? "SkyLink Airlines"}</strong></span>
+            <span>Mã hiệu: <strong className="text-slate-800 font-bold">{flightNumber}</strong></span>
+            <span>Ghế trống: <strong className="text-emerald-600 font-bold">12 ghế</strong></span>
+          </div>
+          
+          <div className="flex justify-between items-center text-[10px] text-slate-400 bg-slate-50/60 p-2 rounded-lg border border-slate-100/50">
+            <span className="flex items-center gap-1">🌱 Tiết kiệm <strong>15% khí thải</strong></span>
+            <span>Hành lý xách tay: <strong>7kg</strong></span>
+          </div>
+        </div>
+      )}
 
     </div>
   );

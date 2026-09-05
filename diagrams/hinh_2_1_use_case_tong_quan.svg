@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="actorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowPrimary" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1E40AF"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="12"/>
+  
+  <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E40AF">Hình 2-1: Biểu đồ Use Case tổng quan Hệ thống SkyLink Airlines</text>
+
+  <!-- System Boundary -->
+  <rect x="180" y="60" width="440" height="430" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,6"/>
+  <text x="400" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B">HỆ THỐNG SKYLINK AIRLINES & SKYAI</text>
+
+  <!-- Actors -->
+  
+  <g transform="translate(50, 140)">
+    <circle cx="20" cy="15" r="12" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <path d="M 20 27 C 5 27, 0 45, 0 55 L 40 55 C 40 45, 35 27, 20 27 Z" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="20" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">Khách vãng lai</text>
+  </g>
+  
+  <g transform="translate(50, 320)">
+    <circle cx="20" cy="15" r="12" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <path d="M 20 27 C 5 27, 0 45, 0 55 L 40 55 C 40 45, 35 27, 20 27 Z" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="20" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">Hành khách</text>
+  </g>
+  
+  <g transform="translate(690, 180)">
+    <circle cx="20" cy="15" r="12" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <path d="M 20 27 C 5 27, 0 45, 0 55 L 40 55 C 40 45, 35 27, 20 27 Z" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="20" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">Quản trị viên</text>
+  </g>
+  
+  <g transform="translate(690, 360)">
+    <circle cx="20" cy="15" r="12" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <path d="M 20 27 C 5 27, 0 45, 0 55 L 40 55 C 40 45, 35 27, 20 27 Z" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="20" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">SkyAI Agent</text>
+  </g>
+
+  <!-- Use Cases -->
+  
+  <g>
+    <ellipse cx="400" cy="120" rx="100" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC001: Đăng nhập & Auth</text>
+  </g>
+  
+  <g>
+    <ellipse cx="400" cy="180" rx="110" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC006: Tìm kiếm chuyến bay</text>
+  </g>
+  
+  <g>
+    <ellipse cx="400" cy="240" rx="120" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="244" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC011: Chọn ghế & Đặt vé</text>
+  </g>
+  
+  <g>
+    <ellipse cx="400" cy="300" rx="110" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="304" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC007: Check-in trực tuyến</text>
+  </g>
+  
+  <g>
+    <ellipse cx="400" cy="360" rx="120" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="364" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC014: Đổi vé & Hủy chuyến</text>
+  </g>
+  
+  <g>
+    <ellipse cx="400" cy="420" rx="125" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="424" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC016: Chat Trợ lý AI SkyAI</text>
+  </g>
+  
+  <g>
+    <ellipse cx="400" cy="470" rx="110" ry="20" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="400" y="474" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC008: Quản trị hệ thống</text>
+  </g>
+
+  <!-- Lines -->
+  
+  <g>
+    <line x1="90" y1="170" x2="290" y2="130" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="90" y1="180" x2="280" y2="180" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+
+  
+  <g>
+    <line x1="90" y1="340" x2="290" y2="240" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="90" y1="350" x2="280" y2="300" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="90" y1="360" x2="280" y2="360" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="90" y1="370" x2="275" y2="420" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+
+  
+  <g>
+    <line x1="690" y1="210" x2="520" y2="130" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="690" y1="220" x2="520" y2="470" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+
+  
+  <g>
+    <line x1="690" y1="390" x2="525" y2="425" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+
+</svg>

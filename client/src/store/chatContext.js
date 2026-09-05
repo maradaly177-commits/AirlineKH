@@ -15,24 +15,16 @@ export const WELCOME_MESSAGE = {
 
   quickReplies: [
     {
-      label: "Hà Nội → Sài Gòn",
-
-      payload:
-        "Tìm vé từ Hà Nội đi Sài Gòn ngày mai",
+      label: "✈️ Tìm chuyến bay HN → DN",
+      payload: "Tìm chuyến bay từ Hà Nội đi Đà Nẵng",
     },
-
     {
-      label: "Hà Nội → Đà Nẵng",
-
-      payload:
-        "Tìm vé từ Hà Nội đi Đà Nẵng ngày mai",
+      label: "🧳 Quy định hành lý",
+      payload: "Mức hành lý kí gửi miễn phí là bao nhiêu?",
     },
-
     {
-      label: "Vé rẻ cuối tuần",
-
-      payload:
-        "Gợi ý vé rẻ cuối tuần này",
+      label: "🎫 Tra cứu mã đặt chỗ",
+      payload: "Tôi muốn kiểm tra thông tin mã đặt chỗ",
     },
   ],
 

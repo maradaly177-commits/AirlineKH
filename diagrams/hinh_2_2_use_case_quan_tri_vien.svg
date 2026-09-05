@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 480" width="750" height="480" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="actorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowPrimary" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1E40AF"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="12"/>
+  
+  <text x="375" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E40AF">Hình 2-2: Biểu đồ Use Case Quản trị viên (Admin)</text>
+  <rect x="220" y="60" width="460" height="390" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/>
+  <text x="450" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#64748B">PHÂN HỆ ADMIN DASHBOARD</text>
+
+  
+  <g transform="translate(70, 210)">
+    <circle cx="20" cy="15" r="12" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <path d="M 20 27 C 5 27, 0 45, 0 55 L 40 55 C 40 45, 35 27, 20 27 Z" fill="url(#actorGrad)" filter="url(#shadow)"/>
+    <text x="20" y="72" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">Quản trị viên</text>
+  </g>
+
+  
+  <g>
+    <ellipse cx="450" cy="120" rx="130" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="450" y="124" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC008: Quản lý chuyến bay</text>
+  </g>
+  
+  <g>
+    <ellipse cx="450" cy="180" rx="130" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="450" y="184" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC012: Quản lý sân bay</text>
+  </g>
+  
+  <g>
+    <ellipse cx="450" cy="240" rx="130" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="450" y="244" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC009: Quản lý đặt vé</text>
+  </g>
+  
+  <g>
+    <ellipse cx="450" cy="300" rx="130" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="450" y="304" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC010: Quản lý người dùng</text>
+  </g>
+  
+  <g>
+    <ellipse cx="450" cy="360" rx="140" ry="24" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="450" y="364" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">Xem thống kê Dashboard</text>
+  </g>
+  
+  <g>
+    <ellipse cx="450" cy="415" rx="120" ry="20" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2" filter="url(#shadow)"/>
+    <text x="450" y="419" text-anchor="middle" font-size="12" font-weight="600" fill="#0F172A">UC005: Cập nhật Profile</text>
+  </g>
+
+  
+  <g>
+    <line x1="120" y1="230" x2="310" y2="130" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="120" y1="235" x2="310" y2="180" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="120" y1="240" x2="310" y2="240" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="120" y1="245" x2="310" y2="300" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="120" y1="250" x2="305" y2="360" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="120" y1="255" x2="325" y2="415" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+
+</svg>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Admin\FlightAdminController;
 use App\Http\Controllers\Api\Admin\BookingAdminController;
 use App\Http\Controllers\Api\Admin\AirportAdminController;
 use App\Http\Controllers\Api\Admin\UserAdminController;
+use App\Http\Controllers\Api\Admin\PaymentAdminController;
 use App\Http\Controllers\Api\Admin\ProfileController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\BookingController;
@@ -106,8 +107,9 @@ Route::middleware(['auth:sanctum', 'role:admin'])
 
         Route::get('/dashboard', [DashboardController::class, 'index']);
 
-        // PROFILE (FIX THIẾU ROUTE)
+        // PROFILE
         Route::get('/profile', [ProfileController::class, 'show']);
+        Route::put('/profile', [ProfileController::class, 'update']);
 
         // FLIGHTS
         Route::get('/flights', [FlightAdminController::class, 'index']);
@@ -134,4 +136,8 @@ Route::middleware(['auth:sanctum', 'role:admin'])
         Route::post('/users', [UserAdminController::class, 'store']);
         Route::put('/users/{id}', [UserAdminController::class, 'update']);
         Route::delete('/users/{id}', [UserAdminController::class, 'destroy']);
+
+        // PAYMENTS
+        Route::get('/payments', [PaymentAdminController::class, 'index']);
+        Route::delete('/payments/{id}', [PaymentAdminController::class, 'destroy']);
     });
