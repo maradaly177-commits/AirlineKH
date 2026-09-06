@@ -14,7 +14,7 @@ function Sidebar() {
     { path: "/admin/profits", label: "Profits", icon: "fa-sack-dollar" },
     { path: "/admin/offers", label: "Offers", icon: "fa-percent" },
     { path: "/admin/reports", label: "Reports", icon: "fa-file-invoice" },
-    { path: "/admin/profile", label: "Setting", icon: "fa-cog" },
+    { path: "/admin/profile", label: "Profile", icon: "fa-user-circle" },
   ];
 
   const isActive = (path) =>

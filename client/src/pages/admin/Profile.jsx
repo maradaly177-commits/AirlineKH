@@ -122,7 +122,7 @@ function Profile() {
             letterSpacing: "-0.5px",
           }}
         >
-          Admin Profile & Settings
+          Admin Profile
         </h3>
         <div
           style={{
@@ -132,7 +132,7 @@ function Profile() {
             marginTop: "4px",
           }}
         >
-          Home / Dashboard / <span style={{ color: "#475569" }}>Setting</span>
+          Home / Dashboard / <span style={{ color: "#475569" }}>Profile</span>
         </div>
       </div>
 
