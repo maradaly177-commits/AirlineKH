@@ -4,23 +4,31 @@ import { Outlet } from "react-router-dom";
 
 function AdminLayout() {
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      
+    <div
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        backgroundColor: "#f4f6f8",
+        fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
+      }}
+    >
       <Sidebar />
 
       <div
         style={{
           flex: 1,
-          background: "#f8fafc",
+          display: "flex",
+          flexDirection: "column",
+          minWidth: 0,
+          overflowX: "hidden",
         }}
       >
         <Navbar />
 
-        <div style={{ padding: "24px" }}>
+        <div style={{ flex: 1, padding: "28px", overflowY: "auto" }}>
           <Outlet />
         </div>
       </div>
-
     </div>
   );
 }

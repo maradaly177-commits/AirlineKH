@@ -1,22 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const menu = [
-    {
-      group: "MAIN",
-      items: [{ path: "/admin", label: "Dashboard", icon: "tachometer-alt" }],
-    },
-    {
-      group: "MANAGEMENT",
-      items: [
-        { path: "/admin/flights", label: "Flights", icon: "plane-departure" },
-        { path: "/admin/airports", label: "Airports", icon: "map-marker-alt" },
-        { path: "/admin/bookings", label: "Bookings", icon: "ticket-alt" },
-        { path: "/admin/users", label: "Users", icon: "users" },
-      ],
-    },
+  const menuItems = [
+    { path: "/admin", label: "Home", icon: "fa-home" },
+    { path: "/admin/users", label: "Users management", icon: "fa-users" },
+    { path: "/admin/bookings", label: "Reservation", icon: "fa-calendar-alt" },
+    { path: "/admin/flights", label: "Flights", icon: "fa-plane" },
+    { path: "/admin/airports", label: "Airports", icon: "fa-map-marker-alt" },
+    { path: "/admin/payments", label: "Payment", icon: "fa-credit-card" },
+    { path: "/admin/profits", label: "Profits", icon: "fa-sack-dollar" },
+    { path: "/admin/offers", label: "Offers", icon: "fa-percent" },
+    { path: "/admin/reports", label: "Reports", icon: "fa-file-invoice" },
+    { path: "/admin/profile", label: "Profile", icon: "fa-user-circle" },
   ];
 
   const isActive = (path) =>
@@ -24,123 +22,165 @@ function Sidebar() {
       ? location.pathname === "/admin"
       : location.pathname.startsWith(path);
 
+  const handleLogout = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <aside
       style={{
-        width: "280px",
+        width: "260px",
+        minWidth: "260px",
         height: "100vh",
-        background: "linear-gradient(180deg, #0f172a, #111827)",
+        position: "sticky",
+        top: 0,
+        background: "linear-gradient(185deg, #1e40af 0%, #1e3a8a 45%, #172554 100%)",
         color: "#fff",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
+        boxShadow: "4px 0 25px rgba(15, 23, 42, 0.15)",
+        zIndex: 100,
+        overflow: "hidden",
       }}
     >
-      {/* LOGO */}
-      <Link
-        to="/admin"
+      {/* BACKGROUND DECORATIVE WATERMARK */}
+      <div
         style={{
-          padding: "22px",
-          display: "flex",
-          alignItems: "center",
-          gap: "14px",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-          textDecoration: "none",
+          position: "absolute",
+          bottom: "-40px",
+          left: "-40px",
+          opacity: 0.08,
+          pointerEvents: "none",
         }}
       >
-        <img
-          src="/logo.jpg"
-          alt="logo"
+        <svg width="300" height="300" viewBox="0 0 24 24" fill="white">
+          <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+        </svg>
+      </div>
+
+      <div>
+        {/* LOGO AREA */}
+        <Link
+          to="/admin"
           style={{
-            width: "70px",
-            height: "70px",
-            borderRadius: "10px",
-            objectFit: "cover",
-            background: "#fff",
-            padding: "4px",
+            padding: "24px 20px 20px 24px",
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            textDecoration: "none",
           }}
-        />
-
-        <div>
-          <div style={{ fontSize: "18px", fontWeight: "800", color: "#fff" }}>
-            SkyLink
+        >
+          {/* Logo Badge */}
+          <div
+            style={{
+              width: "44px",
+              height: "44px",
+              borderRadius: "14px",
+              background: "linear-gradient(135deg, #f59e0b, #eab308)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 6px 16px rgba(245, 158, 11, 0.4)",
+            }}
+          >
+            <i className="fas fa-paper-plane" style={{ color: "#fff", fontSize: "20px" }} />
           </div>
-          <div style={{ fontSize: "12px", color: "#94a3b8" }}>
-            Airline Admin Panel
-          </div>
-        </div>
-      </Link>
 
-      {/* MENU */}
-      <div style={{ flex: 1, paddingTop: "12px" }}>
-        {menu.map((section, i) => (
-          <div key={i} style={{ marginBottom: "18px" }}>
+          <div>
             <div
               style={{
-                padding: "10px 22px",
-                fontSize: "11px",
-                color: "#64748b",
-                letterSpacing: "1px",
+                fontSize: "22px",
+                fontWeight: "800",
+                color: "#ffffff",
+                letterSpacing: "-0.5px",
+                lineHeight: "1.2",
               }}
             >
-              {section.group}
+              SkyLink
             </div>
-
-            {section.items.map((item) => {
-              const active = isActive(item.path);
-
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    padding: "12px 18px",
-                    margin: "4px 12px",
-                    borderRadius: "10px",
-                    textDecoration: "none",
-                    transition: "0.2s",
-                    background: active
-                      ? "linear-gradient(135deg,#2563eb,#3b82f6)"
-                      : "transparent",
-                    color: active ? "#fff" : "#cbd5e1",
-                  }}
-                >
-                  <i className={`fas fa-${item.icon}`} />
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
+            <div style={{ fontSize: "11px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500" }}>
+              Fly with confidence
+            </div>
           </div>
-        ))}
+        </Link>
+
+        {/* MENU ITEMS */}
+        <nav style={{ padding: "10px 14px" }}>
+          {menuItems.map((item, idx) => {
+            const active = isActive(item.path) && (idx === 0 ? location.pathname === "/admin" : true);
+            return (
+              <Link
+                key={idx}
+                to={item.path}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "14px",
+                  padding: "12px 18px",
+                  marginBottom: "4px",
+                  borderRadius: "14px",
+                  textDecoration: "none",
+                  fontSize: "15px",
+                  fontWeight: active ? "600" : "500",
+                  transition: "all 0.2s ease",
+                  background: active
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "transparent",
+                  color: active ? "#ffffff" : "rgba(255, 255, 255, 0.8)",
+                  boxShadow: active ? "0 4px 15px rgba(0, 0, 0, 0.1)" : "none",
+                  backdropFilter: active ? "blur(10px)" : "none",
+                }}
+              >
+                <i
+                  className={`fas ${item.icon}`}
+                  style={{
+                    fontSize: "17px",
+                    width: "22px",
+                    textAlign: "center",
+                    color: active ? "#ffffff" : "rgba(255, 255, 255, 0.75)",
+                  }}
+                />
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
       </div>
 
-      {/* USER CARD */}
-      <div
-        style={{
-          margin: "14px",
-          padding: "14px",
-          borderRadius: "12px",
-          background: "#1e293b",
-        }}
-      >
-        <div style={{ fontWeight: "600" }}>Administrator</div>
-        <div style={{ fontSize: "12px", color: "#94a3b8" }}>
-          System Control Panel
-        </div>
-      </div>
-
-      {/* FOOTER */}
-      <div
-        style={{
-          textAlign: "center",
-          padding: "12px",
-          fontSize: "12px",
-          color: "#64748b",
-        }}
-      >
-        Version 1.0
+      {/* LOGOUT BUTTON AT BOTTOM */}
+      <div style={{ padding: "16px 14px 24px 14px" }}>
+        <button
+          onClick={handleLogout}
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            padding: "12px 18px",
+            borderRadius: "14px",
+            border: "none",
+            background: "rgba(239, 68, 68, 0.15)",
+            color: "#fca5a5",
+            cursor: "pointer",
+            fontSize: "15px",
+            fontWeight: "600",
+            transition: "all 0.2s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(239, 68, 68, 0.3)";
+            e.currentTarget.style.color = "#ffffff";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(239, 68, 68, 0.15)";
+            e.currentTarget.style.color = "#fca5a5";
+          }}
+        >
+          <i className="fas fa-sign-out-alt" style={{ fontSize: "17px", width: "22px", textAlign: "center" }} />
+          <span>Logout</span>
+        </button>
       </div>
     </aside>
   );

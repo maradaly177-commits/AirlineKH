@@ -15,16 +15,17 @@ class UserAdminController extends Controller
     // GET /admin/users
     public function index(Request $request)
     {
-        $users = $this->repo->getAll($request->search);
+        $sortDir = $request->get('sort', 'asc');
+        $users = $this->repo->getAll($request->search, $request->role, $sortDir);
 
         $users->getCollection()->transform(function ($user) {
             return [
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
-
-                // FIX ROLE
                 'role' => $user->roles->first()?->name ?? 'user',
+                'membership_tier' => ucfirst($user->membership_tier ?? 'standard'),
+                'created_at' => $user->created_at ? $user->created_at->format('Y-m-d H:i:s') : null,
             ];
         });
 

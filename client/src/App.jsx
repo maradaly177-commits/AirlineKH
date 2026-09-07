@@ -30,6 +30,10 @@ import Flights from "./pages/admin/Flights";
 import Airports from "./pages/admin/Airports";
 import Users from "./pages/admin/Users";
 import Bookings from "./pages/admin/Bookings";
+import Payments from "./pages/admin/Payments";
+import Profits from "./pages/admin/Profits";
+import Offers from "./pages/admin/Offers";
+import Reports from "./pages/admin/Reports";
 import Profile from "./pages/admin/Profile";
 import ChatWidget from "./components/ai/ChatWidget";
 import GoogleOneTap from "./components/auth/GoogleOneTap";
@@ -76,6 +80,10 @@ function App() {
               <Route path="flights" element={<Flights />} />
               <Route path="users" element={<Users />} />
               <Route path="bookings" element={<Bookings />} />
+              <Route path="payments" element={<Payments />} />
+              <Route path="profits" element={<Profits />} />
+              <Route path="offers" element={<Offers />} />
+              <Route path="reports" element={<Reports />} />
               <Route path="airports" element={<Airports />} />
               <Route path="profile" element={<Profile />} />
             </Route>

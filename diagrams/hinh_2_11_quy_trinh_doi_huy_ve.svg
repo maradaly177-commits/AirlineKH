@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 480" width="750" height="480" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <linearGradient id="actorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowPrimary" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1E40AF"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="12"/>
+  
+  <text x="375" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E40AF">Hình 2-11: Biểu đồ hoạt động Quy trình Đổi vé / Hủy vé của hành khách</text>
+  
+  <circle cx="375" cy="70" r="14" fill="#1E40AF" filter="url(#shadow)"/>
+  
+  <g>
+    <rect x="265" y="110" width="220" height="40" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+    <text x="375" y="134" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">Truy cập 'Chuyến bay của tôi'</text>
+  </g>
+  
+  <g>
+    <rect x="275" y="190" width="200" height="40" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+    <text x="375" y="214" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">Chọn Đổi vé hoặc Hủy chuyến</text>
+  </g>
+  
+    <g>
+      <polygon points="375,270 465,290 375,310 285,290" fill="#FFFBEB" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
+      <text x="375" y="294" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400E">Đủ điều kiện?</text>
+    </g>
+  
+  <g>
+    <rect x="245" y="360" width="260" height="40" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+    <text x="375" y="384" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">Tính chênh lệch phí & Cập nhật đơn vé</text>
+  </g>
+  
+    <circle cx="375" cy="445" r="15" fill="none" stroke="#1E40AF" stroke-width="3" filter="url(#shadow)"/>
+    <circle cx="375" cy="445" r="9" fill="#1E40AF"/>
+
+  
+  <g>
+    <line x1="375" y1="84" x2="375" y2="110" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="375" y1="150" x2="375" y2="190" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="375" y1="230" x2="375" y2="270" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="375" y1="310" x2="375" y2="360" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    <text x="375" y="329" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Đồng ý</text>
+  </g>
+  
+  <g>
+    <line x1="285" y1="290" x2="180" y2="290" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="180" y1="290" x2="180" y2="130" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+  
+  <g>
+    <line x1="180" y1="130" x2="265" y2="130" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    <text x="222.5" y="124" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Không được hủy</text>
+  </g>
+  
+  <g>
+    <line x1="375" y1="400" x2="375" y2="430" stroke="#475569" stroke-width="1.8"  marker-end="url(#arrow)"/>
+    
+  </g>
+
+</svg>
