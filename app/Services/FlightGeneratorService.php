@@ -115,30 +115,37 @@ class FlightGeneratorService
 
             $flightIds = [];
 
+            // Tạo mã số hiệu chuyến bay theo chặng bay cụ thể (VD: VN721, VJ722, FB723)
+            $routeCodeNumber = (abs(crc32($departure->code . $arrival->code)) % 800) + 100;
+
             // Sinh 3 hãng × 5 chuyến = 15 flights
             foreach (self::AIRLINE_SCHEDULES as $airline) {
                 foreach ($airline['baseNumbers'] as $idx => $baseNum) {
-                    // Mã chuyến bay: PREFIX + baseNum (Không nối thêm ngày nữa)
-                    // VD: VN201, VJ301, FB401
-                    $flightNumber  = $airline['prefix'] . $baseNum;
+                    // Mã chuyến bay theo chặng: PREFIX + RouteCode + STT (VD: VN721, VJ722)
+                    $flightNumber  = sprintf('%s%d%d', $airline['prefix'], $routeCodeNumber, $idx + 1);
                     $timeSlot      = $airline['slots'][$idx];
                     $departureTime = Carbon::parse("{$date} {$timeSlot}");
                     $arrivalTime   = $departureTime->copy()->addMinutes($airline['duration']);
 
-                    // Kiểm tra không trùng flight_number (unique constraint)
-                    $alreadyExists = Flight::where('flight_number', $flightNumber)
-                        ->whereDate('departure_time', $date)
+                    // Kiểm tra đúng chuyến bay cho tuyến này + ngày này + giờ này
+                    $existing = Flight::where('departure_airport_id', $departure->id)
+                        ->where('arrival_airport_id', $arrival->id)
+                        ->where('flight_number', $flightNumber)
+                        ->where('departure_time', $departureTime)
+                        ->first();
+
+                    if ($existing) {
+                        $flightIds[] = $existing->id;
+                        continue;
+                    }
+
+                    // Nếu mã chuyến bay bị trùng ở chuyến bay khác cùng giờ, thêm hậu tố
+                    $numberConflict = Flight::where('flight_number', $flightNumber)
+                        ->where('departure_time', $departureTime)
                         ->exists();
 
-                    if ($alreadyExists) {
-                        // Lấy ID của flight đã tồn tại để include vào kết quả
-                        $existingId = Flight::where('flight_number', $flightNumber)
-                            ->whereDate('departure_time', $date)
-                            ->value('id');
-                        if ($existingId) {
-                            $flightIds[] = $existingId;
-                        }
-                        continue;
+                    if ($numberConflict) {
+                        $flightNumber = sprintf('%s%s%s%d', $airline['prefix'], $departure->code, $arrival->code, $idx + 1);
                     }
 
                     $flight = Flight::create([
@@ -160,6 +167,8 @@ class FlightGeneratorService
 
             // Re-query với Eager Loading đầy đủ
             return Flight::whereIn('id', $flightIds)
+                ->where('departure_airport_id', $departure->id)
+                ->where('arrival_airport_id', $arrival->id)
                 ->with(['departureAirport', 'arrivalAirport', 'aircraft'])
                 ->orderBy('departure_time')
                 ->get();
