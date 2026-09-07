@@ -163,8 +163,6 @@ class SearchFlightTool
                 ],
 
                 'required' => [
-                    'origin',
-                    'destination',
                     'date',
                 ],
             ],
@@ -223,6 +221,12 @@ class SearchFlightTool
             $date = date('Y-m-d', strtotime('+1 day'));
         } elseif ($rawDateLower === 'today' || $rawDateLower === 'hôm nay' || $rawDateLower === 'nay') {
             $date = date('Y-m-d');
+        } elseif (str_contains($rawDateLower, 'cuối tuần') || str_contains($rawDateLower, 'weekend') || $rawDateLower === 'thứ 7' || $rawDateLower === 'chủ nhật') {
+            $saturdayTimestamp = strtotime('this Saturday');
+            if ($saturdayTimestamp < time()) {
+                $saturdayTimestamp = strtotime('next Saturday');
+            }
+            $date = date('Y-m-d', $saturdayTimestamp);
         } elseif ($rawDate === '') {
             $date = date('Y-m-d', strtotime('+1 day'));
         } else {
@@ -250,198 +254,118 @@ class SearchFlightTool
 
         /*
         |--------------------------------------------------------------------------
-        | 2. Validate origin / destination
-        |--------------------------------------------------------------------------
-        */
-
-        if ($origin === '') {
-            Log::warning('SearchFlightTool ERROR: origin is empty');
-
-            return [
-                'success' => false,
-                'type' => 'validation_error',
-                'message' => 'Sân bay đi chưa được xác định.',
-                'flights' => [],
-            ];
-        }
-
-        if ($destination === '') {
-            Log::warning('SearchFlightTool ERROR: destination is empty');
-
-            return [
-                'success' => false,
-                'type' => 'validation_error',
-                'message' => 'Sân bay đến chưa được xác định.',
-                'flights' => [],
-            ];
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | 3. Date is REQUIRED
-        |--------------------------------------------------------------------------
-        */
-
-        if ($date === '') {
-            Log::warning('SearchFlightTool ERROR: date is empty');
-
-            return [
-                'success' => false,
-                'type' => 'validation_error',
-                'message' =>
-                    'Ngày bay là bắt buộc. Hãy xác định ngày bay trước khi tìm chuyến.',
-                'flights' => [],
-            ];
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | 4. Validate date format
+        | 2. Validate date format
         |--------------------------------------------------------------------------
         */
 
         try {
-            $parsedDate = Carbon::createFromFormat(
-                'Y-m-d',
-                $date
-            );
-
-            /*
-             * createFromFormat đôi khi chấp nhận ngày không hợp lệ
-             * theo cách không mong muốn, nên kiểm tra lại format.
-             */
+            $parsedDate = Carbon::createFromFormat('Y-m-d', $date);
             if ($parsedDate->format('Y-m-d') !== $date) {
-                throw new \Exception('Invalid date');
+                $date = date('Y-m-d', strtotime('+1 day'));
             }
         } catch (Throwable $e) {
-
-            Log::warning('SearchFlightTool ERROR: invalid date', [
-                'date' => $date,
-                'error' => $e->getMessage(),
-            ]);
-
-            return [
-                'success' => false,
-                'type' => 'validation_error',
-                'message' =>
-                    'Ngày bay không hợp lệ. Định dạng phải là YYYY-MM-DD.',
-                'flights' => [],
-            ];
+            $date = date('Y-m-d', strtotime('+1 day'));
         }
-
-        /*
-        |--------------------------------------------------------------------------
-        | 5. Validate max price
-        |--------------------------------------------------------------------------
-        */
 
         if ($maxPrice !== null) {
             if (!is_numeric($maxPrice)) {
-
-                Log::warning(
-                    'SearchFlightTool ERROR: invalid max_price',
-                    [
-                        'max_price' => $maxPrice,
-                    ]
-                );
-
-                return [
-                    'success' => false,
-                    'type' => 'validation_error',
-                    'message' =>
-                        'Giá tối đa không hợp lệ.',
-                    'flights' => [],
-                ];
+                $maxPrice = null;
+            } else {
+                $maxPrice = (float) $maxPrice;
             }
-
-            $maxPrice = (float) $maxPrice;
         }
 
         /*
         |--------------------------------------------------------------------------
-        | 6. Build query
+        | 3. On-Demand Generator cho các chặng bay nếu DB chưa có
+        |--------------------------------------------------------------------------
+        */
+
+        $generator = app(\App\Services\FlightGeneratorService::class);
+
+        if ($origin !== '' && $destination !== '') {
+            $depAirport = Airport::where('code', $origin)->first();
+            $arrAirport = Airport::where('code', $destination)->first();
+            if ($depAirport && $arrAirport) {
+                try {
+                    $generator->generate($depAirport, $arrAirport, $date);
+                } catch (\Throwable $e) {
+                    Log::warning('Generator error: ' . $e->getMessage());
+                }
+            }
+        } elseif ($origin !== '' && $destination === '') {
+            $depAirport = Airport::where('code', $origin)->first();
+            if ($depAirport) {
+                $popularDestCodes = ['SGN', 'HAN', 'DAD', 'DLI', 'CXR', 'PQC'];
+                foreach ($popularDestCodes as $destCode) {
+                    if ($destCode === $origin) continue;
+                    $arrAirport = Airport::where('code', $destCode)->first();
+                    if ($arrAirport) {
+                        try {
+                            $generator->generate($depAirport, $arrAirport, $date);
+                        } catch (\Throwable) {}
+                    }
+                }
+            }
+        } elseif ($origin === '' && $destination !== '') {
+            $arrAirport = Airport::where('code', $destination)->first();
+            if ($arrAirport) {
+                $popularOriginCodes = ['HAN', 'SGN', 'DAD'];
+                foreach ($popularOriginCodes as $origCode) {
+                    if ($origCode === $destination) continue;
+                    $depAirport = Airport::where('code', $origCode)->first();
+                    if ($depAirport) {
+                        try {
+                            $generator->generate($depAirport, $arrAirport, $date);
+                        } catch (\Throwable) {}
+                    }
+                }
+            }
+        } else {
+            // Khi người dùng hỏi chung (VD: "Gợi ý vé rẻ cuối tuần này")
+            $popularRoutes = [
+                ['HAN', 'DAD'],
+                ['SGN', 'DAD'],
+                ['SGN', 'DLI'],
+                ['SGN', 'CXR'],
+                ['SGN', 'PQC'],
+                ['HAN', 'SGN'],
+            ];
+            foreach ($popularRoutes as [$oCode, $dCode]) {
+                $dep = Airport::where('code', $oCode)->first();
+                $arr = Airport::where('code', $dCode)->first();
+                if ($dep && $arr) {
+                    try {
+                        $generator->generate($dep, $arr, $date);
+                    } catch (\Throwable) {}
+                }
+            }
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | 4. Build query
         |--------------------------------------------------------------------------
         */
 
         try {
-
             $query = Flight::with([
                 'departureAirport',
                 'arrivalAirport',
                 'aircraft',
-            ])
+            ]);
 
-            /*
-             * IMPORTANT:
-             *
-             * Nếu bảng airports của bạn dùng:
-             *
-             *     code
-             *
-             * thì giữ nguyên.
-             *
-             * Nếu dùng:
-             *
-             *     iata_code
-             *
-             * thì đổi code thành iata_code.
-             */
+            if ($origin !== '') {
+                $query->whereHas('departureAirport', fn($q) => $q->where('code', $origin));
+            }
 
-            ->whereHas(
-                'departureAirport',
-                function ($q) use ($origin) {
+            if ($destination !== '') {
+                $query->whereHas('arrivalAirport', fn($q) => $q->where('code', $destination));
+            }
 
-                    $q->where(
-                        'code',
-                        $origin
-                    );
-
-                    // Nếu DB dùng iata_code:
-                    // $q->where('iata_code', $origin);
-                }
-            )
-
-            ->whereHas(
-                'arrivalAirport',
-                function ($q) use ($destination) {
-
-                    $q->where(
-                        'code',
-                        $destination
-                    );
-
-                    // Nếu DB dùng iata_code:
-                    // $q->where('iata_code', $destination);
-                }
-            )
-
-            /*
-             * Chỉ lấy chuyến còn ghế.
-             */
-            ->where(
-                'available_seats',
-                '>',
-                0
-            )
-
-            /*
-             * Không lấy chuyến cancelled.
-             */
-            ->where(
-                'status',
-                '!=',
-                'cancelled'
-            )
-
-            /*
-             * QUAN TRỌNG:
-             *
-             * User hỏi ngày nào thì chỉ tìm đúng ngày đó.
-             */
-            ->whereDate(
-                'departure_time',
-                $date
-            );
+            $query->where('available_seats', '>', 0)
+                  ->where('status', '!=', 'cancelled')
+                  ->whereDate('departure_time', $date);
 
             /*
             |--------------------------------------------------------------------------
@@ -497,6 +421,21 @@ class SearchFlightTool
             $flights = $query
                 ->take($limit)
                 ->get();
+
+            // Nếu chưa có chuyến bay trong DB, tự động kích hoạt On-Demand Flight Generator giống hệ thống chính
+            if ($flights->isEmpty()) {
+                $depAirport = Airport::where('code', $origin)->first();
+                $arrAirport = Airport::where('code', $destination)->first();
+
+                if ($depAirport && $arrAirport) {
+                    try {
+                        app(\App\Services\FlightGeneratorService::class)->generate($depAirport, $arrAirport, $date);
+                        $flights = (clone $query)->take($limit)->get();
+                    } catch (\Throwable $e) {
+                        Log::warning('SearchFlightTool generator error: ' . $e->getMessage());
+                    }
+                }
+            }
 
             /*
             |--------------------------------------------------------------------------
