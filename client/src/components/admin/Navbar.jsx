@@ -1,12 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../api";
 
 function Navbar() {
   const navigate = useNavigate();
   const [searchCategory, setSearchCategory] = useState("Users");
   const [searchQuery, setSearchQuery] = useState("");
+  const [adminUser, setAdminUser] = useState(() => JSON.parse(localStorage.getItem("user") || "null"));
 
-  const user = JSON.parse(localStorage.getItem("user") || "null");
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
+  const fetchProfile = async () => {
+    try {
+      const res = await api.get("/admin/profile");
+      const userData = res.data?.data || res.data;
+      if (userData) {
+        setAdminUser(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
+      }
+    } catch (err) {
+      console.error("Error fetching navbar admin profile:", err);
+    }
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -184,7 +201,7 @@ function Navbar() {
               boxShadow: "0 2px 8px rgba(59, 130, 246, 0.3)",
             }}
           >
-            {(user?.name?.charAt(0) || "S").toUpperCase()}
+            {(adminUser?.name?.charAt(0) || "Q").toUpperCase()}
           </div>
 
           {/* User Name */}
@@ -198,7 +215,7 @@ function Navbar() {
               gap: "6px",
             }}
           >
-            {user?.name || "Shahd Redwan"}
+            {adminUser?.name || "Quang Admin"}
             <i className="fas fa-chevron-down" style={{ fontSize: "11px", color: "#94a3b8" }} />
           </span>
         </div>

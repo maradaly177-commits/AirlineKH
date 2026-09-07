@@ -11,10 +11,10 @@ function Sidebar() {
     { path: "/admin/flights", label: "Flights", icon: "fa-plane" },
     { path: "/admin/airports", label: "Airports", icon: "fa-map-marker-alt" },
     { path: "/admin/payments", label: "Payment", icon: "fa-credit-card" },
-    { path: "/admin", label: "Profits", icon: "fa-sack-dollar" },
-    { path: "/admin", label: "Offers", icon: "fa-percent" },
-    { path: "/admin", label: "Reports", icon: "fa-file-invoice" },
-    { path: "/admin/profile", label: "Setting", icon: "fa-cog" },
+    { path: "/admin/profits", label: "Profits", icon: "fa-sack-dollar" },
+    { path: "/admin/offers", label: "Offers", icon: "fa-percent" },
+    { path: "/admin/reports", label: "Reports", icon: "fa-file-invoice" },
+    { path: "/admin/profile", label: "Profile", icon: "fa-user-circle" },
   ];
 
   const isActive = (path) =>
