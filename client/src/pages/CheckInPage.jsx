@@ -20,16 +20,30 @@ export default function CheckInPage() {
   // State quản lý dữ liệu form
   const [pnrCode, setPnrCode] = useState('');
   const [passengerName, setPassengerName] = useState('');
+  
+  // Tự động lấy email từ user đang đăng nhập
+  const [email, setEmail] = useState(() => {
+    try {
+      const user = localStorage.getItem('user');
+      return user ? JSON.parse(user)?.email || '' : '';
+    } catch {
+      return '';
+    }
+  });
 
   // Auto fill form fields from query params when page loads
   useEffect(() => {
     const pnr = searchParams.get('pnr');
     const name = searchParams.get('name');
+    const mail = searchParams.get('email');
     if (pnr) {
       setPnrCode(pnr.toUpperCase());
     }
     if (name) {
       setPassengerName(name);
+    }
+    if (mail) {
+      setEmail(mail);
     }
   }, [searchParams]);
   const [safetyCommitment, setSafetyCommitment] = useState(false);
@@ -69,13 +83,17 @@ export default function CheckInPage() {
       return;
     }
 
-    // Gọi API Check-in
+    // Gọi API Check-in kèm token xác thực và email nếu có
     setLoading(true);
     try {
+      const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
+      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
       const response = await axios.post('http://127.0.0.1:8000/api/check-in', {
         pnr_code: pnrCode.toUpperCase(),
         passenger_name: passengerName.trim(),
-      });
+        email: email.trim() || undefined,
+      }, { headers });
 
       if (response.data.status === 'success') {
         // Check-in thành công
@@ -195,6 +213,23 @@ export default function CheckInPage() {
               required
             />
             <small className="form-help">Tên phải trùng khớp với hộ chiếu hoặc giấy tờ tùy thân</small>
+          </div>
+
+          {/* Email nhận Thẻ lên máy bay */}
+          <div className="form-group">
+            <label htmlFor="passenger-email" className="form-label">
+              Email nhận Thẻ lên máy bay
+            </label>
+            <input
+              id="passenger-email"
+              type="email"
+              className="form-input"
+              placeholder="VD: user@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
+            />
+            <small className="form-help">Tự động nhận diện từ tài khoản đang đăng nhập hoặc bạn có thể nhập email khác</small>
           </div>
 
           {/* Cam kết an toàn bay */}
