@@ -43,13 +43,21 @@ class SendBoardingPassEmailJob implements ShouldQueue
     private int $boardingPassId;
 
     /**
+     * Email đích cần gửi (nếu có chỉ định từ user đang đăng nhập/request)
+     * @var string|null
+     */
+    private ?string $targetEmail;
+
+    /**
      * Constructor
      * 
      * @param int $boardingPassId
+     * @param string|null $targetEmail
      */
-    public function __construct(int $boardingPassId)
+    public function __construct(int $boardingPassId, ?string $targetEmail = null)
     {
         $this->boardingPassId = $boardingPassId;
+        $this->targetEmail = $targetEmail;
     }
 
     /**
@@ -61,18 +69,42 @@ class SendBoardingPassEmailJob implements ShouldQueue
     public function handle(): void
     {
         try {
-            // 1. Lấy Boarding Pass
-            $boardingPass = BoardingPass::with(['ticket.booking', 'ticket.flight', 'ticket.seat'])
-                ->find($this->boardingPassId);
+            // 1. Lấy Boarding Pass kèm thông tin liên quan
+            $boardingPass = BoardingPass::with([
+                'ticket.booking.user',
+                'ticket.flight.departureAirport',
+                'ticket.flight.arrivalAirport',
+                'ticket.seat',
+            ])->find($this->boardingPassId);
 
             if (!$boardingPass) {
                 throw new Exception("Không tìm thấy Boarding Pass với ID: {$this->boardingPassId}");
             }
 
             $ticket = $boardingPass->ticket;
+            if (!$ticket) {
+                throw new Exception("Không tìm thấy thông tin vé liên kết với Boarding Pass ID: {$this->boardingPassId}");
+            }
+
             $booking = $ticket->booking;
             $flight = $ticket->flight;
-            $user = $booking->user;
+            $user = $booking?->user;
+
+            // Ưu tiên email đích truyền vào (user đang đăng nhập hoặc nhập trên form), nếu không có thì lấy email của người đặt vé
+            $recipientEmail = $this->targetEmail ?? $user?->email;
+            if (!$recipientEmail) {
+                throw new Exception("Không tìm thấy email người nhận cho đơn đặt chỗ {$booking?->pnr_code}");
+            }
+
+            // Chuẩn bị dữ liệu mã QR tương thích email client (hỗ trợ render trên Gmail/Outlook)
+            $qrData = "{$booking->pnr_code}|{$ticket->passenger_name}|{$flight->flight_number}|" . ($ticket->seat?->seat_number ?? 'TBA');
+            $qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' . urlencode($qrData);
+
+            // Format thời gian bay
+            $departureTime = $flight->departure_time;
+            $departureTimeStr = $departureTime instanceof \Carbon\Carbon 
+                ? $departureTime->format('H:i - d/m/Y')
+                : date('H:i - d/m/Y', strtotime($departureTime));
 
             // 2. Tạo dữ liệu cho email
             $data = [
@@ -80,22 +112,27 @@ class SendBoardingPassEmailJob implements ShouldQueue
                 'pnr_code' => $booking->pnr_code,
                 'ticket_code' => $ticket->ticket_code,
                 'flight_number' => $flight->flight_number,
-                'departure_time' => $flight->departure_time->format('d/m/Y H:i'),
+                'departure_airport' => $flight->departureAirport?->name ?? 'N/A',
+                'departure_code' => $flight->departureAirport?->iata_code ?? $flight->departureAirport?->code ?? '',
+                'arrival_airport' => $flight->arrivalAirport?->name ?? 'N/A',
+                'arrival_code' => $flight->arrivalAirport?->iata_code ?? $flight->arrivalAirport?->code ?? '',
+                'departure_time' => $departureTimeStr,
                 'seat_number' => $ticket->seat?->seat_number ?? 'N/A',
-                'qr_code' => $boardingPass->qr_code_url,
+                'gate' => $boardingPass->gate ?? 'TBA',
+                'qr_code' => $qrCodeUrl,
             ];
 
             // 3. Gửi email
-            Mail::send('emails.boarding-pass', $data, function ($message) use ($user, $booking) {
+            Mail::send('emails.boarding-pass', $data, function ($message) use ($recipientEmail, $booking) {
                 $message
-                    ->to($user->email)
-                    ->subject("Thẻ Lên Máy Bay - SkyLink Airlines (PNR: {$booking->pnr_code})")
+                    ->to($recipientEmail)
+                    ->subject("Thẻ Lên Máy Bay Điện Tử - SkyLink Airlines (PNR: {$booking->pnr_code})")
                     ->from(config('mail.from.address'), config('mail.from.name'));
             });
 
             Log::info("Email Boarding Pass gửi thành công", [
                 'boarding_pass_id' => $this->boardingPassId,
-                'user_email' => $user->email,
+                'user_email' => $recipientEmail,
                 'pnr_code' => $booking->pnr_code,
             ]);
 

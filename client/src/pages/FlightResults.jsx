@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
-import { AirplaneLanding, MagnifyingGlass } from "@phosphor-icons/react";
+import { useNavigate, useLocation, useSearchParams as useReactSearchParams } from "react-router-dom";
+import { AirplaneLanding, AirplaneTakeoff, MapPinLine, CalendarBlank, ArrowsLeftRight, MagnifyingGlass, Funnel } from "@phosphor-icons/react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import FlightCard from "../components/flight/FlightCard";
@@ -17,7 +17,9 @@ import RescheduleModal from "../components/RescheduleModal";
  * Design: Premium Light Theme, Sticky Parallel Sidebar, Motion 7, Density 5
  */
 export default function FlightResults() {
+  const [urlSearchParams, setUrlSearchParams] = useReactSearchParams();
   const [flights, setFlights] = useState([]);
+  const [airports, setAirports] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
@@ -25,7 +27,13 @@ export default function FlightResults() {
     times: [],
   });
 
-  const [searchParams, setSearchParams] = useState(null);
+  const [searchParams, setSearchParams] = useState({
+    departure: "",
+    arrival: "",
+    date: "",
+    returnDate: "",
+    tripType: "one-way"
+  });
   // eslint-disable-next-line no-unused-vars
   const [discountApplied, setDiscountApplied] = useState(null);
   const [bookingStage, setBookingStage] = useState('outbound');
@@ -36,10 +44,18 @@ export default function FlightResults() {
   const [rescheduleBooking, setRescheduleBooking] = useState(null);
   const [showRescheduleModal, setShowRescheduleModal] = useState(false);
   const [rescheduleData, setRescheduleData] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [selectedNewFlight, setSelectedNewFlight] = useState(null);
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Load danh sách sân bay cho thanh tìm kiếm
+  useEffect(() => {
+    axios.get("http://127.0.0.1:8000/api/airports")
+      .then(res => setAirports(res.data || []))
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     // Kiểm tra nếu đang ở mode đổi chuyến
@@ -47,39 +63,61 @@ export default function FlightResults() {
       setRescheduleMode(true);
       setRescheduleBooking(location.state.rescheduleBooking);
       
-      // Load chuyến bay cùng route để khách chọn
       const booking = location.state.rescheduleBooking;
       const flight = booking.flight;
       
       const params = {
-        departure: flight.departure_airport?.code,
-        arrival: flight.arrival_airport?.code,
-        date: flight.departure_time ? new Date(flight.departure_time).toISOString().slice(0,10) : undefined,
-        tripType: 'one_way'
+        departure: flight.departure_airport?.code || "",
+        arrival: flight.arrival_airport?.code || "",
+        date: flight.departure_time ? new Date(flight.departure_time).toISOString().slice(0,10) : "",
+        tripType: 'one-way'
       };
       setSearchParams(params);
       fetchFlights(params);
       return;
     }
 
-    // Đọc tiêu chí tìm kiếm từ localStorage (được lưu bởi HomePage)
+    // 1. Ưu tiên đọc từ URL query params (VD: /flights?from=HAN&to=SGN&date=2026-09-10)
+    const fromParam = urlSearchParams.get("from") || urlSearchParams.get("departure");
+    const toParam = urlSearchParams.get("to") || urlSearchParams.get("arrival");
+    const dateParam = urlSearchParams.get("date");
+    const returnDateParam = urlSearchParams.get("returnDate") || urlSearchParams.get("return_date");
+    const tripTypeParam = urlSearchParams.get("trip_type") || urlSearchParams.get("tripType") || "one-way";
+
+    if (fromParam || toParam || dateParam) {
+      const urlParams = {
+        departure: fromParam || "",
+        arrival: toParam || "",
+        date: dateParam || "",
+        returnDate: returnDateParam || "",
+        tripType: tripTypeParam.replace('_', '-')
+      };
+      setSearchParams(urlParams);
+      localStorage.setItem("search_params", JSON.stringify(urlParams));
+      fetchFlights(urlParams);
+      return;
+    }
+
+    // 2. Đọc tiêu chí tìm kiếm từ localStorage (được lưu bởi HomePage)
     const stored = localStorage.getItem("search_params");
     const parsed = stored ? JSON.parse(stored) : null;
-    setSearchParams(parsed);
-    fetchFlights(parsed);
-  }, [location]);
+    if (parsed) {
+      setSearchParams(parsed);
+      fetchFlights(parsed);
+    } else {
+      // Nếu chưa có tìm kiếm nào, tải danh sách mặc định
+      fetchFlights(null);
+    }
+  }, [location, urlSearchParams]);
 
   const fetchFlights = async (params) => {
     setLoading(true);
     try {
-      // Xây dựng query string từ tiêu chí tìm kiếm
       const queryParts = [];
       if (params?.departure) queryParts.push(`from=${encodeURIComponent(params.departure)}`);
       if (params?.arrival)   queryParts.push(`to=${encodeURIComponent(params.arrival)}`);
       if (params?.date)      queryParts.push(`date=${encodeURIComponent(params.date)}`);
 
-      // Chuyển đổi tripType: FE dùng 'one-way'/'round-trip' (hyphen)
-      // → BE cần 'one_way'/'round_trip' (underscore)
       if (params?.tripType) {
         const backendTripType = params.tripType.replace('-', '_');
         queryParts.push(`trip_type=${encodeURIComponent(backendTripType)}`);
@@ -95,6 +133,40 @@ export default function FlightResults() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleApplySearch = (e) => {
+    e?.preventDefault();
+    if (!searchParams.departure || !searchParams.arrival) {
+      alert("Vui lòng chọn cả điểm đi và điểm đến.");
+      return;
+    }
+    if (searchParams.tripType === 'round-trip' && !searchParams.returnDate) {
+      alert("Vui lòng chọn ngày về cho chuyến bay khứ hồi.");
+      return;
+    }
+    setBookingStage('outbound');
+    setOutboundFlight(null);
+    localStorage.setItem("search_params", JSON.stringify(searchParams));
+    
+    // Cập nhật URLSearchParams
+    const newParams = new URLSearchParams();
+    if (searchParams.departure) newParams.set("from", searchParams.departure);
+    if (searchParams.arrival) newParams.set("to", searchParams.arrival);
+    if (searchParams.date) newParams.set("date", searchParams.date);
+    if (searchParams.returnDate) newParams.set("returnDate", searchParams.returnDate);
+    if (searchParams.tripType) newParams.set("trip_type", searchParams.tripType.replace('-', '_'));
+    setUrlSearchParams(newParams);
+
+    fetchFlights(searchParams);
+  };
+
+  const handleSwapAirports = () => {
+    setSearchParams(prev => ({
+      ...prev,
+      departure: prev.arrival,
+      arrival: prev.departure
+    }));
   };
 
   const handleFilterChange = (newFilters) => {
@@ -254,20 +326,199 @@ export default function FlightResults() {
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 left-10 w-[400px] h-[400px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-      {/* Hero Header Minimal */}
-      <header className="pt-24 pb-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+      {/* Hero Header Minimal + Quick Route Search Bar */}
+      <header className="pt-24 pb-10 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
         {/* Quay lại trang chủ */}
-        <div className="mb-8 -ml-3">
+        <div className="mb-6 -ml-3">
           <BackButton />
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none mb-6 bg-gradient-to-r from-zinc-900 via-zinc-800 to-blue-900 bg-clip-text text-transparent">
-          {searchParams?.tripType === 'round-trip' 
-            ? (bookingStage === 'outbound' ? 'Chọn chuyến bay đi' : 'Chọn chuyến bay về')
-            : 'Chuyến bay của bạn'}
-        </h1>
-        <p className="text-base text-zinc-500 max-w-[65ch] leading-relaxed">
-          Tìm kiếm và chọn lựa những chuyến bay tốt nhất. Giá vé hiển thị đã bao gồm thuế và phí dịch vụ.
-        </p>
+        
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 bg-blue-50 text-blue-700 border border-blue-200/60">
+              {searchParams?.tripType === 'round-trip' ? '🔄 Chuyến bay khứ hồi (Ưu đãi 10%)' : '✈ Chuyến bay một chiều'}
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-2 bg-gradient-to-r from-zinc-900 via-zinc-800 to-blue-900 bg-clip-text text-transparent">
+              {searchParams?.tripType === 'round-trip' 
+                ? (bookingStage === 'outbound' ? '1. Chọn chuyến bay đi' : '2. Chọn chuyến bay về')
+                : 'Tìm kiếm chuyến bay'}
+            </h1>
+            <p className="text-sm text-zinc-500 max-w-[65ch]">
+              {searchParams?.departure && searchParams?.arrival 
+                ? `Chặng bay hiện tại: ${searchParams.departure} ➔ ${searchParams.arrival} ${searchParams.date ? `• Ngày: ${searchParams.date}` : ''}`
+                : 'Hiển thị các chuyến bay khả dụng. Bạn có thể chọn điểm đi và điểm đến bên dưới để lọc chính xác.'}
+            </p>
+          </div>
+
+          {/* Route Badges */}
+          {searchParams?.departure && searchParams?.arrival && (
+            <div className="flex items-center gap-2 bg-blue-50/80 border border-blue-200/60 px-4 py-2 rounded-2xl text-blue-700 text-xs font-bold uppercase tracking-wider">
+              <AirplaneTakeoff size={16} />
+              <span>{searchParams.departure}</span>
+              <span>➔</span>
+              <AirplaneLanding size={16} />
+              <span>{searchParams.arrival}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Selected Outbound Banner (khi đang chọn chiều về) */}
+        {bookingStage === 'return' && outboundFlight && (
+          <div className="mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-xs">
+                1
+              </div>
+              <div>
+                <div className="text-xs font-bold text-blue-700 uppercase tracking-wider">Chuyến bay đi đã chọn</div>
+                <div className="text-sm font-bold text-zinc-900">
+                  {outboundFlight.flight_number} • {outboundFlight.departure_airport?.code} ➔ {outboundFlight.arrival_airport?.code} ({new Date(outboundFlight.departure_time).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })})
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setBookingStage('outbound');
+                const origParams = {
+                  ...searchParams,
+                  departure: outboundFlight.departure_airport?.code,
+                  arrival: outboundFlight.arrival_airport?.code,
+                  date: searchParams.date
+                };
+                setSearchParams(origParams);
+                fetchFlights(origParams);
+              }}
+              className="px-4 py-2 bg-white text-blue-600 hover:bg-blue-50 text-xs font-bold rounded-xl border border-blue-200 transition-colors cursor-pointer"
+            >
+              Chọn lại chiều đi
+            </button>
+          </div>
+        )}
+
+        {/* Quick Search & Filter Bar */}
+        <form onSubmit={handleApplySearch} className="bg-white/90 backdrop-blur-xl border border-zinc-200/80 rounded-2xl p-5 shadow-sm space-y-4">
+          {/* Hàng 1: Loại vé (Một chiều / Khứ hồi) */}
+          <div className="flex items-center gap-3 pb-3 border-b border-zinc-100">
+            <button
+              type="button"
+              onClick={() => setSearchParams(prev => ({ ...prev, tripType: 'one-way' }))}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                searchParams.tripType === 'one-way'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'text-zinc-500 hover:text-zinc-800 bg-zinc-100'
+              }`}
+            >
+              Một chiều
+            </button>
+            <button
+              type="button"
+              onClick={() => setSearchParams(prev => ({ ...prev, tripType: 'round-trip' }))}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
+                searchParams.tripType === 'round-trip'
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'text-zinc-500 hover:text-zinc-800 bg-zinc-100'
+              }`}
+            >
+              <span>Khứ hồi</span>
+              <span className="text-[10px] bg-amber-400 text-amber-950 px-1.5 py-0.5 rounded-full font-extrabold">-10%</span>
+            </button>
+          </div>
+
+          {/* Hàng 2: Form Chọn Tuyến và Ngày */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
+            {/* Điểm đi (4 cols) */}
+            <div className="lg:col-span-3 flex items-center gap-2 bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2">
+              <AirplaneTakeoff size={18} className="text-blue-600 shrink-0" />
+              <div className="flex-1">
+                <label className="block text-[10px] uppercase font-bold text-zinc-400">Điểm đi</label>
+                <select 
+                  value={searchParams.departure || ""}
+                  onChange={(e) => setSearchParams(prev => ({ ...prev, departure: e.target.value }))}
+                  className="w-full bg-transparent text-sm font-semibold text-zinc-800 outline-none cursor-pointer"
+                >
+                  <option value="">Chọn điểm đi</option>
+                  {airports.map(ap => (
+                    <option key={ap.id} value={ap.code}>{ap.city} ({ap.code})</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Nút đảo chiều (1 col) */}
+            <div className="hidden lg:flex lg:col-span-1 items-center justify-center">
+              <button 
+                type="button" 
+                onClick={handleSwapAirports}
+                className="w-8 h-8 rounded-full border border-zinc-200 bg-white hover:bg-zinc-100 flex items-center justify-center text-zinc-500 hover:text-blue-600 transition-colors shadow-xs cursor-pointer"
+                title="Đổi chiều"
+              >
+                <ArrowsLeftRight size={14} weight="bold" />
+              </button>
+            </div>
+
+            {/* Điểm đến (3 cols) */}
+            <div className="lg:col-span-3 flex items-center gap-2 bg-zinc-50 border border-zinc-200 rounded-xl px-3 py-2">
+              <MapPinLine size={18} className="text-emerald-600 shrink-0" />
+              <div className="flex-1">
+                <label className="block text-[10px] uppercase font-bold text-zinc-400">Điểm đến</label>
+                <select 
+                  value={searchParams.arrival || ""}
+                  onChange={(e) => setSearchParams(prev => ({ ...prev, arrival: e.target.value }))}
+                  className="w-full bg-transparent text-sm font-semibold text-zinc-800 outline-none cursor-pointer"
+                >
+                  <option value="">Chọn điểm đến</option>
+                  {airports.map(ap => (
+                    <option key={ap.id} value={ap.code}>{ap.city} ({ap.code})</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Ngày đi / Ngày về (3 or 4 cols) */}
+            <div className={`lg:col-span-3 grid ${searchParams.tripType === 'round-trip' ? 'grid-cols-2' : 'grid-cols-1'} gap-2`}>
+              <div className="flex items-center gap-1.5 bg-zinc-50 border border-zinc-200 rounded-xl px-2.5 py-2">
+                <CalendarBlank size={16} className="text-amber-600 shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <label className="block text-[9px] uppercase font-bold text-zinc-400 truncate">Ngày đi</label>
+                  <input 
+                    type="date"
+                    value={searchParams.date || ""}
+                    onChange={(e) => setSearchParams(prev => ({ ...prev, date: e.target.value }))}
+                    className="w-full bg-transparent text-xs font-semibold text-zinc-800 outline-none cursor-pointer"
+                  />
+                </div>
+              </div>
+
+              {searchParams.tripType === 'round-trip' && (
+                <div className="flex items-center gap-1.5 bg-zinc-50 border border-zinc-200 rounded-xl px-2.5 py-2">
+                  <CalendarBlank size={16} className="text-indigo-600 shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <label className="block text-[9px] uppercase font-bold text-zinc-400 truncate">Ngày về</label>
+                    <input 
+                      type="date"
+                      value={searchParams.returnDate || ""}
+                      onChange={(e) => setSearchParams(prev => ({ ...prev, returnDate: e.target.value }))}
+                      min={searchParams.date || undefined}
+                      className="w-full bg-transparent text-xs font-semibold text-zinc-800 outline-none cursor-pointer"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Nút tìm kiếm (2 cols) */}
+            <div className="lg:col-span-2">
+              <button
+                type="submit"
+                className="w-full h-full min-h-[44px] bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
+              >
+                <MagnifyingGlass size={16} weight="bold" />
+                Tìm chuyến
+              </button>
+            </div>
+          </div>
+        </form>
       </header>
 
       {/* Main Layout: Flex container song song (cần items-start để aside sticky hoạt động) */}

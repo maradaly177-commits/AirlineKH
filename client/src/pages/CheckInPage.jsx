@@ -33,16 +33,30 @@ export default function CheckInPage() {
   // State quản lý dữ liệu form
   const [pnrCode, setPnrCode] = useState('');
   const [passengerName, setPassengerName] = useState('');
+  
+  // Tự động lấy email từ user đang đăng nhập
+  const [email, setEmail] = useState(() => {
+    try {
+      const user = localStorage.getItem('user');
+      return user ? JSON.parse(user)?.email || '' : '';
+    } catch {
+      return '';
+    }
+  });
 
   // Auto fill form fields from query params when page loads
   useEffect(() => {
     const pnr = searchParams.get('pnr');
     const name = searchParams.get('name');
+    const mail = searchParams.get('email');
     if (pnr) {
       setPnrCode(pnr.toUpperCase());
     }
     if (name) {
       setPassengerName(name);
+    }
+    if (mail) {
+      setEmail(mail);
     }
   }, [searchParams]);
 
@@ -83,13 +97,17 @@ export default function CheckInPage() {
       return;
     }
 
-    // Gọi API Check-in
+    // Gọi API Check-in kèm token xác thực và email nếu có
     setLoading(true);
     try {
+      const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
+      const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
       const response = await axios.post('http://127.0.0.1:8000/api/check-in', {
         pnr_code: pnrCode.toUpperCase(),
         passenger_name: passengerName.trim(),
-      });
+        email: email.trim() || undefined,
+      }, { headers });
 
       if (response.data.status === 'success') {
         setBoardingPass(response.data.data);

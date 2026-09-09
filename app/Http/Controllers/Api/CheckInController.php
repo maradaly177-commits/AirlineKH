@@ -43,6 +43,7 @@ class CheckInController extends Controller
             $validated = $request->validate([
                 'pnr_code' => 'required|string|size:6',
                 'passenger_name' => 'required|string|max:255',
+                'email' => 'nullable|email|max:255',
             ]);
 
             // 2. Gọi CheckInFacade để xử lý Check-in
@@ -51,8 +52,12 @@ class CheckInController extends Controller
                 $validated['passenger_name']
             );
 
-            // 3. Dispatch job để gửi email Boarding Pass (background job)
-            SendBoardingPassEmailJob::dispatch($boardingPass['boarding_pass_id']);
+            // 3. Lấy email người nhận: từ request hoặc từ user đang đăng nhập (nếu có)
+            $loggedInUser = $request->user('sanctum');
+            $targetEmail = $request->input('email') ?? $loggedInUser?->email;
+
+            // 4. Dispatch job để gửi email Boarding Pass
+            SendBoardingPassEmailJob::dispatch($boardingPass['boarding_pass_id'], $targetEmail);
 
             // 4. Trả về kết quả Check-in thành công
             return response()->json([

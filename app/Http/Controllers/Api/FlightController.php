@@ -95,10 +95,10 @@ class FlightController extends Controller
         // Dùng Eager Loading để tránh N+1 query.
         $query = Flight::with(['departureAirport', 'arrivalAirport', 'aircraft']);
 
-        if ($request->has('from')) {
+        if ($request->filled('from')) {
             $query->whereHas('departureAirport', fn($q) => $q->where('code', $request->from));
         }
-        if ($request->has('to')) {
+        if ($request->filled('to')) {
             $query->whereHas('arrivalAirport', fn($q) => $q->where('code', $request->to));
         }
         if ($request->filled('date')) {
