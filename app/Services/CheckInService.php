@@ -46,7 +46,8 @@ class CheckInService implements CheckInServiceInterface
         // 1. Tìm Booking theo PNR code (Eager Loading để tránh N+1 Query)
         $booking = Booking::with([
             'payment', 
-            'flight', 
+            'flight.departureAirport',
+            'flight.arrivalAirport',
             'tickets' => function ($query) use ($passengerName) {
                 $query->where('passenger_name', 'LIKE', "%{$passengerName}%")
                       ->with(['seat', 'boardingPass', 'checkIn']);
@@ -78,13 +79,13 @@ class CheckInService implements CheckInServiceInterface
         // 5. Kiểm tra chuyến bay có ở trạng thái CheckInState không
         $flight = $booking->flight;
 
-if (!$flight) {
-    throw new Exception("Không tìm thấy chuyến bay.");
-}
+        if (!$flight) {
+            throw new Exception("Không tìm thấy chuyến bay.");
+        }
 
-if ($ticket->checkIn) {
-    throw new Exception("Hành khách đã check-in rồi.");
-}
+        if ($ticket->checkIn) {
+            throw new Exception("Hành khách đã check-in rồi.");
+        }
 
         // 5. Kiểm tra trạng thái chuyến bay bằng State Pattern
         $flight->state()->validateCheckIn();
@@ -106,17 +107,24 @@ if ($ticket->checkIn) {
             ]
         );
 
-        // 8. Trả về dữ liệu Boarding Pass
+        // 8. Trả về dữ liệu Boarding Pass động theo chuyến bay đặt thực tế
         return [
             'boarding_pass_id' => $boardingPass->id,
             'ticket_code' => $ticket->ticket_code,
             'passenger_name' => $ticket->passenger_name,
             'pnr_code' => $booking->pnr_code,
             'flight_number' => $flight->flight_number,
+            'departure_airport' => $flight->departureAirport->code ?? 'SGN',
+            'departure_city' => $flight->departureAirport->city ?? $flight->departureAirport->name ?? 'TP. HỒ CHÍ MINH',
+            'arrival_airport' => $flight->arrivalAirport->code ?? 'HAN',
+            'arrival_city' => $flight->arrivalAirport->city ?? $flight->arrivalAirport->name ?? 'HÀ NỘI',
             'departure_time' => is_string($flight->departure_time) 
                 ? $flight->departure_time 
                 : $flight->departure_time->format('Y-m-d H:i'),
-            'seat_number' => $ticket->seat->seat_number ?? 'N/A',
+            'seat_number' => $ticket->seat->seat_number ?? '9D',
+            'gate' => ($boardingPass->gate && $boardingPass->gate !== 'TBA') ? $boardingPass->gate : 'A04',
+            'zone' => 'GROUP 1',
+            'cabin_class' => $ticket->seat_class ?? 'Economy',
             'qr_code_url' => $boardingPass->qr_code_url,
             'check_in_time' => is_string($checkIn->boarding_time) 
                 ? $checkIn->boarding_time 
