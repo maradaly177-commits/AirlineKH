@@ -17,11 +17,46 @@ use Throwable;
 
 class GoogleAuthController extends Controller
 {
+    private function ensureGoogleConfig(): void
+    {
+        $clientId = config('services.google.client_id') ?: env('GOOGLE_CLIENT_ID');
+        $clientSecret = config('services.google.client_secret') ?: env('GOOGLE_CLIENT_SECRET');
+        $redirect = config('services.google.redirect') ?: env('GOOGLE_REDIRECT_URI');
+
+        if ((empty($clientId) || empty($clientSecret)) && file_exists(base_path('.env'))) {
+            $lines = @file(base_path('.env'), FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
+            foreach ($lines as $line) {
+                $trimmed = trim($line);
+                if (str_starts_with($trimmed, 'GOOGLE_CLIENT_ID=')) {
+                    $clientId = trim(substr($trimmed, 17), " \t\n\r\0\x0B\"'");
+                }
+                if (str_starts_with($trimmed, 'GOOGLE_CLIENT_SECRET=')) {
+                    $clientSecret = trim(substr($trimmed, 21), " \t\n\r\0\x0B\"'");
+                }
+                if (str_starts_with($trimmed, 'GOOGLE_REDIRECT_URI=')) {
+                    $redirect = trim(substr($trimmed, 20), " \t\n\r\0\x0B\"'");
+                }
+            }
+        }
+
+        if (empty($redirect)) {
+            $appUrl = env('APP_URL') ?: config('app.url', 'https://airlinekh.duckdns.org');
+            $redirect = rtrim($appUrl, '/') . '/api/auth/google/callback';
+        }
+
+        config([
+            'services.google.client_id' => $clientId,
+            'services.google.client_secret' => $clientSecret,
+            'services.google.redirect' => $redirect,
+        ]);
+    }
+
     /**
      * Chuyển hướng người dùng sang trang đăng nhập của Google
      */
     public function redirectToGoogle(Request $request): JsonResponse|RedirectResponse
     {
+        $this->ensureGoogleConfig();
         $mode = $request->query('mode', 'login'); // 'login' hoặc 'register'
 
         try {
@@ -62,7 +97,8 @@ class GoogleAuthController extends Controller
      */
     public function handleGoogleCallback(Request $request): RedirectResponse
     {
-        $frontendUrl = env('FRONTEND_URL', 'http://localhost:5173');
+        $this->ensureGoogleConfig();
+        $frontendUrl = env('FRONTEND_URL', 'https://airlinekh.duckdns.org');
 
         // Lấy mode từ state (login hay register)
         $mode = 'login';
