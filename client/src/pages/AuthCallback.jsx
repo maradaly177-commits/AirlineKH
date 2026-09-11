@@ -63,6 +63,11 @@ export default function AuthCallback() {
           setStatus("success");
           setMessage(`Đăng nhập thành công! Chào mừng ${user.name || "bạn"}`);
 
+          const isAdmin =
+            user.role === 1 ||
+            user.role === "1" ||
+            user.roles?.some((r) => r.name === "admin");
+
           const redirectParam = searchParams.get("redirect") || sessionStorage.getItem("auth_redirect");
           let target = isAdmin ? "/admin" : "/";
           if (!isAdmin) {
