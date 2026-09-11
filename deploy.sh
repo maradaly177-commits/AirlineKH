@@ -5,19 +5,23 @@ echo "🚀 [CI/CD] Bắt đầu quá trình tự động Deploy AirlineKH..."
 
 cd /var/www/AirlineKH
 
+sudo chown -R ubuntu:www-data /var/www/AirlineKH
+sudo chmod -R 775 storage bootstrap/cache
+
 echo "📥 1. Kéo code mới từ GitHub..."
 git config --global --add safe.directory /var/www/AirlineKH
 git pull origin main
 
 echo "⚙️ 2. Cập nhật Backend Laravel..."
+sudo chmod -R 777 storage bootstrap/cache
 composer install --no-dev --optimize-autoloader
 php artisan migrate --force
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php artisan config:clear
+php artisan route:clear
+php artisan cache:clear
 
-sudo chmod -R 775 storage bootstrap/cache
 sudo chown -R www-data:www-data storage bootstrap/cache
+sudo chmod -R 775 storage bootstrap/cache
 
 echo "📦 3. Build Frontend React..."
 cd /var/www/AirlineKH/client
