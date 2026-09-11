@@ -14,8 +14,8 @@ class AIService
 
     public function __construct()
     {
-        $this->apiKey = (string) config('services.gemini.api_key');
-        $this->model = (string) config('services.gemini.model', 'gemini-1.5-flash');
+        $this->apiKey = (string) (config('services.gemini.api_key') ?: env('GEMINI_API_KEY', ''));
+        $this->model = (string) (config('services.gemini.model') ?: env('GEMINI_MODEL', 'gemini-1.5-flash'));
 
         if ($this->apiKey === '') {
             throw new RuntimeException('GEMINI_API_KEY is not configured.');
