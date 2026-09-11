@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+# Load environment & NVM paths for non-interactive SSH
+source ~/.profile 2>/dev/null || true
+source ~/.bashrc 2>/dev/null || true
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
 echo "🚀 [CI/CD] Bắt đầu quá trình tự động Deploy AirlineKH..."
 
 cd /var/www/AirlineKH

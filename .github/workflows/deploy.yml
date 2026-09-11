@@ -24,7 +24,9 @@ jobs:
           script_stop: true
           script: |
             echo "🚀 GitHub Actions is triggering auto-deploy..."
+            source ~/.profile 2>/dev/null || true
+            source ~/.bashrc 2>/dev/null || true
             cd /var/www/AirlineKH
             chmod +x deploy.sh
-            ./deploy.sh
+            bash deploy.sh
             echo "✅ Auto-deployment completed successfully!"
