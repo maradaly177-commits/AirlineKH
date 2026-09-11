@@ -17,6 +17,13 @@ git config --global --add safe.directory /var/www/AirlineKH
 git reset --hard HEAD
 git pull origin main
 
+if ! command -v git-lfs >/dev/null 2>&1; then
+    echo "📥 Đang cài đặt git-lfs..."
+    sudo apt-get update -y && sudo apt-get install -y git-lfs
+    git lfs install
+fi
+git lfs pull
+
 echo "⚙️ 2. Cập nhật Backend Laravel..."
 sudo chown -R ubuntu:www-data /var/www/AirlineKH
 sudo chmod -R 777 storage bootstrap/cache
@@ -32,6 +39,7 @@ cd /var/www/AirlineKH/client
 export NODE_OPTIONS="--max-old-space-size=2048"
 npm install --no-audit --prefer-offline || npm install
 npm run build
+cp -f /var/www/AirlineKH/client/public/hero.mp4 /var/www/AirlineKH/client/dist/hero.mp4 2>/dev/null || true
 
 echo "🔄 4. Khởi động lại dịch vụ..."
 cd /var/www/AirlineKH
