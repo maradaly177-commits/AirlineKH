@@ -27,7 +27,7 @@ import RequireAdmin from "./components/admin/RequireAdmin";
 import AdminLayout from "./layouts/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
 import Flights from "./pages/admin/Flights";
-import Airports from "./pages/admin/Airports";
+import Airports from "./pages/admin/airports";
 import Users from "./pages/admin/Users";
 import Bookings from "./pages/admin/Bookings";
 import Payments from "./pages/admin/Payments";
