@@ -462,7 +462,8 @@ export default function MyBookings() {
         });
         const data = await res.json();
         if (res.ok && data.status === "success") {
-          setBookings(data.data);
+          const list = Array.isArray(data.data) ? data.data : (Array.isArray(data) ? data : []);
+          setBookings(list);
         } else {
           setError(data.message || "Lỗi khi tải lịch sử vé.");
         }
@@ -534,7 +535,7 @@ export default function MyBookings() {
           </motion.div>
         ) : (
           <div className="space-y-5">
-            {bookings.map((booking, idx) => (
+            {(Array.isArray(bookings) ? bookings : []).map((booking, idx) => (
               <BookingCard key={booking.id} booking={booking} idx={idx} />
             ))}
           </div>

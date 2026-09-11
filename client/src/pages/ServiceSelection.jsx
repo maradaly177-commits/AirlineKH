@@ -22,7 +22,8 @@ export default function ServiceSelection() {
     fetch("/api/services")
       .then(res => res.json())
       .then(data => {
-        if (data.status === "success") setServices(data.data);
+        const list = Array.isArray(data?.data) ? data.data : (Array.isArray(data) ? data : []);
+        setServices(list);
       })
       .catch(err => console.error("Lỗi tải dịch vụ:", err))
       .finally(() => setLoading(false));

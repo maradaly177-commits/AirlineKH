@@ -62,10 +62,13 @@ export default function HomePage() {
   useEffect(() => {
     axios.get("/api/airports")
       .then(res => {
-        console.log("API Airports:", res.data);
-        setAirports(res.data);
+        const list = Array.isArray(res.data) ? res.data : (Array.isArray(res.data?.data) ? res.data.data : []);
+        setAirports(list);
       })
-      .catch(console.error);
+      .catch(err => {
+        console.error("Failed to load airports:", err);
+        setAirports([]);
+      });
   }, []);
 
   const handleSearch = () => {
@@ -298,8 +301,8 @@ export default function HomePage() {
                 onChange={(e) => setSearchData({...searchData, departure: e.target.value})}
               >
                 <option value="">Chọn điểm đi</option>
-                {airports.map(ap => (
-                  <option key={ap.id} value={ap.code}>{ap.city} ({ap.code})</option>
+                {(Array.isArray(airports) ? airports : []).map(ap => (
+                  <option key={ap.id || ap.code} value={ap.code}>{ap.city} ({ap.code})</option>
                 ))}
               </select>
             </div>
@@ -315,8 +318,8 @@ export default function HomePage() {
                 onChange={(e) => setSearchData({...searchData, arrival: e.target.value})}
               >
                 <option value="">Bạn muốn đến đâu?</option>
-                {airports.map(ap => (
-                  <option key={ap.id} value={ap.code}>{ap.city} ({ap.code})</option>
+                {(Array.isArray(airports) ? airports : []).map(ap => (
+                  <option key={ap.id || ap.code} value={ap.code}>{ap.city} ({ap.code})</option>
                 ))}
               </select>
             </div>

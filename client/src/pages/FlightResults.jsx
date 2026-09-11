@@ -53,8 +53,14 @@ export default function FlightResults() {
   // Load danh sách sân bay cho thanh tìm kiếm
   useEffect(() => {
     axios.get("/api/airports")
-      .then(res => setAirports(res.data || []))
-      .catch(console.error);
+      .then(res => {
+        const list = Array.isArray(res.data) ? res.data : (Array.isArray(res.data?.data) ? res.data.data : []);
+        setAirports(list);
+      })
+      .catch(err => {
+        console.error("Failed to load airports:", err);
+        setAirports([]);
+      });
   }, []);
 
   useEffect(() => {
@@ -125,8 +131,11 @@ export default function FlightResults() {
 
       const queryString = queryParts.length > 0 ? `?${queryParts.join("&")}` : "";
       const response = await axios.get(`/api/flights${queryString}`);
-      setFlights(response.data.data || []);
-      setDiscountApplied(response.data.discount_applied || null);
+      const flightList = Array.isArray(response.data)
+        ? response.data
+        : (Array.isArray(response.data?.data) ? response.data.data : []);
+      setFlights(flightList);
+      setDiscountApplied(response.data?.discount_applied || null);
       setError(null);
     } catch {
       setError("Không thể tải danh sách chuyến bay. Vui lòng thử lại.");
@@ -282,7 +291,7 @@ export default function FlightResults() {
   };
 
   const getFilteredAndSortedFlights = () => {
-    let result = [...flights];
+    let result = Array.isArray(flights) ? [...flights] : [];
 
     // Lọc theo giờ bay
     if (filters.times?.length > 0) {
@@ -438,8 +447,8 @@ export default function FlightResults() {
                   className="w-full bg-transparent text-sm font-semibold text-zinc-800 outline-none cursor-pointer"
                 >
                   <option value="">Chọn điểm đi</option>
-                  {airports.map(ap => (
-                    <option key={ap.id} value={ap.code}>{ap.city} ({ap.code})</option>
+                  {(Array.isArray(airports) ? airports : []).map(ap => (
+                    <option key={ap.id || ap.code} value={ap.code}>{ap.city} ({ap.code})</option>
                   ))}
                 </select>
               </div>
@@ -468,8 +477,8 @@ export default function FlightResults() {
                   className="w-full bg-transparent text-sm font-semibold text-zinc-800 outline-none cursor-pointer"
                 >
                   <option value="">Chọn điểm đến</option>
-                  {airports.map(ap => (
-                    <option key={ap.id} value={ap.code}>{ap.city} ({ap.code})</option>
+                  {(Array.isArray(airports) ? airports : []).map(ap => (
+                    <option key={ap.id || ap.code} value={ap.code}>{ap.city} ({ap.code})</option>
                   ))}
                 </select>
               </div>
