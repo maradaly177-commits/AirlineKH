@@ -90,8 +90,8 @@ class SendBoardingPassEmailJob implements ShouldQueue
             $flight = $ticket->flight;
             $user = $booking?->user;
 
-            // Ưu tiên email đích truyền vào (user đang đăng nhập hoặc nhập trên form), nếu không có thì lấy email của người đặt vé
-            $recipientEmail = $this->targetEmail ?? $user?->email;
+            // Ưu tiên email đích truyền vào, nếu không có thì lấy email user hoặc email admin
+            $recipientEmail = !empty($this->targetEmail) ? $this->targetEmail : ($user?->email ?: config('mail.from.address', 'vakhimkhean@gmail.com'));
             if (!$recipientEmail) {
                 throw new Exception("Không tìm thấy email người nhận cho đơn đặt chỗ {$booking?->pnr_code}");
             }

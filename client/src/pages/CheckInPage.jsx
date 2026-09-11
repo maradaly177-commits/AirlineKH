@@ -16,6 +16,7 @@ import {
   CheckCircle,
   CaretRight,
   X,
+  EnvelopeSimple,
 } from '@phosphor-icons/react';
 import BoardingPassDisplay from '../components/BoardingPassDisplay';
 import Navbar from '../components/Navbar';
@@ -380,6 +381,30 @@ export default function CheckInPage() {
               </div>
               <p className="text-xs md:text-sm text-slate-500 font-medium pl-1">
                 Tên phải trùng khớp với hộ chiếu hoặc giấy tờ tùy thân
+              </p>
+            </div>
+
+            {/* Input 3: Email nhận vé */}
+            <div className="space-y-2.5">
+              <label htmlFor="checkin-email" className="block text-sm md:text-base font-bold text-slate-800">
+                Email nhận Thẻ lên máy bay
+              </label>
+              <div className="relative flex items-center">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-slate-100/90 flex items-center justify-center text-slate-500 border border-slate-200/60">
+                  <EnvelopeSimple size={22} weight="bold" />
+                </div>
+                <input
+                  id="checkin-email"
+                  type="email"
+                  placeholder="email@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
+                  className="w-full pl-16 pr-5 py-4 bg-white border border-slate-200 rounded-2xl text-slate-900 font-semibold placeholder:text-slate-400 placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-base md:text-lg"
+                />
+              </div>
+              <p className="text-xs md:text-sm text-slate-500 font-medium pl-1">
+                Thẻ lên máy bay và mã QR sẽ tự động được gửi tới email này ngay sau khi hoàn tất
               </p>
             </div>
 
