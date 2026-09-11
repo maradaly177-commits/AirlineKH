@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // eslint-disable-next-line no-unused-vars
@@ -22,6 +22,15 @@ const MetricBadge = ({ text }) => (
 export default function HomePage() {
   const navigate = useNavigate();
   const today = new Date().toISOString().split('T')[0];
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
   
   const [airports, setAirports] = useState([]);
   const [searchData, setSearchData] = useState({
@@ -112,6 +121,7 @@ export default function HomePage() {
           style={{ backgroundImage: "url('/hero-bg.png')" }}
         >
           <video
+            ref={videoRef}
             autoPlay
             muted
             loop
