@@ -111,18 +111,17 @@ export default function HomePage() {
           className="w-full h-[75vh] md:h-[85vh] overflow-hidden relative bg-cover bg-center bg-slate-900"
           style={{ backgroundImage: "url('/hero-bg.png')" }}
         >
-          <motion.video
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              src="/hero.mp4"
-              poster="/hero-bg.png"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/hero-bg.png"
+            className="w-full h-full object-cover"
+          >
+            <source src="/hero.mp4" type="video/mp4" />
+          </video>
           {/* Multi-layer gradient overlay for premium depth */}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-900/40 to-transparent"></div>
           
