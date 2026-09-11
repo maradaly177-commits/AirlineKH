@@ -52,7 +52,7 @@ export default function FlightResults() {
 
   // Load danh sách sân bay cho thanh tìm kiếm
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/airports")
+    axios.get("/api/airports")
       .then(res => setAirports(res.data || []))
       .catch(console.error);
   }, []);
@@ -124,7 +124,7 @@ export default function FlightResults() {
       }
 
       const queryString = queryParts.length > 0 ? `?${queryParts.join("&")}` : "";
-      const response = await axios.get(`http://127.0.0.1:8000/api/flights${queryString}`);
+      const response = await axios.get(`/api/flights${queryString}`);
       setFlights(response.data.data || []);
       setDiscountApplied(response.data.discount_applied || null);
       setError(null);
@@ -217,7 +217,7 @@ export default function FlightResults() {
     try {
       const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
       const res = await axios.post(
-        `http://127.0.0.1:8000/api/bookings/${rescheduleBooking.id}/reschedule`,
+        `/api/bookings/${rescheduleBooking.id}/reschedule`,
         { new_flight_id: newFlight.id },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -262,7 +262,7 @@ export default function FlightResults() {
       } else {
         // Hoàn tiền hoặc không mất phí, gọi thẳng API thanh toán để nó tự xác nhận đổi vé
         const res = await axios.post(
-          `http://127.0.0.1:8000/api/bookings/${rescheduleData.oldBooking.id}/pay-reschedule`,
+          `/api/bookings/${rescheduleData.oldBooking.id}/pay-reschedule`,
           { 
             new_flight_id: rescheduleData.newFlight.id,
             payment_method: 'vnpay' // Mặc định vì số tiền = 0

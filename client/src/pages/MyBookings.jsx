@@ -404,7 +404,7 @@ function BookingCard({ booking, idx }) {
                 if (!confirm('Bạn có chắc muốn hủy vé này?')) return;
                 try {
                   const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
-                  const res = await fetch(`http://127.0.0.1:8000/api/bookings/${booking.id}/cancel`, {
+                  const res = await fetch(`/api/bookings/${booking.id}/cancel`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
                   });
@@ -457,7 +457,7 @@ export default function MyBookings() {
       if (!token) { navigate("/login"); return; }
 
       try {
-        const res  = await fetch("http://127.0.0.1:8000/api/bookings", {
+        const res  = await fetch("/api/bookings", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();

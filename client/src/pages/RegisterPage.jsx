@@ -93,7 +93,7 @@ export default function RegisterPage() {
     const top = window.screen.height / 2 - height / 2;
 
     window.open(
-      "http://127.0.0.1:8000/api/auth/google?mode=register",
+      "/api/auth/google?mode=register",
       "google_oauth_popup",
       `width=${width},height=${height},top=${top},left=${left},status=no,toolbar=no,menubar=no`
     );
@@ -111,7 +111,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/auth/register", {
+      const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 

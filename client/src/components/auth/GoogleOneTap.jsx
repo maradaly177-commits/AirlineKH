@@ -55,7 +55,7 @@ export default function GoogleOneTap() {
       if (!response.credential) return;
 
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/auth/google/one-tap", {
+        const res = await fetch("/api/auth/google/one-tap", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

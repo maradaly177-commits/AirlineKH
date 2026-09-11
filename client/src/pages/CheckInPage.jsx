@@ -103,7 +103,7 @@ export default function CheckInPage() {
       const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-      const response = await axios.post('http://127.0.0.1:8000/api/check-in', {
+      const response = await axios.post('/api/check-in', {
         pnr_code: pnrCode.toUpperCase(),
         passenger_name: passengerName.trim(),
         email: email.trim() || undefined,

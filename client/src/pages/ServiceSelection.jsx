@@ -19,7 +19,7 @@ export default function ServiceSelection() {
 
   // Gọi API lấy dịch vụ thật từ DB
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/services")
+    fetch("/api/services")
       .then(res => res.json())
       .then(data => {
         if (data.status === "success") setServices(data.data);

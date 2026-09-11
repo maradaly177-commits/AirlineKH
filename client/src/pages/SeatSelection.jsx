@@ -39,7 +39,7 @@ export default function SeatSelection() {
 
         const newSeatsData = {};
         for (const flight of savedFlights) {
-          const res = await fetch(`http://127.0.0.1:8000/api/flights/${flight.id}/seats?trip_type=${searchParams.trip_type || 'one_way'}`, { headers });
+          const res = await fetch(`/api/flights/${flight.id}/seats?trip_type=${searchParams.trip_type || 'one_way'}`, { headers });
           const data = await res.json();
           if (res.ok && data.status === "success") {
             newSeatsData[flight.id] = data.data;
@@ -120,7 +120,7 @@ export default function SeatSelection() {
         payload.return_seat_ids = selectedSeats.return.map(s => s.id);
       }
 
-      const res = await fetch("http://127.0.0.1:8000/api/bookings/lock-seat", {
+      const res = await fetch("/api/bookings/lock-seat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

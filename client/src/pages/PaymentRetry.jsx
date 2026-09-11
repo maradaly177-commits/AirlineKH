@@ -98,14 +98,14 @@ export default function PaymentRetry() {
     setLoading(true);
 
     try {
-      let apiUrl = "http://127.0.0.1:8000/api/bookings/pay";
+      let apiUrl = "/api/bookings/pay";
       let requestBody = {
         booking_ids: [parseInt(bookingId)],
         payment_method: paymentMethod
       };
 
       if (paymentType === 'reschedule') {
-        apiUrl = `http://127.0.0.1:8000/api/bookings/${bookingId}/pay-reschedule`;
+        apiUrl = `/api/bookings/${bookingId}/pay-reschedule`;
         requestBody = {
           new_flight_id: newFlightId,
           payment_method: paymentMethod

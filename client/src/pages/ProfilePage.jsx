@@ -50,7 +50,7 @@ export default function ProfilePage() {
 
     try {
       const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
-      const response = await fetch("http://127.0.0.1:8000/api/profile", {
+      const response = await fetch("/api/profile", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -147,7 +147,7 @@ export default function Checkout() {
         }))
       };
 
-      const bookingRes = await fetch(`http://127.0.0.1:8000/api/bookings`, {
+      const bookingRes = await fetch(`/api/bookings`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -177,7 +177,7 @@ export default function Checkout() {
       }
 
       // BƯỚC 2: THANH TOÁN MOCK API
-      const payRes = await fetch("http://127.0.0.1:8000/api/bookings/pay", {
+      const payRes = await fetch("/api/bookings/pay", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -487,7 +487,7 @@ export default function Checkout() {
                           return_seat_id: selectedSeats.return?.[index]?.id || null
                         }))
                       };
-                      const res = await fetch(`http://127.0.0.1:8000/api/bookings`, {
+                      const res = await fetch(`/api/bookings`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json", "Accept": "application/json", "Authorization": `Bearer ${token}` },
                         body: JSON.stringify(checkoutPayload)

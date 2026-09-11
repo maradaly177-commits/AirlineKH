@@ -97,7 +97,7 @@ export default function LoginPage() {
     const top = window.screen.height / 2 - height / 2;
 
     window.open(
-      "http://127.0.0.1:8000/api/auth/google?mode=login",
+      "/api/auth/google?mode=login",
       "google_oauth_popup",
       `width=${width},height=${height},top=${top},left=${left},status=no,toolbar=no,menubar=no`
     );
@@ -110,7 +110,7 @@ export default function LoginPage() {
   setError("");
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/auth/login", {
+    const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

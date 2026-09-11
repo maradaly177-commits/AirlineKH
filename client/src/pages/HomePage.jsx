@@ -60,7 +60,7 @@ export default function HomePage() {
   };
 // Fetch airports data on component mount
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/airports")
+    axios.get("/api/airports")
       .then(res => {
         console.log("API Airports:", res.data);
         setAirports(res.data);
