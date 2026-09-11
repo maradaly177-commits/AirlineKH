@@ -107,7 +107,10 @@ export default function HomePage() {
       {/* 2. HERO SECTION */}
       <section className="relative pt-20 flex flex-col items-center w-full">
         {/* Background Image Area - Full Bleed Edge-to-Edge */}
-        <div className="w-full h-[75vh] md:h-[85vh] overflow-hidden relative">
+        <div 
+          className="w-full h-[75vh] md:h-[85vh] overflow-hidden relative bg-cover bg-center bg-slate-900"
+          style={{ backgroundImage: "url('/hero-bg.png')" }}
+        >
           <motion.video
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
