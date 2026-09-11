@@ -178,11 +178,9 @@ export async function streamChatMessage(
   |--------------------------------------------------------------------------
   */
 
-  const baseURL =
-    (
-      import.meta.env.VITE_API_BASE_URL ||
-      "/api"
-    ).replace(/\/$/, "");
+  const envBase = (import.meta.env.VITE_API_BASE_URL || "/api").replace(/\/$/, "");
+  const isProdHost = typeof window !== "undefined" && !window.location.hostname.includes("localhost") && !window.location.hostname.includes("127.0.0.1");
+  const baseURL = (isProdHost && envBase.includes("127.0.0.1")) ? "/api" : envBase;
 
 
   /*

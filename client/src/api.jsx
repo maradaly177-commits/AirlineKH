@@ -1,8 +1,11 @@
 import axios from "axios";
 
+const envBase = import.meta.env.VITE_API_BASE_URL || "/api";
+const isProdHost = typeof window !== "undefined" && !window.location.hostname.includes("localhost") && !window.location.hostname.includes("127.0.0.1");
+const resolvedBaseURL = (isProdHost && envBase.includes("127.0.0.1")) ? "/api" : envBase;
+
 const api = axios.create({
-  // Đọc URL từ client/.env, nếu không có sẽ lấy mặc định /api
-  baseURL: import.meta.env.VITE_API_BASE_URL || "/api",
+  baseURL: resolvedBaseURL,
   withCredentials: true, // Hỗ trợ gửi Session/Cookie
 });
 
