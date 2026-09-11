@@ -6,6 +6,7 @@ echo "🚀 [CI/CD] Bắt đầu quá trình tự động Deploy AirlineKH..."
 cd /var/www/AirlineKH
 
 echo "📥 1. Kéo code mới từ GitHub..."
+git config --global --add safe.directory /var/www/AirlineKH
 git pull origin main
 
 echo "⚙️ 2. Cập nhật Backend Laravel..."
