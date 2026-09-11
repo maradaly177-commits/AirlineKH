@@ -252,27 +252,55 @@ export async function streamChatMessage(
   */
 
   if (!response.ok) {
+    try {
+      // Tự động chuyển tiếp sang Normal JSON Chat nếu Streaming gặp sự cố
+      const fallbackResult = await sendChatMessage({
+        message,
+        conversationId,
+        context,
+        images,
+      });
+
+      const text =
+        fallbackResult.reply?.text ??
+        fallbackResult.data?.message ??
+        fallbackResult.message ??
+        "";
+
+      onEvent({
+        type: "done",
+        conversation_id:
+          fallbackResult.conversation_id ??
+          fallbackResult.data?.conversation_id,
+        message: text,
+        flights:
+          fallbackResult.reply?.flights ??
+          fallbackResult.data?.flights ??
+          [],
+        quick_replies:
+          fallbackResult.reply?.quick_replies ??
+          fallbackResult.data?.quick_replies ??
+          [],
+      });
+      return;
+    } catch {
+      // Fallback không thành công, tiếp tục ném lỗi bên dưới
+    }
 
     let errorMessage =
       `Streaming thất bại (HTTP ${response.status})`;
 
-
     try {
-
       const data =
         await response.json();
 
-
       if (data?.message) {
-
         errorMessage =
           data.message;
       }
-
     } catch {
       // Response không phải JSON
     }
-
 
     throw new Error(
       errorMessage

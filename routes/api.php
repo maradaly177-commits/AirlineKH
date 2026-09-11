@@ -38,10 +38,10 @@ Route::get('/check-in', [CheckInController::class, 'query']);
 */
 
 // Normal JSON
-Route::post('/ai/chat', [AIChatController::class, 'chat']);
+Route::match(['GET', 'POST'], '/ai/chat', [AIChatController::class, 'chat']);
 
 // Real-time streaming
-Route::post('/ai/chat/stream',[AIChatController::class, 'stream']);
+Route::match(['GET', 'POST'], '/ai/chat/stream', [AIChatController::class, 'stream']);
 use App\Http\Controllers\Api\GoogleAuthController;
 
 /*
