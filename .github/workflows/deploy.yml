@@ -27,6 +27,11 @@ jobs:
             source ~/.profile 2>/dev/null || true
             source ~/.bashrc 2>/dev/null || true
             cd /var/www/AirlineKH
+            sudo chown -R ubuntu:www-data /var/www/AirlineKH
+            sudo chmod -R 777 storage bootstrap/cache
+            git config --global --add safe.directory /var/www/AirlineKH
+            git reset --hard HEAD
+            git pull origin main
             chmod +x deploy.sh
             bash deploy.sh
             echo "✅ Auto-deployment completed successfully!"
