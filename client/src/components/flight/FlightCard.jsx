@@ -90,18 +90,24 @@ function getAirline(flightNumber = "") {
 }
 
 function formatTime(dateString) {
-  return new Date(dateString).toLocaleTimeString("vi-VN", {
+  if (!dateString) return "10:00";
+  const d = new Date(dateString);
+  if (isNaN(d.getTime())) return "10:00";
+  return d.toLocaleTimeString("vi-VN", {
     hour: "2-digit",
     minute: "2-digit",
   });
 }
 
 function formatCurrency(amount) {
-  return new Intl.NumberFormat("vi-VN").format(amount) + "đ";
+  const num = Number(amount) || 0;
+  return new Intl.NumberFormat("vi-VN").format(num) + "đ";
 }
 
 function calcDuration(dep, arr) {
+  if (!dep || !arr) return "1g 0p";
   const ms = new Date(arr) - new Date(dep);
+  if (isNaN(ms)) return "1g 0p";
   const h = Math.floor(ms / 3600000);
   const m = Math.floor((ms % 3600000) / 60000);
   return `${h}g ${m}p`;
