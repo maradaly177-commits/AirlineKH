@@ -119,7 +119,7 @@ export default function FlightResults() {
     } else {
       fetchFlights(null);
     }
-  }, [location, urlSearchParams]);
+  }, [location.search]);
 
   const fetchFlights = async (params) => {
     setLoading(true);
