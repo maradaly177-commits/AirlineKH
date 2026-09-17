@@ -46,7 +46,7 @@ export default function HomePage() {
     arrival: "",
     date: "",
     returnDate: "",
-    tripType: "round-trip",
+    tripType: "one-way",
     flightClass: "economy",
     passengers: { adults: 1, children: 0 }
   });
