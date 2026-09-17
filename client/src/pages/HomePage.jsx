@@ -249,16 +249,30 @@ export default function HomePage() {
                 </button>
               </div>
 
-              {/* Trip Type Dropdown Button matching Image 2 */}
-              <div className="flex items-center gap-2">
-                <select
-                  value={searchData.tripType}
-                  onChange={(e) => setSearchData(prev => ({ ...prev, tripType: e.target.value }))}
-                  className="bg-[#12234e] text-white text-xs font-bold px-4 py-2 rounded-full outline-none cursor-pointer hover:bg-[#0f1d42] transition-colors shadow-xs"
+              {/* Trip Type Toggle Buttons matching Image 2 */}
+              <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/80">
+                <button
+                  type="button"
+                  onClick={() => setSearchData(prev => ({ ...prev, tripType: "one-way" }))}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    searchData.tripType === "one-way"
+                      ? "bg-[#12234e] text-white shadow-xs"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
                 >
-                  <option value="round-trip">Round Trip ˅</option>
-                  <option value="one-way">One Way</option>
-                </select>
+                  Một chiều
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSearchData(prev => ({ ...prev, tripType: "round-trip" }))}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    searchData.tripType === "round-trip"
+                      ? "bg-[#12234e] text-white shadow-xs"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  Khứ hồi
+                </button>
               </div>
 
             </div>
@@ -323,7 +337,7 @@ export default function HomePage() {
               </div>
 
               {/* Depart Date Input */}
-              <div className="md:col-span-2 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
+              <div className={`${searchData.tripType === "round-trip" ? "md:col-span-2" : "md:col-span-5"} bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors`}>
                 <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Depart</label>
                 <div className="flex items-center gap-2">
                   <CalendarBlank size={16} className="text-slate-400 shrink-0" />
@@ -340,24 +354,25 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Return Date Input */}
-              <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
-                <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Return</label>
-                <div className="flex items-center gap-2">
-                  <CalendarBlank size={16} className="text-slate-400 shrink-0" />
-                  <input
-                    type="text"
-                    placeholder="Chọn ngày về"
-                    onFocus={(e) => (e.target.type = "date")}
-                    onBlur={(e) => { if (!e.target.value) e.target.type = "text" }}
-                    className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none placeholder:text-slate-400 placeholder:font-normal"
-                    value={searchData.returnDate}
-                    onChange={(e) => setSearchData({ ...searchData, returnDate: e.target.value })}
-                    min={searchData.date || today}
-                    disabled={searchData.tripType === "one-way"}
-                  />
+              {/* Return Date Input (Only visible when tripType is round-trip) */}
+              {searchData.tripType === "round-trip" && (
+                <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Return</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      type="text"
+                      placeholder="Chọn ngày về"
+                      onFocus={(e) => (e.target.type = "date")}
+                      onBlur={(e) => { if (!e.target.value) e.target.type = "text" }}
+                      className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none placeholder:text-slate-400 placeholder:font-normal"
+                      value={searchData.returnDate}
+                      onChange={(e) => setSearchData({ ...searchData, returnDate: e.target.value })}
+                      min={searchData.date || today}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
 
             </div>
 
