@@ -18,18 +18,51 @@ use Throwable;
 class GoogleAuthController extends Controller
 {
     /**
+     * Lấy URL Frontend động dựa trên Referer request hoặc file .env
+     */
+    private function getFrontendUrl(Request $request): string
+    {
+        $referer = $request->header('referer');
+        if ($referer) {
+            $parsed = parse_url($referer);
+            if (isset($parsed['scheme']) && isset($parsed['host'])) {
+                $port = isset($parsed['port']) ? ':' . $parsed['port'] : '';
+                return $parsed['scheme'] . '://' . $parsed['host'] . $port;
+            }
+        }
+
+        return rtrim(env('FRONTEND_URL', 'http://localhost:5173'), '/');
+    }
+
+    /**
      * Chuyển hướng người dùng sang trang đăng nhập của Google
      */
     public function redirectToGoogle(Request $request): JsonResponse|RedirectResponse
     {
         $mode = $request->query('mode', 'login'); // 'login' hoặc 'register'
+        $frontendUrl = $this->getFrontendUrl($request);
+
+        // Kiểm tra xem đã cấu hình GOOGLE_CLIENT_ID & SECRET chưa
+        $clientId = config('services.google.client_id');
+        $clientSecret = config('services.google.client_secret');
+
+        if (empty($clientId) || empty($clientSecret)) {
+            $msg = 'Chưa cấu hình GOOGLE_CLIENT_ID và GOOGLE_CLIENT_SECRET trong file .env';
+            Log::warning('Google Auth Attempted without API credentials in .env');
+
+            if ($request->wantsJson()) {
+                return response()->json(['status' => 'error', 'message' => $msg], 500);
+            }
+
+            return redirect($frontendUrl . '/auth/callback?error=' . urlencode($msg));
+        }
 
         try {
             $redirectUrl = Socialite::driver('google')
                 ->stateless()
                 ->with([
                     'prompt' => 'select_account',
-                    'state' => base64_encode(json_encode(['mode' => $mode])),
+                    'state' => base64_encode(json_encode(['mode' => $mode, 'frontend_url' => $frontendUrl])),
                 ])
                 ->redirect()
                 ->getTargetUrl();
@@ -45,15 +78,15 @@ class GoogleAuthController extends Controller
         } catch (Throwable $e) {
             Log::error('Google Redirect Error', ['error' => $e->getMessage()]);
 
+            $errMsg = 'Lỗi kết nối Google: ' . $e->getMessage();
             if ($request->wantsJson()) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Không thể tạo liên kết đăng nhập Google: ' . $e->getMessage(),
+                    'message' => $errMsg,
                 ], 500);
             }
 
-            $frontendUrl = env('FRONTEND_URL', 'http://localhost:5173') . '/login?error=' . urlencode('Lỗi kết nối Google');
-            return redirect($frontendUrl);
+            return redirect($frontendUrl . '/auth/callback?error=' . urlencode($errMsg));
         }
     }
 
@@ -62,15 +95,20 @@ class GoogleAuthController extends Controller
      */
     public function handleGoogleCallback(Request $request): RedirectResponse
     {
-        $frontendUrl = env('FRONTEND_URL', 'http://localhost:5173');
+        $frontendUrl = $this->getFrontendUrl($request);
 
-        // Lấy mode từ state (login hay register)
+        // Lấy mode và frontendUrl từ state (login hay register)
         $mode = 'login';
         $stateRaw = $request->input('state');
         if ($stateRaw) {
             $decoded = json_decode(base64_decode($stateRaw), true);
-            if (is_array($decoded) && !empty($decoded['mode'])) {
-                $mode = $decoded['mode'];
+            if (is_array($decoded)) {
+                if (!empty($decoded['mode'])) {
+                    $mode = $decoded['mode'];
+                }
+                if (!empty($decoded['frontend_url'])) {
+                    $frontendUrl = $decoded['frontend_url'];
+                }
             }
         }
 
@@ -83,7 +121,7 @@ class GoogleAuthController extends Controller
             $avatar = $googleUser->getAvatar();
 
             if (!$email) {
-                return redirect($frontendUrl . '/login?error=' . urlencode('Google không cung cấp địa chỉ email.'));
+                return redirect($frontendUrl . '/auth/callback?error=' . urlencode('Google không cung cấp địa chỉ email.'));
             }
 
             // 1. Tìm user theo google_id hoặc theo email
@@ -93,7 +131,7 @@ class GoogleAuthController extends Controller
 
             // Nếu người dùng đang bấm "Đăng nhập" nhưng email chưa từng đăng ký
             if ($mode === 'login' && !$user) {
-                return redirect($frontendUrl . '/login?error=' . urlencode('Tài khoản ' . $email . ' chưa được đăng ký trên SkyLink. Vui lòng bấm Đăng ký trước!'));
+                return redirect($frontendUrl . '/auth/callback?error=' . urlencode('Tài khoản ' . $email . ' chưa được đăng ký trên SkyLink. Vui lòng bấm Đăng ký trước!'));
             }
 
             if ($user) {
@@ -150,7 +188,7 @@ class GoogleAuthController extends Controller
                 'trace' => $e->getTraceAsString(),
             ]);
 
-            return redirect($frontendUrl . '/login?error=' . urlencode('Đăng nhập Google không thành công. Vui lòng thử lại.'));
+            return redirect($frontendUrl . '/auth/callback?error=' . urlencode('Đăng nhập Google không thành công. Vui lòng thử lại.'));
         }
     }
 

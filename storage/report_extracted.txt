@@ -1,0 +1,717 @@
+w14:paraId="1C34C937" w14:textId="67D5A3BA" w:rsidR="00EB5E58" w:rsidRPr="00585CBF" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">01905000
+w14:paraId="759ED846" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="00476D40" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">TRU?NG D?I H?C XAY D?NG HA N?I
+w14:paraId="69DBEAC4" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="00476D40" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">KHOA CONG NGH? THONG TIN
+w14:paraId="34CA4C6D" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="00476D40" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">B? MON CONG NGH? PH?N M?M
+w14:paraId="15799BF3" w14:textId="77777777" w:rsidR="00ED42D3" w:rsidRPr="0039554A" w:rsidRDefault="00EB5E58" w:rsidP="00ED42D3">center272415---------------  ---------------
+w14:paraId="4FE2C8AA" w14:textId="756069AE" w:rsidR="00EB5E58" w:rsidRPr="0039554A" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="248A1ED4" w14:textId="042CE181" w:rsidR="00EB5E58" w:rsidRPr="00476D40" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="4FD21372" w14:textId="65AC9651" w:rsidR="00EB5E58" w:rsidRPr="0039554A" w:rsidRDefault="00EB5E58" w:rsidP="00ED42D3">
+w14:paraId="545FD5B3" w14:textId="77777777" w:rsidR="00ED42D3" w:rsidRPr="0039554A" w:rsidRDefault="00ED42D3" w:rsidP="00ED42D3">
+w14:paraId="6A3CF140" w14:textId="77777777" w:rsidR="00274E06" w:rsidRPr="00476D40" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">BAO CAO 
+w14:paraId="787C001D" w14:textId="28FC184C" w:rsidR="00EB5E58" w:rsidRPr="00476D40" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">TH?C T?P T?T NGHI?P
+w14:paraId="48E1DCAC" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">Sinh vi�n th?c t?p
+w14:paraId="1BDB8B47" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">LY MARADA
+w14:paraId="14E23693" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">MSSV
+w14:paraId="45546E62" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">5001467
+w14:paraId="607C2927" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">L?p
+w14:paraId="1643AA31" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">67PM1
+w14:paraId="324A7B74" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">B? m�n
+w14:paraId="6E6EF28B" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">C�ng Ngh? Ph?n M?m
+w14:paraId="287321FB" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">D?a di?m th?c t?p
+w14:paraId="63EB6EDA" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">Gi?ng vi�n d�nh gi�
+w14:paraId="5A0884C6" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">C�ng ty TNHH VTI Education
+w14:paraId="13DA8922" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">ThS. Nguy?n H?ng H?nh 
+w14:paraId="1170CA4D" w14:textId="54AA8B5C" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="2F0DA8E4" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="3A150028" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="52B3C364" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="555BAA65" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="38A4C114" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="500D2802" w14:textId="5A551894" w:rsidR="00476D40" w:rsidRDefault="00476D40" w:rsidP="00ED42D3">
+w14:paraId="6FD11BBA" w14:textId="5F1F5502" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">HA N?I - 15/09/2026
+w14:paraId="57964B37" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="442C361D" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="734C39AE" w14:textId="27F99FFA" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">01905000
+w14:paraId="3055AE92" w14:textId="09E18DBF" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">TRU?NG D?I H?C XAY D?NG HA N?I
+w14:paraId="6216DF58" w14:textId="77777777" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">KHOA CONG NGH? THONG TIN
+w14:paraId="228317AD" w14:textId="77777777" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">B? MON CONG NGH? PH?N M?M
+w14:paraId="5D607903" w14:textId="77777777" w:rsidR="00ED42D3" w:rsidRPr="0039554A" w:rsidRDefault="00274E06" w:rsidP="00ED42D3">center272415---------------  ---------------
+w14:paraId="1A30001F" w14:textId="590F4CCB" w:rsidR="00274E06" w:rsidRPr="0039554A" w:rsidRDefault="00274E06" w:rsidP="001C3540">
+w14:paraId="18E05E54" w14:textId="3E81688C" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="469ECF52" w14:textId="77777777" w:rsidR="00ED42D3" w:rsidRPr="0039554A" w:rsidRDefault="00ED42D3" w:rsidP="001C3540">
+w14:paraId="6982B447" w14:textId="7B960DDD" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">BAO CAO 
+w14:paraId="21264929" w14:textId="4EE6060B" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">TH?C T?P T?T NGHI?P
+w14:paraId="54D17D24" w14:textId="5F650009" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540"> D? TAI: H? TH?NG D?T V� MAY BAY TICH H?P AI CHATBOT
+w14:paraId="1A92483D" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Sinh vi�n th?c t?p
+w14:paraId="78EA00D5" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">LY MARADA
+w14:paraId="554D3941" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">MSSV
+w14:paraId="0E9A54C6" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">5001467
+w14:paraId="568021D1" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">L?p
+w14:paraId="0C9E2060" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">67PM1
+w14:paraId="0188EF04" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">B? m�n
+w14:paraId="7D4610B7" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">C�ng Ngh? Ph?n M?m
+w14:paraId="7E32688C" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">D?a di?m th?c t?p
+w14:paraId="6EE1BE0A" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Gi?ng vi�n d�nh gi�
+w14:paraId="65447726" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">C�ng ty TNHH VTI Education
+w14:paraId="0E9BCDD7" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">ThS. Nguy?n H?ng H?nh 
+w14:paraId="36B0AFC8" w14:textId="03BAA05A" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="0105B84A" w14:textId="77777777" w:rsidR="00274E06" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">
+w14:paraId="46D235CD" w14:textId="7552B564" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="4974CDD8" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="0E64F889" w14:textId="77777777" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="01893E79" w14:textId="184E0AEE" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="00EB5E58" w:rsidP="001C3540">
+w14:paraId="0A2F66E4" w14:textId="30EE513B" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00274E06" w:rsidP="001C3540">HA N?I - 15/09/2026
+w14:paraId="3B336015" w14:textId="5878088C" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">H? v� t�n sinh vi�n:
+w14:paraId="3CF9C7CB" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">LY MARADA
+w14:paraId="239DE4A5" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Ma s? sinh vi�n: 
+w14:paraId="7B5958DE" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">5001467
+w14:paraId="4E2160BD" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Ng�nh/Chuy�n ng�nh: 
+w14:paraId="71890A06" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">C�ng ngh? ph?n m?m
+w14:paraId="4516370F" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Khoa/Vi?n:
+w14:paraId="004B0349" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">C�ng ngh? th�ng tin
+w14:paraId="4B8837CC" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">L?p/Kho�:
+w14:paraId="43D16167" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">67PM
+w14:paraId="5C322CC2" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Don v? hu?ng d?n:
+w14:paraId="0BEBE758" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Co^ng ty TNHH VTI Education
+w14:paraId="2C6D60E5" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">D?a ch? th?c t?p::
+w14:paraId="7B2AFA8B" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">T?ng 3 Kh?i A T�a nh� S�ng D�, Du?ng Ph?m H�ng, M? D�nh 1, Nam T? Li�m, H� N?i
+w14:paraId="703A1E5B" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Th?i gian th?c t?p:
+w14:paraId="00AB85E5" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">T? ng�y 03/08/2026 d?n ng�y 21/09/2026
+w14:paraId="567BEC24" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Gi?ng vi�n hu?ng d?n: 
+w14:paraId="6B1F0807" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">ThS. Nguy?n H?ng H?nh
+w14:paraId="7EDE7153" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">C�n b? hu?ng d?n t?i DVHD:
+w14:paraId="36AE6D8C" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Dinh Van D�ng
+w14:paraId="013CE166" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Phuong th?c th?c t?p:
+w14:paraId="179FAB99" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Tr?c ti?p
+w14:paraId="4385BC7E" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">H�nh th?c th?c t?p:
+w14:paraId="7C9D11B9" w14:textId="77777777" w:rsidR="004025A3" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">Part Time
+w14:paraId="5B4C3FAB" w14:textId="35B60EE0" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="00ED42D3">BAO CAO TH?C T?P T?T NGHI?P C?A SINH VIEN
+w14:paraId="2AE37FA0" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">
+w14:paraId="4CC2A764" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="001C3540">
+w14:paraId="391016CC" w14:textId="77777777" w:rsidR="00EC46FA" w:rsidRPr="001C3540" w:rsidRDefault="00EC46FA" w:rsidP="006C60DE">
+w14:paraId="3E2C4485" w14:textId="77777777" w:rsidR="004025A3" w:rsidRDefault="004025A3" w:rsidP="001C3540">
+w14:paraId="09B67DB1" w14:textId="77777777" w:rsidR="00ED42D3" w:rsidRDefault="00ED42D3" w:rsidP="001C3540">
+w14:paraId="6993D0E7" w14:textId="77777777" w:rsidR="00ED42D3" w:rsidRPr="00ED42D3" w:rsidRDefault="00ED42D3" w:rsidP="001C3540">
+w14:paraId="7F65FCC1" w14:textId="163303FA" w:rsidR="00EB5E58" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">L?I C?M ON
+w14:paraId="3F332800" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="004025A3" w:rsidP="001C3540">   Trong su?t qu� tr�nh h?c t?p t?i Tru?ng D?i h?c X�y d?ng H� N?i v� th?i gian th?c t?p t?i C�ng ty TNHH VTI Education, em da nh?n du?c s? quan t�m, ch? d?n t?n t�nh t? quy Th?y C� v� c�c c�n b? hu?ng d?n.
+w14:paraId="28924F42" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">Tru?c h?t, em xin g?i l?i c?m on ch�n th�nh d?n Ban Gi�m hi?u, Khoa C�ng ngh? Th�ng tin v� B? m�n C�ng ngh? Ph?n m?m da truy?n d?t nh?ng ki?n th?c n?n t?ng quy b�u trong su?t c�c nam h?c qua. D?c bi?t, em xin tr�n tr?ng c?m on C� Nguy?n H?ng H?nh - Gi?ng vi�n hu?ng d?n, da lu�n d?nh hu?ng v� ch? b?o t?n t�nh gi�p em ho�n thi?n d? t�i.
+w14:paraId="0FF766DA" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">Em cung xin b�y t? l�ng bi?t on s�u s?c d?n Ban Lanh d?o C�ng ty TNHH VTI Education, Th?y Dinh Van D�ng c�ng c�c anh/ch? hu?ng d?n da t?o di?u ki?n m�i tru?ng l�m vi?c chuy�n nghi?p, t?n t�m chia s? kinh nghi?m th?c chi?n v? qu?n ly d? �n, ph�t tri?n Web Full-stack v� tri?n khai h? th?ng.
+w14:paraId="213184CD" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">M?c d� da r?t n? l?c, b�o c�o kh� tr�nh kh?i nh?ng thi?u s�t nh?t d?nh. Em r?t mong nh?n du?c nh?ng g�p y quy b�u t? quy Th?y C� v� c�c anh/ch? d? b?n th�n ti?p t?c ho�n thi?n hon.
+w14:paraId="03C06A84" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">Em xin ch�n th�nh c?m on!
+w14:paraId="089A997F" w14:textId="07C30CB8" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="385116DC" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="47AEB2A6" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="20C2F371" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="0F5FA2DF" w14:textId="77777777" w:rsidR="00A43A6A" w:rsidRPr="001C3540" w:rsidRDefault="00A43A6A" w:rsidP="001C3540">
+w14:paraId="7390914A" w14:textId="77777777" w:rsidR="005235B4" w:rsidRDefault="005235B4" w:rsidP="001C3540">
+w14:paraId="6F82D475" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="00ED42D3" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="4A5F08C3" w14:textId="77777777" w:rsidR="006C60DE" w:rsidRPr="00ED42D3" w:rsidRDefault="006C60DE" w:rsidP="001C3540">
+w14:paraId="111B0AC6" w14:textId="44F13399" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="00AB2F26" w:rsidP="001C3540">M?c L?c
+w14:paraId="2B8F5ED1" w14:textId="31865DA6" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540"> TOC \o "1-3" \h \z \u M? D?U PAGEREF _Toc240150887 \h 4
+w14:paraId="363537B1" w14:textId="14D9334A" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">CHUONG 1: GI?I THI?U CHUNG V? DON V? TH?C T?P PAGEREF _Toc240150888 \h 6
+w14:paraId="32A64AE2" w14:textId="3D45A097" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">1.1. Gi?i thi?u chung v� L?ch s? h�nh th�nh PAGEREF _Toc240150889 \h 6
+w14:paraId="309381D1" w14:textId="75408691" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">1.2. Co c?u t? ch?c PAGEREF _Toc240150890 \h 7
+w14:paraId="25E7EDDE" w14:textId="52DC7027" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">1.3. Ch?c nang, nhi?m v? v� Linh v?c ho?t d?ng PAGEREF _Toc240150891 \h 7
+w14:paraId="4D9D274D" w14:textId="71C06A94" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">1.4. Quy m� v� Nang l?c ho?t d?ng PAGEREF _Toc240150892 \h 8
+w14:paraId="20F9A405" w14:textId="40C14551" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">1.5. D? �n v� c�ng vi?c sinh vi�n tham gia PAGEREF _Toc240150893 \h 8
+w14:paraId="24160EA3" w14:textId="1DD0041C" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">CHUONG 2: M?C TIEU VA K? HO?CH TH?C T?P PAGEREF _Toc240150894 \h 9
+w14:paraId="7D3C4D3E" w14:textId="6CA9F0D8" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">2.1. M?c ti�u h?c t?p c� nh�n (theo chu?n d?u ra CLO) PAGEREF _Toc240150895 \h 9
+w14:paraId="0D6C2F0D" w14:textId="33B0AE37" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">2.2. K? ho?ch c�ng vi?c chi ti?t (Tu?n 1-6) PAGEREF _Toc240150896 \h 10
+w14:paraId="0A55AC04" w14:textId="045D0308" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">CHUONG 3: N?I DUNG VA K?T QU? TH?C T?P PAGEREF _Toc240150897 \h 12
+w14:paraId="13B4C1F7" w14:textId="1D18DFF4" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.1. Nhi?m v? du?c giao v� m� t? c�ng vi?c th?c t? PAGEREF _Toc240150898 \h 12
+w14:paraId="1881D02A" w14:textId="2693C7F6" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2. C�c s?n ph?m k? thu?t v� k?t qu? d?t du?c PAGEREF _Toc240150899 \h 13
+w14:paraId="471B8DE9" w14:textId="0EF16757" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2.1. Tu?n 1: Kh?i t?o d? �n &amp; Thi?t l?p m�i tru?ng ph�t tri?n PAGEREF _Toc240150900 \h 13
+w14:paraId="071FF565" w14:textId="17B16586" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2.2. Tu?n 2: Thi?t k? CSDL &amp; X�y d?ng API Qu?n ly Chuy?n bay PAGEREF _Toc240150901 \h 14
+w14:paraId="7015DDAF" w14:textId="6DAA5496" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2.3. Tu?n 3: X�y d?ng Ph�n h? Booking &amp; Check-in Online PAGEREF _Toc240150902 \h 15
+w14:paraId="11E6730B" w14:textId="6A551D1F" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2.4. Tu?n 4: T�ch h?p Tr? ly AI Chatbot (SkyAI) &amp; Ph�n h? SkyClub PAGEREF _Toc240150903 \h 15
+w14:paraId="50D83933" w14:textId="72664EED" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2.5. Tu?n 5: Ph�t tri?n Giao di?n Ngu?i d�ng (React UI) &amp; Admin Dashboard PAGEREF _Toc240150904 \h 16
+w14:paraId="121728F4" w14:textId="26301E2A" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.2.6. Tu?n 6: D�ng g�i Docker, C?u h�nh CI/CD &amp; Tri?n khai VPS PAGEREF _Toc240150905 \h 17
+w14:paraId="1D8AE0CD" w14:textId="5ADDC32E" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.3. Bi?u d? use case PAGEREF _Toc240150906 \h 18
+w14:paraId="73DEC8E0" w14:textId="24A4759C" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.3.1 Bi?u d? use case t?ng qu�t PAGEREF _Toc240150907 \h 18
+w14:paraId="44CD2040" w14:textId="15CA4455" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.3.2. Bi?u d? use case Admin PAGEREF _Toc240150908 \h 19
+w14:paraId="0C5B203A" w14:textId="62F4C2E8" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.3.3. Bi?u d? use case User PAGEREF _Toc240150909 \h 20
+w14:paraId="1EF016E8" w14:textId="76A7FD41" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.3.4. Bi?u d? use case Tr? Ly AI SkyAI PAGEREF _Toc240150910 \h 21
+w14:paraId="7BAB80D8" w14:textId="2649A733" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4 Bi?u d? ho?t d?ng (Activity Diagrams) PAGEREF _Toc240150911 \h 21
+w14:paraId="7D7AD201" w14:textId="33D293BA" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.1 Quy tr�nh D?t v� m�y bay PAGEREF _Toc240150912 \h 22
+w14:paraId="6BD77429" w14:textId="78B457E1" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.2 Quy tr�nh Ch?n gh? tr?c tuy?n PAGEREF _Toc240150913 \h 23
+w14:paraId="43903637" w14:textId="1FAE7EF5" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.3 Quy tr�nh  Check-in tr?c tuy?n PAGEREF _Toc240150914 \h 24
+w14:paraId="0E7CB66C" w14:textId="457FCC87" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.4 Quy tr�nh Tu v?n qua SkyAI PAGEREF _Toc240150915 \h 25
+w14:paraId="616F09ED" w14:textId="700973F5" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.5 Quy tr�nh Qu?n ly v� da d?t PAGEREF _Toc240150916 \h 26
+w14:paraId="7BDCA7E1" w14:textId="00C5CB90" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.6 Quy tr�nh Qu?n ly chuy?n bay PAGEREF _Toc240150917 \h 27
+w14:paraId="5B215A53" w14:textId="21365D6E" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.7 Quy tr�nh Qu?n ly ngu?i d�ng PAGEREF _Toc240150918 \h 28
+w14:paraId="2992F819" w14:textId="0FA29435" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.4.8 Quy tr�nh S? d?ng h? th?ng PAGEREF _Toc240150919 \h 29
+w14:paraId="064497AD" w14:textId="4ED0710F" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.5 Bi?u d? ERD PAGEREF _Toc240150920 \h 30
+w14:paraId="107B6AFE" w14:textId="31CD3121" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540"> PAGEREF _Toc240150921 \h 30
+w14:paraId="69C44D04" w14:textId="45D90B93" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.6. C�c k? nang v� c�ng c? k? thu?t da s? d?ng PAGEREF _Toc240150922 \h 31
+w14:paraId="2ACB7BE1" w14:textId="53039B7C" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.6.1. C�c k? nang d?t du?c PAGEREF _Toc240150923 \h 31
+w14:paraId="5B5C3004" w14:textId="69202E52" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.6.2. C�ng c? v� c�ng ngh? k? thu?t s? d?ng PAGEREF _Toc240150924 \h 32
+w14:paraId="7AAAFC04" w14:textId="03030B29" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">3.7. D�nh gi� k?t qu? th?c t?p PAGEREF _Toc240150925 \h 33
+w14:paraId="0C931B3E" w14:textId="3D38ADB1" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">CHUONG 4: PHAN TICH, DANH GIA VA D? XU?T PAGEREF _Toc240150926 \h 34
+w14:paraId="0288E1AF" w14:textId="55D3E6B4" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">4.1. Nh?n x�t v? quy tr�nh, kh� khan g?p ph?i v� gi?i ph�p d? xu?t PAGEREF _Toc240150927 \h 34
+w14:paraId="5846A6FA" w14:textId="0C53EB36" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">4.2. Ph�n t�ch m?i li�n h? gi?a ly thuy?t v� th?c t? PAGEREF _Toc240150928 \h 35
+w14:paraId="2980ABB3" w14:textId="0A51D090" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">4.3. Ki?n ngh? c?i ti?n quy tr�nh ho?c phuong ph�p k? thu?t PAGEREF _Toc240150929 \h 35
+w14:paraId="4847CB91" w14:textId="1A292938" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">4.4. K?t lu?n chuong PAGEREF _Toc240150930 \h 36
+w14:paraId="055955D7" w14:textId="18696E07" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">CHUONG 5: T? NH?N X�T VA D?NH HU?NG NGH? NGHI?P CA NHAN PAGEREF _Toc240150931 \h 36
+w14:paraId="4F3EDC9E" w14:textId="1A5BF76A" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">5.1. Nh?n x�t v? nang l?c b?n th�n PAGEREF _Toc240150932 \h 36
+w14:paraId="39A26620" w14:textId="36544A84" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">5.2. D?nh hu?ng h?c t?p v� ngh? nghi?p trong tuong lai PAGEREF _Toc240150933 \h 37
+w14:paraId="2634B377" w14:textId="2652C616" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">5.3. K?t lu?n chuong PAGEREF _Toc240150934 \h 37
+w14:paraId="4ED5ADE7" w14:textId="5404D483" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">CHUONG 6: K?T LU?N VA KI?N NGH? PAGEREF _Toc240150935 \h 38
+w14:paraId="767D504E" w14:textId="790BBDDF" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">6.1. T?ng k?t n?i dung v� b�i h?c kinh nghi?m PAGEREF _Toc240150936 \h 38
+w14:paraId="407EB4ED" w14:textId="1A79C4BC" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">6.2. Ki?n ngh? PAGEREF _Toc240150937 \h 38
+w14:paraId="57EFB3D9" w14:textId="3A7A9780" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">6.3. K?t lu?n chung PAGEREF _Toc240150938 \h 39
+w14:paraId="55791662" w14:textId="3B5C853A" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">
+w14:paraId="47BA7296" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="3B143321" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="4CBCE9B6" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">
+w14:paraId="7AFC1097" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">
+w14:paraId="6D2BCD7D" w14:textId="77777777" w:rsidR="008208F2" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="4A53340A" w14:textId="77777777" w:rsidR="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="264E709A" w14:textId="77777777" w:rsidR="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="58ABF9B1" w14:textId="77777777" w:rsidR="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="2D6A5887" w14:textId="77777777" w:rsidR="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="3085A417" w14:textId="77777777" w:rsidR="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="2B7EA224" w14:textId="77777777" w:rsidR="008443B3" w:rsidRPr="008443B3" w:rsidRDefault="008443B3" w:rsidP="001C3540">
+w14:paraId="1F78F8C9" w14:textId="370A8C78" w:rsidR="005235B4" w:rsidRPr="00F709D6" w:rsidRDefault="005235B4" w:rsidP="006C60DE">DANH M?C HINH ANH 
+w14:paraId="026FA20C" w14:textId="7F17C03C" w:rsidR="001C3540" w:rsidRPr="0039554A" w:rsidRDefault="001C3540" w:rsidP="001C3540"> TOC \h \z \c "Hi`nh" Hi`nh 0.1: Giao di?n Jira Tu?n 1 - Kh?i t?o &amp; Setup13
+w14:paraId="0FA863CE" w14:textId="37DB5353" w:rsidR="001C3540" w:rsidRPr="0039554A" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.2:  Giao di?n Jira Tu?n 2 - CSDL &amp; Chuy?n bay14
+w14:paraId="4A098737" w14:textId="01006F87" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.3: Giao di?n Jira Tu?n 3 - Booking &amp; Check-in14
+w14:paraId="6A952E5B" w14:textId="1E5F57DB" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.4: Giao di?n Jira Tu?n 4 - SkyAI &amp; SkyClub15
+w14:paraId="7820500B" w14:textId="04ACADD1" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.5: Giao di?n Jira Tu?n 5 - React UI &amp; Admin16
+w14:paraId="0AABA0EC" w14:textId="7B596A23" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.6: Giao di?n Jira Tu?n 6 - Docker CI/CD VPS16
+w14:paraId="75493900" w14:textId="585860F4" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.7: Bi?u d? use case t?ng qu�t SkyLink Airlines18
+w14:paraId="151CA8D8" w14:textId="5667AECE" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.8: Bi?u d? use case Admin19
+w14:paraId="0786130E" w14:textId="6FC2705F" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.9: Bi?u d? use case User20
+w14:paraId="3D95B67C" w14:textId="662FE5BE" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.10: Bi?u d? use case Tr? Ly AI SkyAI21
+w14:paraId="338687F1" w14:textId="01EEECEE" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.11: Quy tr�nh D?t v� m�y bay22
+w14:paraId="4B19FAAC" w14:textId="4C647CED" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.12: Quy tr�nh Ch?n gh? tr?c tuy?n23
+w14:paraId="3EB27552" w14:textId="15CB3A8E" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.13: Quy tr�nh Check-in tr?c tuy?n24
+w14:paraId="5F4BA6A6" w14:textId="254D4A93" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.14: Quy tr�nh Tu v?n qua SkyAI25
+w14:paraId="744522AA" w14:textId="3855F005" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.15: Quy tr�nh Qu?n ly v� da d?t26
+w14:paraId="1B4FD756" w14:textId="2EE72C15" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.16: Quy tr�nh Qu?n ly chuy?n bay27
+w14:paraId="6104B038" w14:textId="441CFCAD" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.17: Quy tr�nh Qu?n ly ngu?i d�ng28
+w14:paraId="0BE9341B" w14:textId="3C8903DB" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.18: Quy tr�nh S? d?ng h? th?ng29
+w14:paraId="0C80A888" w14:textId="3EA32E0A" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">Hi`nh 0.19: Bi?u d? ERD30
+w14:paraId="4888B890" w14:textId="67ED6B1C" w:rsidR="00465DA0" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="389777D5" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="2ABFF19F" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="79F4A396" w14:textId="77777777" w:rsidR="001C3540" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="5F4D4C49" w14:textId="77777777" w:rsidR="006C60DE" w:rsidRPr="006C60DE" w:rsidRDefault="006C60DE" w:rsidP="001C3540">
+w14:paraId="418CE720" w14:textId="77777777" w:rsidR="008859BF" w:rsidRDefault="008859BF" w:rsidP="001C3540">
+w14:paraId="3CA0E265" w14:textId="77777777" w:rsidR="006C60DE" w:rsidRPr="008443B3" w:rsidRDefault="006C60DE" w:rsidP="001C3540">
+w14:paraId="631AD6DD" w14:textId="5C40517A" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">DANH M?C CAC T? VI?T T?T
+w14:paraId="030644F7" w14:textId="77777777" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">
+w14:paraId="31E58E43" w14:textId="54EE903E" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">STT
+w14:paraId="581057F2" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="454526F3" w14:textId="77777777" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">
+w14:paraId="734C10BF" w14:textId="482B6EC4" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">Ky hi?u / Vi?t t?t
+w14:paraId="060AC26C" w14:textId="37D1B9B7" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">
+w14:paraId="4F213BDF" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="65D1651A" w14:textId="73A2144B" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">T�n ti?ng Anh d?y d?
+w14:paraId="05A21F4C" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="2D20754E" w14:textId="2DBD4B89" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">Y nghia / Gi?i th�ch
+w14:paraId="3771A731" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="70C4FCDC" w14:textId="0A7EA44C" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">1
+w14:paraId="25D52CD4" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="50258A92" w14:textId="6E8BE06B" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">IT
+w14:paraId="3AC448E9" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="4B41DD2D" w14:textId="1CB0E6FB" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Information Technology
+w14:paraId="6F543842" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="38CEF4E5" w14:textId="29DBA326" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">C�ng ngh? th�ng tin
+w14:paraId="767F9CD4" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="471751DD" w14:textId="1E27C364" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">2
+w14:paraId="3F8AFFD2" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="64AC729C" w14:textId="7044B4E2" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">API
+w14:paraId="46B5B705" w14:textId="1BFD7A21" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Application Programming Interface
+w14:paraId="443B0751" w14:textId="6450FB36" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Giao di?n l?p tr�nh ?ng d?ng
+w14:paraId="079DAB94" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="7188FF98" w14:textId="4F338C64" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">3
+w14:paraId="2A7E9CFA" w14:textId="77777777" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="005F5C96" w:rsidP="001C3540">
+w14:paraId="2FC25990" w14:textId="366F3C95" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">UI / UX
+w14:paraId="4DF2C027" w14:textId="0D1E6DB6" w:rsidR="002D3B5D" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">User Interface / User Experience
+w14:paraId="74C28603" w14:textId="78432372" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Giao di?n ngu?i d�ng / Tr?i nghi?m ngu?i d�ng
+w14:paraId="637F343D" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="0ADA2C3F" w14:textId="1B428F46" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">4
+w14:paraId="0C383233" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="6EE01EC9" w14:textId="2203F0C3" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">FE
+w14:paraId="270A042D" w14:textId="301F0BE3" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Frontend
+w14:paraId="464EEF44" w14:textId="424001AB" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Ph�a m�y kh�ch (Giao di?n)
+w14:paraId="1B475989" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="47C10B33" w14:textId="05835B04" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">5
+w14:paraId="588A5D8B" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="53D782AF" w14:textId="62EA7B55" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">BE
+w14:paraId="0DBD67A4" w14:textId="7956FBEC" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Backend
+w14:paraId="363DBFEB" w14:textId="1743DE06" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Ph�a m�y ch? (X? ly nghi?p v?)
+w14:paraId="1A0FC943" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="2788E4C4" w14:textId="46CBF8AC" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">6
+w14:paraId="66580854" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="49BD0A45" w14:textId="6AA8BC98" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">SDLC
+w14:paraId="743FD573" w14:textId="171840A8" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Software Development Life Cycle
+w14:paraId="4FEC9B8E" w14:textId="243D447C" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">V�ng d?i ph�t tri?n ph?n m?m
+w14:paraId="103150DB" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="3A624898" w14:textId="5A447B0C" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">7
+w14:paraId="0C901B43" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="6787C010" w14:textId="4EF79EB3" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">SRS
+w14:paraId="5DE025A3" w14:textId="0CBFB8B2" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Software Requirements Specification
+w14:paraId="7B10D9C5" w14:textId="33A3BDD3" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">T�i li?u d?c t? y�u c?u ph?n m?m
+w14:paraId="1CA4097E" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="1D8C4107" w14:textId="7E584D8D" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">8
+w14:paraId="1EE11FDC" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="28A770A7" w14:textId="648A0B51" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">ERD
+w14:paraId="561B4C54" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="3A99789B" w14:textId="3D8FF0F2" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Entity Relationship Diagram
+w14:paraId="2CB4A628" w14:textId="18E24364" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">So d? quan h? th?c th? (Co s? d? li?u)
+w14:paraId="32713A7D" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="67C306FD" w14:textId="704C193D" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">9
+w14:paraId="1B9D33FF" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="3FEFF9D7" w14:textId="6E25CAB9" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">REST
+w14:paraId="72C31133" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="74509674" w14:textId="011737C4" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Representational State Transfer
+w14:paraId="4BD33CF7" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="52A8C8D1" w14:textId="4077B7CE" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Ki?n tr�c thi?t k? API ti�u chu?n
+w14:paraId="5AD67EE8" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="0B20AD76" w14:textId="132A5A4A" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">10
+w14:paraId="3C0A2D64" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="7FAB381E" w14:textId="71CF62B2" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">JSON
+w14:paraId="50585439" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="6694D633" w14:textId="6D7C305D" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">JavaScript Object Notation
+w14:paraId="17AF826E" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="76EA53BE" w14:textId="67A3F309" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">D?nh d?ng trao d?i d? li?u
+w14:paraId="65843956" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="7343033E" w14:textId="11758BE3" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">11
+w14:paraId="22CFD99A" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="6CE062EC" w14:textId="1C988916" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">HTTP
+w14:paraId="761B0C42" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="773FEC3F" w14:textId="1ADB9CCC" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">HyperText Transfer Protocol
+w14:paraId="7C2D3ADF" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="6A57181B" w14:textId="06B22B21" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Giao th?c truy?n t?i si�u van b?n
+w14:paraId="13B23DFC" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="4DA03726" w14:textId="605ABA84" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">12
+w14:paraId="0DD95765" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="167096FB" w14:textId="3800B2D5" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">HTTPS
+w14:paraId="53F9AE9C" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="785CDD6B" w14:textId="65FA7224" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">HyperText Transfer Protocol Secure
+w14:paraId="71CC1C13" w14:textId="77777777" w:rsidR="00BA20B3" w:rsidRPr="001C3540" w:rsidRDefault="00BA20B3" w:rsidP="001C3540">
+w14:paraId="1DA74197" w14:textId="2CAC8737" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Giao th?c truy?n t?i si�u van b?n an to�n
+w14:paraId="2D248C64" w14:textId="3ADF1378" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">13
+w14:paraId="6E2AA7E6" w14:textId="1EC99707" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">SSL / TLS
+w14:paraId="75781F02" w14:textId="4D1BB6D4" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Secure Sockets Layer / Transport Layer Security
+w14:paraId="1C4A84B1" w14:textId="165E0353" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Giao th?c ma h�a b?o m?t truy?n th�ng internet
+w14:paraId="1CF5E1F8" w14:textId="6A4D4FF6" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">14
+w14:paraId="1FEAAF67" w14:textId="1042DDE1" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">NLP
+w14:paraId="0957C0C3" w14:textId="6E4AB2A4" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="002D3B5D" w:rsidP="001C3540">Natural Language Processing
+w14:paraId="068AB11D" w14:textId="1B4D3FF7" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">X? ly ng�n ng? t? nhi�n
+w14:paraId="52A795E9" w14:textId="3D2DC621" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">15
+w14:paraId="022EF406" w14:textId="558403E7" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">AI
+w14:paraId="5E543EA1" w14:textId="67B1C6BF" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Artificial Intelligence
+w14:paraId="60F38606" w14:textId="0E757B06" w:rsidR="005F5C96" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Tr� tu? nh�n t?o
+w14:paraId="325B91CB" w14:textId="21B763FC" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">16
+w14:paraId="7DF4D655" w14:textId="4FD205FC" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">UAT
+w14:paraId="34CF86EC" w14:textId="2C048677" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">User Acceptance Testing
+w14:paraId="1877D1F2" w14:textId="507ED0F7" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Ki?m th? ch?p nh?n ngu?i d�ng
+w14:paraId="6C323B22" w14:textId="1ED21A2D" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">17
+w14:paraId="5E13659C" w14:textId="2CBB877A" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">PM2
+w14:paraId="292DFEFE" w14:textId="3DC20C14" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Process Manager 2
+w14:paraId="649C30A3" w14:textId="79FFEA75" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Tr�nh qu?n ly ti?n tr�nh ?ng d?ng Node.js
+w14:paraId="5ED34BE6" w14:textId="12824CDF" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">18
+w14:paraId="6B13A107" w14:textId="33CF56C3" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">CLO
+w14:paraId="6B1567A7" w14:textId="1E2A6737" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Course Learning Outcomes
+w14:paraId="2F3650E7" w14:textId="4E7BFCB4" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">Chu?n d?u ra h?c ph?n
+w14:paraId="53375C1D" w14:textId="0661DB13" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="00F974E3" w:rsidP="001C3540">19
+w14:paraId="0DD59DC7" w14:textId="1F9B33FA" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">PostgreSQL
+w14:paraId="57129B95" w14:textId="4091CA4F" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">PostgreSQL Object-Relational Database System
+w14:paraId="7FE7771F" w14:textId="41D88FC0" w:rsidR="00F974E3" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">H? qu?n tr? co s? d? li?u quan h? d?i tu?ng
+w14:paraId="3E44F26F" w14:textId="35B86B00" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">20
+w14:paraId="761568DC" w14:textId="171B3CF2" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Qdrant
+w14:paraId="2E64A646" w14:textId="172EC089" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Qdrant Vector Search Engine &amp; Database
+w14:paraId="664BAA10" w14:textId="60F108AA" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Co s? d? li?u Vector luu tr? v� truy v?n tri th?c AI
+w14:paraId="36B0F2F1" w14:textId="7B72E805" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">21
+w14:paraId="3D64E849" w14:textId="7E87522F" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">RAG
+w14:paraId="632FFF1A" w14:textId="5DAD9BE7" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Retrieval-Augmented Generation
+w14:paraId="435A6655" w14:textId="0929E324" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">M� h�nh t?o van b?n k?t h?p truy xu?t tri th?c cho Chatbot AI
+w14:paraId="536233CF" w14:textId="1E59EE42" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">22
+w14:paraId="796A65CF" w14:textId="13F6154F" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">CI/CD
+w14:paraId="01D0BFB2" w14:textId="054FB959" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Continuous Integration / Continuous Deployment
+w14:paraId="4056CF21" w14:textId="44F9AC45" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Quy tr�nh t�ch h?p v� tri?n khai ma ngu?n t? d?ng
+w14:paraId="646D757F" w14:textId="3241C328" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">23
+w14:paraId="56416F1D" w14:textId="32D1C92A" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">VPS
+w14:paraId="27508D8B" w14:textId="2002EEF1" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">Virtual Private Server
+w14:paraId="5852D773" w14:textId="008056C3" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">M�y ch? ri�ng ?o ph?c v? tri?n khai ?ng d?ng th?c t?
+w14:paraId="75ACAF19" w14:textId="570B156A" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">24
+w14:paraId="7CC65521" w14:textId="20C91ACE" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="006755D5" w:rsidP="001C3540">OAuth
+w14:paraId="5FBCC75A" w14:textId="0DF87F1F" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="00E51386" w:rsidP="001C3540">Open Authorization (Google OAuth 2.0)
+w14:paraId="6838A4FB" w14:textId="563CEA45" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="00E51386" w:rsidP="001C3540">Chu?n ?y quy?n v� x�c th?c ngu?i d�ng qua b�n th? ba
+w14:paraId="6F0E79A8" w14:textId="53AA071F" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="00E51386" w:rsidP="001C3540">25
+w14:paraId="195E2742" w14:textId="09567C95" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="00E51386" w:rsidP="001C3540">JWT
+w14:paraId="4C14C0F4" w14:textId="42AAB101" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="00E51386" w:rsidP="001C3540">JSON Web Token
+w14:paraId="533B3066" w14:textId="245DCE37" w:rsidR="006755D5" w:rsidRPr="001C3540" w:rsidRDefault="00E51386" w:rsidP="001C3540">Chu?n ma h�a th�ng tin an to�n ph?c v? x�c th?c phi�n l�m vi?c
+w14:paraId="198D6550" w14:textId="77777777" w:rsidR="008208F2" w:rsidRPr="001C3540" w:rsidRDefault="008208F2" w:rsidP="001C3540">
+w14:paraId="6571CB7C" w14:textId="77777777" w:rsidR="00B80752" w:rsidRPr="001C3540" w:rsidRDefault="00B80752" w:rsidP="001C3540">
+w14:paraId="0E8F299E" w14:textId="77777777" w:rsidR="00B80752" w:rsidRDefault="00B80752" w:rsidP="001C3540">
+w14:paraId="0269B054" w14:textId="77777777" w:rsidR="00C772BD" w:rsidRPr="00C772BD" w:rsidRDefault="00C772BD" w:rsidP="001C3540">
+w14:paraId="1840F1B6" w14:textId="12908420" w:rsidR="00B80752" w:rsidRPr="001C3540" w:rsidRDefault="00B80752" w:rsidP="00925001">M? D?U
+w14:paraId="271E1402" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="00B80752" w:rsidP="001C3540">   Ng�nh h�ng kh�ng v� thuong m?i di?n t? ph?c v? nhu c?u di l?i c?a kh�ch h�ng dang 
+w14:paraId="47F24999" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">ph�t tri?n v?i t?c d? r?t nhanh. Ngu?i d�ng hi?n d?i kh�ng ch? d�i h?i m?t n?n t?ng d?t 
+w14:paraId="34FE4741" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">v� m�y bay tr?c tuy?n nhanh ch�ng, giao di?n th�n thi?n, b?o m?t cao m� c�n mong 
+w14:paraId="1A0045D5" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">mu?n nh?n du?c s? h? tr?, tu v?n h�nh tr�nh v� gi?i d�p th?c m?c ngay l?p t?c 24/7. D? 
+w14:paraId="1783BF38" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">gi?i quy?t b�i to�n n�y, vi?c t�ch h?p Tr? ly AI (Chatbot) th�ng minh v�o h? th?ng d?t v� 
+w14:paraId="344B7BB8" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">m�y bay l� gi?i ph�p t?i uu gi�p n�ng cao tr?i nghi?m kh�ch h�ng v� t? d?ng h�a v?n 
+w14:paraId="54D5E42F" w14:textId="51134337" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">h�nh.
+w14:paraId="06BFFC73" w14:textId="6BC3BEE9" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">  H?c ph?n Th?c t?p t?t nghi?p l� c?u n?i then ch?t gi�p sinh vi�n ng�nh C�ng ngh? Ph?n 
+w14:paraId="0E447423" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">m?m v?n d?ng to�n di?n ki?n th?c da h?c v�o m�i tru?ng doanh nghi?p th?c t?. D�y l� 
+w14:paraId="73282A91" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">co h?i d? sinh vi�n ti?p c?n quy tr�nh ph�t tri?n ph?n m?m chu?n m?c (Agile/Scrum), r�n 
+w14:paraId="66F6044B" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">luy?n k? nang x�y d?ng h? th?ng Web Full-stack, l�m quen v?i vi?c t�ch h?p c�ng ngh? 
+w14:paraId="084EC61F" w14:textId="6B067868" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">AI v� th?c hi?n b�i to�n tri?n khai (Deployment) h? t?ng Cloud Server th?c t?.
+w14:paraId="7EC9E973" w14:textId="51B406B3" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">   Trong d?t th?c t?p n�y, em da tham gia th?c t?p t?i C�ng ty TNHH VTI Education du?i 
+w14:paraId="230DCBDA" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">s? hu?ng d?n c?a Th?y Dinh Van D�ng v� c�n b? hu?ng d?n t?i doanh nghi?p. D? t�i 
+w14:paraId="63523366" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">du?c l?a ch?n v� th?c hi?n l� "H? TH?NG D?T V� MAY BAY TICH H?P AI 
+w14:paraId="638ABBA6" w14:textId="77777777" w:rsidR="005235B4" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">CHATBOT". B�o c�o n�y t?ng k?t to�n b? qu� tr�nh nghi�n c?u, thi?t k?, l?p tr�nh Full
+w14:paraId="52C64B24" w14:textId="33FC109A" w:rsidR="00B80752" w:rsidRPr="001C3540" w:rsidRDefault="005235B4" w:rsidP="001C3540">stack, t�ch h?p AI Chatbot v� tri?n khai Server th?c t?, qua d� ghi nh?n nh?ng b�i h?c kinh nghi?m v� k?t qu? d?t du?c.
+w14:paraId="2FFEB9AA" w14:textId="77777777" w:rsidR="00B80752" w:rsidRPr="00ED42D3" w:rsidRDefault="00B80752" w:rsidP="001C3540">
+w14:paraId="6F2F41F0" w14:textId="77777777" w:rsidR="00C772BD" w:rsidRPr="00ED42D3" w:rsidRDefault="00C772BD" w:rsidP="001C3540">
+w14:paraId="237AEC93" w14:textId="77777777" w:rsidR="003E3869" w:rsidRPr="001C3540" w:rsidRDefault="003E3869" w:rsidP="001C3540">
+w14:paraId="5F5E8239" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">N?i dung c?a b�o c�o th?c t?p t?t nghi?p du?c c?u tr�c th�nh 6 chuong ch�nh nhu sau:
+w14:paraId="47B6B4CD" w14:textId="0448A20F" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Chuong 1: Gi?i thi?u chung v? don v? th?c t?p - T?ng quan v? l?ch s? h�nh th�nh, 
+w14:paraId="4742EC1F" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">co c?u t? ch?c, linh v?c ho?t d?ng c?a VTI Education v� c�c d? �n sinh vi�n tham 
+w14:paraId="6D693E52" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">gia.
+w14:paraId="7988C08E" w14:textId="27102786" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Chuong 2: M?c ti�u v� k? ho?ch th?c t?p - X�c d?nh c�c m?c ti�u h?c t?p theo 
+w14:paraId="0E4FEFAA" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">chu?n d?u ra (CLO) v� l? tr�nh c�ng vi?c chi ti?t t? Tu?n 1 d?n Tu?n 6.
+w14:paraId="2BAA0BC6" w14:textId="4D65ADD2" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Chuong 3: N?i dung v� k?t qu? th?c t?p - Tr�nh b�y chi ti?t nhi?m v? ph�t tri?nh? 
+w14:paraId="35927B8E" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">th?ng D?t v� m�y bay t�ch h?p AI Chatbot, c�c s?n ph?m k? thu?t, c�ng ngh? s? d?ng 
+w14:paraId="4F9ABB25" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">v� k?t qu? d?t du?c.
+w14:paraId="7E0A5BFF" w14:textId="3D0544AE" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Chuong 4: Ph�n t�ch, d�nh gi� v� d? xu?t - D�nh gi� quy tr�nh l�m vi?c, ph�n t�ch 
+w14:paraId="6E783281" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">m?i li�n h? gi?a ly thuy?t v� th?c t?, ch? ra kh� khan v� d? xu?t gi?i ph�p c?i ti?n.
+w14:paraId="14367C39" w14:textId="0F34212A" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Chuong 5: T? nh?n x�t v� d?nh hu?ng ngh? nghi?p c� nh�n - T? d�nh gi� di?m 
+w14:paraId="094845D7" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">m?nh, di?m y?u c?a b?n th�n v� x�y d?ng m?c ti�u ph�t tri?n th�nh L?p tr�nh vi�n 
+w14:paraId="34AC063F" w14:textId="77777777" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Web Full-stack.
+w14:paraId="4678811E" w14:textId="426DB634" w:rsidR="00AC4997" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">Chuong 6: K?t lu?n v� ki?n ngh? - T?ng k?t to�n b? k?t qu? d?t th?c t?p, r�t rab�i 
+w14:paraId="55CD0408" w14:textId="17FE3AC3" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00AC4997" w:rsidP="001C3540">h?c kinh nghi?m v� d? xu?t ki?n ngh? t?i Nh� tru?ng, Doanh nghi?p v� B?n th�n.
+w14:paraId="442D208E" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">
+w14:paraId="3ECACC08" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">
+w14:paraId="3BA05E90" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">
+w14:paraId="6C076487" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">
+w14:paraId="3E8F5902" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">
+w14:paraId="66F87B28" w14:textId="77777777" w:rsidR="008320DD" w:rsidRPr="001C3540" w:rsidRDefault="008320DD" w:rsidP="00142E25">CHUONG 1: GI?I THI?U CHUNG V? DON V? TH?C T?P
+w14:paraId="29955C89" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="00142E25">1.1. Gi?i thi?u chung v� L?ch s? h�nh th�nh
+w14:paraId="620BC537" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">T�n c�ng ty: CONG TY TNHH VTI EDUCATION.
+w14:paraId="7899B9D3" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">T�n giao d?ch qu?c t?: VTI EDUCATION COMPANY LIMITED.
+w14:paraId="3C7AD49B" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Ma s? thu?: 0109287939.
+w14:paraId="4F3B0903" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Tr? s? ch�nh: T?ng 3 Kh?i A T�a nh� S�ng D�, Du?ng Ph?m H�ng, Phu?ng M? D�nh 1, Qu?n Nam T? Li�m, Th�nh ph? H� N?i.
+w14:paraId="26D5959A" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">C�c co s? d�o t?o:
+w14:paraId="6AD902CB" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Co s? 1: T?ng 3 Kh?i A T�a nh� S�ng D�, Ph?m H�ng, Nam T? Li�m, H� N?i.
+w14:paraId="224D1B63" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Co s? 2: S? 19 L� Thanh Ngh?, Phu?ng B�ch Khoa, Qu?n Hai B� Trung, H� N?i.
+w14:paraId="03205F57" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Co s? 3: VTI Building, Khu d� th? M? Tr� H?, Nam T? Li�m, H� N?i.
+w14:paraId="0BF62CD4" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">L?ch s? h�nh th�nh &amp; ph�t tri?n:
+w14:paraId="7E227889" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">VTI Education l� don v? th�nh vi�n tr?c thu?c h? sinh th�i T?p do�n VTI Group (du?c th�nh l?p t? th�ng 08/2017 t?i Nh?t B?n b?i �ng Tr?n Xu�n Kh�i).
+w14:paraId="0B772775" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">VTI Education ch�nh th?c th�nh l?p v� di v�o ho?t d?ng t? ng�y 29/07/2020 v?i s? m?nh tr? th�nh c?u n?i v?ng ch?c gi?a d�o t?o d?i h?c v� nhu c?u nh�n l?c CNTT ch?t lu?ng cao c?a doanh nghi?p.
+w14:paraId="0678D821" w14:textId="0A4A5E36" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Don v? h?p t�c chi?n lu?c v?i H?c vi?n M�y t�nh Kyoto (Kyoto Computer Gakuin - KCG) t?i Nh?t B?n d? tri?n khai c�c chuong tr�nh d�o t?o li�n k?t c�ng ngh? th�ng tin chu?n qu?c t?.
+w14:paraId="0B0A05E8" w14:textId="77777777" w:rsidR="00882E3F" w:rsidRPr="001C3540" w:rsidRDefault="00882E3F" w:rsidP="001C3540">
+w14:paraId="535072A3" w14:textId="77777777" w:rsidR="00882E3F" w:rsidRPr="001C3540" w:rsidRDefault="00882E3F" w:rsidP="001C3540">
+w14:paraId="6508300B" w14:textId="1A914D55" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="00142E25">1.2. Co c?u t? ch?c
+w14:paraId="06280FD5" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">VTI Education ho?t d?ng theo m� h�nh doanh nghi?p ph?n m?m k?t h?p d�o t?o th?c chi?n:
+w14:paraId="49F41F31" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Ban Lanh d?o c?p cao: D?i di?n ph�p lu?t l� �ng Nguy?n Quy?t (d?ng th?i l� CEO VTI Academy), di?u h�nh tr?c ti?p kh?i gi�o d?c v� d�o t?o.
+w14:paraId="355D7936" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Ban Gi�m d?c &amp; Qu?n ly d�o t?o: D?nh hu?ng chi?n lu?c, k?t n?i chuong tr�nh th?c t?p v?i c�c tru?ng d?i h?c.
+w14:paraId="5DFFE15C" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">B? ph?n K? thu?t &amp; D? �n (Mentors / Technical Leads): Ph? tr�ch tr?c ti?p hu?ng d?n sinh vi�n, giao vi?c tr�n Jira, review source code v� hu?ng d?n tri?n khai h? th?ng l�n Cloud VPS.
+w14:paraId="007BBF2D" w14:textId="55B727AD" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">B? ph?n H?p t�c doanh nghi?p &amp; Tuy?n sinh: K?t n?i m?ng lu?i doanh nghi?p tuy?n d?ng v� cam k?t co h?i vi?c l�m cho h?c vi�n/sinh vi�n.
+w14:paraId="2661D619" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="00142E25">1.3. Ch?c nang, nhi?m v? v� Linh v?c ho?t d?ng
+w14:paraId="125F5221" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">D�o t?o CNTT th?c chi?n: D�o t?o l?p tr�nh vi�n Web Full-stack (Laravel, ReactJS, TypeScript, Java Spring Boot, Node.js) b�m s�t b�i to�n th?c t? c?a doanh nghi?p.
+w14:paraId="6DDE812F" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Chuong tr�nh li�n k?t qu?c t? (Vi?t - Nh?t): Kh�a h?c 2,5 nam trang b? ti?ng Nh?t (d?t N3-N2) v� ki?n th?c chuy�n m�n IT, m? ra co h?i du h?c v� l�m vi?c tr?c ti?p t?i Nh?t B?n.
+w14:paraId="0C0ECB52" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Chuong tr�nh d�o t?o trong nu?c: Kh�a h?c 1,5 nam chuy�n s�u v? Ph�t tri?n ph?n m?m (Software Development), X? ly d? li?u (Data Development), Qu?n ly d?ch v? CNTT (IT Service Management).
+w14:paraId="2E9ABF90" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Hu?n luy?n k? nang n�ng cao: D�o t?o k? nang DevOps, Cloud Computing (Docker, Nginx, Linux Server), B?o m?t ?ng d?ng Web v� Tr� tu? nh�n t?o (AI/NLP, RAG Architecture, Vector DB).
+w14:paraId="3CDEE4CC" w14:textId="06498D61" w:rsidR="00882E3F" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Cam k?t d?u ra: VTI Education cam k?t 100% gi?i thi?u vi?c l�m cho h?c vi�n sau khi t?t nghi?p t?i T?p do�n VTI Group ho?c c�c d?i t�c doanh nghi?p l?n.
+w14:paraId="0F71D1DB" w14:textId="3966EEAB" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="00142E25">1.4. Quy m� v� Nang l?c ho?t d?ng
+w14:paraId="1C8C7974" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Quy m� nh�n s?: D?i ngu tr?c ti?p t?i VTI Education kho?ng 50-100 nh�n s?, d?ng th?i th?a hu?ng ti?m l?c t? t?p do�n m? VTI Group v?i hon 1.000 nh�n s? v� 5 chi nh�nh t?i Vi?t Nam (H� N?i, TP.HCM) v� Nh?t B?n (Tokyo, Osaka).
+w14:paraId="541C2823" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">D?i ngu chuy�n gia: 100% Mentor v� gi?ng vi�n hu?ng d?n l� c�c k? su, Technical Lead gi�u kinh nghi?m th?c chi?n d?n t? VTI Group v� c�c t?p do�n c�ng ngh? l?n (FPT, Viettel, VNPT).
+w14:paraId="6A6BE340" w14:textId="2A7EC61F" w:rsidR="00882E3F" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">D?u tu R&amp;D: Du?c hu?ng l?i t? qu? d?u tu R&amp;D (1% doanh thu) c?a VTI Group trong c�c linh v?c c�ng ngh? m?i nhu A-IoT v� AI.
+w14:paraId="1EB25094" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="00142E25">1.5. D? �n v� c�ng vi?c sinh vi�n tham gia
+w14:paraId="39CA0313" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Trong k? th?c t?p t?i VTI Education, sinh vi�n du?c giao tr?c ti?p tham gia ph�t tri?n s?n ph?m th?c t? theo chu?n SDLC doanh nghi?p:
+w14:paraId="15E4CA6B" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Qu?n ly d? �n: Ph�n t�ch y�u c?u v� qu?n ly ti?n d? theo m� h�nh Agile/Scrum tr�n Jira Board (Sprint 1 d?n Sprint 6 v?i c�c task t? SKY-47 d?n SKY-81). Qu?n ly ma ngu?n ph�n nh�nh (Git Branching) tr�n GitHub.
+w14:paraId="05362E89" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">X�y d?ng s?n ph?m: Tr?c ti?p l?p tr�nh H? th?ng Web D?t v� m�y bay t�ch h?p AI Chatbot (SkyLink Airlines) v?i b? tech stack:
+w14:paraId="0AA3F213" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Backend: Laravel 11 (RESTful API, Mail Service, Payment Engine).
+w14:paraId="4E8A6E23" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">Frontend: ReactJS + Vite 6 + TypeScript + Tailwind CSS.
+w14:paraId="2FB00723" w14:textId="77777777" w:rsidR="00EC0AB6" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">AI &amp; Database: PostgreSQL (CSDL quan h?) k?t h?p Qdrant Vector DB v� Gemini AI API (RAG).
+w14:paraId="7A708364" w14:textId="0C997B65" w:rsidR="008320DD" w:rsidRPr="001C3540" w:rsidRDefault="00EC0AB6" w:rsidP="001C3540">DevOps &amp; Tri?n khai: C?u h�nh Cloud VPS, d�ng g�i container da d?ch v? qua Docker Compose, c?u h�nh Nginx Reverse Proxy, c?p SSL HTTPS Certbot v� t? d?ng h�a CI/CD v?i GitHub Actions.
+w14:paraId="27B1A6F3" w14:textId="77777777" w:rsidR="00072C91" w:rsidRPr="001C3540" w:rsidRDefault="00072C91" w:rsidP="00142E25">CHUONG 2: M?C TIEU VA K? HO?CH TH?C T?P
+w14:paraId="75C72B86" w14:textId="77777777" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="00142E25">2.1. M?c ti�u h?c t?p c� nh�n (theo chu?n d?u ra CLO)
+w14:paraId="74DD9B3A" w14:textId="77777777" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">D?a tr�n c�c chu?n d?u ra h?c ph?n (Course Learning Outcomes - CLO) c?a Khoa C�ng ngh? Th�ng tin - Tru?ng D?i h?c X�y d?ng H� N?i, sinh vi�n x�c d?nh c�c m?c ti�u h?c t?p c� nh�n trong d?t th?c t?p t?i VTI Education nhu sau:
+w14:paraId="74990178" w14:textId="63F5ABFD" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO1 - Ap d?ng ki?n th?c chuy�n m�n: V?n d?ng to�n di?n ki?n th?c L?p tr�nh Web Full-stack v?i Backend Laravel 11, Frontend ReactJS (Vite 6, Tailwind CSS), Co s? d? li?u quan h? MySQL, Co s? d? li?u Vector Qdrant v� Gemini AI API (ki?n tr�c RAG) v�o vi?c x�y d?ng H? th?ng D?t v� m�y bay t�ch h?p AI Chatbot (SkyLink Airlines).
+w14:paraId="2CDA4D1C" w14:textId="38587CAE" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO2 - Ph�n t�ch v� gi?i quy?t v?n d?: Kh?o s�t quy tr�nh nghi?p v? d?t v� h�ng kh�ng, ph�n t�ch y�u c?u ngu?i d�ng, thi?t k? t�i li?u d?c t? SRS, so d? CSDL (ERD), thu?t to�n kh�a/gi? gh? t?m th?i ch?ng xung d?t d? li?u th?i gian th?c v� x�y d?ng lu?ng tu v?n t? d?ng qua AI Chatbot.
+w14:paraId="4DCCF008" w14:textId="44CF4541" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO3 - Giao ti?p, b�o c�o v� thuy?t tr�nh: C?p nh?t ti?n d? h�ng tu?n tr�n Jira Board (t? task SKY-47 d?n SKY-81), vi?t t�i li?u k? thu?t SRS, ho�n thi?n quy?n B�o c�o TTTN v� b?o v? s?n ph?m tru?c H?i d?ng.
+w14:paraId="4A2139F9" w14:textId="4F89D6FE" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO4 - D?o d?c v� an to�n ngh? nghi?p: Tu�n th? nghi�m t�c n?i quy c�ng ty VTI Education, b?o m?t tuy?t d?i ma ngu?n d? �n, t�n tr?ng b?n quy?n ph?n m?m v� b?o v? an to�n th�ng tin c� nh�n c?a kh�ch h�ng.
+w14:paraId="77B9E1D7" w14:textId="313923A4" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO5 - L�m vi?c nh�m v� ph?i h?p: Ph?i h?p hi?u qu? v?i Mentor v� d?ng nghi?p qua Jira/GitHub, tham gia h?p Scrum d?nh k?, th?c hi?n quy tr�nh Review Code ch�o v� ph�n chia nh�nh Git (Git Branching).
+w14:paraId="3119F3E3" w14:textId="4B832241" w:rsidR="00D50F52" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO6 - S? d?ng c�ng c?, ph?n m?m k? thu?t: S? d?ng th�nh th?o c�c c�ng c? ph�t tri?n ph?n m?m doanh nghi?p: VS Code, Git/GitHub, Postman, Figma, Docker, Docker Compose, Nginx, SSL Certbot, GitHub Actions (CI/CD) v� k6 (Stress Testing).
+w14:paraId="3FBC0B65" w14:textId="020EC180" w:rsidR="00E04723" w:rsidRPr="00476D40" w:rsidRDefault="00D50F52" w:rsidP="001C3540">CLO7 - T? nh?n x�t v� ph�t tri?n ngh? nghi?p: T? d�nh gi� ch�nh x�c uu/nhu?c di?m b?n th�n sau d?t th?c t?p; t? d� x�y d?ng l? tr�nh h?c t?p n�ng cao chuy�n m�n d? tr? th�nh L?p tr�nh vi�n Web Full-stack (Full-stack Developer) chuy�n nghi?p.
+w14:paraId="4261D194" w14:textId="77777777" w:rsidR="00555F3D" w:rsidRPr="00476D40" w:rsidRDefault="00555F3D" w:rsidP="001C3540">
+w14:paraId="5BD83D05" w14:textId="172D5D52" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="00142E25">2.2. K? ho?ch c�ng vi?c chi ti?t (Tu?n 1-6)
+w14:paraId="3716DEE8" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">Tu?n
+w14:paraId="11CDE1E9" w14:textId="77777777" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">
+w14:paraId="22606B3B" w14:textId="3AF558A9" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">C�ng vi?c th?c hi?n
+w14:paraId="67FE8A20" w14:textId="5168CDE6" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">K?t qu? d?t du?c
+w14:paraId="31C887A1" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="4DE6EE87" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="178E24A8" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="1CE396CE" w14:textId="2F597FF2" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">1
+w14:paraId="621D0C57" w14:textId="703F8848" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="003A57E8" w:rsidP="001C3540">T�m hi?u quy tr�nh SDLC v� quy chu?n l�m vi?c t?i VTI Education.C�i d?t m�i tru?ng ph�t tri?n (Laravel 11, ReactJS, Vite 6, Tailwind CSS, MongoDB,MySQL). Kh?i t?o GitHub Repository (ph�n nh�nh main/dev).T�ch h?p Google OAuth 2.0, Gmail SMTP v� b? thu vi?n UI (Phosphor Icons).
+w14:paraId="0F6F4598" w14:textId="0A800D07" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00E04723" w:rsidP="001C3540">N?m ro n?i quy, ho�n t?t c�i d?t to�n b? m�i tru?ng v� c�c c�ng c? l?p tr�nh.
+w14:paraId="662DC469" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="728957E3" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="3233B13F" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="656F2182" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="78A0726A" w14:textId="04239DF3" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">2
+w14:paraId="3E523974" w14:textId="5AB07D5F" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">Kh?o s�t nghi?p v? d?t v� m�y bay v� b�i to�n tr? ly ?o h? tr? kh�ch h�ng.Thi?t k? lu?c d? Co s? d? li?u ERD ho�n ch?nh tr�n MySQL.Vi?t DatabaseSeeder sinh d? li?u 50+ tuy?n bay th?c t?.L?p tr�nh RESTful API T�m ki?m chuy?n bay v� Thu?t to�n kh�a gh? th?i gian th?c.X�y d?ng Admin API Qu?n ly danh m?c S�n bay v� Tuy?n bay.
+w14:paraId="7372F52C" w14:textId="6A3C475B" w:rsidR="00D427CC" w:rsidRPr="000872C2" w:rsidRDefault="00B23069" w:rsidP="001C3540">Ho�n th�nh t�i li?u SRS chi ti?t, thi?t k? CSDL chu?n h�a tr�n MySQL v� b? API c?t loi v? Chuy?n bay v� S�n bay.
+w14:paraId="11748311" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="2952954F" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="2D0F667C" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="78BD68DC" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="28A93AFA" w14:textId="42DB78FD" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">3
+w14:paraId="7F485398" w14:textId="34F3761F" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">L?p tr�nh API T?o don D?t v� (POST /api/bookings) v� D?ch v? b? tr? (h�nh ly ky g?i, su?t an, b?o hi?m). X�y d?ng Engine Thanh to�n m� ph?ng v� x? ly Webhook c?p nh?t tr?ng th�i don h�ng. L?p tr�nh API Check-in tr?c tuy?n, t? d?ng sinh ma QR Boarding Pass. T�ch h?p Mail Service t? d?ng g?i V� di?n t? (E-ticket PDF) qua Email.
+w14:paraId="14BBF910" w14:textId="7AF5F3D2" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">Ho�n th�nh t�i li?u SRS chi ti?t, thi?t k? CSDL chu?n h�a tr�n MySQL v� b? API c?t loi v? Chuy?n bay v� S�n bay.
+w14:paraId="05A0B992" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="311019EA" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="256D4766" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="29524B62" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="31C3F07C" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="060E1805" w14:textId="5522C3F2" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">4
+w14:paraId="65BC2A64" w14:textId="0622AD6A" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">C?u h�nh Gemini AI API v� k? thu?t Prompt Engineering tu v?n h�nh tr�nh bay. Tri?n khai ki?n tr�c RAG t�ch h?p Qdrant Vector Database tra c?u ch�nh s�ch h�nh ly, ho�n h?y v�. L?p tr�nh API Streaming Realtime ph?n h?i cho AI Chatbot. L?p tr�nh API Ph�n h? H?i vi�n SkyClub (t�ch di?m, n�ng h?ng) v� Ma gi?m gi� (Promotion). L?p tr�nh API Qu?n ly H? so c� nh�n (User Profile) v� l?ch s? d?t v�.
+w14:paraId="7EB32F77" w14:textId="463EB34D" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">T�ch h?p th�nh c�ng Tr? ly AI SkyAI tu v?n 24/7 theo th?i gian th?c v� ho�n thi?n c�c ph�n h? H?i vi�n SkyClub, Ma gi?m gi�, H? so c� nh�n.
+w14:paraId="67B3A1A4" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="2F98D33C" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="4B7EB608" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="20CCFFBC" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="5FE9E9B5" w14:textId="571A2367" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">5
+w14:paraId="2BB79B5F" w14:textId="428BA9AA" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">Ph�t tri?n giao di?n Trang ch? (HomePage) v� Form t�m ki?m chuy?n bay t?i uu Responsive. Ph�t tri?n Trang k?t qu? chuy?n bay k�m b? l?c th�ng minh. Ph�t tri?n Giao di?n ch?n gh? ng?i tuong t�c tr?c quan th?i gian th?c. Ph�t tri?n Trang D?ch v? b? tr?, T�m t?t don h�ng v� Check-in Online hi?n th? Boarding Pass. Nh�ng Widget Tr? ly ?o SkyAI Chat n?i g�c m�n h�nh Website. X�y d?ng Admin Dashboard qu?n ly doanh thu, chuy?n bay v� don h�ng.
+w14:paraId="3DD06474" w14:textId="7B27BEE4" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00B23069" w:rsidP="001C3540">Giao di?n Ngu?i d�ng SPA Responsive ho�n ch?nh, nh�ng Widget AI Chat v� trang Admin Dashboard qu?n tr? h? th?ng.
+w14:paraId="674B9575" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="0DABEEBE" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="535F0E04" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="0F411214" w14:textId="17F2A98C" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00D427CC" w:rsidP="001C3540">6
+w14:paraId="4E5F3E50" w14:textId="2AEEDB9A" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">D�ng g�i Backend Laravel 11 v� Frontend ReactJS b?ng Docker da t?ng; c?u h�nh docker-compose.yml. Thi?t l?p CI/CD qua GitHub Actions, c?u h�nh Nginx Reverse Proxy v� SSL Certbot (HTTPS) tr�n VPS. Ki?m th? t?i tr?ng (k6), ki?m th? E2E h? th?ng; ho�n thi?n b�o c�o TTTN, slide v� chu?n b? demo nghi?m thu.
+w14:paraId="36E673FB" w14:textId="403F88F6" w:rsidR="00D427CC" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">Tri?n khai th�nh c�ng h? th?ng l�n Cloud VPS qua HTTPS, vu?t qua b�i test k6 v� E2E, ho�n thi?n b�o c�o v� slide thuy?t tr�nh nghi?m thu d? t�i.
+w14:paraId="6C31EA9A" w14:textId="77777777" w:rsidR="00CB4824" w:rsidRPr="001C3540" w:rsidRDefault="00CB4824" w:rsidP="001C3540">
+w14:paraId="4FD39AAF" w14:textId="77777777" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="00142E25">CHUONG 3: N?I DUNG VA K?T QU? TH?C T?P
+w14:paraId="03E20CAF" w14:textId="77777777" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="00142E25">3.1. Nhi?m v? du?c giao v� m� t? c�ng vi?c th?c t?
+w14:paraId="120D58A3" w14:textId="363A38C5" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">Ph�n t�ch v� thi?t k?: Nghi�n c?u lu?ng d?t v� m�y bay (T�m ki?m  Ch?n chuy?n bay  Ch?n gh?  Di?n th�ng tin h�nh kh�ch  Thanh to�n  Xu?t v� di?n t?  H? tr? b?i AI Chatbot). Vi?t t�i li?u SRS v� thi?t k? co s? d? li?u tr�n MySQL.
+w14:paraId="250E2E7F" w14:textId="411F5B2E" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">Ph�t tri?n Frontend: X�y d?ng ?ng d?ng don trang (SPA) b?ng React + Vite , giao di?n t?i uu da thi?t b? b?ng Tailwind CSS; t�ch h?p Chat Widget ph?n h?i th?i gian th?c.
+w14:paraId="2C1A8A57" w14:textId="01182B26" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">Ph�t tri?n Backend &amp; AI: L?p tr�nh h? th?ng RESTful API v?i Laravel 11, t�ch h?p Gemini AI API theo ki?n tr�c RAG k?t h?p Co s? d? li?u Vector Qdrant d? gi?i d�p ch�nh s�ch h�nh ly, ho�n h?y v� v� th�ng tin chuy?n bay 24/7.
+w14:paraId="11CD54DF" w14:textId="77777777" w:rsidR="00AE1205" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">Qu?n tr? h? th?ng &amp; Deployment: D�ng g�i ?ng d?ng da d?ch v? b?ng Docker Compose (5 services), thi?t l?p CI/CD Pipeline v?i GitHub Actions, c?u h�nh Nginx Reverse Proxy v� c?p ph�t ch?ng ch? SSL HTTPS qua Certbot tr�n Cloud VPS.
+w14:paraId="78602A0F" w14:textId="1E3FD4A4" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="00142E25">3.2. C�c s?n ph?m k? thu?t v� k?t qu? d?t du?c
+w14:paraId="1C3A7E95" w14:textId="77777777" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">H? th?ng Web D?t v� m�y bay ho�n ch?nh: Trang t�m ki?m v� l?c chuy?n bay theo ti�u ch� gi� v�, th?i gian, hang bay; So d? ch?n ch? ng?i tr?c quan; Ch?c nang qu?n ly d?t v� (Booking Management) v� tra c?u th�ng tin v� di?n t?.
+w14:paraId="0B16DACC" w14:textId="77777777" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">Tr? ly AI Chatbot: Khung chat tr?c tuy?n tr�n website, t? d?ng nh?n di?n t? kh�a v� ng? c?nh d? gi?i d�p th?c m?c thu?ng g?p c?a h�nh kh�ch 24/7.
+w14:paraId="06D46E39" w14:textId="77777777" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">H? t?ng Server tri?n khai th?c t?: To�n b? h? th?ng Backend, Frontend v� Database du?c c�i d?t v?n h�nh ?n d?nh tr�n Cloud Server, c?u h�nh Nginx v� ch?ng ch? HTTPS an to�n.
+w14:paraId="1E953755" w14:textId="77777777" w:rsidR="00093D9F" w:rsidRPr="001C3540" w:rsidRDefault="00093D9F" w:rsidP="001C3540">T�i li?u b�n giao: T�i li?u d?c t? y�u c?u SRS, Collection ki?m th? API tr�n Postman, Ma ngu?n GitHub d?y d? commit v� B�o c�o TTTN.
+w14:paraId="6C50D6B2" w14:textId="41A53DFC" w:rsidR="00C21BF3" w:rsidRPr="001C3540" w:rsidRDefault="00CC5C89" w:rsidP="00142E25">3.2.1. Tu?n 1: Kh?i t?o d? �n &amp; Thi?t l?p m�i tru?ng ph�t tri?n
+w14:paraId="26D1F818" w14:textId="1FF9493E" w:rsidR="00CC5C89" w:rsidRPr="001C3540" w:rsidRDefault="00CC5C89" w:rsidP="001C3540">
+w14:paraId="5309055B" w14:textId="0135E2A0" w:rsidR="00CC5C89" w:rsidRPr="001C3540" w:rsidRDefault="00CC5C89" w:rsidP="001C3540">H�nh 0.1: Giao di?n Jira Tu?n 1 - Kh?i t?o &amp; Setup
+w14:paraId="552BCAE3" w14:textId="7DC6BEED" w:rsidR="00C21BF3" w:rsidRPr="001C3540" w:rsidRDefault="00CC5C89" w:rsidP="001C3540">Trong tu?n d?u ti�n, sinh vi�n ti?n h�nh kh?i t?o d? �n v� thi?t l?p m�i tru?ng ph�t tri?n to�n di?n. Sinh vi�n t?o GitHub Repository, thi?t l?p quy chu?n ph�n nh�nh main/dev v� quy tr�nh Review Code (SKY-47). Ph�a Backend, sinh vi�n c�i d?t framework Laravel 11, thi?t l?p c?u tr�c thu m?c chu?n v� c?u h�nh k?t n?i Co s? d? li?u (SKY-48). Ph�a Frontend, ?ng d?ng ReactJS du?c kh?i t?o b?ng Vite 6 k?t h?p Tailwind CSS d? t?i uu t?c d? d�ng g�i v� x�y d?ng giao di?n responsive (SKY-49). D?ng th?i, sinh vi�n t�ch h?p x�c th?c ngu?i d�ng qua Google OAuth 2.0, c?u h�nh d?ch v? g?i email t? d?ng qua Gmail SMTP (SKY-50) v� ho�n t?t t�ch h?p b? thu vi?n bi?u tu?ng UI Phosphor Icons (SKY-51), t?o n?n t?ng k? thu?t v?ng ch?c cho c�c tu?n ti?p theo.
+w14:paraId="59070879" w14:textId="1F6A7A30" w:rsidR="00C21BF3" w:rsidRPr="001C3540" w:rsidRDefault="00CC5C89" w:rsidP="00142E25">3.2.2. Tu?n 2: Thi?t k? CSDL &amp; X�y d?ng API Qu?n ly Chuy?n bay
+w14:paraId="10567430" w14:textId="44A8D576" w:rsidR="00CC5C89" w:rsidRPr="001C3540" w:rsidRDefault="00B6424D" w:rsidP="001C3540">H�nh 0.2: Giao di?n Jira Tu?n 2 - CSDL &amp; Chuy?n bay
+w14:paraId="0E66018E" w14:textId="1543A113" w:rsidR="00B6424D" w:rsidRPr="001C3540" w:rsidRDefault="00B6424D" w:rsidP="001C3540">Trong tu?n th? hai, sinh vi�n t?p trung thi?t k? co s? d? li?u v� x�y d?ng c�c ch?c nang c?t loi cho ph�n h? chuy?n bay. Sinh vi�n thi?t k? lu?c d? Co s? d? li?u ERD ho�n ch?nh tr�n MySQL (SKY-52) v� x�y d?ng b? DatabaseSeeder t? d?ng sinh d? li?u cho danh m?c s�n bay, hon 50 chuy?n bay v� tuy?n bay th?c t? (SKY-53). Ti?p d�, sinh vi�n l?p tr�nh h? th?ng RESTful API h? tr? t�m ki?m v� l?c chuy?n bay th?i gian th?c (SKY-54), x�y d?ng API so d? gh? k�m thu?t to�n kh�a gh? t?m th?i 10 ph�t ch?ng xung d?t tr�ng gh? (SKY-55), ph�t tri?n giao di?n T�m ki?m chuy?n bay v� So d? ch?n gh? tr�n Frontend ReactJS (SKY-56), v� ph�t tri?n c�c API qu?n ly danh m?c S�n bay, Tuy?n bay ph? bi?n d�nh cho qu?n tr? vi�n
+w14:paraId="026E6A5D" w14:textId="19FCB2D9" w:rsidR="00EC2B54" w:rsidRPr="001C3540" w:rsidRDefault="00EC2B54" w:rsidP="00142E25">3.2.3. Tu?n 3: X�y d?ng Ph�n h? Booking &amp; Check-in Online
+w14:paraId="32C6CF39" w14:textId="74B1785F" w:rsidR="00EC2B54" w:rsidRPr="001C3540" w:rsidRDefault="00EC2B54" w:rsidP="001C3540">H�nh 0.3: Giao di?n Jira Tu?n 3 - Booking &amp; Check-in
+w14:paraId="40F68D19" w14:textId="4C689D6B" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00EC2B54" w:rsidP="001C3540">Trong tu?n th? ba, sinh vi�n ph�t tri?n ph�n h? quy tr�nh nghi?p v? D?t v� v� Check-in tr?c tuy?n. Sinh vi�n x�y d?ng API t?o don d?t v� POST /api/bookings luu tr? d?y d? th�ng tin h�nh kh�ch v� chi ti?t h�nh tr�nh (SKY-58), k?t h?p API mua d?ch v? b? tr? nhu h�nh ly ky g?i, su?t an v� b?o hi?m chuy?n bay (SKY-59). Sinh vi�n ph�t tri?n Engine m� ph?ng thanh to�n tr?c tuy?n t�ch h?p x? ly Webhook c?p nh?t tr?ng th�i don h�ng th?i gian th?c (SKY-60). D?ng th?i, sinh vi�n x�y d?ng t�nh nang Check-in tr?c tuy?n t? d?ng sinh ma QR Boarding Pass (SKY-61) v� t�ch h?p lu?ng g?i Email t? d?ng d�nh k�m V� di?n t? (E-ticket PDF) ngay sau khi thanh to�n th�nh c�ng (SKY-62).
+w14:paraId="03044FC8" w14:textId="753867ED" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00647129" w:rsidP="00142E25">3.2.4. Tu?n 4: T�ch h?p Tr? ly AI Chatbot (SkyAI) &amp; Ph�n h? SkyClub
+w14:paraId="7F6773FC" w14:textId="2BA50513" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00647129" w:rsidP="001C3540">H�nh 0.4: Giao di?n Jira Tu?n 4 - SkyAI &amp; SkyClub
+w14:paraId="2A609C06" w14:textId="2A7DDF0A" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00647129" w:rsidP="001C3540">Trong tu?n th? tu, sinh vi�n t�ch h?p Tr� tu? nh�n t?o (AI Chatbot) v� ph�t tri?n c�c ti?n �ch n�ng cao cho ngu?i d�ng. Sinh vi�n thi?t l?p k?t n?i Gemini AI API, k? thu?t Prompt Engineering t?i uu ph?n h?i ng? c?nh tu v?n v� m�y bay (SKY-63) v� tri?n khai ki?n tr�c RAG (Retrieval-Augmented Generation) k?t h?p Vector Database Qdrant d? tra c?u ch�nh s�ch h�nh ly, ho�n h?y v� ch�nh x�c (SKY-64). Sinh vi�n ph�t tri?n API Streaming Realtime tr? v? ph?n h?i Chatbot d?ng go ch? th?i gian th?c (SKY-65). Ngo�i ra, sinh vi�n x�y d?ng ph�n h? h?i vi�n SkyClub v?i co ch? t�ch di?m/n�ng h?ng (SKY-66), h? th?ng qu?n ly ma gi?m gi� Promotion (SKY-67) v� API qu?n ly h? so c� nh�n k�m l?ch s? chuy?n bay c?a ngu?i d�ng (SKY-68).
+w14:paraId="21444908" w14:textId="14F6AD96" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00647129" w:rsidP="00142E25">3.2.5. Tu?n 5: Ph�t tri?n Giao di?n Ngu?i d�ng (React UI) &amp; Admin Dashboard
+w14:paraId="5D430108" w14:textId="15DBE09B" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00647129" w:rsidP="001C3540">H�nh 0.5: Giao di?n Jira Tu?n 5 - React UI &amp; Admin
+w14:paraId="6083D8BD" w14:textId="4CE80189" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00647129" w:rsidP="001C3540">Trong tu?n th? nam, sinh vi�n ho�n thi?n to�n b? giao di?n ngu?i d�ng (Frontend SPA) v� trang qu?n tr? Admin. Sinh vi�n ph�t tri?n Trang ch? v?i Form t�m ki?m chuy?n bay t?i uu Responsive (SKY-69), Trang danh s�ch k?t qu? chuy?n bay k�m b? l?c th�ng minh (SKY-70) v� Giao di?n ch?n gh? ng?i tuong t�c tr?c quan th?i gian th?c (SKY-71). Sinh vi�n ho�n thi?n c�c m�n h�nh ch?n D?ch v? b? tr?, T�m t?t don h�ng (SKY-72) v� Trang Check-in Online hi?n th? th? l�n m�y bay QR (SKY-73). Sinh vi�n nh�ng th�nh c�ng Widget Tr? ly ?o SkyAI Chat g�c m�n h�nh h? tr? kh�ch h�ng 24/7 (SKY-74), d?ng th?i ho�n thi?n trang Admin Dashboard t�ch h?p bi?u d? th?ng k� doanh thu, qu?n ly v� v� chuy?n bay (SKY-75).
+w14:paraId="7A10FE9D" w14:textId="04AC41D9" w:rsidR="00647129" w:rsidRPr="001C3540" w:rsidRDefault="00377BC1" w:rsidP="00142E25">3.2.6. Tu?n 6: D�ng g�i Docker, C?u h�nh CI/CD &amp; Tri?n khai VPS
+w14:paraId="62395A10" w14:textId="6E3A3DB8" w:rsidR="00377BC1" w:rsidRPr="001C3540" w:rsidRDefault="00377BC1" w:rsidP="001C3540">H�nh 0.6: Giao di?n Jira Tu?n 6 - Docker CI/CD VPS
+w14:paraId="6C385B1D" w14:textId="191590D5" w:rsidR="00377BC1" w:rsidRPr="001C3540" w:rsidRDefault="00377BC1" w:rsidP="001C3540">Trong tu?n cu?i c�ng, sinh vi�n ti?n h�nh d�ng g�i ?ng d?ng, c?u h�nh h? t?ng v� tri?n khai h? th?ng l�n m�i tru?ng th?c t?. Sinh vi�n vi?t Dockerfile da t?ng t?i uu dung lu?ng cho Laravel v� ReactJS (SKY-76), c?u h�nh docker-compose.yml di?u ph?i 5 service (Backend, Frontend, Postgres, Qdrant Vector DB, AI Service) (SKY-77). Sinh vi�n thi?t l?p t? d?ng h�a CI/CD Pipeline b?ng GitHub Actions (SKY-78), c?u h�nh M�y ch? Cloud VPS v?i Nginx Reverse Proxy, c?p ph�t SSL HTTPS mi?n ph� qua Certbot (SKY-79). Cu?i c�ng, sinh vi�n th?c hi?n ki?m th? t?i tr?ng Stress Test b?ng k6 (SKY-80) v� ho�n t?t ki?m th? E2E to�n b? lu?ng nghi?p v? t? T�m ki?m d?n Check-in (SKY-81), d?m b?o h? th?ng v?n h�nh ?n d?nh tr�n Server th?c t?.
+w14:paraId="6B696FB9" w14:textId="77777777" w:rsidR="00377BC1" w:rsidRPr="001C3540" w:rsidRDefault="00377BC1" w:rsidP="001C3540">
+w14:paraId="2A63D2B7" w14:textId="77777777" w:rsidR="00AE1205" w:rsidRPr="001C3540" w:rsidRDefault="00AE1205" w:rsidP="001C3540">
+w14:paraId="03463A05" w14:textId="77777777" w:rsidR="00AE1205" w:rsidRPr="001C3540" w:rsidRDefault="00AE1205" w:rsidP="001C3540">
+w14:paraId="20CB0F60" w14:textId="77777777" w:rsidR="00AE1205" w:rsidRPr="001C3540" w:rsidRDefault="00AE1205" w:rsidP="001C3540">
+w14:paraId="7C40C8A6" w14:textId="6246867F" w:rsidR="00B34AAA" w:rsidRPr="001C3540" w:rsidRDefault="00B34AAA" w:rsidP="00142E25">3.3. Bi?u d? use case
+w14:paraId="64180241" w14:textId="65BC5884" w:rsidR="00B34AAA" w:rsidRPr="001C3540" w:rsidRDefault="00B34AAA" w:rsidP="00142E25">3.3.1 Bi?u d? use case t?ng qu�t
+w14:paraId="1A0EFA99" w14:textId="58CC294C" w:rsidR="00183628" w:rsidRPr="001C3540" w:rsidRDefault="00B34AAA" w:rsidP="001C3540">
+w14:paraId="039CB956" w14:textId="56E503B7" w:rsidR="00B34AAA" w:rsidRPr="001C3540" w:rsidRDefault="00B34AAA" w:rsidP="001C3540">H�nh  0.7:  Bi?u d? use case t?ng qu�t SkyLink Airlines
+w14:paraId="35195431" w14:textId="77777777" w:rsidR="008D7963" w:rsidRPr="001C3540" w:rsidRDefault="008D7963" w:rsidP="001C3540">
+w14:paraId="1FE0C128" w14:textId="3AA2F0BE" w:rsidR="00B34AAA" w:rsidRPr="001C3540" w:rsidRDefault="00F5330F" w:rsidP="00142E25">3.3.2. Bi?u d? use case Admin
+w14:paraId="4ED2AEBC" w14:textId="13B8E9EC" w:rsidR="00183628" w:rsidRPr="001C3540" w:rsidRDefault="00F5330F" w:rsidP="001C3540">
+w14:paraId="21E25585" w14:textId="7F35CCA9" w:rsidR="00F5330F" w:rsidRPr="001C3540" w:rsidRDefault="00F5330F" w:rsidP="001C3540">                    H�nh  0.8:  Bi?u d? use case Admin
+w14:paraId="073B1FF5" w14:textId="77777777" w:rsidR="00183628" w:rsidRPr="001C3540" w:rsidRDefault="00183628" w:rsidP="001C3540">
+w14:paraId="77FD944E" w14:textId="66FB05D8" w:rsidR="008460C6" w:rsidRPr="001C3540" w:rsidRDefault="008460C6" w:rsidP="00142E25">3.3.3. Bi?u d? use case User
+w14:paraId="5BB3E300" w14:textId="77777777" w:rsidR="00AB2F26" w:rsidRPr="001C3540" w:rsidRDefault="008460C6" w:rsidP="001C3540">
+w14:paraId="4E3C1A22" w14:textId="7682C395" w:rsidR="00183628" w:rsidRPr="001C3540" w:rsidRDefault="008460C6" w:rsidP="001C3540">H�nh  0. SEQ H�nh_ \* ARABIC \s 1 9:  Bi?u d? use case User
+w14:paraId="084AEF53" w14:textId="77777777" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="009E6E16" w:rsidP="001C3540">
+w14:paraId="53E095D1" w14:textId="532D34AF" w:rsidR="00314971" w:rsidRPr="001C3540" w:rsidRDefault="00314971" w:rsidP="00142E25">3.3.4. Bi?u d? use case Tr? Ly AI SkyAI
+w14:paraId="572CED7C" w14:textId="5C71CBA2" w:rsidR="00AB2F26" w:rsidRPr="001C3540" w:rsidRDefault="00314971" w:rsidP="001C3540"> 
+w14:paraId="563D274D" w14:textId="48991298" w:rsidR="00AB2F26" w:rsidRPr="001C3540" w:rsidRDefault="00AB2F26" w:rsidP="001C3540">H�nh  0.10 :  Bi?u d? use case Tr? Ly AI SkyAI
+w14:paraId="05CE752C" w14:textId="77777777" w:rsidR="00AB2F26" w:rsidRDefault="00AB2F26" w:rsidP="001C3540">
+w14:paraId="04F8D430" w14:textId="77777777" w:rsidR="00C772BD" w:rsidRPr="00C772BD" w:rsidRDefault="00C772BD" w:rsidP="00C772BD">
+w14:paraId="065A111D" w14:textId="054366E1" w:rsidR="001337D3" w:rsidRPr="001C3540" w:rsidRDefault="001337D3" w:rsidP="00142E25">3.4 Bi?u d? ho?t d?ng (Activity Diagrams)�
+w14:paraId="6E2EA3EF" w14:textId="766BB7C0" w:rsidR="001337D3" w:rsidRPr="001C3540" w:rsidRDefault="001337D3" w:rsidP="00142E25">3.4.1 Quy tr�nh D?t v� m�y bay
+w14:paraId="7EA18560" w14:textId="695A7BEA" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00E15013" w:rsidP="001C3540">
+w14:paraId="0DF8BB79" w14:textId="3265445B" w:rsidR="002C4368" w:rsidRPr="001C3540" w:rsidRDefault="002C4368" w:rsidP="001C3540">H�nh  0.11:  Quy tr�nh D?t v� m�y bay
+w14:paraId="6C526E07" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="7B59B4D4" w14:textId="53D390ED" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00FB5534" w:rsidP="00142E25">3.4.2 Quy tr�nh Ch?n gh? tr?c tuy?n
+w14:paraId="5769CDFC" w14:textId="45BA72F7" w:rsidR="00E15013" w:rsidRPr="001C3540" w:rsidRDefault="00CE51DA" w:rsidP="001C3540">
+w14:paraId="17064390" w14:textId="321E5C2E" w:rsidR="00CE51DA" w:rsidRPr="001C3540" w:rsidRDefault="00CE51DA" w:rsidP="001C3540">H�nh  0. SEQ H�nh_ \* ARABIC \s 1 12:  Quy tr�nh Ch?n gh? tr?c tuy?n
+w14:paraId="4AEC8248" w14:textId="77777777" w:rsidR="00FB5534" w:rsidRPr="001C3540" w:rsidRDefault="00FB5534" w:rsidP="001C3540">
+w14:paraId="76348EE9" w14:textId="1D7530EC" w:rsidR="00E379BF" w:rsidRPr="001C3540" w:rsidRDefault="00E379BF" w:rsidP="00142E25">3.4.3 Quy tr�nh  Check-in tr?c tuy?n
+w14:paraId="09769DDA" w14:textId="7C17A414" w:rsidR="00E379BF" w:rsidRPr="001C3540" w:rsidRDefault="00F82904" w:rsidP="001C3540">
+w14:paraId="45A8E0CC" w14:textId="470AB77B" w:rsidR="00F82904" w:rsidRPr="001C3540" w:rsidRDefault="00F82904" w:rsidP="001C3540">H�nh  0.13:  Quy tr�nh Check-in tr?c tuy?n
+w14:paraId="7D1A4FFC" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="39410F7E" w14:textId="77777777" w:rsidR="00F82904" w:rsidRPr="001C3540" w:rsidRDefault="00F82904" w:rsidP="001C3540">
+w14:paraId="68BEA359" w14:textId="33E27E10" w:rsidR="007F50F7" w:rsidRPr="001C3540" w:rsidRDefault="00F82904" w:rsidP="00142E25">3.4.4 Quy tr�nh Tu v?n qua SkyAI
+w14:paraId="568146A2" w14:textId="17DF7978" w:rsidR="00F82904" w:rsidRPr="001C3540" w:rsidRDefault="007432D0" w:rsidP="001C3540">
+w14:paraId="478EBFB4" w14:textId="547BF44C" w:rsidR="007432D0" w:rsidRPr="001C3540" w:rsidRDefault="007432D0" w:rsidP="001C3540">H�nh  0.14:  Quy tr�nh Tu v?n qua SkyAI
+w14:paraId="722DB3DF" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="4FF34D1B" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="4E6BD258" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="2A196FD9" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="5C0B0A75" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="5AFE3BA5" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="36160A13" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="780422AA" w14:textId="77777777" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="3503D9E0" w14:textId="130B0BB9" w:rsidR="00541B00" w:rsidRPr="001C3540" w:rsidRDefault="00541B00" w:rsidP="00142E25">3.4.5 Quy tr�nh Qu?n ly v� da d?t
+w14:paraId="68240DA2" w14:textId="7A4B56D6" w:rsidR="00541B00" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">
+w14:paraId="22523BF7" w14:textId="7322B6DF" w:rsidR="00E71F85" w:rsidRPr="001C3540" w:rsidRDefault="00E71F85" w:rsidP="001C3540">H�nh  0.15:  Quy tr�nh Qu?n ly v� da d?t
+w14:paraId="0FC5D728" w14:textId="77777777" w:rsidR="00F82904" w:rsidRPr="001C3540" w:rsidRDefault="00F82904" w:rsidP="001C3540">
+w14:paraId="089480CA" w14:textId="77777777" w:rsidR="00183628" w:rsidRPr="001C3540" w:rsidRDefault="00183628" w:rsidP="001C3540">
+w14:paraId="7D05AAAD" w14:textId="77777777" w:rsidR="00E95D40" w:rsidRPr="001C3540" w:rsidRDefault="00E95D40" w:rsidP="001C3540">
+w14:paraId="7C18BE3D" w14:textId="29CD7EDE" w:rsidR="00E95D40" w:rsidRPr="001C3540" w:rsidRDefault="00E95D40" w:rsidP="00142E25">3.4.6 Quy tr�nh Qu?n ly chuy?n bay
+w14:paraId="50B1440D" w14:textId="37B2BE0E" w:rsidR="00E95D40" w:rsidRPr="001C3540" w:rsidRDefault="009F30B8" w:rsidP="001C3540">
+w14:paraId="09ACA6FB" w14:textId="2F6FF4EF" w:rsidR="009F30B8" w:rsidRPr="001C3540" w:rsidRDefault="009F30B8" w:rsidP="001C3540">H�nh  0.16:  Quy tr�nh Qu?n ly chuy?n bay
+w14:paraId="5BC99A6E" w14:textId="77777777" w:rsidR="00E95D40" w:rsidRPr="001C3540" w:rsidRDefault="00E95D40" w:rsidP="001C3540">
+w14:paraId="4AE2B621" w14:textId="77777777" w:rsidR="009F30B8" w:rsidRPr="001C3540" w:rsidRDefault="009F30B8" w:rsidP="001C3540">
+w14:paraId="601B5FF8" w14:textId="4B88C923" w:rsidR="00D41E17" w:rsidRPr="001C3540" w:rsidRDefault="00D41E17" w:rsidP="00142E25">3.4.7 Quy tr�nh Qu?n ly ngu?i d�ng
+w14:paraId="317BC55D" w14:textId="559694B0" w:rsidR="00D41E17" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">
+w14:paraId="7ABABE84" w14:textId="23FE6541" w:rsidR="00E62344" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">H�nh  0.17:  Quy tr�nh Qu?n ly ngu?i d�ng
+w14:paraId="7F058F1E" w14:textId="77777777" w:rsidR="00E62344" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">
+w14:paraId="10589FA5" w14:textId="77777777" w:rsidR="00E62344" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">
+w14:paraId="692BF26E" w14:textId="77777777" w:rsidR="00E62344" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">
+w14:paraId="65B8A952" w14:textId="77777777" w:rsidR="00E62344" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">
+w14:paraId="77CED186" w14:textId="77777777" w:rsidR="006F7667" w:rsidRPr="001C3540" w:rsidRDefault="006F7667" w:rsidP="001C3540">
+w14:paraId="4BEE8F09" w14:textId="59993049" w:rsidR="006F7667" w:rsidRPr="001C3540" w:rsidRDefault="006F7667" w:rsidP="00142E25">3.4.8 Quy tr�nh S? d?ng h? th?ng
+w14:paraId="5448FFDC" w14:textId="079903E7" w:rsidR="006F7667" w:rsidRPr="001C3540" w:rsidRDefault="00395F03" w:rsidP="001C3540">
+w14:paraId="7894B2C4" w14:textId="3995ACA0" w:rsidR="00395F03" w:rsidRPr="001C3540" w:rsidRDefault="00395F03" w:rsidP="001C3540">H�nh  0.18:  Quy tr�nh S? d?ng h? th?ng
+w14:paraId="6F3174F0" w14:textId="77777777" w:rsidR="00395F03" w:rsidRPr="001C3540" w:rsidRDefault="00395F03" w:rsidP="001C3540">
+w14:paraId="6B70D6D1" w14:textId="77777777" w:rsidR="00E62344" w:rsidRPr="001C3540" w:rsidRDefault="00E62344" w:rsidP="001C3540">
+w14:paraId="19C1C391" w14:textId="420FFDDD" w:rsidR="00FF4F12" w:rsidRPr="001C3540" w:rsidRDefault="00FF4F12" w:rsidP="00142E25">3.5 Bi?u d? ERD
+w14:paraId="388A4A9F" w14:textId="43A20225" w:rsidR="00FF4F12" w:rsidRPr="001C3540" w:rsidRDefault="00FF4F12" w:rsidP="001C3540">
+w14:paraId="6D3F53B9" w14:textId="77777777" w:rsidR="00D41E17" w:rsidRPr="001C3540" w:rsidRDefault="00D41E17" w:rsidP="001C3540">
+w14:paraId="2666822E" w14:textId="791F8B81" w:rsidR="0079779E" w:rsidRPr="001C3540" w:rsidRDefault="0079779E" w:rsidP="001C3540">H�nh  0.19:  Bi?u d? ERD
+w14:paraId="55BE127E" w14:textId="77777777" w:rsidR="00FF4F12" w:rsidRPr="001C3540" w:rsidRDefault="00FF4F12" w:rsidP="001C3540">
+w14:paraId="0A03685F" w14:textId="67C61927" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="00142E25">3.6. C�c k? nang v� c�ng c? k? thu?t da s? d?ng
+w14:paraId="3FC7C301" w14:textId="1A8CFA87" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="00142E25">3.6.1. C�c k? nang d?t du?c
+w14:paraId="6D90C392" w14:textId="5F62621C" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">V? k? nang l?p tr�nh Full-stack, sinh vi�n th�nh th?o x�y d?ng ?ng d?ng Web don trang (SPA) b?ng ReactJS k?t h?p Vite 6 v� Tailwind CSS; thi?t k? giao di?n ch?n gh? tuong t�c th?i gian th?c v� nh�ng Widget AI Chatbot. Ph�a Backend, sinh vi�n n?m v?ng tu duy thi?t k? v� ph�t tri?n h? th?ng RESTful API chu?n m?c b?ng Framework Laravel 11; x? ly c�c lu?ng nghi?p v? ph?c t?p nhu gi? gh? t?m th?i, thanh to�n m� ph?ng, check-in tr?c tuy?n v� t? d?ng ph�t h�nh v� di?n t? (E-ticket PDF).
+w14:paraId="65AB9972" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">V? k? nang thi?t k? Co s? d? li?u v� T�ch h?p AI, sinh vi�n th?c hi?n thi?t k? so d? quan h? th?c th? (ERD) v� t?i uu h�a CSDL quan h? MySQL. D?ng th?i, sinh vi�n l�m ch? ki?n tr�c RAG (Retrieval-Augmented Generation), t�ch h?p Co s? d? li?u Vector Qdrant v� Gemini AI API d? x�y d?ng Tr? ly ?o SkyAI tu v?n ch�nh s�ch v� h�nh tr�nh bay 24/7.
+w14:paraId="032A895A" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">V? k? nang DevOps v� Qu?n tr? m�y ch?, sinh vi�n th�nh th?o d�ng g�i ?ng d?ng da d?ch v? b?ng Docker v� Docker Compose; c?u h�nh Web Server Nginx (Reverse Proxy), t? d?ng c?p ph�t ch?ng ch? b?o m?t SSL HTTPS qua Certbot tr�n Cloud VPS; x�y d?ng lu?ng t? d?ng h�a t�ch h?p v� tri?n khai li�n t?c (CI/CD Pipeline) v?i GitHub Actions.
+w14:paraId="11E3FA7E" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">V? k? nang qu?n ly d? �n v� L�m vi?c nh�m, sinh vi�n l�m quen v?i quy tr�nh ph�t tri?n ph?n m?m Agile/Scrum tr�n n?n t?ng Jira Board (qu?n ly 6 Sprint t? task SKY-47 d?n SKY-81); th�nh th?o quy d?nh qu?n ly ma ngu?n ph�n nh�nh (Git Branching) tr�n GitHub, k? nang Review Code ch�o v� x? ly xung d?t ma ngu?n.
+w14:paraId="3EDC00D7" w14:textId="77777777" w:rsidR="001C3540" w:rsidRPr="008443B3" w:rsidRDefault="001C3540" w:rsidP="001C3540">
+w14:paraId="58513EA2" w14:textId="77777777" w:rsidR="00476D40" w:rsidRPr="008443B3" w:rsidRDefault="00476D40" w:rsidP="00476D40">
+w14:paraId="58A42C28" w14:textId="77777777" w:rsidR="00142E25" w:rsidRPr="008443B3" w:rsidRDefault="00142E25" w:rsidP="00476D40">
+w14:paraId="720D8179" w14:textId="701A5FD9" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="00142E25">3.6.2. C�ng c? v� c�ng ngh? k? thu?t s? d?ng
+w14:paraId="0B2CFDAA" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Ph�n lo?i
+w14:paraId="580C1C3A" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">C�ng ngh? / C�ng c?
+w14:paraId="63A3C31F" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Vai tr� &amp; M?c d�ch s? d?ng trong d? �n
+w14:paraId="2B159AFF" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Frontend
+w14:paraId="76E7E733" w14:textId="13538864" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">ReactJS, Vite 6 , Tailwind CSS, Phosphor Icons
+w14:paraId="399D8311" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">X�y d?ng giao di?n ngu?i d�ng SPA Responsive, form t�m ki?m chuy?n bay, so d? ch?n gh? tr?c quan v� nh�ng Widget Chatbot.
+w14:paraId="7CB64DEA" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Backend
+w14:paraId="78D803C3" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Laravel 11 (PHP Framework)
+w14:paraId="1215567D" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">L?p tr�nh c�c RESTful API qu?n ly Chuy?n bay, D?t v�, Thanh to�n, Check-in Online v� trang qu?n tr? Admin Dashboard.
+w14:paraId="3F87F6FB" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Database
+w14:paraId="5E1ABF24" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">MySQL &amp; Qdrant Vector DB
+w14:paraId="4323BE9D" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">MySQL: Luu tr? CSDL quan h? (Chuy?n bay, S�n bay, Don d?t v�, Ngu?i d�ng).Qdrant: Luu tr? nh�ng vector tri th?c ph?c v? AI tra c?u RAG.
+w14:paraId="3C069983" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">AI Integration
+w14:paraId="643BFAD9" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Gemini AI API (RAG Architecture)
+w14:paraId="6C1342E0" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">X�y d?ng Tr? ly ?o SkyAI tu v?n h�nh tr�nh bay v� gi?i d�p th?c m?c ch�nh s�ch t? d?ng 24/7 theo th?i gian th?c.
+w14:paraId="34FF436E" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">DevOps &amp; Cloud
+w14:paraId="3FCA901A" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Docker, Docker Compose, Nginx, Certbot SSL, Cloud VPS
+w14:paraId="590717AD" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">D�ng g�i container da service, c?u h�nh Reverse Proxy, c?p HTTPS an to�n v� tri?n khai v?n h�nh ?ng d?ng tr�n Cloud Server.
+w14:paraId="05EDC5F3" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Automation &amp; Test
+w14:paraId="0DCFA6BE" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">GitHub Actions, Postman, k6
+w14:paraId="723C6FFE" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Thi?t l?p CI/CD Pipeline t? d?ng deploy, ki?m th? API nghi?p v? v� th?c hi?n ki?m th? t?i tr?ng Stress Test k6.
+w14:paraId="3011F0F3" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Qu?n ly &amp; Thi?t k?
+w14:paraId="3B555DDD" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Jira Board, Git / GitHub, VS Code
+w14:paraId="54FEBAFB" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">Qu?n ly ti?n d? 6 Sprint (SKY-47 d?n SKY-81), ki?m so�t phi�n b?n ma ngu?n v� l?p tr�nh h? th?ng.
+w14:paraId="0AC0E3F8" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">
+w14:paraId="24F6509A" w14:textId="4158B819" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="00142E25">3.7. D�nh gi� k?t qu? th?c t?p
+w14:paraId="187EDD91" w14:textId="77777777" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">D?t th?c t?p t?t nghi?p t?i C�ng ty TNHH VTI Education da k?t th�c th�nh c�ng, ho�n th�nh 100% m?c ti�u d? ra:
+w14:paraId="5606D14D" w14:textId="7C1FCCB9" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">3.7.1. Ti?n d? v� kh?i lu?ng c�ng vi?c ho�n th�nh Sinh vi�n ho�n th�nh d�ng ti?n d? to�n b? 35 task (SKY-47 d?n SKY-81) thu?c 6 Sprint tr�n Jira Board theo quy tr�nh Agile/Scrum. H? th?ng Web SkyLink Airlines du?c x�y d?ng ho�n ch?nh d?y d? c�c lu?ng nghi?p v?: T�m ki?m chuy?n bay; Kh�a/gi? gh? th?i gian th?c; D?t v�, thanh to�n m� ph?ng; Check-in online xu?t v� di?n t? (E-ticket PDF) qua Email; Ph�n h? h?i vi�n SkyClub, Voucher; Tr? ly AI SkyAI 24/7 v� Admin Dashboard.
+w14:paraId="5E9857B4" w14:textId="273E8B7A" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">3.7.2. Ch?t lu?ng s?n ph?m k? thu?t v� tri?n khai H? th?ng d?t chu?n ki?n tr�c Full-stack v?i Backend Laravel 11 (RESTful API), Frontend SPA ReactJS (Vite 6, Tailwind CSS) v� CSDL MySQL. T�ch h?p th�nh c�ng Gemini AI API theo ki?n tr�c RAG v� Vector DB Qdrant tu v?n h�nh tr�nh th?i gian th?c (Streaming Realtime). D? �n du?c d�ng g�i 5 service b?ng Docker Compose, tri?n khai th�nh c�ng l�n Cloud VPS th?c t? v?i Nginx Reverse Proxy, SSL HTTPS (Certbot), t? d?ng h�a CI/CD qua GitHub Actions v� vu?t qua c�c b�i ki?m th? k6, E2E.
+w14:paraId="15698157" w14:textId="430397C7" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">3.7.3. D�p ?ng chu?n d?u ra h?c ph?n (CLO) Sinh vi�n d?t tr?n v?n 7 chu?n d?u ra (CLO1-CLO7): V?n d?ng th�nh th?o ki?n th?c Full-stack, CSDL v� AI v�o th?c t? (CLO1); Gi?i quy?t tri?t d? b�i to�n gi? gh? d?ng th?i v� x? ly b?t d?ng b? (CLO2); Giao ti?p v� b�o c�o minh b?ch tr�n Jira/SRS (CLO3); Tu�n th? d?o d?c v� an to�n b?o m?t (CLO4); L�m vi?c nh�m hi?u qu? qua Git Branching v� Review Code (CLO5); L�m ch? b? c�ng c? l?p tr�nh v� DevOps doanh nghi?p (CLO6); T? nh?n x�t nang l?c d? d?nh hu?ng ph�t tri?n s? nghi?p (CLO7).
+w14:paraId="0B939E22" w14:textId="3CC8B0A0" w:rsidR="00324C1A" w:rsidRPr="001C3540" w:rsidRDefault="00324C1A" w:rsidP="001C3540">3.7.4. D�nh gi� chung t? don v? th?c t?p C�n b? hu?ng d?n t?i VTI Education d�nh gi� cao t�c phong l�m vi?c nghi�m t�c, tinh th?n ch? d?ng nghi�n c?u c�ng ngh? m?i, t�nh d�ng gi? v� kh? nang ho�n th�nh s?n ph?m d�ng ch?t lu?ng cam k?t c?a sinh vi�n trong su?t 6 tu?n th?c t?p.
+w14:paraId="41380F95" w14:textId="77777777" w:rsidR="00FF4F12" w:rsidRPr="001C3540" w:rsidRDefault="00FF4F12" w:rsidP="001C3540">
+w14:paraId="3C7D2445" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="00142E25">CHUONG 4: PHAN TICH, DANH GIA VA D? XU?T
+w14:paraId="2B2BDCCF" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="00142E25">4.1. Nh?n x�t v? quy tr�nh, kh� khan g?p ph?i v� gi?i ph�p d? xu?t
+w14:paraId="4CC2C2DF" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">Qu� tr�nh tri?n khai d? �n H? th?ng D?t v� m�y bay t�ch h?p AI Chatbot (SkyLink Airlines) t?i C�ng ty TNHH VTI Education di?n ra thu?n l?i nh? s? h? tr? t?n t�nh t? c�n b? hu?ng d?n v� quy tr�nh qu?n ly d? �n Agile/Scrum chuy�n nghi?p tr�n Jira Board. M�i tru?ng th?c t?p cung c?p h? t?ng k? thu?t th?c t?, b�i to�n ph�t tri?n ph?n m?m b�m s�t nhu c?u thuong m?i, gi�p sinh vi�n nhanh ch�ng ti?p c?n quy tr�nh s?n xu?t ph?n m?m t?i doanh nghi?p.
+w14:paraId="66BABE66" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">B�n c?nh nh?ng thu?n l?i, qu� tr�nh ph�t tri?n h? th?ng ghi nh?n m?t s? kh� khan k? thu?t th?c chi?n. Giai do?n d?u l�m vi?c nh�m tr�n Git xu?t hi?n xung d?t ma ngu?n khi g?p nh�nh do chua th?ng nh?t quy chu?n commit. V? m?t nghi?p v?, b�i to�n x? ly tranh ch?p d? li?u th?i gian th?c x?y ra khi nhi?u ngu?i d�ng c�ng l�c ch?n m?t gh? ng?i tr�n chuy?n bay. Khi chuy?n d?i ?ng d?ng t? m�i tru?ng localhost sang Cloud VPS c� HTTPS, h? th?ng g?p l?i ch?n truy c?p cross-origin (CORS Policy) v� sai l?ch di?u hu?ng Nginx Reverse Proxy. Ngo�i ra, vi?c truy v?n tri th?c qua Qdrant Vector DB v� Gemini AI API ban d?u g?p d? tr? ph?n h?i cao, g�y ?nh hu?ng d?n tr?i nghi?m giao di?n.
+w14:paraId="252743A5" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">D? kh?c ph?c tri?t d? c�c v?n d? tr�n, sinh vi�n da �p d?ng c�c gi?i ph�p k? thu?t d?ng b?. Quy tr�nh l�m vi?c tr�n Git du?c chu?n h�a theo m� h�nh Git Branching, y�u c?u m?i t�nh nang ph�t tri?n tr�n m?t nh�nh ri�ng (feature/branch), b?t bu?c git pull ma ngu?n m?i nh?t v� th�ng qua bu?c Review Code ch�o tru?c khi merge. Sinh vi�n l?p tr�nh thu?t to�n Kh�a gh? t?m th?i 10 ph�t tr�n MySQL, t? d?ng gi?i ph�ng v? tr� gh? n?u qu� th?i gian gi? ch? m� ngu?i d�ng chua thanh to�n. C?u h�nh Nginx (nginx.conf) du?c di?u ch?nh chu?n x�c c�c Header CORS, k?t h?p SSL Certbot d? c?p ph�t ch?ng ch? HTTPS t? d?ng tr�n Cloud VPS. Cu?i c�ng, k? thu?t Streaming Realtime Response du?c �p d?ng cho Gemini AI API, gi�p hi?n th? ph?n h?i c?a Chatbot theo d?ng go ch? th?i gian th?c, t?i uu h�a t?c d? ph?n h?i tr�n giao di?n ReactJS.
+w14:paraId="6E5ADCB1" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="00142E25">4.2. Ph�n t�ch m?i li�n h? gi?a ly thuy?t v� th?c t?
+w14:paraId="2ED164A5" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">Chuong tr�nh d�o t?o t?i Tru?ng D?i h?c X�y d?ng H� N?i v?i c�c m�n h?c n?n t?ng nhu C?u tr�c d? li?u v� Gi?i thu?t, Co s? d? li?u, L?p tr�nh Web v� Ki?n tr�c ph?n m?m d�ng vai tr� l� n?n t?ng ki?n th?c c?t loi, gi�p sinh vi�n ti?p thu nhanh ch�ng c�c c�ng ngh? m?i trong d? �n nhu Laravel 11, ReactJS, MySQL, Qdrant Vector DB v� Gemini AI.
+w14:paraId="320EC89D" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">Th?c ti?n s?n xu?t ph?n m?m t?i doanh nghi?p d�i h?i sinh vi�n ph?i m? r?ng tu duy h? th?ng vu?t ra ngo�i ph?m vi c�c b�i t?p l?n tr�n l?p. S?n ph?m kh�ng ch? d?ng l?i ? m?c d? ch?y du?c tr�n m�i tru?ng c� nh�n (localhost) m� ph?i d�p ?ng c�c ti�u chu?n s?n xu?t nghi�m ng?t v? quy chu?n ma ngu?n s?ch (Clean Code), t�nh b?o m?t th�ng tin, kh? nang ch?u t?i v� t�nh s?n s�ng cao. Vi?c d�ng g�i ?ng d?ng da d?ch v? b?ng Docker Compose v� thi?t l?p lu?ng t? d?ng h�a CI/CD qua GitHub Actions gi�p sinh vi�n hi?u ro t?m quan tr?ng c?a quy tr�nh chuy?n giao ph?n m?m t? d?ng trong m�i tru?ng doanh nghi?p hi?n d?i.
+w14:paraId="7C32EB20" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="00142E25">4.3. Ki?n ngh? c?i ti?n quy tr�nh ho?c phuong ph�p k? thu?t
+w14:paraId="48731E64" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">Nh?m n�ng cao hi?u nang v� t�nh m? r?ng cho h? th?ng SkyLink Airlines trong c�c giai do?n ph�t tri?n ti?p theo, sinh vi�n d? xu?t m?t s? ki?n ngh? c?i ti?n k? thu?t c? th?. Th? nh?t, t�ch h?p h? th?ng b? d?m Redis Caching d? luu tr? t?m c�c d? li?u �t bi?n d?ng nhu danh m?c S�n bay, Tuy?n bay ph? bi?n v� K?t qu? t�m ki?m chuy?n bay, gi�p gi?m t?i tr?c ti?p cho MySQL Database v� r�t ng?n th?i gian ph?n h?i API. Th? hai, tri?n khai b? c�ng c? gi�m s�t Prometheus v� Grafana d? theo doi th?i gian th?c c�c th�ng s? h? t?ng m�y ch? (CPU, RAM, Disk, Network) v� t�nh tr?ng ch?u t?i c?a ?ng d?ng. Th? ba, n�ng c?p ki?n tr�c tri?n khai sang m� h�nh Kubernetes ho?c Docker Swarm d? t? d?ng tang gi?m s? lu?ng Container (Auto-scaling) d�p ?ng k?p th?i luu lu?ng truy c?p d?t v� tang d?t bi?n trong c�c d?p l?, T?t.
+w14:paraId="0361AE3C" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="00142E25">4.4. K?t lu?n chuong
+w14:paraId="5565E759" w14:textId="77777777" w:rsidR="00090E61" w:rsidRPr="001C3540" w:rsidRDefault="00090E61" w:rsidP="001C3540">Chuong 4 da ph�n t�ch to�n di?n quy tr�nh l�m vi?c, l�m ro nh?ng thu?n l?i, kh� khan k? thu?t ph�t sinh v� c�c gi?i ph�p kh?c ph?c hi?u qu? trong qu� tr�nh th?c hi?n d? �n. Vi?c d?i chi?u gi?a ly thuy?t d�o t?o t?i Nh� tru?ng v?i th?c ti?n s?n xu?t t?i doanh nghi?p c�ng c�c d? xu?t c?i ti?n k? thu?t da gi�p sinh vi�n c?ng c? tu duy ph?n bi?n, n�ng cao k? nang x? ly s? c? h? th?ng v� ho�n thi?n nang l?c chuy�n m�n c?a m?t L?p tr�nh vi�n Web Full-stack.
+w14:paraId="01839E57" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="5FD5D7F7" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="00142E25">CHUONG 5: T? NH?N X�T VA D?NH HU?NG NGH? NGHI?P CA NHAN
+w14:paraId="27D6C9C8" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="00142E25">5.1. Nh?n x�t v? nang l?c b?n th�n
+w14:paraId="7607B83F" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">D?t th?c t?p t?t nghi?p t?i C�ng ty TNHH VTI Education da mang l?i cho sinh vi�n co h?i quy b�u d? nh�n nh?n v� d�nh gi� to�n di?n v? nang l?c chuy�n m�n cung nhu k? nang l�m vi?c th?c t? c?a b?n th�n. Sinh vi�n nh?n th?y m�nh c� m?t s? di?m m?nh n?i b?t nhu: c� tu duy logic t?t, tinh th?n ch? d?ng cao v� kh? nang t? h?c, nghi�n c?u t�i li?u k? thu?t nhanh ch�ng; n?m v?ng v� v?n d?ng th�nh th?o c�c c�ng ngh? L?p tr�nh Web Full-stack hi?n d?i nhu ReactJS, TypeScript, Tailwind CSS ? Frontend, Laravel 11 ? Backend c�ng h? qu?n tr? co s? d? li?u quan h? MySQL; c� k? nang co b?n v? qu?n tr? m�y ch?, d�ng g�i ?ng d?ng qua Docker v� tri?n khai th?c t? tr�n Cloud VPS. B�n c?nh d�, sinh vi�n lu�n gi? v?ng tinh th?n k? lu?t, l�m vi?c nghi�m t�c, t�c phong d�ng gi?, lu�n ch? d?ng ph?i h?p v?i c�c th�nh vi�n trong nh�m v� ho�n th�nh d�ng h?n c�c nhi?m v? du?c giao tr�n Jira Board.
+w14:paraId="21344ABD" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">Tuy nhi�n, b?n th�n sinh vi�n v?n c�n m?t s? h?n ch? c?n ti?p t?c n? l?c c?i thi?n trong th?i gian t?i. Sinh vi�n c?n t�ch luy th�m kinh nghi?m th?c chi?n trong vi?c thi?t k? ki?n tr�c c�c h? th?ng l?n ph?c v? luu lu?ng truy c?p cao v� x? ly d?ng th?i (High Concurrency). D?ng th?i, sinh vi�n c?n ti?p t?c trau d?i v� n�ng cao tr�nh d? ti?ng Anh chuy�n ng�nh d? c� th? d?c hi?u nhanh ch�ng c�c t�i li?u k? thu?t chuy�n s�u v� c?p nh?t c�c c�ng ngh? ti�n ti?n tr�n th? gi?i.
+w14:paraId="6E240641" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="00142E25">5.2. D?nh hu?ng h?c t?p v� ngh? nghi?p trong tuong lai
+w14:paraId="7710E465" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">D?a tr�n nh?ng tr?i nghi?m th?c t? t�ch luy du?c t? d? �n SkyLink Airlines v� s? d�nh gi� kh�ch quan v? nang l?c b?n th�n, sinh vi�n da x�y d?ng l? tr�nh ph�t tri?n ngh? nghi?p ro r�ng cho t?ng giai do?n.
+w14:paraId="5E16EF66" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">Trong m?c ti�u ng?n h?n ngay sau khi t?t nghi?p, sinh vi�n t?p trung ph�t tri?n chuy�n s�u theo v? tr� L?p tr�nh vi�n Web Full-stack (Full-stack Developer). Sinh vi�n s? c?ng c? v?ng ch?c n?n t?ng l?p tr�nh Frontend v� Backend, n�ng cao k? nang t?i uu h�a truy v?n CSDL MySQL, d?ng th?i ti?p t?c nghi�n c?u s�u hon v? k? thu?t t�ch h?p AI (ki?n tr�c RAG, Vector Database Qdrant, Gemini AI) d? ?ng d?ng hi?u qu? v�o c�c s?n ph?m ph?n m?m thuong m?i.
+w14:paraId="30EB0DDF" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">Trong m?c ti�u d�i h?n t? 3 d?n 5 nam t?i, sinh vi�n hu?ng t?i m?c ti�u tr? th�nh K? su ph?n m?m cao c?p (Senior Software Engineer) ho?c Tru?ng nh�m k? thu?t (Technical Lead). D? d?t du?c m?c ti�u n�y, sinh vi�n s? t?p trung nghi�n c?u m? r?ng v? Ki?n tr�c ph?n m?m (Software Architecture), c�c gi?i ph�p di?n to�n d�m m�y (Cloud Solutions), phuong ph�p qu?n tr? h? t?ng v� t? d?ng h�a quy tr�nh ph?n m?m (DevOps/CI-CD), d?ng th?i r�n luy?n k? nang qu?n ly d? �n v� d?n d?t d?i ngu.
+w14:paraId="447FFA7B" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="00142E25">5.3. K?t lu?n chuong
+w14:paraId="1ABDF8C6" w14:textId="19191F6F" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">Chuong 5 da t?ng h?p ph?n t? nh?n x�t kh�ch quan v? di?m m?nh, di?m y?u c?a sinh vi�n sau d?t th?c t?p t?t nghi?p, d?ng th?i v?ch ra d?nh hu?ng h?c t?p v� ph�t tri?n ngh? nghi?p c? th? trong tuong lai. Qua d�, d?t th?c t?p kh�ng ch? gi�p sinh vi�n ho�n thi?n s?n ph?m k? thu?t SkyLink Airlines m� c�n d�ng vai tr� l� c?t m?c quan tr?ng gi�p sinh vi�n d?nh h�nh ro r�ng con du?ng s? nghi?p v� t? tin bu?c v�o m�i tru?ng l�m vi?c chuy�n nghi?p sau khi r?i gh? nh� tru?ng.
+w14:paraId="3308038F" w14:textId="77777777" w:rsidR="0094109E" w:rsidRDefault="0094109E" w:rsidP="00142E25">
+w14:paraId="2B131FBA" w14:textId="2878880C" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="00142E25">CHUONG 6: K?T LU?N VA KI?N NGH?
+w14:paraId="1EA054DF" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="00142E25">6.1. T?ng k?t n?i dung v� b�i h?c kinh nghi?m
+w14:paraId="230BE3E1" w14:textId="69D2B45F" w:rsidR="00CE65E2" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">Sau 6 tu?n th?c t?p t?t nghi?p t?i C�ng ty TNHH VTI Education, sinh vi�n da ho�n th�nh xu?t s?c c�c m?c ti�u v� k? ho?ch d? ra. Sinh vi�n da x�y d?ng v� tri?n khai th�nh c�ng h? th?ng Web D?t v� m�y bay t�ch h?p Tr? ly AI Chatbot (SkyLink Airlines) v?n h�nh th?c t? tr�n Cloud Server. Qua qu� tr�nh th?c hi?n d? �n, sinh vi�n da n?m v?ng quy tr�nh ph�t tri?n ph?n m?m chu?n doanh nghi?p tr�n n?n t?ng Jira Board, �p d?ng m� h�nh Agile/Scrum v� quy chu?n qu?n ly ma ngu?n ph�n nh�nh Git Branching. Sinh vi�n da l�m ch? b? c�ng c? v� h? t?ng tri?n khai th?c t? bao g?m Laravel 11 RESTful API, ReactJS SPA (Vite 6, TypeScript, Tailwind CSS), CSDL MySQL, CSDL Vector Qdrant, Gemini AI (RAG Architecture), Docker Compose, Nginx Reverse Proxy, ch?ng ch? SSL Certbot v� t? d?ng h�a CI/CD v?i GitHub Actions. D?ng th?i, d?t th?c t?p da gi�p sinh vi�n r�t ra nh?ng b�i h?c kinh nghi?m quy gi� v? tinh th?n tr�ch nhi?m, t�c phong l�m vi?c chuy�n nghi?p, kh? nang t? nghi�n c?u th�o g? s? c? k? thu?t v� t?m quan tr?ng c?a k? nang giao ti?p, ph?i h?p l�m vi?c nh�m.
+w14:paraId="6D0BBB1C" w14:textId="330BD70D" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="00925001">6.2. Ki?n ngh?
+w14:paraId="76160CD7" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">D?a tr�n nh?ng tr?i nghi?m th?c t? trong su?t d?t th?c t?p t?t nghi?p, sinh vi�n xin d? xu?t m?t s? ki?n ngh? nh?m n�ng cao hon n?a ch?t lu?ng d�o t?o v� hi?u qu? th?c t?p cho c�c kh�a sinh vi�n ti?p theo:
+w14:paraId="46F7950F" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">D?i v?i Nh� tru?ng, k�nh d? ngh? Khoa C�ng ngh? Th�ng tin v� B? m�n C�ng ngh? Ph?n m?m Tru?ng D?i h?c X�y d?ng H� N?i ti?p t?c duy tr�, m? r?ng m?ng lu?i h?p t�c v?i c�c doanh nghi?p c�ng ngh? uy t�n. D?ng th?i, Nh� tru?ng c� th? l?ng gh�p th�m c�c h?c ph?n th?c h�nh chuy�n s�u v? quy tr�nh tri?n khai t? d?ng (DevOps/CI-CD), qu?n tr? h? t?ng Cloud Computing v� k? thu?t t�ch h?p AI/Machine Learning v�o chuong tr�nh gi?ng d?y d?i h?c d? sinh vi�n s?m b?t k?p xu hu?ng c�ng ngh? th?c t? c?a doanh nghi?p.
+w14:paraId="231E2B28" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">D?i v?i Don v? th?c t?p (C�ng ty TNHH VTI Education), sinh vi�n k�nh mong c�ng ty ti?p t?c ph�t huy m� h�nh hu?ng d?n d? �n th?c chi?n b�m s�t quy tr�nh s?n xu?t ph?n m?m. C�ng ty c� th? t?o th�m nhi?u s�n choi c�ng ngh?, c�c bu?i chia s? chuy�n d? k? thu?t (Tech Talk) v� duy tr� co h?i th?c t?p, tuy?n d?ng ch?t lu?ng cao cho c�c th? h? sinh vi�n ti?p theo.
+w14:paraId="576A54AD" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">D?i v?i b?n th�n, sinh vi�n cam k?t duy tr� th�i quen t? h?c v� t? nghi�n c?u h�ng ng�y, kh�ng ng?ng c?ng c? n?n t?ng ki?n th?c chuy�n m�n L?p tr�nh Web Full-stack v� T�ch h?p AI. Sinh vi�n s? ch? d?ng tham gia d�ng g�p cho c�c d? �n ph?n m?m th?c t?, r�n luy?n tu duy thi?t k? h? th?ng v� n�ng cao tr�nh d? ti?ng Anh chuy�n ng�nh d? s?n s�ng d�p ?ng y�u c?u kh?t khe c?a th? tru?ng lao d?ng CNTT.
+w14:paraId="253F6510" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="00925001">6.3. K?t lu?n chung
+w14:paraId="0C14E617" w14:textId="77777777" w:rsidR="001F613E" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">H?c ph?n Th?c t?p t?t nghi?p da kh�p l?i th�nh c�ng v?i nh?ng k?t qu? th?c ch?t c? v? m?t s?n ph?m k? thu?t l?n s? tru?ng th�nh c?a c� nh�n sinh vi�n. D? t�i "H? TH?NG D?T V� MAY BAY TICH H?P AI CHATBOT" kh�ng ch? l� m?t ?ng d?ng ph?n m?m ho�n ch?nh v?n h�nh ?n d?nh tr�n Cloud VPS m� c�n l� minh ch?ng ro n�t cho s? k?t h?p hi?u qu? gi?a n?n t?ng ki?n th?c ly thuy?t du?c d�o t?o b�i b?n t?i Tru?ng D?i h?c X�y d?ng H� N?i v� kinh nghi?m th?c chi?n t�ch luy t?i C�ng ty TNHH VTI Education.
+w14:paraId="55BB64E8" w14:textId="2E2EC1F0" w:rsidR="009E6E16" w:rsidRPr="001C3540" w:rsidRDefault="001F613E" w:rsidP="001C3540">Sinh vi�n xin tr�n tr?ng g?i l?i c?m on ch�n th�nh v� s�u s?c nh?t d?n C� ThS. Nguy?n H?ng H?nh - Gi?ng vi�n hu?ng d?n, Th?y Dinh Van D�ng - C�n b? hu?ng d?n t?i doanh nghi?p, c�ng to�n th? quy Th?y C� trong Khoa C�ng ngh? Th�ng tin, B? m�n C�ng ngh? Ph?n m?m v� c�c anh/ch? t?i VTI Education da lu�n d?nh hu?ng, ch? b?o t?n t�nh v� t?o m?i di?u ki?n thu?n l?i gi�p sinh vi�n ho�n th�nh t?t d?t th?c t?p t?t nghi?p n�y.
+w14:paraId="23EBECC6" w14:textId="77777777" w:rsidR="00E7066D" w:rsidRPr="008443B3" w:rsidRDefault="00E7066D" w:rsidP="001C3540">
+w14:paraId="3CF5EE2F" w14:textId="77777777" w:rsidR="00925001" w:rsidRPr="008443B3" w:rsidRDefault="00925001" w:rsidP="001C3540">
+w14:paraId="5561FF84" w14:textId="77777777" w:rsidR="00925001" w:rsidRPr="0094109E" w:rsidRDefault="00925001" w:rsidP="001C3540">
+w14:paraId="2124BA3C" w14:textId="3C1C4766" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="00C772BD">TAI LI?U THAM KH?O
+w14:paraId="07B3750F" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Laravel Documentation - https://laravel.com/docs, ng�y truy c?p 10/08/2026.
+w14:paraId="0A9E7341" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">React Documentation - https://react.dev, ng�y truy c?p 10/08/2026.
+w14:paraId="7BB83DEE" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">MySQL Reference Manual - https://dev.mysql.com/doc, ng�y truy c?p 12/08/2026.
+w14:paraId="662CD1F0" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Google Gemini AI API Documentation - https://ai.google.dev/docs, ng�y truy c?p 15/08/2026.
+w14:paraId="607ED567" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Qdrant Vector Database Documentation - https://qdrant.tech/documentation, ng�y truy c?p 18/08/2026.
+w14:paraId="7CCDBBDD" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Docker &amp; Docker Compose Documentation - https://docs.docker.com, ng�y truy c?p 20/08/2026.
+w14:paraId="7BACF941" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Nginx Reverse Proxy Documentation - https://nginx.org/en/docs, ng�y truy c?p 22/08/2026.
+w14:paraId="35E32913" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Let's Encrypt Certbot Documentation - https://certbot.eff.org, ng�y truy c?p 25/08/2026.
+w14:paraId="66AB9E7C" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">GitHub Actions CI/CD Documentation - https://docs.github.com/en/actions, ng�y truy c?p 26/08/2026.
+w14:paraId="60EBDA0E" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">k6 Load Testing Documentation - https://k6.io/docs, ng�y truy c?p 28/08/2026.
+w14:paraId="0819705A" w14:textId="28CA417E" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">Tailwind CSS Documentation - https://tailwindcss.com/docs, ng�y truy c?p 05/08/2026.
+w14:paraId="7DCAEF2B" w14:textId="77777777" w:rsidR="00516706" w:rsidRPr="001C3540" w:rsidRDefault="00516706" w:rsidP="001C3540">
+w14:paraId="3B132CAD" w14:textId="77777777" w:rsidR="00516706" w:rsidRDefault="00516706" w:rsidP="001C3540">
+w14:paraId="26961FE3" w14:textId="77777777" w:rsidR="00C772BD" w:rsidRDefault="00C772BD" w:rsidP="001C3540">
+w14:paraId="2F0E7EF4" w14:textId="77777777" w:rsidR="00C772BD" w:rsidRPr="001C3540" w:rsidRDefault="00C772BD" w:rsidP="001C3540">
+w14:paraId="067E17B3" w14:textId="2CE71DCE" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="2E5FF2BD" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="00E7066D" w:rsidRDefault="00C210B8" w:rsidP="00E7066D">XAC NH?N HOAN THANH
+w14:paraId="24E1532D" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">X�c nh?n c?a c�n b? hu?ng d?n t?i DVHD
+w14:paraId="73409AD8" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">T�i x�c nh?n sinh vi�n da ho�n th�nh d�ng k? ho?ch th?c t?p, tu�n th? quy d?nh v� c� k?t qu? d?t y�u c?u.
+w14:paraId="108144D6" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">Ky t�n, ghi ro h? t�n, d�ng d?u 
+w14:paraId="4A3A7CAA" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">(n?u c�)
+w14:paraId="40CD6511" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="22AB18D1" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="18E3C306" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="74BD8063" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="24F3538C" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="25D8E5D2" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="0CF57977" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">Ng�y . th�ng . nam ..
+w14:paraId="40418B58" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">X�c nh?n c?a Gi?ng vi�n hu?ng d?n
+w14:paraId="2D8B82E4" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">T�i x�c nh?n b�o c�o d?t y�u c?u, d? di?u ki?n n?p v� ch?m di?m h?c ph?n.
+w14:paraId="5C292916" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">Ky t�n, ghi ro h? t�n
+w14:paraId="321A1D0A" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="2ED8DFA0" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="5107D28B" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="3424FB09" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="09BF4843" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="0A43EA77" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="6A868C94" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">
+w14:paraId="46CBF031" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">Ng�y . th�ng . nam ..
+w14:paraId="08F2BA16" w14:textId="77777777" w:rsidR="00C210B8" w:rsidRPr="001C3540" w:rsidRDefault="00C210B8" w:rsidP="001C3540">

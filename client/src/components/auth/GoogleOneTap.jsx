@@ -35,13 +35,17 @@ export default function GoogleOneTap() {
 
     const initOneTap = () => {
       if (!window.google?.accounts?.id) return;
+      if (window._gsi_initialized) return;
 
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: handleGoogleOneTapResponse,
         auto_select: false,
         cancel_on_tap_outside: true,
+        use_fedcm_for_prompt: true,
       });
+
+      window._gsi_initialized = true;
 
       // Hiển thị One Tap prompt ở góc trên bên phải
       window.google.accounts.id.prompt((notification) => {
