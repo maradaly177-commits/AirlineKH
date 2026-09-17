@@ -123,27 +123,31 @@ class SendBoardingPassEmailJob implements ShouldQueue
             ];
 
             // 3. Gửi email
-            Mail::send('emails.boarding-pass', $data, function ($message) use ($recipientEmail, $booking) {
-                $message
-                    ->to($recipientEmail)
-                    ->subject("Thẻ Lên Máy Bay Điện Tử - SkyLink Airlines (PNR: {$booking->pnr_code})")
-                    ->from(config('mail.from.address'), config('mail.from.name'));
-            });
+            try {
+                Mail::send('emails.boarding-pass', $data, function ($message) use ($recipientEmail, $booking) {
+                    $message
+                        ->to($recipientEmail)
+                        ->subject("Thẻ Lên Máy Bay Điện Tử - SkyLink Airlines (PNR: {$booking->pnr_code})")
+                        ->from(config('mail.from.address'), config('mail.from.name'));
+                });
 
-            Log::info("Email Boarding Pass gửi thành công", [
-                'boarding_pass_id' => $this->boardingPassId,
-                'user_email' => $recipientEmail,
-                'pnr_code' => $booking->pnr_code,
-            ]);
+                Log::info("Email Boarding Pass gửi thành công", [
+                    'boarding_pass_id' => $this->boardingPassId,
+                    'user_email' => $recipientEmail,
+                    'pnr_code' => $booking->pnr_code,
+                ]);
+            } catch (Throwable $mailError) {
+                Log::error("Không thể gửi email Boarding Pass (SMTP Error): " . $mailError->getMessage(), [
+                    'boarding_pass_id' => $this->boardingPassId,
+                    'user_email' => $recipientEmail,
+                ]);
+            }
 
         } catch (Exception $e) {
-            Log::error("Lỗi khi gửi Boarding Pass Email", [
+            Log::error("Lỗi khi xử lý Boarding Pass Email Job", [
                 'boarding_pass_id' => $this->boardingPassId,
                 'error' => $e->getMessage(),
             ]);
-
-            // Throw exception để queue có thể retry
-            throw $e;
         }
     }
 

@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLIDE BÁO CÁO ĐỒ ÁN - XÂY DỰNG HỆ THỐNG TRỢ LÝ AI HỖ TRỢ KHÁCH HÀNG CHO NỀN TẢNG ĐẶT VÉ MÁY BAY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b132b 100%);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-cyan: #06b6d4;
+      --accent-gold: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-purple: #a855f7;
+      --shadow-glow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(148, 163, 184, 0.25);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #0284c7;
+      --accent-cyan: #0891b2;
+      --accent-gold: #d97706;
+      --accent-emerald: #059669;
+      --accent-purple: #7e22ce;
+      --shadow-glow: 0 10px 30px -10px rgba(2, 132, 199, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Progress Bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 100;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+      width: 4%;
+      transition: width 0.3s ease;
+    }
+
+    /* Top Bar Controls */
+    .top-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--card-border);
+      z-index: 90;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-ctrl {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-ctrl:hover {
+      background: var(--accent-blue);
+      color: #fff;
+      border-color: var(--accent-blue);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* Main Slide Container */
+    .slide-viewport {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 40px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 92%;
+      max-width: 1200px;
+      height: 84%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      padding: 40px 50px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px) scale(0.98);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      overflow-y: auto;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Slide Content Typography */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--card-border);
+    }
+    .slide-num-tag {
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      background: rgba(6, 182, 212, 0.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .slide-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--text-main), var(--accent-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+    }
+    .slide-body {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+    .slide-body p { margin-bottom: 16px; }
+
+    /* Custom Layout Components */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .info-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: all 0.2s ease;
+    }
+    .info-box:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+    .info-box h4 {
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-box ul {
+      padding-left: 20px;
+    }
+    .info-box li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .info-box li strong { color: var(--text-main); }
+
+    /* Title Slide Specifics */
+    .title-slide-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .main-topic-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin: 20px 0;
+      background: linear-gradient(135deg, var(--accent-cyan), #60a5fa, var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 900px;
+    }
+    .meta-card {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      background: rgba(0,0,0,0.2);
+      padding: 20px 40px;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+    }
+    .meta-item {
+      text-align: left;
+    }
+    .meta-item label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .meta-item span {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    /* Diagram / Code Blocks */
+    .code-box {
+      font-family: var(--font-code);
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.5;
+    }
+
+    /* Data Table Styling */
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.92rem;
+    }
+    .styled-table th {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--card-border);
+      font-weight: 700;
+    }
+    .styled-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--card-border);
+      color: var(--text-muted);
+    }
+    .styled-table tr:hover td {
+      background: rgba(255,255,255,0.03);
+      color: var(--text-main);
+    }
+    .badge-success {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--accent-emerald);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* Bottom Control Bar */
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 30px;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--card-border);
+      z-index: 90;
+    }
+    .slide-counter {
+      font-family: var(--font-code);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .slide-counter span {
+      color: var(--accent-cyan);
+    }
+
+    /* Overview Modal Grid */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 19, 43, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      padding: 30px;
+      overflow-y: auto;
+    }
+    .overview-modal.open { display: flex; }
+    .overview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .thumb-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .thumb-card:hover {
+      border-color: var(--accent-blue);
+      transform: scale(1.03);
+      box-shadow: var(--shadow-glow);
+    }
+    .thumb-num {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+    .thumb-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Top Controls -->
+  <div class="top-controls">
+    <div class="brand-title">
+      ✈️ SKYLINK AIRLINE <span class="brand-badge">AI ASSISTANT</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn-ctrl" onclick="toggleOverview()">📑 Danh sách Slide (O)</button>
+      <button class="btn-ctrl" onclick="toggleTheme()">🌓 Đổi Giao Diện</button>
+      <button class="btn-ctrl" onclick="toggleFullscreen()">🖥️ Toàn Màn Hình (F)</button>
+    </div>
+  </div>
+
+  <!-- Slide Viewport -->
+  <div class="slide-viewport">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active" id="slide-1">
+      <div class="title-slide-box">
+        <span class="slide-num-tag">DỰ ÁN BÁO CÁO TỐT NGHIỆP / NGHIÊN CỨU CHUYÊN ĐỀ</span>
+        <h1 class="main-topic-title">XÂY DỰNG HỆ THỐNG TRỢ LÝ AI HỖ TRỢ KHÁCH HÀNG CHO NỀN TẢNG ĐẶT VÉ MÁY BAY</h1>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px;">
+          Nền tảng Đặt vé Máy bay Trực tuyến SkyLink Airline Tích hợp Trợ lý Ảo đa năng SkyAI Assistant sử dụng Large Language Model & Retrieval-Augmented Generation (RAG).
+        </p>
+        <div class="meta-card">
+          <div class="meta-item">
+            <label>Giảng viên hướng dẫn</label>
+            <span>[Tên Giảng Viên Hướng Dẫn]</span>
+          </div>
+          <div class="meta-item">
+            <label>Sinh viên thực hiện</label>
+            <span>[Tên Sinh Viên]</span>
+          </div>
+          <div class="meta-item">
+            <label>Công nghệ sử dụng</label>
+            <span>Laravel 11 • ReactJS Vite • Gemini AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <h2 class="slide-title">1. Đặt Vấn Đề & Lý Do Chọn Đề Tài</h2>
+        <span class="slide-num-tag">SLIDE 02 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>🔴 Thách thức của ngành Hàng không</h4>
+            <ul>
+              <li><strong>Khối lượng tư vấn lớn:</strong> Nhu cầu tìm vé, kiểm tra điều kiện vé, hành lý, thủ tục bay tăng liên tục 24/7.</li>
+              <li><strong>Tải quá hạn Call Center:</strong> Nhân viên CSKH quá tải vào giờ cao điểm, dẫn đến thời gian chờ đợi kéo dài.</li>
+              <li><strong>Quy định phức tạp:</strong> Hàng trăm điều kiện vé (Refund, Reschedule, Baggage, Child Policy) gây khó khăn cho khách tra cứu thủ công.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🟢 Giải pháp công nghệ đột phá</h4>
+            <ul>
+              <li><strong>AI Agentic thế hệ mới:</strong> Tích hợp Trợ lý AI SkyAI phản hồi tự động dưới 1.5 giây.</li>
+              <li><strong>Gọi hàm thời gian thực (Function Calling):</strong> Trợ lý AI đọc dữ liệu trực tiếp từ CSDL chuyến bay live thay vì trả lời suông.</li>
+              <li><strong>Nâng cao trải nghiệm:</strong> Giảm 80% thời gian tìm kiếm chuyến bay và hỗ trợ khách hàng đa ngôn ngữ.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <h2 class="slide-title">2. Mục Tiêu Của Đề Tài</h2>
+        <span class="slide-num-tag">SLIDE 03 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="info-box">
+            <h4>🎯 1. Nền tảng Đặt vé Core</h4>
+            <p>Xây dựng hệ thống đặt vé máy bay SkyLink đầy đủ quy trình: Tìm chuyến, chọn ghế SeatMap, mua hành lý, thanh toán & Check-in online.</p>
+          </div>
+          <div class="info-box">
+            <h4>🤖 2. Trợ lý AI Đa năng</h4>
+            <p>Phát triển Trợ lý ảo SkyAI dựa trên mô hình Gemini LLM có khả năng thực thi Function Calling (6 Tools core) và tra cứu RAG.</p>
+          </div>
+          <div class="info-box">
+            <h4>🌐 3. Đa ngôn ngữ & Realtime</h4>
+            <p>Tự động nhận diện và phản hồi 7+ ngôn ngữ (Việt, Anh, Khmer, Trung...), stream đáp án realtime qua công nghệ SSE.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <h2 class="slide-title">3. Phạm Vi & Đóng Góp Của Đề Tài</h2>
+        <span class="slide-num-tag">SLIDE 04 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>📌 Phạm vi nghiên cứu</h4>
+            <ul>
+              <li><strong>Phân hệ Khách hàng:</strong> Tra cứu, đặt chỗ, quản lý vé, trò chuyện với Trợ lý AI.</li>
+              <li><strong>Phân hệ Quản trị (Admin):</strong> Quản lý máy bay, tuyến bay, lịch trình, giá vé và báo cáo doanh thu.</li>
+              <li><strong>Tích hợp AI:</strong> Google Gemini 2.0 / 3.1 Flash API kết hợp hệ thống CSDL MySQL.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🌟 Đóng góp thực tiễn</h4>
+            <ul>
+              <li><strong>Mô hình tham chiếu kiến trúc:</strong> Đã chuẩn hóa Decoupled Architecture (Laravel Web API + React Vite).</li>
+              <li><strong>Giải pháp AI Zero Hallucination:</strong> Kết hợp prompt engineering và Function Calling đảm bảo dữ liệu chuyến bay đúng 100%.</li>
+              <li><strong>Tối ưu trải nghiệm UI/UX:</strong> Trả về các thành phần giao diện tương tác (Flight Cards) trực tiếp trên cửa sổ chat.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <h2 class="slide-title">4. Tổng Quan Nền Tảng SkyLink Airline</h2>
+        <span class="slide-num-tag">SLIDE 05 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>✈️ Phân hệ Khách hàng (Customer Site)</h4>
+            <ul>
+              <li>Tìm kiếm chuyến bay thời gian thực theo điểm đi/đến, ngày khởi hành, hạng vé.</li>
+              <li>Chọn chỗ ngồi tương tác trực quan trên sơ đồ tàu bay (SeatMap).</li>
+              <li>Mua bổ sung hành lý ký gửi (15-30kg), suất ăn đặc biệt và bảo hiểm.</li>
+              <li>Thanh toán đa kênh và nhận mã PNR tức thì qua Email.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🛠️ Phân hệ Quản trị (Admin Portal)</h4>
+            <ul>
+              <li>Quản lý Đội bay (Aircraft Fleet: Airbus A320, A350, Boeing 787).</li>
+              <li>Thiết lập Tuyến bay (Routes) & Lịch trình khởi hành (Flights).</li>
+              <li>Quản lý sơ đồ ghế, bảng giá vé và thống kê doanh thu đa chiều.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <h2 class="slide-title">5. Tổng Quan Trợ Lý AI (SkyAI Assistant)</h2>
+        <span class="slide-num-tag">SLIDE 06 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="info-box">
+            <h4>🧠 Khả năng Tư duy</h4>
+            <p>Hiểu ngôn ngữ tự nhiên phức tạp, tự động trích xuất các tham số chuyến bay (Sân bay đi/đến, thời gian, mức giá yêu cầu).</p>
+          </div>
+          <div class="info-box">
+            <h4>⚡ Tốc độ & Stream</h4>
+            <p>Truyền luồng dữ liệu Server-Sent Events (SSE) giúp xuất hiện câu trả lời tức thì mà không cần chờ đợi cả đoạn văn.</p>
+          </div>
+          <div class="info-box">
+            <h4>👁️ Đa phương tiện (Vision)</h4>
+            <p>Đọc và trích xuất thông tin từ hình ảnh tài liệu, vé bay hoặc CCCD/Hộ chiếu do người dùng tải lên.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <h2 class="slide-title">6. Kiến Trúc Công Nghệ Tổng Thể</h2>
+        <span class="slide-num-tag">SLIDE 07 / 25</span>
+      </div>
+      <div class="slide-body">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Thành phần</th>
+              <th>Công nghệ lựa chọn</th>
+              <th>Vai trò & Lý do lựa chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Frontend</strong></td>
+              <td>ReactJS 18 + Vite 6 + TailwindCSS</td>
+              <td>Hiệu năng render cao, trải nghiệm SPA mượt mà, khởi động cực nhanh.</td>
+            </tr>
+            <tr>
+              <td><strong>Backend API</strong></td>
+              <td>Laravel 11 (PHP 8.2+)</td>
+              <td>Cấu trúc Service-Repository chuẩn doanh nghiệp, bảo mật & ORM Eloquent mạnh mẽ.</td>
+            </tr>
+            <tr>
+              <td><strong>Database</strong></td>
+              <td>MySQL 8.0</td>
+              <td>Lưu trữ dữ liệu chuyến bay, giao dịch đặt vé & lịch sử chat AI bền vững.</td>
+            </tr>
+            <tr>
+              <td><strong>AI Engine</strong></td>
+              <td>Google Gemini 2.0 / 3.1 Flash API</td>
+              <td>Hỗ trợ Function Calling chính xác, Multimodal Vision & thời gian phản hồi siêu tốc.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <h2 class="slide-title">7. Kiến Trúc Phân Hệ AI (AI Subsystem)</h2>
+        <span class="slide-num-tag">SLIDE 08 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="code-box">
++-----------------------------------------------------------------------+
+|                           CLIENT (ReactJS UI)                         |
+|    [Chat Widget / SSE Stream Reader] <---> [Flight Card Renderer]     |
++-----------------------------------▲-----------------------------------+
+                                    | HTTP / SSE Stream
++-----------------------------------▼-----------------------------------+
+|                        BACKEND (Laravel 11 API)                       |
+|   +---------------------------------------------------------------+   |
+|   |                       AIChatService                           |   |
+|   +-------------------------------+-------------------------------+   |
+|                                   |                                   |
+|   +-------------------------------+-------------------------------+   |
+|   |                       AIService                               |   |
+|   |  - System Prompt Engine       - Gemini API Integration        |   |
+|   |  - Multilingual Detector      - Fallback & Retry Handler      |   |
+|   +-------------------------------+-------------------------------+   |
+|                                   |                                   |
+|   +-------------------------------+-------------------------------+   |
+|   |                    AI Tool Calling Engine                     |   |
+|   |  [SearchFlightTool]      [GetFlightDetailsTool]                |   |
+|   |  [CheckSeatTool]         [GetBookingInfoTool]                  |   |
+|   |  [GetAirportInfoTool]    [SearchKnowledgeTool - RAG]           |   |
+|   +-------------------------------+-------------------------------+   |
++-----------------------------------▲-----------------------------------+
+                                    | SQL / Database Queries
++-----------------------------------▼-----------------------------------+
+|                   MySQL Database & Knowledge Base                     |
++-----------------------------------------------------------------------+
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9 -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <h2 class="slide-title">8. Mô Hình Dữ Liệu Lưu Trữ Trạng Thái AI</h2>
+        <span class="slide-num-tag">SLIDE 09 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>📊 Bảng `ai_conversations`</h4>
+            <ul>
+              <li><code>id</code> (PK, BigInt, Auto-increment)</li>
+              <li><code>uuid</code> (Char 36, Unique UUID)</li>
+              <li><code>user_id</code> (Nullable, FK -> users)</li>
+              <li><code>title</code> (VarChar 255)</li>
+              <li><code>created_at / updated_at</code></li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>💬 Bảng `ai_messages`</h4>
+            <ul>
+              <li><code>id</code> (PK, BigInt)</li>
+              <li><code>conversation_id</code> (FK -> ai_conversations)</li>
+              <li><code>role</code> (Enum: user, assistant, tool)</li>
+              <li><code>content</code> (LongText)</li>
+              <li><code>tool_calls</code> (JSON - Thông tin hàm AI đề xuất)</li>
+              <li><code>tool_name / tool_arguments / tool_result</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10 -->
+    <div class="slide" id="slide-10">
+      <div class="slide-header">
+        <h2 class="slide-title">9. Cơ Chế Function Calling (6 Core Tools)</h2>
+        <span class="slide-num-tag">SLIDE 10 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="info-box">
+            <h4>✈️ search_flight</h4>
+            <p>Tìm chuyến bay theo điểm đi, điểm đến, ngày bay, mức giá, khung giờ (Sáng/Chiều/Tối).</p>
+          </div>
+          <div class="info-box">
+            <h4>🔍 get_flight_details</h4>
+            <p>Truy xuất chi tiết số hiệu máy bay, thời gian bay, hạng vé và hành lý kèm theo.</p>
+          </div>
+          <div class="info-box">
+            <h4>💺 check_seat_availability</h4>
+            <p>Kiểm tra tình trạng ghế trống còn lại trên từng hạng vé thời gian thực.</p>
+          </div>
+          <div class="info-box">
+            <h4>🎟️ get_booking_info</h4>
+            <p>Tra cứu mã đặt chỗ PNR, trạng thái thanh toán và danh sách hành khách.</p>
+          </div>
+          <div class="info-box">
+            <h4>🏢 get_airport_info</h4>
+            <p>Tra cứu thông tin tên sân bay, mã IATA (HAN, SGN, DAD...), nhà ga và vị trí.</p>
+          </div>
+          <div class="info-box">
+            <h4>📚 search_airline_knowledge</h4>
+            <p>Truy vấn kho tri thức chính sách hành lý, đổi/hoàn vé, trẻ em và giấy tờ bay (RAG).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11 -->
+    <div class="slide" id="slide-11">
+      <div class="slide-header">
+        <h2 class="slide-title">10. Quy Trình RAG & Tra Cứu Tri Thức Hàng Không</h2>
+        <span class="slide-num-tag">SLIDE 11 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="info-box" style="margin-bottom: 20px;">
+          <h4>🧠 Retrieval-Augmented Generation (RAG) Flow</h4>
+          <p>Giúp Trợ lý AI trả lời chính xác các chính sách quy định của hãng SkyLink Airline mà không bị bịa đặt.</p>
+        </div>
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>1. Dữ liệu Tri thức được Chuẩn hóa</h4>
+            <ul>
+              <li><strong>Hành lý:</strong> 7kg xách tay miễn phí, ký gửi từ 15kg - 30kg.</li>
+              <li><strong>Giá vé trẻ em:</strong> Trẻ dưới 2 tuổi (10% giá vé), từ 2 - 12 tuổi (75% giá vé).</li>
+              <li><strong>Hộ chiếu & Giấy tờ:</strong> Bay quốc tế hộ chiếu còn hạn >= 6 tháng.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>2. Luồng truy vấn RAG thực thi</h4>
+            <ul>
+              <li>AI phân tích ý định (Intent) của người dùng.</li>
+              <li>Trích xuất đúng điều khoản liên quan trong Knowledge Base.</li>
+              <li>Hợp nhất điều khoản vào câu trả lời với văn phong tự nhiên, lịch sự.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12 -->
+    <div class="slide" id="slide-12">
+      <div class="slide-header">
+        <h2 class="slide-title">11. Khả Năng Xử Lý Đa Ngôn Ngữ Tự Động</h2>
+        <span class="slide-num-tag">SLIDE 12 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>🌐 Bộ Nhận Diện Ngôn Ngữ (Language Detector)</h4>
+            <ul>
+              <li>Tích hợp hàm <code>detectLanguage()</code> phân tích ký tự Unicode.</li>
+              <li>Nhận diện chính xác 7+ ngôn ngữ khách hàng nhập vào.</li>
+              <li>Quy tắc bắt buộc: Khách hàng hỏi ngôn ngữ nào, AI phản hồi 100% bằng chính ngôn ngữ đó.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>💬 Ví dụ phản hồi Đa ngôn ngữ</h4>
+            <ul>
+              <li><strong>Tiếng Việt:</strong> "Dưới đây là chuyến bay phù hợp nhất với bạn 👇"</li>
+              <li><strong>Tiếng Anh:</strong> "Here are the matching flights for your request 👇"</li>
+              <li><strong>Tiếng Khmer:</strong> "នេះជាជើងហោះហើរដែលស័ក្តិសមបំផុតសម្រាប់អ្នក 👇"</li>
+              <li><strong>Tiếng Trung:</strong> "以下是为您找到的最合适航班 👇"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13 -->
+    <div class="slide" id="slide-13">
+      <div class="slide-header">
+        <h2 class="slide-title">12. Xử Lý Đa Phương Tiện (Multimodal Vision API)</h2>
+        <span class="slide-num-tag">SLIDE 13 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>📷 Khả năng đọc ảnh trực tiếp</h4>
+            <ul>
+              <li>Cho phép người dùng gửi ảnh Thẻ căn cước/Hộ chiếu, Ảnh mặt vé, Ảnh mã lỗi màn hình.</li>
+              <li>Frontend nén và mã hóa tệp ảnh dưới dạng Base64 data stream.</li>
+              <li>Gửi qua Gemini Vision API để OCR trích xuất thông tin tự động.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>💡 Ứng dụng thực tế</h4>
+            <ul>
+              <li><strong>Check-in tự động:</strong> Đọc họ tên, số hộ chiếu từ ảnh chụp để điền nhanh form.</li>
+              <li><strong>Hỗ trợ lỗi kỹ thuật:</strong> AI đọc ảnh mã lỗi khách gặp phải và hướng dẫn khắc phục.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 14 -->
+    <div class="slide" id="slide-14">
+      <div class="slide-header">
+        <h2 class="slide-title">13. Kỹ Thuật Streaming SSE & Tối Ưu UX UI</h2>
+        <span class="slide-num-tag">SLIDE 14 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>⚡ SSE Streaming Protocol</h4>
+            <ul>
+              <li>Sử dụng Server-Sent Events đệm luồng phản hồi từ Gemini API về Client.</li>
+              <li>Chữ xuất hiện từng từ (Word-by-word) tạo cảm giác AI đang trò chuyện trực tiếp.</li>
+              <li>Thời gian chờ token đầu tiên (First token latency) &lt; 400ms.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🎨 UI Dynamic Component Rendering</h4>
+            <ul>
+              <li><strong>Quy tắc hiển thị Thẻ chuyến bay:</strong> Khi Tool trả về danh sách chuyến bay, AI không liệt kê chữ dài dòng.</li>
+              <li>AI chỉ viết câu dẫn ngắn (&lt; 2 câu) và trả về mảng dữ liệu để Frontend render **Flight Cards Interactive UI**.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 15 -->
+    <div class="slide" id="slide-15">
+      <div class="slide-header">
+        <h2 class="slide-title">14. Quy Trình Nghiệp Vụ Khách Hàng (Customer Journey)</h2>
+        <span class="slide-num-tag">SLIDE 15 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="info-box">
+            <h4>1. Tìm kiếm & Tư vấn</h4>
+            <p>Tra cứu qua thanh tìm kiếm hoặc tư vấn trực tiếp với SkyAI để chọn giờ bay tối ưu.</p>
+          </div>
+          <div class="info-box">
+            <h4>2. Chọn ghế & Dịch vụ</h4>
+            <p>Chọn ghế trực quan trên sơ đồ máy bay, đăng ký gói hành lý ký gửi & chọn suất ăn.</p>
+          </div>
+          <div class="info-box">
+            <h4>3. Thanh toán & Check-in</h4>
+            <p>Thanh toán bảo mật, nhận PNR qua email và thực hiện Check-in online nhận Boarding Pass.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 16 -->
+    <div class="slide" id="slide-16">
+      <div class="slide-header">
+        <h2 class="slide-title">15. Quy Trình Nghiệp Vụ Quản Trị (Admin Portal)</h2>
+        <span class="slide-num-tag">SLIDE 16 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>✈️ Quản lý Đội bay & Tuyến bay</h4>
+            <ul>
+              <li>Thêm mới, sửa đổi thông tin máy bay, số lượng ghế theo hạng vé.</li>
+              <li>Thiết lập tuyến bay nội địa và quốc tế (HAN-SGN, DAD-BKK...).</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>📊 Quản lý Lịch trình & Thống kê</h4>
+            <ul>
+              <li>Lên lịch chuyến bay khởi hành, quản lý tình trạng hoãn/hủy chuyến.</li>
+              <li>Báo cáo doanh thu bán vé, thống kê lượt sử dụng Trợ lý AI.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 17 -->
+    <div class="slide" id="slide-17">
+      <div class="slide-header">
+        <h2 class="slide-title">16. Giao Diện Người Dùng Phân Hệ Đặt Vé</h2>
+        <span class="slide-num-tag">SLIDE 17 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>✨ Phong cách Thiết kế Modern Luxury</h4>
+            <ul>
+              <li>Tông màu xanh hàng không chủ đạo (Deep Navy Blue & Gold Accent).</li>
+              <li>Giao diện tương thích hoàn hảo (Responsive) trên Mobile, Tablet & Desktop.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>💺 Giao diện Chọn ghế SeatMap</h4>
+            <ul>
+              <li>Phân màu rõ ràng ghế đã chọn, ghế trống, ghế Business & Economy.</li>
+              <li>Hiển thị vị trí cửa sổ, lối đi giúp khách dễ dàng thao tác.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 18 -->
+    <div class="slide" id="slide-18">
+      <div class="slide-header">
+        <h2 class="slide-title">17. Giao Diện Trợ Lý AI SkyAI Chatbot UI</h2>
+        <span class="slide-num-tag">SLIDE 18 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>💬 Cửa sổ Chat Widget Nổi</h4>
+            <ul>
+              <li>Thu gọn / Mở rộng linh hoạt ở góc màn hình.</li>
+              <li>Có danh sách câu hỏi gợi ý nhanh (Quick Replies).</li>
+              <li>Trạng thái hiển thị thông minh: "SkyAI đang suy nghĩ...", "Đang tìm chuyến bay...".</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🎫 Tương tác Thẻ Chuyến Bay Trực Tiếp</h4>
+            <ul>
+              <li>Ngay trong khung chat, hiển thị thẻ chuyến bay kèm giá tiền, giờ bay và nút "Chọn chuyến này".</li>
+              <li>Tích hợp nút tải lên ảnh tài liệu và nút xóa lịch sử trò chuyện.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 19 -->
+    <div class="slide" id="slide-19">
+      <div class="slide-header">
+        <h2 class="slide-title">18. An Toàn Thông Tin & Xử Lý Ngoại Lệ AI</h2>
+        <span class="slide-num-tag">SLIDE 19 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>🛡️ Bảo mật Dữ liệu</h4>
+            <ul>
+              <li>Không bao giờ lưu thông tin nhạy cảm (Mật khẩu, Số CVV thẻ) vào CSDL chat.</li>
+              <li>Ủy quyền bảo mật truy cập API thông qua Laravel Middleware & Session UUID.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🔄 Cơ chế Fallback & Resilience</h4>
+            <ul>
+              <li><strong>Retry Strategy:</strong> Tự động thử lại 3 lần khi API báo bận (HTTP 503/429).</li>
+              <li><strong>Model Fallback:</strong> Tự động đổi mô hình từ Gemini 3.1 Flash -> Gemini 2.5 Flash -> Gemini 1.5 Flash khi lỗi.</li>
+              <li>Chống lặp vô hạn Tool Call (Maximum 3 iterations limit).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 20 -->
+    <div class="slide" id="slide-20">
+      <div class="slide-header">
+        <h2 class="slide-title">19. Môi Trường & Kịch Bản Kiểm Thử</h2>
+        <span class="slide-num-tag">SLIDE 20 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>💻 Môi trường Thực nghiệm</h4>
+            <ul>
+              <li>Server Local: Windows OS, PHP 8.2, Laravel 11, Node v18+, MySQL 8.0.</li>
+              <li>Bộ dữ liệu test: 50+ chuyến bay thực tế phủ khắp các chặng bay nội địa & quốc tế.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🧪 Kịch bản Kiểm thử Trọng tâm</h4>
+            <ul>
+              <li>Kiểm thử tìm kiếm chuyến bay điều kiện phức tạp (Rẻ nhất, bay buổi sáng).</li>
+              <li>Kiểm thử tra cứu chính sách RAG & Tra cứu mã đặt chỗ PNR.</li>
+              <li>Kiểm thử đa ngôn ngữ và xử lý hình ảnh thẻ CCCD.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 21 -->
+    <div class="slide" id="slide-21">
+      <div class="slide-header">
+        <h2 class="slide-title">20. Kết Quả Kiểm Thử Chức Năng AI</h2>
+        <span class="slide-num-tag">SLIDE 21 / 25</span>
+      </div>
+      <div class="slide-body">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Kịch bản Kiểm thử</th>
+              <th>Đầu vào kiểm thử</th>
+              <th>Kết quả thực thi</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Tìm chuyến bay HN - SG</td>
+              <td>"Tìm chuyến bay từ Hà Nội đi Sài Gòn ngày mai"</td>
+              <td>Gọi tool <code>search_flight</code>, trả về thẻ chuyến bay</td>
+              <td><span class="badge-success">THÀNH CÔNG</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Tìm vé rẻ nhất 1 chuyến</td>
+              <td>"Tìm 1 chuyến vé rẻ nhất đi Đà Nẵng"</td>
+              <td>Gọi <code>search_flight</code> (limit: 1, sort: price_asc)</td>
+              <td><span class="badge-success">THÀNH CÔNG</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Hỏi chính sách hành lý</td>
+              <td>"Hành lý xách tay được mang bao nhiêu kg?"</td>
+              <td>Trả lời chính xác 7kg xách tay miễn phí</td>
+              <td><span class="badge-success">THÀNH CÔNG</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Kiểm thử Tiếng Anh</td>
+              <td>"Do you have flights from Hanoi to Bangkok?"</td>
+              <td>Nhận diện & Phản hồi 100% bằng Tiếng Anh</td>
+              <td><span class="badge-success">THÀNH CÔNG</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Xử lý ảnh CCCD</td>
+              <td>Tải lên ảnh thẻ CCCD</td>
+              <td>Đọc họ tên khách hàng qua Gemini Vision</td>
+              <td><span class="badge-success">THÀNH CÔNG</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 22 -->
+    <div class="slide" id="slide-22">
+      <div class="slide-header">
+        <h2 class="slide-title">21. Thử Nghiệm Hiệu Năng & Thời Gian Phản Hồi</h2>
+        <span class="slide-num-tag">SLIDE 22 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-3">
+          <div class="info-box">
+            <h4>⏱️ Phản hồi Thông thường</h4>
+            <h2 style="color: var(--accent-cyan); margin: 10px 0;">0.8 - 1.2s</h2>
+            <p>Đối với các câu hỏi tư vấn chính sách thông thường.</p>
+          </div>
+          <div class="info-box">
+            <h4>⚙️ Phản hồi Function Call</h4>
+            <h2 style="color: var(--accent-blue); margin: 10px 0;">1.5 - 2.3s</h2>
+            <p>Bao gồm thời gian gọi API LLM + Truy vấn CSDL MySQL.</p>
+          </div>
+          <div class="info-box">
+            <h4>⚡ First Token Stream</h4>
+            <h2 style="color: var(--accent-emerald); margin: 10px 0;">&lt; 400ms</h2>
+            <p>Thời gian bắt đầu đệm chữ xuất hiện trên giao diện Client.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 23 -->
+    <div class="slide" id="slide-23">
+      <div class="slide-header">
+        <h2 class="slide-title">22. Đánh Giá Ưu Điểm & Hạn Chế</h2>
+        <span class="slide-num-tag">SLIDE 23 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>🌟 Ưu điểm nổi bật</h4>
+            <ul>
+              <li>Kiến trúc Decoupled hiện đại, dễ nâng cấp bảo trì.</li>
+              <li>Trợ lý AI đọc dữ liệu live, tuyệt đối không bịa đặt chuyến bay.</li>
+              <li>Tích hợp giao diện thẻ tương tác và phản hồi đa ngôn ngữ ấn tượng.</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>⚠️ Hạn chế cần cải thiện</h4>
+            <ul>
+              <li>Phụ thuộc vào đường truyền Internet và độ ổn định của API Google Gemini.</li>
+              <li>Chưa tích hợp tính năng giao tiếp hoàn toàn bằng giọng nói (Voice Agent).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 24 -->
+    <div class="slide" id="slide-24">
+      <div class="slide-header">
+        <h2 class="slide-title">23. Kết Luận & Hướng Phát Triển Tương Lai</h2>
+        <span class="slide-num-tag">SLIDE 24 / 25</span>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div class="info-box">
+            <h4>📌 Kết luận đồ án</h4>
+            <p>Đồ án đã hoàn thành toàn bộ mục tiêu đặt ra: Xây dựng thành công hệ thống đặt vé máy bay SkyLink Airline tích hợp Trợ lý AI SkyAI thông minh, có tính ứng dụng thực tiễn cao.</p>
+          </div>
+          <div class="info-box">
+            <h4>🚀 Hướng phát triển tiếp theo</h4>
+            <ul>
+              <li><strong>Fine-tuning Mô hình riêng:</strong> Tối ưu hóa LLM chuyên biệt ngành hàng không.</li>
+              <li><strong>Tích hợp Voice Assistant:</strong> Hỗ trợ đặt vé bằng giọng nói trên Mobile App.</li>
+              <li><strong>Multi-Agent Architecture:</strong> Phân chia các Agent chuyên trách (Agent Đổi vé, Agent Giải quyết Khiếu nại).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 25 -->
+    <div class="slide" id="slide-25">
+      <div class="title-slide-box">
+        <span class="slide-num-tag">CẢM ƠN QUÝ THẦY CÔ & CÁC BẠN</span>
+        <h1 class="main-topic-title">XIN CHÂN THÀNH CẢM ƠN QUÝ THẦY CÔ ĐÃ LẮNG NGHE!</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 30px;">
+          KÍNH MỜI QUÝ THẦY CÔ ĐẶT CÂU HỎI THẢO LUẬN CHO ĐỀ TÀI.
+        </p>
+        <div class="meta-card">
+          <div class="meta-item">
+            <label>Hệ thống</label>
+            <span>SkyLink Airline Platform</span>
+          </div>
+          <div class="meta-item">
+            <label>Phân hệ AI</label>
+            <span>SkyAI Virtual Assistant</span>
+          </div>
+          <div class="meta-item">
+            <label>Trạng thái</label>
+            <span style="color: var(--accent-emerald);">SẴN SÀNG DEMO LIVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="bottom-bar">
+    <div class="slide-counter">
+      SLIDE <span id="currentSlideNum">1</span> / <span id="totalSlideNum">25</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn-ctrl" onclick="prevSlide()">◀ Trang Trước (←)</button>
+      <button class="btn-ctrl" onclick="nextSlide()">Trang Sau (→) ▶</button>
+    </div>
+  </div>
+
+  <!-- Overview Modal -->
+  <div class="overview-modal" id="overviewModal">
+    <div class="overview-header">
+      <h2>📑 Danh Sách Tất Cả Slide (25 Trang)</h2>
+      <button class="btn-ctrl" onclick="toggleOverview()">✕ Đóng (ESC)</button>
+    </div>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 25;
+
+    const titles = [
+      "Trang Bìa Đề Tài",
+      "1. Đặt Vấn Đề & Lý Do Chọn Đề Tài",
+      "2. Mục Tiêu Của Đề Tài",
+      "3. Phạm Vi & Đóng Góp Của Đề Tài",
+      "4. Tổng Quan Nền Tảng SkyLink Airline",
+      "5. Tổng Quan Trợ Lý AI (SkyAI)",
+      "6. Kiến Trúc Công Nghệ Tổng Thể",
+      "7. Kiến Trúc Phân Hệ AI Architecture",
+      "8. Mô Hình Dữ Liệu AI Database Schema",
+      "9. Cơ Chế Function Calling (6 Core Tools)",
+      "10. Quy Trình RAG Knowledge Search",
+      "11. Khả Năng Xử Lý Đa Ngôn Ngữ Tự Động",
+      "12. Xử Lý Đa Phương Tiện (Vision API)",
+      "13. Kỹ Thuật Streaming SSE & Tối Ưu UX UI",
+      "14. Quy Trình Nghiệp Vụ Khách Hàng",
+      "15. Quy Trình Nghiệp Vụ Quản Trị Admin",
+      "16. Giao Diện Phân Hệ Đặt Vé ReactJS",
+      "17. Giao Diện SkyAI Chatbot UI",
+      "18. An Toàn Thông Tin & Xử Lý Ngoại Lệ",
+      "19. Môi Trường & Kịch Bản Kiểm Thử",
+      "20. Kết Quả Kiểm Thử Chức Năng AI",
+      "21. Thử Nghiệm Hiệu Năng & Latency",
+      "22. Đánh Giá Ưu Điểm & Hạn Chế",
+      "23. Kết Luận & Hướng Phát Triển Tương Lai",
+      "24. Trang Cảm Ơn & Q&A"
+    ];
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        s.classList.toggle('active', idx + 1 === currentSlide);
+      });
+      document.getElementById('currentSlideNum').innerText = currentSlide;
+      document.getElementById('totalSlideNum').innerText = totalSlides;
+      const progress = (currentSlide / totalSlides) * 100;
+      document.getElementById('progressBar').style.width = `${progress}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(num) {
+      currentSlide = num;
+      updateSlide();
+      closeOverview();
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    function toggleOverview() {
+      const modal = document.getElementById('overviewModal');
+      if (modal.classList.contains('open')) {
+        closeOverview();
+      } else {
+        openOverview();
+      }
+    }
+
+    function openOverview() {
+      const grid = document.getElementById('overviewGrid');
+      grid.innerHTML = '';
+      for (let i = 1; i <= totalSlides; i++) {
+        const card = document.createElement('div');
+        card.className = 'thumb-card';
+        card.onclick = () => goToSlide(i);
+        card.innerHTML = `
+          <span class="thumb-num">SLIDE ${i < 10 ? '0' + i : i}</span>
+          <div class="thumb-title">${titles[i - 1]}</div>
+        `;
+        grid.appendChild(card);
+      }
+      document.getElementById('overviewModal').classList.add('open');
+    }
+
+    function closeOverview() {
+      document.getElementById('overviewModal').classList.remove('open');
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'o' || e.key === 'O') {
+        toggleOverview();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'Escape') {
+        closeOverview();
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>

@@ -70,16 +70,9 @@ export default function AuthCallback() {
 
           const redirectParam = searchParams.get("redirect") || sessionStorage.getItem("auth_redirect");
           let target = isAdmin ? "/admin" : "/";
-          if (!isAdmin) {
-            if (redirectParam) {
-              sessionStorage.removeItem("auth_redirect");
-              target = redirectParam;
-            } else {
-              const savedFlights = JSON.parse(localStorage.getItem("selected_flights") || "[]");
-              if (savedFlights.length > 0 && savedFlights[0]?.id) {
-                target = `/seat-selection?flight_id=${encodeURIComponent(savedFlights[0].id)}`;
-              }
-            }
+          if (!isAdmin && redirectParam) {
+            sessionStorage.removeItem("auth_redirect");
+            target = redirectParam;
           }
 
           setTimeout(() => {
