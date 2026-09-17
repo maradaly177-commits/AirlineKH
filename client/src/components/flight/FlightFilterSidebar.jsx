@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Funnel, ArrowsRotate } from "@phosphor-icons/react";
+import { Funnel, ArrowsClockwise } from "@phosphor-icons/react";
 
 // Brand Logo Badges for Sidebar Filters
 const VietnamAirlinesLogo = () => (
