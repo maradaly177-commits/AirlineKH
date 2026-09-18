@@ -68,11 +68,11 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
   ];
 
   return (
-    <aside className="w-full md:w-72 shrink-0 sticky top-24">
-      <div className="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-sm space-y-6">
+    <aside className="w-full md:w-72 shrink-0 sticky top-24 z-10">
+      <div className="bg-white border border-slate-200/80 rounded-3xl p-5 shadow-sm space-y-4 max-h-[calc(100vh-110px)] overflow-y-auto scrollbar-hide">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <h2 className="text-sm font-extrabold tracking-tight flex items-center gap-2 text-slate-900">
             <Funnel size={18} className="text-blue-600" weight="bold" />
             Lọc kết quả
@@ -90,11 +90,11 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
         </div>
 
         {/* 1. Khoảng giá */}
-        <div className="space-y-3 pb-5 border-b border-slate-100">
+        <div className="space-y-2 pb-3.5 border-b border-slate-100">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Khoảng giá</h3>
+            <span className="text-xs font-bold text-blue-600">0đ - {new Intl.NumberFormat('vi-VN').format(maxPrice)}đ</span>
           </div>
-          <p className="text-xs font-bold text-slate-700">0đ - {new Intl.NumberFormat('vi-VN').format(maxPrice)}đ</p>
           <input
             type="range"
             min="500000"
@@ -107,28 +107,18 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
             }}
             className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
           />
-          <div className="grid grid-cols-2 gap-2 pt-1">
-            <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-center">
-              <span className="text-[10px] text-slate-400 block font-semibold">Tối thiểu</span>
-              <span className="text-xs font-bold text-slate-800">0đ</span>
-            </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-center">
-              <span className="text-[10px] text-slate-400 block font-semibold">Tối đa</span>
-              <span className="text-xs font-bold text-slate-800">10.000.000đ</span>
-            </div>
-          </div>
         </div>
 
         {/* 2. Giờ cất cánh */}
-        <div className="space-y-3 pb-5 border-b border-slate-100">
+        <div className="space-y-2 pb-3.5 border-b border-slate-100">
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Giờ cất cánh</h3>
-          <div className="space-y-2.5">
+          <div className="flex flex-col space-y-1.5 w-full">
             {timeSlots.map((slot) => (
-              <label key={slot.id} className="flex items-center justify-between cursor-pointer group select-none">
-                <div className="flex items-center gap-2.5">
+              <label key={slot.id} className="flex items-center justify-between w-full cursor-pointer group select-none py-0.5">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <input 
                     type="checkbox" 
-                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600"
+                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600 shrink-0"
                     checked={filters.times?.includes(slot.id) || false}
                     onChange={(e) => {
                       const newTimes = e.target.checked 
@@ -137,26 +127,28 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
                       onFilterChange({ times: newTimes });
                     }}
                   />
-                  <span className="text-xs text-slate-700 group-hover:text-slate-900 font-semibold transition-colors">
+                  <span className="text-xs text-slate-700 group-hover:text-blue-600 font-semibold transition-colors truncate">
                     {slot.label}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium">{slot.count}</span>
+                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-2 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full">
+                  {slot.count}
+                </span>
               </label>
             ))}
           </div>
         </div>
 
         {/* 3. Hãng hàng không */}
-        <div className="space-y-3 pb-5 border-b border-slate-100">
+        <div className="space-y-2 pb-3.5 border-b border-slate-100">
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Hãng hàng không</h3>
-          <div className="space-y-2.5">
+          <div className="flex flex-col space-y-1.5 w-full">
             {airlines.map((al) => (
-              <label key={al.id} className="flex items-center justify-between cursor-pointer group select-none">
-                <div className="flex items-center gap-2.5">
+              <label key={al.id} className="flex items-center justify-between w-full cursor-pointer group select-none py-0.5">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <input 
                     type="checkbox" 
-                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600"
+                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600 shrink-0"
                     checked={filters.airlines?.includes(al.id) || false}
                     onChange={(e) => {
                       const newAirlines = e.target.checked 
@@ -166,29 +158,28 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
                     }}
                   />
                   {al.logo}
-                  <span className="text-xs text-slate-700 group-hover:text-slate-900 font-semibold transition-colors">
+                  <span className="text-xs text-slate-700 group-hover:text-blue-600 font-semibold transition-colors truncate">
                     {al.name}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium">{al.count}</span>
+                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-2 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full">
+                  {al.count}
+                </span>
               </label>
             ))}
           </div>
-          <button type="button" className="text-xs text-blue-600 font-bold hover:underline cursor-pointer pt-1 block">
-            Xem thêm ›
-          </button>
         </div>
 
         {/* 4. Tiện ích */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Tiện ích</h3>
-          <div className="space-y-2.5">
+          <div className="flex flex-col space-y-1.5 w-full">
             {amenities.map((am) => (
-              <label key={am.id} className="flex items-center justify-between cursor-pointer group select-none">
-                <div className="flex items-center gap-2.5">
+              <label key={am.id} className="flex items-center justify-between w-full cursor-pointer group select-none py-0.5">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <input 
                     type="checkbox" 
-                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600"
+                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600 shrink-0"
                     checked={filters.amenities?.includes(am.id) || false}
                     onChange={(e) => {
                       const newAmenities = e.target.checked 
@@ -197,11 +188,13 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
                       onFilterChange({ amenities: newAmenities });
                     }}
                   />
-                  <span className="text-xs text-slate-700 group-hover:text-slate-900 font-semibold transition-colors">
+                  <span className="text-xs text-slate-700 group-hover:text-blue-600 font-semibold transition-colors truncate">
                     {am.label}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium">{am.count}</span>
+                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-2 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full">
+                  {am.count}
+                </span>
               </label>
             ))}
           </div>
@@ -211,3 +204,4 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
     </aside>
   );
 }
+
