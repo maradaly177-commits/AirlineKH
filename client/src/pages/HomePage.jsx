@@ -132,7 +132,7 @@ export default function HomePage() {
       <section className="relative pt-16 flex flex-col items-center w-full">
         {/* Background Image / Video Area with Sunset Terminal Scenery */}
         <div
-          className="w-full h-[78vh] md:h-[86vh] overflow-hidden relative bg-cover bg-center bg-slate-900"
+          className="w-full h-[50vh] md:h-[58vh] overflow-hidden relative bg-cover bg-center bg-slate-900"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop')" }}
         >
           <video
@@ -152,22 +152,22 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-black/40"></div>
 
           {/* Hero Typography Matching Model Image 2 */}
-          <div className="absolute top-[28%] left-1/2 -translate-x-1/2 text-center text-white z-10 w-full max-w-4xl px-4">
+          <div className="absolute top-[20%] left-1/2 -translate-x-1/2 text-center text-white z-10 w-full max-w-4xl px-4">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-white/95 text-xs font-bold uppercase tracking-[0.2em] mb-4 border border-white/20 shadow-md"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-white/95 text-[11px] font-bold uppercase tracking-[0.2em] mb-3 border border-white/20 shadow-md"
             >
-              <PaperPlaneTilt size={14} weight="fill" className="text-cyan-400" />
-              YOUR JOURNEY BEGINS HERE <ArrowRight size={12} weight="bold" />
+              <PaperPlaneTilt size={13} weight="fill" className="text-cyan-400" />
+              YOUR JOURNEY BEGINS HERE <ArrowRight size={11} weight="bold" />
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="font-extrabold text-6xl md:text-8xl tracking-tight leading-none mb-3 drop-shadow-2xl text-white font-sans"
+              className="font-extrabold text-4xl md:text-6xl tracking-tight leading-none mb-2 drop-shadow-2xl text-white font-sans"
             >
               SkyLink
             </motion.h1>
@@ -176,7 +176,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-base md:text-xl text-slate-200 font-medium max-w-xl mx-auto drop-shadow-md tracking-wide"
+              className="text-sm md:text-base text-slate-200 font-medium max-w-md mx-auto drop-shadow-md tracking-wide"
             >
               More than a destination, it's an experience.
             </motion.p>
@@ -184,7 +184,7 @@ export default function HomePage() {
         </div>
 
         {/* 3. FLOATING SEARCH ENGINE CARD matching Image 2 */}
-        <div className="relative z-20 w-full max-w-6xl px-4 -mt-36 md:-mt-44 mb-12">
+        <div className="relative z-20 w-full max-w-5xl px-4 -mt-20 md:-mt-28 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export default function HomePage() {
                   }`}
                 >
                   <AirplaneTakeoff size={18} weight="bold" />
-                  <span>Flights</span>
+                  <span>Chuyến bay</span>
                 </button>
 
                 <button
@@ -219,7 +219,7 @@ export default function HomePage() {
                   }`}
                 >
                   <Buildings size={18} />
-                  <span>Hotels</span>
+                  <span>Khách sạn</span>
                 </button>
 
                 <button
@@ -232,7 +232,7 @@ export default function HomePage() {
                   }`}
                 >
                   <Compass size={18} />
-                  <span>Experiences</span>
+                  <span>Trải nghiệm</span>
                 </button>
 
                 <button
@@ -245,136 +245,220 @@ export default function HomePage() {
                   }`}
                 >
                   <Car size={18} />
-                  <span>Car Rental</span>
+                  <span>Thuê xe</span>
                 </button>
               </div>
 
-              {/* Trip Type Toggle Buttons matching Image 2 */}
-              <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/80">
-                <button
-                  type="button"
-                  onClick={() => setSearchData(prev => ({ ...prev, tripType: "one-way" }))}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                    searchData.tripType === "one-way"
-                      ? "bg-[#12234e] text-white shadow-xs"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  Một chiều
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSearchData(prev => ({ ...prev, tripType: "round-trip" }))}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                    searchData.tripType === "round-trip"
-                      ? "bg-[#12234e] text-white shadow-xs"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  Khứ hồi
-                </button>
-              </div>
-
-            </div>
-
-            {/* Input Form Fields Grid matching Image 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-              
-              {/* Departure Input */}
-              <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors relative">
-                <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">From</label>
-                <div className="flex items-center gap-2">
-                  <MapPinLine size={16} className="text-slate-400 shrink-0" />
-                  <select
-                    className={`w-full bg-transparent text-sm outline-none cursor-pointer appearance-none pr-4 ${
-                      searchData.departure ? "font-bold text-slate-900" : "font-medium text-slate-400"
+              {/* Trip Type Toggle Buttons matching Image 2 (Only for Flights) */}
+              {activeTab === "flights" && (
+                <div className="flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/80">
+                  <button
+                    type="button"
+                    onClick={() => setSearchData(prev => ({ ...prev, tripType: "one-way" }))}
+                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      searchData.tripType === "one-way"
+                        ? "bg-[#12234e] text-white shadow-xs"
+                        : "text-slate-600 hover:text-slate-900"
                     }`}
-                    value={searchData.departure}
-                    onChange={(e) => setSearchData({ ...searchData, departure: e.target.value })}
                   >
-                    <option value="">Chọn điểm đi</option>
-                    {(Array.isArray(airports) ? airports : []).map(ap => (
-                      <option key={ap.id || ap.code} value={ap.code} className="text-slate-900 font-medium">
-                        {ap.city} ({ap.code}) - {ap.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Swap Button Icon */}
-              <div className="md:col-span-1 flex justify-center -my-2 md:my-0">
-                <button
-                  type="button"
-                  onClick={handleSwap}
-                  className="w-8 h-8 rounded-full bg-white border border-slate-300 shadow-xs flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-400 cursor-pointer transition-all transform hover:rotate-180"
-                  title="Swap Departure & Arrival"
-                >
-                  <ArrowsLeftRight size={14} weight="bold" />
-                </button>
-              </div>
-
-              {/* Arrival Input */}
-              <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
-                <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">To</label>
-                <div className="flex items-center gap-2">
-                  <MapPinLine size={16} className="text-slate-400 shrink-0" />
-                  <select
-                    className={`w-full bg-transparent text-sm outline-none cursor-pointer appearance-none pr-4 ${
-                      searchData.arrival ? "font-bold text-slate-900" : "font-medium text-slate-400"
+                    Một chiều
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSearchData(prev => ({ ...prev, tripType: "round-trip" }))}
+                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      searchData.tripType === "round-trip"
+                        ? "bg-[#12234e] text-white shadow-xs"
+                        : "text-slate-600 hover:text-slate-900"
                     }`}
-                    value={searchData.arrival}
-                    onChange={(e) => setSearchData({ ...searchData, arrival: e.target.value })}
                   >
-                    <option value="">Bạn muốn đến đâu?</option>
-                    {(Array.isArray(airports) ? airports : []).map(ap => (
-                      <option key={ap.id || ap.code} value={ap.code} className="text-slate-900 font-medium">
-                        {ap.city} ({ap.code}) - {ap.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Depart Date Input */}
-              <div className={`${searchData.tripType === "round-trip" ? "md:col-span-2" : "md:col-span-5"} bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors`}>
-                <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Depart</label>
-                <div className="flex items-center gap-2">
-                  <CalendarBlank size={16} className="text-slate-400 shrink-0" />
-                  <input
-                    type="text"
-                    placeholder="Chọn ngày đi"
-                    onFocus={(e) => (e.target.type = "date")}
-                    onBlur={(e) => { if (!e.target.value) e.target.type = "text" }}
-                    className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none placeholder:text-slate-400 placeholder:font-normal"
-                    value={searchData.date}
-                    onChange={(e) => setSearchData({ ...searchData, date: e.target.value })}
-                    min={today}
-                  />
-                </div>
-              </div>
-
-              {/* Return Date Input (Only visible when tripType is round-trip) */}
-              {searchData.tripType === "round-trip" && (
-                <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
-                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Return</label>
-                  <div className="flex items-center gap-2">
-                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
-                    <input
-                      type="text"
-                      placeholder="Chọn ngày về"
-                      onFocus={(e) => (e.target.type = "date")}
-                      onBlur={(e) => { if (!e.target.value) e.target.type = "text" }}
-                      className="w-full bg-transparent text-xs font-semibold text-slate-900 outline-none placeholder:text-slate-400 placeholder:font-normal"
-                      value={searchData.returnDate}
-                      onChange={(e) => setSearchData({ ...searchData, returnDate: e.target.value })}
-                      min={searchData.date || today}
-                    />
-                  </div>
+                    Khứ hồi
+                  </button>
                 </div>
               )}
 
             </div>
+
+            {/* FLIGHTS SEARCH FORM */}
+            {activeTab === "flights" && (
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                
+                {/* Departure Input */}
+                <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors relative">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Điểm đi</label>
+                  <div className="flex items-center gap-2">
+                    <MapPinLine size={16} className="text-slate-400 shrink-0" />
+                    <select
+                      className={`w-full bg-transparent text-xs font-bold outline-none cursor-pointer appearance-none pr-4 ${
+                        searchData.departure ? "text-slate-900" : "text-slate-400"
+                      }`}
+                      value={searchData.departure}
+                      onChange={(e) => setSearchData({ ...searchData, departure: e.target.value })}
+                    >
+                      <option value="">Chọn điểm đi</option>
+                      {(Array.isArray(airports) ? airports : []).map(ap => (
+                        <option key={ap.id || ap.code} value={ap.code} className="text-slate-900 font-medium">
+                          {ap.city} ({ap.code}) - {ap.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Swap Button Icon */}
+                <div className="md:col-span-1 flex justify-center -my-2 md:my-0">
+                  <button
+                    type="button"
+                    onClick={handleSwap}
+                    className="w-8 h-8 rounded-full bg-white border border-slate-300 shadow-xs flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-400 cursor-pointer transition-all transform hover:rotate-180"
+                    title="Đổi điểm đi & đến"
+                  >
+                    <ArrowsLeftRight size={14} weight="bold" />
+                  </button>
+                </div>
+
+                {/* Arrival Input */}
+                <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Điểm đến</label>
+                  <div className="flex items-center gap-2">
+                    <MapPinLine size={16} className="text-slate-400 shrink-0" />
+                    <select
+                      className={`w-full bg-transparent text-xs font-bold outline-none cursor-pointer appearance-none pr-4 ${
+                        searchData.arrival ? "text-slate-900" : "text-slate-400"
+                      }`}
+                      value={searchData.arrival}
+                      onChange={(e) => setSearchData({ ...searchData, arrival: e.target.value })}
+                    >
+                      <option value="">Bạn muốn đến đâu?</option>
+                      {(Array.isArray(airports) ? airports : []).map(ap => (
+                        <option key={ap.id || ap.code} value={ap.code} className="text-slate-900 font-medium">
+                          {ap.city} ({ap.code}) - {ap.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Depart Date Input */}
+                <div className={`${searchData.tripType === "round-trip" ? "md:col-span-2" : "md:col-span-5"} bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors`}>
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Ngày đi</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      type="date"
+                      className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer"
+                      value={searchData.date}
+                      onChange={(e) => setSearchData({ ...searchData, date: e.target.value })}
+                      min={today}
+                    />
+                  </div>
+                </div>
+
+                {/* Return Date Input (Only visible when tripType is round-trip) */}
+                {searchData.tripType === "round-trip" && (
+                  <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3 hover:border-slate-300 transition-colors">
+                    <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Ngày về</label>
+                    <div className="flex items-center gap-2">
+                      <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                      <input
+                        type="date"
+                        className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer"
+                        value={searchData.returnDate}
+                        onChange={(e) => setSearchData({ ...searchData, returnDate: e.target.value })}
+                        min={searchData.date || today}
+                      />
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            )}
+
+            {/* HOTELS SEARCH FORM */}
+            {activeTab === "hotels" && (
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                <div className="md:col-span-5 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Thành phố hoặc Khách sạn</label>
+                  <div className="flex items-center gap-2">
+                    <Buildings size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      type="text"
+                      placeholder="Nhập điểm đến, tên khách sạn..."
+                      className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Nhận phòng</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input type="date" className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer" min={today} />
+                  </div>
+                </div>
+                <div className="md:col-span-4 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Trả phòng</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input type="date" className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer" min={today} />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* EXPERIENCES SEARCH FORM */}
+            {activeTab === "experiences" && (
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                <div className="md:col-span-7 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Địa điểm & Trải nghiệm</label>
+                  <div className="flex items-center gap-2">
+                    <Compass size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      type="text"
+                      placeholder="Nhập thành phố hoặc hoạt động muốn trải nghiệm..."
+                      className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-5 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Ngày trải nghiệm</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input type="date" className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer" min={today} />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* CAR RENTAL SEARCH FORM */}
+            {activeTab === "cars" && (
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                <div className="md:col-span-5 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Địa điểm nhận xe</label>
+                  <div className="flex items-center gap-2">
+                    <Car size={16} className="text-slate-400 shrink-0" />
+                    <input
+                      type="text"
+                      placeholder="Nhập sân bay hoặc thành phố nhận xe..."
+                      className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-3 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Ngày nhận</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input type="date" className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer" min={today} />
+                  </div>
+                </div>
+                <div className="md:col-span-4 bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
+                  <label className="text-[11px] font-semibold text-slate-400 block mb-0.5">Ngày trả</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={16} className="text-slate-400 shrink-0" />
+                    <input type="date" className="w-full bg-transparent text-xs font-bold text-slate-900 outline-none cursor-pointer" min={today} />
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Bottom Form Row: Passengers + Search Button */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100 mt-4">
@@ -388,7 +472,7 @@ export default function HomePage() {
                 >
                   <div className="flex items-center gap-2">
                     <Users size={16} className="text-slate-500" />
-                    <span>Travelers: {searchData.passengers.adults + searchData.passengers.children} Passenger • Economy</span>
+                    <span>Hành khách: {searchData.passengers.adults + searchData.passengers.children} Người • Phổ thông</span>
                   </div>
                   <span className="text-slate-400">˅</span>
                 </button>
@@ -400,8 +484,8 @@ export default function HomePage() {
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="text-sm font-bold text-slate-900">Adults</div>
-                            <div className="text-xs text-slate-400">12+ years</div>
+                            <div className="text-sm font-bold text-slate-900">Người lớn</div>
+                            <div className="text-xs text-slate-400">Từ 12 tuổi trở lên</div>
                           </div>
                           <div className="flex items-center gap-3">
                             <button
@@ -424,8 +508,8 @@ export default function HomePage() {
 
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="text-sm font-bold text-slate-900">Children</div>
-                            <div className="text-xs text-slate-400">Under 12 years</div>
+                            <div className="text-sm font-bold text-slate-900">Trẻ em</div>
+                            <div className="text-xs text-slate-400">Dưới 12 tuổi</div>
                           </div>
                           <div className="flex items-center gap-3">
                             <button
@@ -457,7 +541,12 @@ export default function HomePage() {
                 onClick={handleSearch}
                 className="w-full sm:w-auto bg-[#172c60] hover:bg-[#11224d] active:bg-[#0c1839] text-white font-bold px-8 py-3 rounded-full text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Search Flights</span>
+                <span>
+                  {activeTab === "flights" && "Tìm chuyến bay"}
+                  {activeTab === "hotels" && "Tìm khách sạn"}
+                  {activeTab === "experiences" && "Tìm trải nghiệm"}
+                  {activeTab === "cars" && "Tìm xe dịch vụ"}
+                </span>
                 <ArrowRight size={16} weight="bold" />
               </button>
 
@@ -471,42 +560,42 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <div className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-slate-200/70 shadow-xs">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
                 <Tag size={20} weight="fill" />
               </div>
               <div>
-                <h4 className="text-xs font-extrabold text-slate-900">Best Price Guarantee</h4>
-                <p className="text-[11px] text-slate-500 font-medium">Find the best deals</p>
+                <h4 className="text-xs font-extrabold text-slate-900">Đảm bảo giá tốt nhất</h4>
+                <p className="text-[11px] text-slate-500 font-medium">Cam kết ưu đãi hàng đầu</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-slate-200/70 shadow-xs">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
                 <Headset size={20} weight="fill" />
               </div>
               <div>
-                <h4 className="text-xs font-extrabold text-slate-900">24/7 Customer Support</h4>
-                <p className="text-[11px] text-slate-500 font-medium">We're here to help</p>
+                <h4 className="text-xs font-extrabold text-slate-900">Hỗ trợ 24/7</h4>
+                <p className="text-[11px] text-slate-500 font-medium">Luôn sẵn sàng tư vấn</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-slate-200/70 shadow-xs">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
                 <ShieldCheck size={20} weight="fill" />
               </div>
               <div>
-                <h4 className="text-xs font-extrabold text-slate-900">Secure Booking</h4>
-                <p className="text-[11px] text-slate-500 font-medium">Your data is protected</p>
+                <h4 className="text-xs font-extrabold text-slate-900">Đặt vé an toàn</h4>
+                <p className="text-[11px] text-slate-500 font-medium">Bảo mật thông tin 100%</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-slate-200/70 shadow-xs">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
                 <ArrowsClockwise size={20} weight="bold" />
               </div>
               <div>
-                <h4 className="text-xs font-extrabold text-slate-900">Flexible Options</h4>
-                <p className="text-[11px] text-slate-500 font-medium">Change with ease</p>
+                <h4 className="text-xs font-extrabold text-slate-900">Linh hoạt đổi vé</h4>
+                <p className="text-[11px] text-slate-500 font-medium">Dễ dàng đổi lịch trình</p>
               </div>
             </div>
 
@@ -529,7 +618,7 @@ export default function HomePage() {
             
             <div className="absolute top-4 left-4">
               <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full border border-white/30">
-                Popular Destination
+                Điểm đến hot
               </span>
             </div>
 
@@ -538,14 +627,14 @@ export default function HomePage() {
               <p className="text-xs text-slate-300 font-medium">Việt Nam</p>
               <div className="flex items-center justify-between pt-3">
                 <div>
-                  <span className="text-[10px] text-slate-400 block uppercase">Từ</span>
-                  <span className="text-lg font-black text-white">499.000đ <span className="text-xs font-medium text-slate-300">/Khứ hồi</span></span>
+                  <span className="text-[10px] text-slate-400 block uppercase">Giá từ</span>
+                  <span className="text-lg font-black text-white">499.000đ <span className="text-xs font-medium text-slate-300">/Vé</span></span>
                 </div>
                 <button 
                   onClick={() => navigate("/flights")}
                   className="bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs px-4 py-2 rounded-xl transition-all cursor-pointer"
                 >
-                  Book Now
+                  Đặt vé ngay
                 </button>
               </div>
             </div>
@@ -562,7 +651,7 @@ export default function HomePage() {
             
             <div className="absolute top-4 left-4">
               <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full border border-white/30">
-                Best Deals
+                Ưu đãi tốt nhất
               </span>
             </div>
 
@@ -571,14 +660,14 @@ export default function HomePage() {
               <p className="text-xs text-slate-300 font-medium">Việt Nam</p>
               <div className="flex items-center justify-between pt-3">
                 <div>
-                  <span className="text-[10px] text-slate-400 block uppercase">Từ</span>
-                  <span className="text-lg font-black text-white">649.000đ <span className="text-xs font-medium text-slate-300">/Khứ hồi</span></span>
+                  <span className="text-[10px] text-slate-400 block uppercase">Giá từ</span>
+                  <span className="text-lg font-black text-white">649.000đ <span className="text-xs font-medium text-slate-300">/Vé</span></span>
                 </div>
                 <button 
                   onClick={() => navigate("/flights")}
                   className="bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs px-4 py-2 rounded-xl transition-all cursor-pointer"
                 >
-                  Book Now
+                  Đặt vé ngay
                 </button>
               </div>
             </div>
@@ -587,9 +676,9 @@ export default function HomePage() {
           {/* Card 3: Exclusive Offers Banner Card matching Image 2 */}
           <div className="relative rounded-3xl overflow-hidden shadow-lg bg-gradient-to-br from-[#122754] via-[#0f1f42] to-[#071026] h-[340px] border border-blue-900/40 p-6 flex flex-col justify-between text-white">
             <div className="space-y-2 relative z-10">
-              <h3 className="text-xl font-extrabold tracking-tight">Exclusive Offers</h3>
+              <h3 className="text-xl font-extrabold tracking-tight">Ưu đãi độc quyền</h3>
               <p className="text-xs text-slate-300 font-medium leading-relaxed">
-                Sign up and get up to <strong className="text-cyan-400 font-bold">20% OFF</strong> on your next booking.
+                Đăng ký email ngay để nhận voucher giảm tới <strong className="text-cyan-400 font-bold">20%</strong> cho chuyến bay tiếp theo.
               </p>
             </div>
 
@@ -604,7 +693,7 @@ export default function HomePage() {
                   type="email"
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder="Nhập email của bạn..."
                   className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-slate-400 outline-none focus:border-cyan-400 transition-colors"
                   required
                 />
@@ -616,7 +705,7 @@ export default function HomePage() {
                 </button>
               </div>
               {newsletterSubscribed && (
-                <p className="text-[11px] text-emerald-400 font-semibold">✓ Subscribed successfully!</p>
+                <p className="text-[11px] text-emerald-400 font-semibold">✓ Đăng ký nhận ưu đãi thành công!</p>
               )}
             </form>
           </div>

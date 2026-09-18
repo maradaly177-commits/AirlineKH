@@ -362,13 +362,6 @@ export default function Footer() {
 
       </div>
 
-      {/* Floating Chat Button at Bottom Right (like Image 2) */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <button className="w-12 h-12 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white flex items-center justify-center shadow-lg shadow-cyan-500/40 transition-all hover:scale-110 cursor-pointer">
-          <ChatCircleDots size={26} weight="fill" />
-        </button>
-      </div>
-
     </footer>
   );
 }
