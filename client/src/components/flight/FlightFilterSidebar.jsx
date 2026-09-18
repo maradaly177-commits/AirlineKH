@@ -32,8 +32,21 @@ const VietjetLogo = () => (
   </div>
 );
 
-export default function FlightFilterSidebar({ filters, onFilterChange }) {
+export default function FlightFilterSidebar({ filters, onFilterChange, allFlights = [] }) {
   const [maxPrice, setMaxPrice] = useState(10000000);
+
+  const countAirlineFlights = (code) => {
+    if (!Array.isArray(allFlights) || allFlights.length === 0) return null;
+    const c = allFlights.filter(f => {
+      const fn = (f.flight_number || "").toUpperCase();
+      if (code === 'VN') return fn.startsWith('VN') || fn.includes('VIETNAM');
+      if (code === 'VJ') return fn.startsWith('VJ') || fn.includes('VIETJET');
+      if (code === 'QH') return fn.startsWith('QH') || fn.startsWith('FB') || fn.includes('BAMBOO');
+      if (code === 'SKY') return fn.startsWith('SK') || fn.startsWith('SL') || (!fn.startsWith('VN') && !fn.startsWith('VJ') && !fn.startsWith('QH') && !fn.startsWith('FB'));
+      return false;
+    }).length;
+    return `${c} chuyến`;
+  };
 
   const timeSlots = [
     { id: 'morning', label: 'Sáng (06:00 - 11:59)', count: '12 chuyến' },
@@ -42,10 +55,10 @@ export default function FlightFilterSidebar({ filters, onFilterChange }) {
   ];
 
   const airlines = [
-    { id: 'VN', name: 'Vietnam Airlines', count: '8 chuyến', logo: <VietnamAirlinesLogo /> },
-    { id: 'SKY', name: 'SkyLink Airlines', count: '6 chuyến', logo: <SkyLinkLogo /> },
-    { id: 'QH', name: 'Bamboo Airways', count: '4 chuyến', logo: <BambooLogo /> },
-    { id: 'VJ', name: 'VietJet Air', count: '2 chuyến', logo: <VietjetLogo /> },
+    { id: 'VN', name: 'Vietnam Airlines', count: countAirlineFlights('VN') || '8 chuyến', logo: <VietnamAirlinesLogo /> },
+    { id: 'SKY', name: 'SkyLink Airlines', count: countAirlineFlights('SKY') || '6 chuyến', logo: <SkyLinkLogo /> },
+    { id: 'QH', name: 'Bamboo Airways', count: countAirlineFlights('QH') || '4 chuyến', logo: <BambooLogo /> },
+    { id: 'VJ', name: 'VietJet Air', count: countAirlineFlights('VJ') || '2 chuyến', logo: <VietjetLogo /> },
   ];
 
   const amenities = [

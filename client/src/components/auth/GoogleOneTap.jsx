@@ -37,22 +37,26 @@ export default function GoogleOneTap() {
       if (!window.google?.accounts?.id) return;
       if (window._gsi_initialized) return;
 
-      window.google.accounts.id.initialize({
-        client_id: clientId,
-        callback: handleGoogleOneTapResponse,
-        auto_select: false,
-        cancel_on_tap_outside: true,
-        use_fedcm_for_prompt: true,
-      });
+      try {
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleGoogleOneTapResponse,
+          auto_select: false,
+          cancel_on_tap_outside: true,
+          use_fedcm_for_prompt: false, // Tắt FedCM ở môi trường dev localhost để tránh lỗi 403 & FedCM NetworkError
+        });
 
-      window._gsi_initialized = true;
+        window._gsi_initialized = true;
 
-      // Hiển thị One Tap prompt ở góc trên bên phải
-      window.google.accounts.id.prompt((notification) => {
-        if (notification.isNotDisplayed()) {
-          // One tap không hiển thị (do cookie hoặc người dùng đã tắt)
-        }
-      });
+        // Hiển thị One Tap prompt ở góc trên bên phải
+        window.google.accounts.id.prompt((notification) => {
+          if (notification.isNotDisplayed()) {
+            // One tap không hiển thị (do cookie hoặc người dùng đã tắt/từ chối trên browser)
+          }
+        });
+      } catch (e) {
+        console.warn("Google One Tap init skipped:", e);
+      }
     };
 
     const handleGoogleOneTapResponse = async (response) => {

@@ -1,4 +1,5 @@
 import api from "../api";
+import { mockChat } from "./aiService.mock";
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +30,6 @@ export async function sendChatMessage({
 }) {
 
   if (USE_MOCK) {
-
-    const { mockChat } =
-      await import("./aiService.mock");
-
     return mockChat({
       message,
       conversationId,
@@ -94,11 +91,6 @@ export async function streamChatMessage(
   */
 
   if (USE_MOCK) {
-
-    const { mockChat } =
-      await import("./aiService.mock");
-
-
     const result =
       await mockChat({
         message,

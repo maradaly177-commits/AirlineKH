@@ -41,7 +41,7 @@ export default function FlightResults() {
 
   const [bookingStage, setBookingStage] = useState('outbound');
   const [outboundFlight, setOutboundFlight] = useState(null);
-  
+
   // Reschedule mode states
   const [rescheduleMode, setRescheduleMode] = useState(false);
   const [rescheduleBooking, setRescheduleBooking] = useState(null);
@@ -74,14 +74,14 @@ export default function FlightResults() {
     if (location.state?.rescheduleBooking) {
       setRescheduleMode(true);
       setRescheduleBooking(location.state.rescheduleBooking);
-      
+
       const booking = location.state.rescheduleBooking;
       const flight = booking.flight;
-      
+
       const params = {
         departure: flight.departure_airport?.code || "",
         arrival: flight.arrival_airport?.code || "",
-        date: flight.departure_time ? new Date(flight.departure_time).toISOString().slice(0,10) : "",
+        date: flight.departure_time ? new Date(flight.departure_time).toISOString().slice(0, 10) : "",
         tripType: 'one-way'
       };
       setSearchParams(params);
@@ -126,8 +126,8 @@ export default function FlightResults() {
     try {
       const queryParts = [];
       if (params?.departure) queryParts.push(`from=${encodeURIComponent(params.departure)}`);
-      if (params?.arrival)   queryParts.push(`to=${encodeURIComponent(params.arrival)}`);
-      if (params?.date)      queryParts.push(`date=${encodeURIComponent(params.date)}`);
+      if (params?.arrival) queryParts.push(`to=${encodeURIComponent(params.arrival)}`);
+      if (params?.date) queryParts.push(`date=${encodeURIComponent(params.date)}`);
 
       if (params?.tripType) {
         const backendTripType = params.tripType.replace('-', '_');
@@ -153,7 +153,7 @@ export default function FlightResults() {
     setBookingStage('outbound');
     setOutboundFlight(null);
     localStorage.setItem("search_params", JSON.stringify(searchParams));
-    
+
     const newParams = new URLSearchParams();
     if (searchParams.departure) newParams.set("from", searchParams.departure);
     if (searchParams.arrival) newParams.set("to", searchParams.arrival);
@@ -191,7 +191,7 @@ export default function FlightResults() {
     if (searchParams?.tripType === 'round-trip' && bookingStage === 'outbound') {
       setOutboundFlight(flight);
       setBookingStage('return');
-      
+
       const returnParams = {
         ...searchParams,
         departure: searchParams.arrival,
@@ -208,7 +208,7 @@ export default function FlightResults() {
         localStorage.setItem('selected_flights', JSON.stringify([flight]));
       }
       localStorage.removeItem('selected_flight');
-      navigate('/seat-selection'); 
+      navigate('/seat-selection');
     }
   };
 
@@ -247,18 +247,18 @@ export default function FlightResults() {
           amount: paymentAmount,
           type: 'reschedule'
         }));
-        navigate('/payment', { 
-          state: { 
+        navigate('/payment', {
+          state: {
             amount: paymentAmount,
             bookingId: rescheduleData.oldBooking.id,
             newFlightId: rescheduleData.newFlight.id,
             type: 'reschedule'
-          } 
+          }
         });
       } else {
         const res = await axios.post(
           `/api/bookings/${rescheduleData.oldBooking.id}/pay-reschedule`,
-          { 
+          {
             new_flight_id: rescheduleData.newFlight.id,
             payment_method: 'vnpay'
           },
@@ -295,6 +295,20 @@ export default function FlightResults() {
       });
     }
 
+    // Filter by airlines
+    if (filters.airlines?.length > 0) {
+      result = result.filter(f => {
+        const fn = (f.flight_number || "").toUpperCase();
+        return filters.airlines.some(code => {
+          if (code === 'VN') return fn.startsWith('VN') || fn.includes('VIETNAM');
+          if (code === 'VJ') return fn.startsWith('VJ') || fn.includes('VIETJET');
+          if (code === 'QH' || code === 'FB') return fn.startsWith('QH') || fn.startsWith('FB') || fn.includes('BAMBOO');
+          if (code === 'SKY') return fn.startsWith('SK') || fn.startsWith('SL') || (!fn.startsWith('VN') && !fn.startsWith('VJ') && !fn.startsWith('QH') && !fn.startsWith('FB'));
+          return false;
+        });
+      });
+    }
+
     // Sort
     result.sort((a, b) => {
       if (filters.sort === 'price_asc') {
@@ -319,11 +333,11 @@ export default function FlightResults() {
 
       {/* 1. HERO HEADER BANNER matching user reference image */}
       <div className="relative pt-24 pb-20 px-6 md:px-12 bg-gradient-to-b from-[#eaf4ff] via-[#edf6ff] to-slate-50 overflow-hidden">
-        
+
         {/* Sky Background Plane Graphics */}
         <div className="absolute top-8 right-10 md:right-24 w-80 md:w-[480px] opacity-90 pointer-events-none z-0">
           <img
-            src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1000&auto=format&fit=crop"
+            src="https://png.pngtree.com/thumb_back/fh260/background/20230804/pngtree-a-plane-flying-in-the-blue-sky-image_12999284.jpg"
             alt="Sky background"
             className="w-full h-auto object-contain mix-blend-multiply opacity-25 rounded-3xl"
           />
@@ -337,7 +351,7 @@ export default function FlightResults() {
         </div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          
+
           {/* Back button */}
           <button
             onClick={() => navigate("/")}
@@ -356,9 +370,36 @@ export default function FlightResults() {
           </p>
 
           {/* Floating Quick Search Bar matching Image */}
-          <form onSubmit={handleApplySearch} className="bg-white rounded-3xl p-4 shadow-lg border border-slate-200/80">
+          <form onSubmit={handleApplySearch} className="bg-white rounded-3xl p-5 shadow-lg border border-slate-200/80 space-y-4">
+
+            {/* Hàng 1: Loại vé (Một chiều / Khứ hồi -10%) matching user reference image */}
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
+              <button
+                type="button"
+                onClick={() => setSearchParams(prev => ({ ...prev, tripType: "one-way" }))}
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${searchParams.tripType === "one-way"
+                    ? "bg-blue-600 text-white shadow-xs"
+                    : "bg-slate-100 text-slate-600 hover:text-slate-900"
+                  }`}
+              >
+                Một chiều
+              </button>
+              <button
+                type="button"
+                onClick={() => setSearchParams(prev => ({ ...prev, tripType: "round-trip" }))}
+                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${searchParams.tripType === "round-trip"
+                    ? "bg-blue-600 text-white shadow-xs"
+                    : "bg-slate-100 text-slate-600 hover:text-slate-900"
+                  }`}
+              >
+                <span>Khứ hồi</span>
+                <span className="text-[10px] bg-amber-400 text-amber-950 px-1.5 py-0.5 rounded-full font-extrabold">-10%</span>
+              </button>
+            </div>
+
+            {/* Hàng 2: Form Chọn Tuyến và Ngày */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-              
+
               {/* Điểm đi */}
               <div className="md:col-span-3 bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
                 <label className="text-[10px] font-bold text-slate-400 block mb-0.5 uppercase">Điểm đi</label>
@@ -408,7 +449,7 @@ export default function FlightResults() {
               </div>
 
               {/* Ngày đi */}
-              <div className="md:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
+              <div className={`${searchParams.tripType === 'round-trip' ? 'md:col-span-2' : 'md:col-span-2'} bg-slate-50 border border-slate-200 rounded-2xl p-2.5`}>
                 <label className="text-[10px] font-bold text-slate-400 block mb-0.5 uppercase">Ngày đi</label>
                 <div className="flex items-center gap-2">
                   <CalendarBlank size={14} className="text-blue-600" />
@@ -421,8 +462,25 @@ export default function FlightResults() {
                 </div>
               </div>
 
+              {/* Ngày về (Hiện khi chọn Khứ hồi) */}
+              {searchParams.tripType === 'round-trip' && (
+                <div className="md:col-span-3 bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
+                  <label className="text-[10px] font-bold text-slate-400 block mb-0.5 uppercase">Ngày về</label>
+                  <div className="flex items-center gap-2">
+                    <CalendarBlank size={14} className="text-blue-600" />
+                    <input
+                      type="date"
+                      className="w-full bg-transparent text-xs font-extrabold text-slate-900 outline-none cursor-pointer"
+                      value={searchParams.returnDate}
+                      onChange={(e) => setSearchParams(prev => ({ ...prev, returnDate: e.target.value }))}
+                      min={searchParams.date || undefined}
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Hành khách */}
-              <div className="md:col-span-3 bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
+              <div className={`${searchParams.tripType === 'round-trip' ? 'md:col-span-3' : 'md:col-span-3'} bg-slate-50 border border-slate-200 rounded-2xl p-2.5`}>
                 <label className="text-[10px] font-bold text-slate-400 block mb-0.5 uppercase">1 hành khách</label>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-xs font-extrabold text-slate-900">
@@ -452,13 +510,51 @@ export default function FlightResults() {
 
       {/* 2. MAIN LAYOUT GRID (Filter Sidebar + Flight Results List) */}
       <main className="max-w-6xl mx-auto px-6 pt-8 flex flex-col md:flex-row items-start gap-8 relative z-10">
-        
+
         {/* Left: Sticky Filter Sidebar */}
-        <FlightFilterSidebar filters={filters} onFilterChange={handleFilterChange} />
+        <FlightFilterSidebar
+          filters={filters}
+          onFilterChange={handleFilterChange}
+          allFlights={flights}
+        />
 
         {/* Right: Flight List & Pagination */}
         <div className="flex-1 w-full space-y-4">
-          
+
+          {/* Round-trip Step Progress Banner */}
+          {searchParams?.tripType === 'round-trip' && (
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shrink-0">
+                  {bookingStage === 'outbound' ? '1/2' : '2/2'}
+                </span>
+                <div>
+                  <p className="text-xs font-black text-slate-900 uppercase tracking-wide">
+                    {bookingStage === 'outbound' ? 'BƯỚC 1: CHỌN CHUYẾN BAY CHIỀU ĐI' : 'BƯỚC 2: CHỌN CHUYẾN BAY CHIỀU VỀ'}
+                  </p>
+                  <p className="text-[11px] text-slate-600 font-medium mt-0.5">
+                    {bookingStage === 'outbound'
+                      ? `Chặng đi: ${searchParams.departure || 'DAD'} ➔ ${searchParams.arrival || 'PQC'}`
+                      : `Chặng về: ${searchParams.arrival || 'PQC'} ➔ ${searchParams.departure || 'DAD'} (Đã chọn chiều đi: ${outboundFlight?.flight_number || 'VN-123'})`}
+                  </p>
+                </div>
+              </div>
+              {bookingStage === 'return' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBookingStage('outbound');
+                    setOutboundFlight(null);
+                    fetchFlights(searchParams);
+                  }}
+                  className="text-[11px] font-bold text-blue-600 hover:text-blue-800 underline cursor-pointer shrink-0"
+                >
+                  ← Chọn lại chiều đi
+                </button>
+              )}
+            </div>
+          )}
+
           {/* Top Control Bar matching image */}
           <div className="flex items-center justify-between pb-2">
             <span className="text-xs font-bold text-slate-700">
@@ -496,10 +592,10 @@ export default function FlightResults() {
           ) : (
             <ul className="flex flex-col gap-4 w-full">
               {displayedFlights.map((flight) => (
-                <FlightCard 
-                  key={flight.id} 
-                  flight={flight} 
-                  onSelect={handleSelectFlight} 
+                <FlightCard
+                  key={flight.id}
+                  flight={flight}
+                  onSelect={handleSelectFlight}
                 />
               ))}
             </ul>
@@ -507,41 +603,38 @@ export default function FlightResults() {
 
           {/* Pagination bar matching image `< 1 2 3 >` */}
           <div className="flex items-center justify-center gap-2 pt-6">
-            <button 
+            <button
               type="button"
               onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
               className="w-8 h-8 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 flex items-center justify-center cursor-pointer"
             >
               ‹
             </button>
-            <button 
+            <button
               type="button"
               onClick={() => setCurrentPage(1)}
-              className={`w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer ${
-                currentPage === 1 ? "bg-blue-600 text-white shadow-xs" : "bg-white border border-slate-200 text-slate-700"
-              }`}
+              className={`w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer ${currentPage === 1 ? "bg-blue-600 text-white shadow-xs" : "bg-white border border-slate-200 text-slate-700"
+                }`}
             >
               1
             </button>
-            <button 
+            <button
               type="button"
               onClick={() => setCurrentPage(2)}
-              className={`w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer ${
-                currentPage === 2 ? "bg-blue-600 text-white shadow-xs" : "bg-white border border-slate-200 text-slate-700"
-              }`}
+              className={`w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer ${currentPage === 2 ? "bg-blue-600 text-white shadow-xs" : "bg-white border border-slate-200 text-slate-700"
+                }`}
             >
               2
             </button>
-            <button 
+            <button
               type="button"
               onClick={() => setCurrentPage(3)}
-              className={`w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer ${
-                currentPage === 3 ? "bg-blue-600 text-white shadow-xs" : "bg-white border border-slate-200 text-slate-700"
-              }`}
+              className={`w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer ${currentPage === 3 ? "bg-blue-600 text-white shadow-xs" : "bg-white border border-slate-200 text-slate-700"
+                }`}
             >
               3
             </button>
-            <button 
+            <button
               type="button"
               onClick={() => setCurrentPage(prev => Math.min(3, prev + 1))}
               className="w-8 h-8 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 flex items-center justify-center cursor-pointer"

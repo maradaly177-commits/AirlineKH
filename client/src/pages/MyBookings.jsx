@@ -5,7 +5,6 @@ import {
   AirplaneTakeoff,
   AirplaneLanding,
   Ticket,
-  ArrowLeft,
   CircleNotch,
   CalendarBlank,
   UserCircle,
@@ -13,13 +12,21 @@ import {
   Clock,
   Armchair,
   Hash,
+  CheckCircle,
+  XCircle,
+  Copy,
+  Check,
+  Funnel,
+  Sparkle,
+  ArrowRight
 } from "@phosphor-icons/react";
-// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CountdownTimer from "../components/CountdownTimer";
 
-// ─── Airline Config (mirrors FlightCard) ─────────────────────────────────────
+// ─── Airline Config ─────────────────────────────────────────────────────────
 
 const AIRLINE_CONFIG = {
   VN: {
@@ -27,11 +34,11 @@ const AIRLINE_CONFIG = {
     badge: "bg-blue-600",
     text: "text-white",
     light: "bg-blue-50 text-blue-700 border-blue-200",
-    accent: "from-blue-600 to-yellow-400",
+    accent: "from-blue-600 to-blue-400",
     dot: "bg-blue-600",
     logo: (
-      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-700 to-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 flex-shrink-0">
-        <span className="text-yellow-300 font-black text-xs tracking-tight">VNA</span>
+      <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-700 to-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0">
+        <span className="text-amber-300 font-black text-xs tracking-tight">VNA</span>
       </div>
     ),
   },
@@ -43,7 +50,7 @@ const AIRLINE_CONFIG = {
     accent: "from-red-600 to-red-400",
     dot: "bg-red-500",
     logo: (
-      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-400 flex items-center justify-center shadow-md shadow-red-500/20 flex-shrink-0">
+      <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-red-600 to-red-400 flex items-center justify-center shadow-md shadow-red-500/20 shrink-0">
         <span className="text-white font-black text-xs tracking-tight">VJA</span>
       </div>
     ),
@@ -56,7 +63,7 @@ const AIRLINE_CONFIG = {
     accent: "from-violet-600 to-purple-400",
     dot: "bg-violet-500",
     logo: (
-      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-700 to-purple-500 flex items-center justify-center shadow-md shadow-violet-500/20 flex-shrink-0">
+      <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-violet-700 to-purple-500 flex items-center justify-center shadow-md shadow-violet-500/20 shrink-0">
         <span className="text-white font-black text-xs tracking-tight">FBS</span>
       </div>
     ),
@@ -64,15 +71,15 @@ const AIRLINE_CONFIG = {
 };
 
 const DEFAULT_AIRLINE = {
-  name: "SkyLink",
-  badge: "bg-zinc-700",
+  name: "SkyLink Airlines",
+  badge: "bg-blue-600",
   text: "text-white",
-  light: "bg-zinc-100 text-zinc-700 border-zinc-200",
-  accent: "from-zinc-700 to-zinc-500",
-  dot: "bg-zinc-500",
+  light: "bg-blue-50 text-blue-700 border-blue-200",
+  accent: "from-blue-600 to-indigo-500",
+  dot: "bg-blue-600",
   logo: (
-    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-zinc-700 to-zinc-500 flex items-center justify-center shadow-md flex-shrink-0">
-      <span className="text-white font-black text-xs">SKY</span>
+    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0">
+      <span className="text-white font-black text-xs tracking-wider">SKY</span>
     </div>
   ),
 };
@@ -96,7 +103,7 @@ const formatDate = (d) =>
   });
 
 const formatCurrency = (amount) =>
-  new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(amount);
+  new Intl.NumberFormat("vi-VN").format(amount) + " đ";
 
 const calcDuration = (dep, arr) => {
   const ms = new Date(arr) - new Date(dep);
@@ -108,26 +115,33 @@ const calcDuration = (dep, arr) => {
 // ─── Status Helpers ───────────────────────────────────────────────────────────
 
 const STATUS_STYLE = {
-  paid:      "bg-emerald-100 text-emerald-700 border-emerald-200",
-  pending:   "bg-amber-100 text-amber-700 border-amber-200",
-  cancelled: "bg-red-100 text-red-700 border-red-200",
+  paid: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+  pending: "bg-amber-50 text-amber-700 border-amber-200/80",
+  cancelled: "bg-rose-50 text-rose-700 border-rose-200/80",
 };
+
 const STATUS_TEXT = {
-  paid:      "✓ Đã thanh toán",
-  pending:   "⏳ Chờ thanh toán",
+  paid: "✓ Đã thanh toán",
+  pending: "⏳ Chờ thanh toán",
   cancelled: "✕ Đã hủy",
 };
 
-import CountdownTimer from "../components/CountdownTimer";
-
-// ─── BookingCard ──────────────────────────────────────────────────────────────
+// ─── BookingCard Component ───────────────────────────────────────────────────
 
 function BookingCard({ booking, idx }) {
   const [expanded, setExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
   const flight = booking.flight;
   const airline = getAirline(flight?.flight_number ?? "");
   const status = booking.status;
+
+  const handleCopyPnr = (e) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(booking.pnr_code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const getCheckInStatus = () => {
     if (!flight || status !== "paid") {
@@ -143,7 +157,7 @@ function BookingCard({ booking, idx }) {
     } else if (now > checkInCloseTime) {
       return { isOpen: false, label: "Làm thủ tục (Đã đóng)" };
     } else {
-      return { isOpen: true, label: "Làm thủ tục (Check-in)" };
+      return { isOpen: true, label: "Làm thủ tục Check-in ngay" };
     }
   };
 
@@ -152,317 +166,313 @@ function BookingCard({ booking, idx }) {
   return (
     <motion.div
       key={booking.id}
-      initial={{ opacity: 0, y: 22 }}
+      initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: idx * 0.07, type: "spring", stiffness: 340, damping: 28 }}
-      className="bg-white rounded-[24px] border border-zinc-200/80 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.07)] overflow-hidden"
+      transition={{ delay: idx * 0.05, duration: 0.3 }}
+      className="bg-white rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden group"
     >
-      {/* Airline accent bar */}
-      <div className={`h-[3px] w-full bg-gradient-to-r ${airline.accent}`} />
+      {/* Top Gradient Bar */}
+      <div className={`h-1.5 w-full bg-gradient-to-r ${airline.accent}`} />
 
-      <div className="p-6">
-        {/* ── Header Row ── */}
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
-          {/* Airline Identity */}
+      <div className="p-6 sm:p-7">
+        {/* Top Header Row */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+          
+          {/* Left: Airline Branding */}
           <div className="flex items-center gap-3">
             {airline.logo}
             <div>
-              <p className="text-sm font-black text-zinc-900">{airline.name}</p>
+              <p className="text-base font-extrabold text-slate-900 leading-tight">
+                {airline.name}
+              </p>
               <div className="flex items-center gap-2 mt-0.5">
-                <span className="text-[10px] font-bold text-zinc-400 flex items-center gap-1">
-                  <Hash size={9} weight="bold" />
-                  {flight?.flight_number ?? "—"}
+                <span className="text-xs font-bold text-slate-500 flex items-center gap-0.5 font-mono">
+                  <Hash size={12} weight="bold" /> {flight?.flight_number ?? "—"}
                 </span>
-                <span className="text-zinc-200">·</span>
-                <span className="text-[10px] font-bold text-zinc-400">
-                  {flight?.aircraft?.model ?? "A320neo"}
+                <span className="text-slate-300">&bull;</span>
+                <span className="text-xs font-semibold text-slate-400">
+                  {flight?.aircraft?.model ?? "Airbus A320neo"}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Status + PNR */}
-          <div className="flex flex-col items-end gap-2">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full border text-[10px] font-black uppercase tracking-widest ${STATUS_STYLE[status] ?? "bg-zinc-100 text-zinc-600 border-zinc-200"}`}>
+          {/* Right: PNR Code & Status Badge */}
+          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-3">
+            {/* PNR Code Pill with Copy */}
+            <div className="flex items-center gap-1.5 bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-xl">
+              <span className="text-[11px] font-bold text-slate-500 uppercase">Mã PNR:</span>
+              <strong className="font-mono text-sm font-black text-slate-900 tracking-wider">
+                {booking.pnr_code}
+              </strong>
+              <button
+                type="button"
+                onClick={handleCopyPnr}
+                title="Sao chép mã PNR"
+                className="text-slate-400 hover:text-blue-600 transition-colors cursor-pointer p-0.5"
+              >
+                {copied ? <Check size={14} className="text-emerald-600 font-bold" /> : <Copy size={14} />}
+              </button>
+            </div>
+
+            {/* Status Pill */}
+            <span className={`inline-flex items-center px-3 py-1.5 rounded-full border text-xs font-black uppercase tracking-wider ${STATUS_STYLE[status] ?? "bg-slate-100 text-slate-600 border-slate-200"}`}>
               {STATUS_TEXT[status] ?? status}
             </span>
+          </div>
+        </div>
+
+        {/* Route Flight Timeline Banner */}
+        <div className="bg-slate-50/80 rounded-2xl p-5 mb-5 border border-slate-100">
+          <div className="flex items-center gap-4">
+            
+            {/* Departure Airport */}
+            <div className="text-left min-w-[90px]">
+              <div className="text-2xl font-black text-slate-900 tracking-tight font-mono">
+                {formatTime(flight?.departure_time)}
+              </div>
+              <div className="text-xs font-black text-blue-600 uppercase tracking-wider mt-0.5">
+                {flight?.departure_airport?.code ?? "—"}
+              </div>
+              <div className="text-[11px] text-slate-400 font-medium truncate max-w-[110px]">
+                {flight?.departure_airport?.city ?? ""}
+              </div>
+            </div>
+
+            {/* Flight Flight Graphic Line */}
+            <div className="flex-1 flex flex-col items-center gap-1">
+              <span className="text-[11px] font-bold text-slate-500 flex items-center gap-1 bg-white px-2.5 py-0.5 rounded-full border border-slate-200/70 shadow-2xs">
+                <Clock size={12} weight="bold" />
+                {flight ? calcDuration(flight.departure_time, flight.arrival_time) : "—"}
+              </span>
+
+              <div className="w-full flex items-center gap-2 my-1">
+                <AirplaneTakeoff size={16} weight="fill" className="text-blue-600 shrink-0" />
+                <div className="flex-1 h-0.5 bg-slate-200 rounded-full relative">
+                  <div className="absolute inset-0 bg-blue-600/40 rounded-full" />
+                </div>
+                <AirplaneLanding size={16} weight="fill" className="text-blue-600 shrink-0" />
+              </div>
+
+              <span className="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                Bay trực tiếp
+              </span>
+            </div>
+
+            {/* Arrival Airport */}
+            <div className="text-right min-w-[90px]">
+              <div className="text-2xl font-black text-slate-900 tracking-tight font-mono">
+                {formatTime(flight?.arrival_time)}
+              </div>
+              <div className="text-xs font-black text-blue-600 uppercase tracking-wider mt-0.5">
+                {flight?.arrival_airport?.code ?? "—"}
+              </div>
+              <div className="text-[11px] text-slate-400 font-medium truncate max-w-[110px]">
+                {flight?.arrival_airport?.city ?? ""}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Departure Date Row */}
+          <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/70 text-xs text-slate-600 font-medium">
+            <span className="flex items-center gap-1.5 font-bold text-slate-700">
+              <CalendarBlank size={14} weight="bold" className="text-blue-600" />
+              Ngày khởi hành: {flight ? formatDate(flight.departure_time) : "—"}
+            </span>
+
             {status === "pending" && booking.expires_at && (
               <CountdownTimer
                 expiresAt={booking.expires_at}
                 onExpire={() => window.location.reload()}
               />
             )}
-            <span className="text-[10px] text-zinc-400 font-semibold">
-              PNR: <span className="text-zinc-800 font-black tracking-widest">{booking.pnr_code}</span>
-            </span>
           </div>
         </div>
 
-        {/* ── Route Timeline ── */}
-        <div className="bg-zinc-50 rounded-2xl p-4 mb-4">
-          <div className="flex items-center gap-3">
-            {/* Departure */}
-            <div className="text-left min-w-[80px]">
-              <div className="text-2xl font-black tracking-tight text-zinc-900 tabular-nums">
-                {formatTime(flight?.departure_time)}
-              </div>
-              <div className="text-[11px] font-black text-zinc-500 uppercase tracking-widest">
-                {flight?.departure_airport?.code ?? "—"}
-              </div>
-              <div className="text-[10px] text-zinc-400 mt-0.5">
-                {flight?.departure_airport?.city ?? ""}
-              </div>
-            </div>
-
-            {/* Timeline Center */}
-            <div className="flex-1 flex flex-col items-center gap-1 px-2">
-              <span className="text-[10px] font-bold text-zinc-400 flex items-center gap-1">
-                <Clock size={11} weight="bold" />
-                {flight ? calcDuration(flight.departure_time, flight.arrival_time) : "—"}
-              </span>
-              <div className="w-full flex items-center gap-1">
-                <AirplaneTakeoff size={14} weight="fill" className="text-zinc-300 flex-shrink-0" />
-                <div className={`flex-1 h-px bg-gradient-to-r ${airline.accent} opacity-50`} />
-                <AirplaneLanding size={14} weight="fill" className="text-zinc-300 flex-shrink-0" />
-              </div>
-              <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">Bay thẳng</span>
-            </div>
-
-            {/* Arrival */}
-            <div className="text-right min-w-[80px]">
-              <div className="text-2xl font-black tracking-tight text-zinc-900 tabular-nums">
-                {formatTime(flight?.arrival_time)}
-              </div>
-              <div className="text-[11px] font-black text-zinc-500 uppercase tracking-widest">
-                {flight?.arrival_airport?.code ?? "—"}
-              </div>
-              <div className="text-[10px] text-zinc-400 mt-0.5">
-                {flight?.arrival_airport?.city ?? ""}
-              </div>
-            </div>
-          </div>
-
-          {/* Date row */}
-          <div className="flex items-center justify-center mt-3 pt-3 border-t border-zinc-200">
-            <span className="text-[11px] font-bold text-zinc-500 flex items-center gap-1.5">
-              <CalendarBlank size={12} weight="duotone" className="text-blue-500" />
-              {flight ? formatDate(flight.departure_time) : "—"}
-            </span>
-          </div>
-        </div>
-
-        {/* ── Passengers Summary ── */}
+        {/* Passenger & Price Summary Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <UserCircle size={16} className="text-zinc-400" weight="duotone" />
-            <span className="text-xs text-zinc-500 font-semibold">
-              {booking.tickets?.length ?? 0} hành khách
-            </span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 text-xs text-slate-600 font-bold bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200/60">
+              <UserCircle size={16} className="text-blue-600" weight="bold" />
+              <span>{booking.tickets?.length ?? 0} hành khách</span>
+            </div>
+
             <button
+              type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="text-[10px] font-bold text-blue-500 hover:text-blue-700 transition-colors cursor-pointer ml-1"
+              className="text-xs font-extrabold text-blue-600 hover:text-blue-700 transition-colors cursor-pointer flex items-center gap-1"
             >
-              {expanded ? "Thu gọn ▲" : "Xem chi tiết ▼"}
+              {expanded ? "Thu gọn ▲" : "Xem chi tiết vé ▼"}
             </button>
           </div>
 
-          <div className="flex items-center gap-1.5">
-            <CurrencyCircleDollar size={16} className="text-emerald-500" weight="duotone" />
-            <span className="text-base font-black text-zinc-900">
+          <div className="text-right">
+            <span className="text-[11px] text-slate-400 font-medium block">Tổng cộng:</span>
+            <span className="text-xl font-black text-blue-600 tracking-tight">
               {formatCurrency(booking.total_amount)}
             </span>
           </div>
         </div>
 
-        {/* ── Expanded Tickets ── */}
+        {/* Expandable Tickets Details Drawer */}
         <AnimatePresence>
           {expanded && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="mt-4 pt-4 border-t border-zinc-100 space-y-3">
-                <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
-                  <Ticket size={12} weight="duotone" className="text-blue-500" />
-                  Chi tiết vé
+              <div className="mt-5 pt-5 border-t border-slate-100 space-y-3">
+                <p className="text-xs font-extrabold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
+                  <Ticket size={14} weight="bold" className="text-blue-600" />
+                  Danh sách vé & Ghế ngồi hành khách
                 </p>
 
                 {booking.tickets?.map((ticket, ti) => (
-                  <motion.div
+                  <div
                     key={ti}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: ti * 0.05 }}
-                    className="flex items-center justify-between bg-zinc-50 rounded-2xl px-4 py-3"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50 rounded-2xl p-4 border border-slate-200/60"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-zinc-200 flex items-center justify-center shadow-sm">
-                        <UserCircle size={18} weight="duotone" className="text-zinc-400" />
+                      <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-blue-600 shadow-2xs font-bold text-sm">
+                        {ti + 1}
                       </div>
                       <div>
-                        <p className="text-sm font-black text-zinc-900 uppercase">{ticket.passenger_name}</p>
-                        <p className="text-[10px] text-zinc-400 font-semibold mt-0.5">
-                          CCCD: {ticket.identity_number}
+                        <p className="text-sm font-extrabold text-slate-900 uppercase">
+                          {ticket.passenger_name}
+                        </p>
+                        <p className="text-xs text-slate-500 font-medium font-mono mt-0.5">
+                          CCCD/Passport: {ticket.identity_number}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                      {/* Seat */}
-                      <div className="flex items-center gap-1.5 bg-white border border-zinc-200 rounded-xl px-3 py-1.5 shadow-sm">
-                        <Armchair size={13} weight="duotone" className="text-blue-500" />
-                        <span className="text-xs font-black text-zinc-800">
+                    <div className="flex items-center gap-3 self-end sm:self-auto">
+                      {/* Seat Badge */}
+                      <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-xl px-3 py-1.5 shadow-2xs">
+                        <Armchair size={15} weight="bold" className="text-blue-600" />
+                        <span className="text-xs font-extrabold text-slate-900">
                           Ghế {ticket.seat?.seat_number ?? "N/A"}
                         </span>
                       </div>
 
-                      {/* Ticket code */}
-                      <div className={`text-[9px] font-black px-2.5 py-1 rounded-full border ${airline.light} uppercase tracking-wider`}>
-                        {ticket.ticket_code?.slice(0, 8)}
+                      {/* Ticket Code */}
+                      <div className="text-[10px] font-black px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 uppercase font-mono tracking-wider">
+                        {ticket.ticket_code?.slice(0, 10)}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
-
-                {/* Flight detail recap */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
-                  {[
-                    { label: "Hãng bay",    value: airline.name },
-                    { label: "Số hiệu",     value: flight?.flight_number ?? "—" },
-                    { label: "Máy bay",     value: flight?.aircraft?.model ?? "A320neo" },
-                    { label: "Ngày đặt",    value: formatDate(booking.created_at) },
-                  ].map((item) => (
-                    <div key={item.label} className="bg-zinc-50 rounded-xl p-3">
-                      <p className="text-[9px] font-black text-zinc-400 uppercase tracking-widest mb-1">{item.label}</p>
-                      <p className="text-xs font-bold text-zinc-800">{item.value}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* ── Pay button for pending ── */}
-        {status === "pending" && (
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => navigate(`/payment-retry/${booking.id}`, { state: { booking } })}
-            className={`mt-4 w-full py-3 rounded-2xl text-sm font-black text-white bg-gradient-to-r ${airline.accent} shadow-md cursor-pointer`}
-          >
-            Thanh toán ngay
-          </motion.button>
-        )}
+        {/* Action Buttons Row */}
+        <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
 
-        {/* ── Check-in button for paid bookings ── */}
-        {status === "paid" && (
-          <div className="flex flex-col w-full">
-            <motion.button
-              whileHover={checkInStatus.isOpen ? { scale: 1.01 } : {}}
-              whileTap={checkInStatus.isOpen ? { scale: 0.98 } : {}}
+          {/* Pay Now Button (For Pending Status) */}
+          {status === "pending" && (
+            <button
+              type="button"
+              onClick={() => navigate(`/payment-retry/${booking.id}`, { state: { booking } })}
+              className="w-full sm:flex-1 py-3.5 px-4 rounded-2xl text-sm font-extrabold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
+            >
+              Thanh toán ngay <ArrowRight size={16} weight="bold" />
+            </button>
+          )}
+
+          {/* Check-in Button (For Paid Status) */}
+          {status === "paid" && (
+            <button
+              type="button"
               disabled={!checkInStatus.isOpen}
               onClick={() => navigate(`/check-in?pnr=${booking.pnr_code}`)}
-              className={`mt-4 w-full py-3 rounded-2xl text-sm font-black text-center transition-all ${
+              className={`w-full sm:flex-1 py-3.5 px-4 rounded-2xl text-sm font-extrabold transition-all duration-200 flex items-center justify-center gap-2 ${
                 checkInStatus.isOpen
-                  ? `text-white bg-gradient-to-r ${airline.accent} shadow-md cursor-pointer hover:shadow-lg`
-                  : "bg-zinc-100 border border-zinc-200 text-zinc-400 cursor-not-allowed shadow-none"
+                  ? "text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 cursor-pointer"
+                  : "bg-slate-100 border border-slate-200 text-slate-400 cursor-not-allowed"
               }`}
             >
+              <CheckCircle size={18} weight="bold" />
               {checkInStatus.label}
-            </motion.button>
-            {!checkInStatus.isOpen && (
-              <p className="text-[10px] text-zinc-400 text-center mt-1.5 font-medium">
-                * Check-in online mở từ 24 giờ đến 2 giờ trước giờ cất cánh
-              </p>
-            )}
-          </div>
-        )}
+            </button>
+          )}
 
-        {/* ── Self-service: Reschedule / Cancel (only if flight hasn't departed) ── */}
-        {new Date() < new Date(flight?.departure_time) && status !== "cancelled" && (
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => {
-                // Navigate to search page with booking state for rescheduling flow
-                navigate('/search', { state: { rescheduleBooking: booking } });
-              }}
-              className="w-full py-3 rounded-2xl text-sm font-black text-white bg-gradient-to-r from-yellow-500 to-amber-500 shadow-md cursor-pointer"
-            >
-              Đổi chuyến bay
-            </motion.button>
+          {/* Reschedule & Cancel Action Buttons */}
+          {new Date() < new Date(flight?.departure_time) && status !== "cancelled" && (
+            <>
+              <button
+                type="button"
+                onClick={() => navigate('/search', { state: { rescheduleBooking: booking } })}
+                className="py-3 px-4 rounded-2xl text-xs font-extrabold text-amber-700 bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-all duration-200 cursor-pointer"
+              >
+                Đổi chuyến bay
+              </button>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={async () => {
-                if (!confirm('Bạn có chắc muốn hủy vé này?')) return;
-                try {
-                  const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
-                  const res = await fetch(`/api/bookings/${booking.id}/cancel`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-                  });
-                  const data = await res.json();
-                  if (res.ok && data.status === 'success') {
-                    alert(data.message || 'Hủy vé thành công');
-                    window.location.reload();
-                  } else {
-                    alert(data.message || 'Không thể hủy vé: ' + (data.errors ? JSON.stringify(data.errors) : ''));
+              <button
+                type="button"
+                onClick={async () => {
+                  if (!confirm("Bạn có chắc chắn muốn hủy đặt vé này?")) return;
+                  try {
+                    const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
+                    const res = await fetch(`/api/bookings/${booking.id}/cancel`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                    });
+                    const data = await res.json();
+                    if (res.ok && data.status === "success") {
+                      alert(data.message || "Hủy vé thành công");
+                      window.location.reload();
+                    } else {
+                      alert(data.message || "Không thể hủy vé");
+                    }
+                  } catch (err) {
+                    console.error(err);
+                    alert("Lỗi khi kết nối tới máy chủ.");
                   }
-                } catch (err) {
-                  console.error(err);
-                  alert('Lỗi khi kết nối tới máy chủ.');
-                }
-              }}
-              className="w-full py-3 rounded-2xl text-sm font-black text-white bg-gradient-to-r from-red-500 to-rose-500 shadow-md cursor-pointer"
-            >
-              Hủy vé
-            </motion.button>
-          </div>
-        )}
+                }}
+                className="py-3 px-4 rounded-2xl text-xs font-extrabold text-rose-700 bg-rose-50 border border-rose-200 hover:bg-rose-100 transition-all duration-200 cursor-pointer"
+              >
+                Hủy vé
+              </button>
+            </>
+          )}
+
+        </div>
+
       </div>
     </motion.div>
   );
 }
 
-// ─── MyBookings Page ──────────────────────────────────────────────────────────
+// ─── Main MyBookings Page ──────────────────────────────────────────────────
 
-/**
- * MyBookings — Smart Container
- *
- * Hiển thị lịch sử đặt vé với đầy đủ thông tin:
- *  - Hãng bay (logo + màu sắc theo airline)
- *  - Số hiệu chuyến bay
- *  - Giờ cất cánh / hạ cánh
- *  - Ngày bay
- *  - Điểm đi → Điểm đến
- *  - Ghế từng hành khách
- *  - Tổng tiền
- */
 export default function MyBookings() {
   const [bookings, setBookings] = useState([]);
-  const [loading, setLoading]   = useState(true);
-  const [error, setError]       = useState("");
-  const navigate                = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [activeTab, setActiveTab] = useState("all");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookings = async () => {
       const token = localStorage.getItem("access_token") || sessionStorage.getItem("access_token");
-      if (!token) { navigate("/login"); return; }
+      if (!token) {
+        navigate("/login");
+        return;
+      }
 
       try {
-        const res  = await fetch("/api/bookings", {
+        const res = await fetch("/api/bookings", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
         if (res.ok && data.status === "success") {
-          const list = Array.isArray(data.data) ? data.data : (Array.isArray(data) ? data : []);
+          const list = Array.isArray(data.data) ? data.data : Array.isArray(data) ? data : [];
           setBookings(list);
         } else {
           setError(data.message || "Lỗi khi tải lịch sử vé.");
@@ -478,69 +488,140 @@ export default function MyBookings() {
     fetchBookings();
   }, [navigate]);
 
+  // Filter Bookings by activeTab
+  const filteredBookings = bookings.filter((b) => {
+    if (activeTab === "paid") return b.status === "paid";
+    if (activeTab === "pending") return b.status === "pending";
+    if (activeTab === "cancelled") return b.status === "cancelled";
+    return true;
+  });
+
+  const getTabCount = (statusKey) => {
+    if (statusKey === "all") return bookings.length;
+    return bookings.filter((b) => b.status === statusKey).length;
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="min-h-[100dvh] bg-zinc-50 text-zinc-900 font-sans pb-24 pt-24 selection:bg-blue-600 selection:text-white"
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+      className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans pt-24 pb-20 selection:bg-blue-600 selection:text-white"
     >
       <Navbar />
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <div className="mb-8 -ml-3">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+
+        {/* Back Button */}
+        <div className="mb-4">
           <BackButton />
         </div>
 
-        {/* Header */}
-        <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tighter mb-3">
-            Lịch sử đặt vé
-          </h1>
-          <p className="text-zinc-500 font-medium">
-            Quản lý và xem lại các hành trình của bạn cùng SkyLink.
-          </p>
+        {/* Hero Page Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200/80">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0">
+                <Ticket size={22} weight="fill" />
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                Chuyến bay của tôi
+              </h1>
+            </div>
+            <p className="text-sm text-slate-500 font-medium pl-1">
+              Quản lý lịch sử đặt vé, làm thủ tục trực tuyến (Check-in) và chi tiết vé máy bay SkyLink.
+            </p>
+          </div>
+
+          {/* Quick Stats Pill */}
+          <div className="flex items-center gap-2 bg-white border border-slate-200 px-4 py-2.5 rounded-2xl shadow-xs self-start md:self-auto">
+            <Sparkle size={18} className="text-blue-600" weight="fill" />
+            <span className="text-xs font-bold text-slate-700">
+              Tổng số vé: <strong className="text-blue-600 font-black">{bookings.length}</strong>
+            </span>
+          </div>
         </div>
 
-        {/* Content */}
+        {/* Filter Tabs Bar */}
+        <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2 scrollbar-none">
+          {[
+            { id: "all", label: "Tất cả chuyến bay" },
+            { id: "paid", label: "Đã thanh toán" },
+            { id: "pending", label: "Chờ thanh toán" },
+            { id: "cancelled", label: "Đã hủy" }
+          ].map((tab) => {
+            const isSelected = activeTab === tab.id;
+            const count = getTabCount(tab.id);
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2.5 rounded-2xl text-xs font-extrabold transition-all duration-200 whitespace-nowrap cursor-pointer flex items-center gap-2 ${
+                  isSelected
+                    ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                    : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
+                    isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Content Body */}
         {loading ? (
-          <div className="py-24 flex flex-col items-center justify-center text-zinc-400 gap-4">
-            <CircleNotch size={36} className="animate-spin text-blue-500" />
-            <p className="text-sm font-semibold">Đang tải dữ liệu...</p>
+          <div className="py-24 flex flex-col items-center justify-center text-slate-400 gap-3">
+            <CircleNotch size={38} className="animate-spin text-blue-600" />
+            <p className="text-sm font-bold text-slate-500">Đang tải lịch sử đặt vé của bạn...</p>
           </div>
         ) : error ? (
-          <div className="bg-red-50 text-red-600 border border-red-100 p-8 rounded-[24px] text-center font-semibold">
+          <div className="bg-rose-50 text-rose-700 border border-rose-200 p-8 rounded-3xl text-center font-bold text-sm">
             {error}
           </div>
-        ) : bookings.length === 0 ? (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white border border-zinc-200 p-16 rounded-[24px] text-center shadow-sm"
-          >
-            <AirplaneTilt size={56} weight="duotone" className="mx-auto text-zinc-300 mb-6" />
-            <h3 className="text-xl font-black mb-3 text-zinc-900">Chưa có chuyến đi nào</h3>
-            <p className="text-zinc-500 mb-8 max-w-sm mx-auto font-medium">
-              Bạn chưa thực hiện bất kỳ giao dịch đặt vé nào. Hãy bắt đầu hành trình đầu tiên!
+        ) : filteredBookings.length === 0 ? (
+          <div className="bg-white border border-slate-200/80 p-12 sm:p-16 rounded-3xl text-center shadow-xs">
+            <div className="w-16 h-16 rounded-3xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-5 shadow-inner">
+              <AirplaneTilt size={32} weight="fill" />
+            </div>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+              {activeTab === "all" ? "Chưa có chuyến bay nào" : "Không có vé phù hợp với bộ lọc"}
+            </h3>
+            <p className="text-sm text-slate-500 mb-6 max-w-md mx-auto font-medium leading-relaxed">
+              {activeTab === "all"
+                ? "Bạn chưa thực hiện giao dịch đặt vé nào. Hãy bắt đầu tìm chuyến bay đầu tiên để nhận ưu đãi từ SkyLink!"
+                : "Không tìm thấy vé nào thuộc danh mục này. Anh/chị có thể chuyển về tất cả chuyến bay."}
             </p>
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+            <button
+              type="button"
               onClick={() => navigate("/")}
-              className="bg-gradient-to-r from-blue-600 to-violet-600 text-white font-black px-8 py-3.5 rounded-2xl shadow-lg cursor-pointer"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-md shadow-blue-500/25 transition-all duration-200 cursor-pointer active:scale-95 text-xs inline-flex items-center gap-2"
             >
-              Tìm chuyến bay ngay →
-            </motion.button>
-          </motion.div>
+              Tìm chuyến bay ngay <ArrowRight size={16} weight="bold" />
+            </button>
+          </div>
         ) : (
-          <div className="space-y-5">
-            {(Array.isArray(bookings) ? bookings : []).map((booking, idx) => (
+          <div className="space-y-6">
+            {filteredBookings.map((booking, idx) => (
               <BookingCard key={booking.id} booking={booking} idx={idx} />
             ))}
           </div>
         )}
+
+      </div>
+
+      <div className="mt-20">
+        <Footer />
       </div>
     </motion.div>
   );
 }
+

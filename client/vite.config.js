@@ -33,4 +33,7 @@ export default defineConfig({
       ignored: ['**/node_modules/**'],
     },
   },
+  build: {
+    chunkSizeWarningLimit: 2000,
+  },
 })

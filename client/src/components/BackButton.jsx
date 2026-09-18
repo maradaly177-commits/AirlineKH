@@ -5,12 +5,10 @@ import { ArrowLeft } from "@phosphor-icons/react";
 
 /**
  * Reusable Premium BackButton Component
- * Taste Skill: Variance 6, Motion 7, Density 5
  */
-export default function BackButton({ to = "/", label = "Quay về trang chủ" }) {
+export default function BackButton({ to, onClick, label = "Quay lại" }) {
   const navigate = useNavigate();
 
-  // Định nghĩa hiệu ứng chuyển động tịnh tiến sang trái cho Arrow (Motion: 7)
   const arrowVariants = {
     initial: { x: 0 },
     hover: { 
@@ -19,13 +17,29 @@ export default function BackButton({ to = "/", label = "Quay về trang chủ" }
     }
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (onClick) {
+      onClick();
+    } else if (to) {
+      navigate(to);
+    } else {
+      // Return to previous step in browser history if available, else default to flight search
+      if (window.history.length > 1) {
+        navigate(-1);
+      } else {
+        navigate("/flights");
+      }
+    }
+  };
+
   return (
     <motion.button
-      onClick={() => navigate(to)}
+      onClick={handleClick}
       initial="initial"
       whileHover="hover"
       whileTap={{ scale: 0.97 }}
-      className="inline-flex items-center gap-2 px-3 py-1.5 text-zinc-500 hover:text-blue-600 font-medium text-sm rounded-lg hover:bg-zinc-100/50 transition-all cursor-pointer outline-none select-none"
+      className="inline-flex items-center gap-2 px-3 py-1.5 text-slate-600 hover:text-blue-600 font-bold text-xs sm:text-sm rounded-xl hover:bg-blue-50/80 transition-all cursor-pointer outline-none select-none"
     >
       <motion.span 
         variants={arrowVariants} 
@@ -37,3 +51,4 @@ export default function BackButton({ to = "/", label = "Quay về trang chủ" }
     </motion.button>
   );
 }
+
