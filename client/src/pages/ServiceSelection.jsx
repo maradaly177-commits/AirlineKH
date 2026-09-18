@@ -30,7 +30,7 @@ const defaultMockServices = [
     weightTag: "20kg",
     iconType: "luggage20",
     tags: ["Áp dụng cho mọi hành khách", "Hỗ trợ tại sân bay"],
-    image: "https://images.unsplash.com/photo-1553531384-397c80973a0b?q=80&w=400&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const defaultMockServices = [
     weightTag: "30kg",
     iconType: "luggage30",
     tags: ["Áp dụng cho mọi hành khách", "Hỗ trợ tại sân bay"],
-    image: "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=400&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const defaultMockServices = [
     unit: "suất",
     iconType: "meal",
     tags: ["Đa dạng thực đơn", "Đặt trước dễ dàng"],
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ const defaultMockServices = [
     unit: "khách",
     iconType: "priority",
     tags: ["Lối đi riêng", "Hỗ trợ tận tình"],
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=400&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop"
   }
 ];
 
@@ -111,22 +111,13 @@ export default function ServiceSelection() {
   }, []);
 
   const fallbackImages = [
-    "https://images.unsplash.com/photo-1553531384-397c80973a0b?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=400&auto=format&fit=crop"
+    "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop"
   ];
 
   const getServiceImage = (service, idx = 0) => {
-    if (
-      service?.image &&
-      typeof service.image === "string" &&
-      service.image.startsWith("http") &&
-      !service.image.includes("dsmcdn") &&
-      !service.image.includes("googleapis")
-    ) {
-      return service.image;
-    }
     const nameLower = (service?.name || "").toLowerCase();
     const idNum = Number(service?.id || 0);
 
@@ -134,6 +125,17 @@ export default function ServiceSelection() {
     if (idNum === 2 || nameLower.includes("30")) return fallbackImages[1];
     if (idNum === 3 || nameLower.includes("ăn") || nameLower.includes("món")) return fallbackImages[2];
     if (idNum === 4 || nameLower.includes("ưu tiên") || nameLower.includes("thủ tục")) return fallbackImages[3];
+
+    if (
+      service?.image &&
+      typeof service.image === "string" &&
+      service.image.startsWith("http") &&
+      !service.image.includes("dsmcdn") &&
+      !service.image.includes("googleapis") &&
+      !service.image.includes("1553531384-397c80973a0b")
+    ) {
+      return service.image;
+    }
 
     return fallbackImages[idx % fallbackImages.length];
   };
