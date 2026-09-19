@@ -49,10 +49,16 @@ class AirportAdminController extends Controller
 
     public function destroy($id)
     {
-        $this->airportService->deleteAirport($id);
+        try {
+            $this->airportService->deleteAirport($id);
 
-        return response()->json([
-            'message' => 'Deleted'
-        ]);
+            return response()->json([
+                'message' => 'Deleted successfully'
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'message' => 'Không thể xóa sân bay này vì đang có chuyến bay sử dụng sân bay này trong hệ thống.'
+            ], 422);
+        }
     }
 }

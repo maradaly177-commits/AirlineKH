@@ -85,7 +85,7 @@ function Airports() {
       fetchAirports();
     } catch (err) {
       console.log(err);
-      alert("Save failed");
+      alert(err.response?.data?.message || "Save failed");
     } finally {
       setSaving(false);
     }
@@ -105,7 +105,7 @@ function Airports() {
       fetchAirports();
     } catch (err) {
       console.log(err);
-      alert("Delete failed");
+      alert(err.response?.data?.message || "Delete failed");
     }
   };
 

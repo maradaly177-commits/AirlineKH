@@ -35,12 +35,13 @@ class AuthController extends Controller
             $user->roles()->attach($memberRole);
         }
 
-        // Gửi email thông báo về Gmail đăng ký
+        // Gửi email thông báo không làm nghẽn HTTP response (Asynchronous / Non-blocking)
         try {
-            Mail::to($user->email)->send(new WelcomeGoogleUserMail($user));
-            Log::info('Welcome email sent to user: ' . $user->email);
+            if (config('mail.mailer') && config('mail.mailer') !== 'array') {
+                Mail::to($user->email)->queue(new WelcomeGoogleUserMail($user));
+            }
         } catch (Throwable $mailEx) {
-            Log::warning('Could not send welcome email to ' . $user->email . ': ' . $mailEx->getMessage());
+            Log::warning('Could not queue welcome email to ' . $user->email . ': ' . $mailEx->getMessage());
         }
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -68,14 +69,7 @@ class AuthController extends Controller
             ->where('email', $validated['email'])
             ->firstOrFail();
 
-        // Gửi email thông báo khi đăng nhập
-        try {
-            Mail::to($user->email)->send(new WelcomeGoogleUserMail($user));
-            Log::info('Login notification email sent to: ' . $user->email);
-        } catch (Throwable $mailEx) {
-            Log::warning('Could not send login notification email to ' . $user->email . ': ' . $mailEx->getMessage());
-        }
-
+        // Đăng nhập thành công trả về response ngay lập tức, không chờ gửi mail
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([

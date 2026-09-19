@@ -41,23 +41,29 @@ class FlightAdminController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'flight_number' => 'required',
-            'departure_airport_id' => 'required',
-            'arrival_airport_id' => 'required',
-            'departure_time' => 'required',
-            'arrival_time' => 'required',
-            'aircraft_id' => 'required',
-            'base_price' => 'required|numeric',
-            'available_seats' => 'required|integer',
-            'status' => 'required',
+            'flight_number'        => 'required|string',
+            'departure_airport_id' => 'required|exists:airports,id',
+            'arrival_airport_id'   => 'required|exists:airports,id',
+            'departure_time'       => 'required|date',
+            'arrival_time'         => 'required|date',
+            'aircraft_id'          => 'required|exists:aircrafts,id',
+            'base_price'           => 'required|numeric|min:0',
+            'available_seats'      => 'required|integer|min:0',
+            'status'               => 'required|string',
         ]);
 
-        $flight = Flight::create($data);
+        try {
+            $flight = Flight::create($data);
 
-        return response()->json([
-            'message' => 'Created successfully',
-            'data' => $flight
-        ], 201);
+            return response()->json([
+                'message' => 'Created successfully',
+                'data'    => $flight
+            ], 201);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'message' => 'Không thể tạo chuyến bay: ' . $e->getMessage(),
+            ], 422);
+        }
     }
 
     public function update(Request $request, $id)
@@ -65,23 +71,29 @@ class FlightAdminController extends Controller
         $flight = Flight::findOrFail($id);
 
         $data = $request->validate([
-            'flight_number' => 'required',
-            'departure_airport_id' => 'required',
-            'arrival_airport_id' => 'required',
-            'departure_time' => 'required',
-            'arrival_time' => 'required',
-            'aircraft_id' => 'required',
-            'base_price' => 'required|numeric',
-            'available_seats' => 'required|integer',
-            'status' => 'required',
+            'flight_number'        => 'required|string',
+            'departure_airport_id' => 'required|exists:airports,id',
+            'arrival_airport_id'   => 'required|exists:airports,id',
+            'departure_time'       => 'required|date',
+            'arrival_time'         => 'required|date',
+            'aircraft_id'          => 'required|exists:aircrafts,id',
+            'base_price'           => 'required|numeric|min:0',
+            'available_seats'      => 'required|integer|min:0',
+            'status'               => 'required|string',
         ]);
 
-        $flight->update($data);
+        try {
+            $flight->update($data);
 
-        return response()->json([
-            'message' => 'Updated successfully',
-            'data' => $flight
-        ]);
+            return response()->json([
+                'message' => 'Updated successfully',
+                'data'    => $flight
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'message' => 'Không thể cập nhật chuyến bay: ' . $e->getMessage(),
+            ], 422);
+        }
     }
 
     public function destroy($id)

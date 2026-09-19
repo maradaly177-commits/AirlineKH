@@ -178,6 +178,20 @@ function Dashboard() {
     { flag: "🇧🇷", name: "Brazil", percentage: "8%" },
   ];
 
+  const formatNumber = (num) => {
+    if (num === null || num === undefined) return "0";
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+    return num.toString();
+  };
+
+  const formatCurrency = (val) => {
+    if (!val || val === 0) return "0 ₫";
+    if (val >= 1000000000) return `${(val / 1000000000).toFixed(1)}B ₫`;
+    if (val >= 1000000) return `${(val / 1000000).toFixed(0)}M ₫`;
+    return `${val.toLocaleString("vi-VN")} ₫`;
+  };
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "70vh" }}>
@@ -221,11 +235,11 @@ function Dashboard() {
                 <i className="fas fa-user-check" />
               </div>
               <div style={{ fontSize: "36px", fontWeight: "800", color: "#0f172a", lineHeight: "1" }}>
-                {stats.totalUsers >= 1000 ? `${(stats.totalUsers / 1000).toFixed(0)}k` : stats.totalUsers > 0 ? `${stats.totalUsers}k` : "750k"}
+                {formatNumber(stats.totalUsers)}
               </div>
             </div>
             <div style={{ fontSize: "13px", color: "#64748b", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
-              <span>5k user Last month</span>
+              <span>5 user Last month</span>
               <i className="fas fa-chevron-right" style={{ fontSize: "11px" }} />
             </div>
           </div>
@@ -262,11 +276,11 @@ function Dashboard() {
                 <i className="fas fa-calendar-alt" />
               </div>
               <div style={{ fontSize: "36px", fontWeight: "800", color: "#0f172a", lineHeight: "1" }}>
-                {stats.totalBookings >= 1000 ? `${(stats.totalBookings / 1000).toFixed(0)}k` : stats.totalBookings > 0 ? `${stats.totalBookings}k` : "665k"}
+                {formatNumber(stats.totalBookings)}
               </div>
             </div>
             <div style={{ fontSize: "13px", color: "#64748b", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
-              <span>10k in Last month</span>
+              <span>10 in Last month</span>
               <i className="fas fa-chevron-right" style={{ fontSize: "11px" }} />
             </div>
           </div>
@@ -303,11 +317,11 @@ function Dashboard() {
                 <i className="fas fa-plane-departure" />
               </div>
               <div style={{ fontSize: "36px", fontWeight: "800", color: "#0f172a", lineHeight: "1" }}>
-                {stats.totalFlights >= 1000 ? `${(stats.totalFlights / 1000).toFixed(0)}k` : stats.totalFlights > 0 ? `${stats.totalFlights}k` : "662k"}
+                {formatNumber(stats.totalFlights)}
               </div>
             </div>
             <div style={{ fontSize: "13px", color: "#64748b", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
-              <span>3.5K in Last month</span>
+              <span>3.5 in Last month</span>
               <i className="fas fa-chevron-right" style={{ fontSize: "11px" }} />
             </div>
           </div>
@@ -344,11 +358,11 @@ function Dashboard() {
                 <i className="fas fa-hand-holding-dollar" />
               </div>
               <div style={{ fontSize: "36px", fontWeight: "800", color: "#0f172a", lineHeight: "1" }}>
-                $127M
+                {formatCurrency(stats.revenue)}
               </div>
             </div>
             <div style={{ fontSize: "13px", color: "#64748b", fontWeight: "500", display: "flex", alignItems: "center", gap: "4px" }}>
-              <span>80K dollar Last month</span>
+              <span>Last month</span>
               <i className="fas fa-chevron-right" style={{ fontSize: "11px" }} />
             </div>
           </div>

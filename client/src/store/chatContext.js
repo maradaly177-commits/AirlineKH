@@ -16,7 +16,7 @@ export const WELCOME_MESSAGE = {
   quickReplies: [
     {
       label: "✈️ Tìm chuyến bay HN → DN",
-      payload: "Tìm chuyến bay từ Hà Nội đi Đà Nẵng",
+      payload: "Tìm chuyến bay từ Hà Nội đi Đà Nẵng ngày mai",
     },
     {
       label: "🧳 Quy định hành lý",

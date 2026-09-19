@@ -27,6 +27,60 @@ const AIRPORT_CITY_MAP = {
   CAH: "Cà Mau",
 };
 
+const AirlineLogo = ({ airlineName, flightNumber }) => {
+  const name = String(airlineName || "").toLowerCase();
+  const num = String(flightNumber || "").toUpperCase();
+
+  if (name.includes("vietnam") || num.includes("VN")) {
+    return (
+      <div className="w-5 h-5 rounded-md bg-[#00557B] flex items-center justify-center shrink-0 p-0.5 shadow-2xs">
+        <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+          <path d="M20 6C20 6 22 13 25 15C28 17 34 18 34 18C34 18 28 20 25 23C22 26 20 34 20 34C20 34 18 26 15 23C12 20 6 18 6 18C6 18 12 17 15 15C18 13 20 6 20 6Z" fill="#F4B41A"/>
+        </svg>
+      </div>
+    );
+  }
+
+  if (name.includes("vietjet") || num.includes("VJ")) {
+    return (
+      <div className="w-5 h-5 rounded-md bg-[#ED1B24] flex items-center justify-center shrink-0 p-0.5 shadow-2xs">
+        <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+          <path d="M8 12L20 28L32 12" stroke="#FFF200" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    );
+  }
+
+  if (name.includes("bamboo") || num.includes("QH") || num.includes("FB")) {
+    return (
+      <div className="w-5 h-5 rounded-md bg-gradient-to-br from-[#006633] to-[#009933] flex items-center justify-center shrink-0 p-0.5 shadow-2xs">
+        <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+          <path d="M12 28C14 20 20 14 28 10C24 18 18 24 12 28Z" fill="#FFFFFF"/>
+          <path d="M15 32C17 25 22 20 29 17C26 23 21 28 15 32Z" fill="#00AEEF"/>
+        </svg>
+      </div>
+    );
+  }
+
+  if (name.includes("vietravel") || num.includes("VU")) {
+    return (
+      <div className="w-5 h-5 rounded-md bg-[#003B7A] flex items-center justify-center shrink-0 p-0.5 shadow-2xs">
+        <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+          <path d="M10 28L20 10L30 28H23L20 22L17 28H10Z" fill="#F4B41A"/>
+        </svg>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-5 h-5 flex items-center justify-center text-blue-600 shrink-0">
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-[18px] h-[18px] transform -rotate-45">
+        <path d="M22.4 2L2 10.3c-.6.2-.6.9 0 1.1l5.4 1.8 1.8 5.4c.2.6.9.6 1.1 0l8.3-20.4L22.4 2zM8.5 12.5L16 6.5l-4.5 7.5L8.5 12.5z" />
+      </svg>
+    </div>
+  );
+};
+
 export const FlightCardMessage = ({ flight }) => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -196,6 +250,21 @@ export const FlightCardMessage = ({ flight }) => {
     );
   };
 
+  const resolveAirlineName = () => {
+    if (flight.airline_name) return flight.airline_name;
+    if (flight.airline && flight.airline !== "SkyLink") return flight.airline;
+    
+    const num = String(flightNumber || "").toUpperCase();
+    if (num.includes("VJ")) return "Vietjet Air";
+    if (num.includes("VN")) return "Vietnam Airlines";
+    if (num.includes("QH") || num.includes("FB")) return "Bamboo Airways";
+    if (num.includes("VU")) return "Vietravel Airlines";
+    
+    return "SkyLink Airline";
+  };
+
+  const airlineName = resolveAirlineName();
+
   // ============================================================
   // RENDER
   // ============================================================
@@ -206,14 +275,9 @@ export const FlightCardMessage = ({ flight }) => {
       {/* 1. Header: Logo + Operator name + Ticket class */}
       <div className="flex items-center justify-between mb-3.5">
         <div className="flex items-center gap-2">
-          {/* Blue solid paper plane logo like Vietnam Airlines/mockup */}
-          <div className="w-5 h-5 flex items-center justify-center text-blue-600 shrink-0">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-[18px] h-[18px] transform -rotate-45">
-              <path d="M22.4 2L2 10.3c-.6.2-.6.9 0 1.1l5.4 1.8 1.8 5.4c.2.6.9.6 1.1 0l8.3-20.4L22.4 2zM8.5 12.5L16 6.5l-4.5 7.5L8.5 12.5z" />
-            </svg>
-          </div>
+          <AirlineLogo airlineName={airlineName} flightNumber={flightNumber} />
           <span className="text-[12.5px] font-bold text-slate-800 tracking-tight">
-            {flightNumber.includes("VJ") ? "Vietjet Air" : flightNumber.includes("VN") ? "Vietnam Airlines" : "SkyLink Airline"}
+            {airlineName}
           </span>
         </div>
         <span className="text-[9.5px]/none font-semibold text-slate-400 bg-slate-50 border border-slate-100 rounded-md px-1.5 py-1 uppercase tracking-wider">
