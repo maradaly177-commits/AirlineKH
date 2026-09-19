@@ -2,6 +2,31 @@ import React, { useState } from "react";
 import { AirplaneTilt, ArrowRight, CaretDown, CaretUp, Leaf } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 
+const AIRPORT_CITY_MAP = {
+  HAN: "Hà Nội",
+  SGN: "TP. Hồ Chí Minh",
+  DAD: "Đà Nẵng",
+  PQC: "Phú Quốc",
+  CXR: "Nha Trang",
+  HPH: "Hải Phòng",
+  VCA: "Cần Thơ",
+  UIH: "Quy Nhơn",
+  DLI: "Đà Lạt",
+  HUI: "Huế",
+  VCL: "Chu Lai",
+  THD: "Thanh Hóa",
+  VII: "Vinh",
+  VDH: "Đồng Hới",
+  PXU: "Pleiku",
+  TNN: "Tuy Hòa",
+  BMV: "Buôn Ma Thuột",
+  VCS: "Côn Đảo",
+  VDO: "Vân Đồn",
+  VKG: "Rạch Giá",
+  DIN: "Điện Biên",
+  CAH: "Cà Mau",
+};
+
 export const FlightCardMessage = ({ flight }) => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -126,15 +151,8 @@ export const FlightCardMessage = ({ flight }) => {
 
     console.log("✈️ Chọn flight từ AI:", flight);
 
-    /*
-     * SeatSelection hiện tại đọc selected_flights
-     * nên phải lưu flight vào localStorage trước.
-     *
-     * Quan trọng:
-     * Không gửi message ngược lại cho AI.
-     * Không yêu cầu AI đặt vé.
-     * User được đưa thẳng tới SeatSelection.
-     */
+    const depCityName = flight.departure_airport?.city || AIRPORT_CITY_MAP[origin] || origin;
+    const arrCityName = flight.arrival_airport?.city || AIRPORT_CITY_MAP[destination] || destination;
 
     const selectedFlight = {
       ...flight,
@@ -144,8 +162,8 @@ export const FlightCardMessage = ({ flight }) => {
       flight_number: flightNumber,
       origin: origin,
       destination: destination,
-      departure_airport: { code: origin },
-      arrival_airport: { code: destination },
+      departure_airport: { code: origin, city: depCityName },
+      arrival_airport: { code: destination, city: arrCityName },
       departure_time: flight.departure_time ?? null,
       arrival_time: flight.arrival_time ?? null,
       base_price: price,
