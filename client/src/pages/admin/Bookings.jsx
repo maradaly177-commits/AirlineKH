@@ -103,16 +103,11 @@ function Bookings() {
 
   // ================= STATUS COLOR =================
   const getStatusColor = (status) => {
-    switch (status) {
-      case "paid":
-        return "#28a745";
-      case "pending":
-        return "#fd7e14";
-      case "cancelled":
-        return "#dc3545";
-      default:
-        return "#6c757d";
-    }
+    const s = String(status).toLowerCase();
+    if (s === "paid" || s === "completed" || s === "success") return "#10b981";
+    if (s === "pending") return "#f59e0b";
+    if (s === "cancelled") return "#ef4444";
+    return "#6b7280";
   };
 
   if (loading) {
@@ -131,7 +126,7 @@ function Bookings() {
       <Form className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Search passenger or flight ID..."
+          placeholder="Search passenger, PNR code, or flight..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
@@ -141,12 +136,14 @@ function Bookings() {
       </Form>
 
       {/* TABLE */}
-      <Table striped bordered hover responsive>
+      <Table striped bordered hover responsive align="middle">
         <thead>
           <tr>
             <th>#</th>
+            <th>PNR Code</th>
             <th>Passenger</th>
-            <th>Flight</th>
+            <th>Flight & Route</th>
+            <th>Total Price</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -159,28 +156,46 @@ function Bookings() {
                 <td>{indexOfFirst + index + 1}</td>
 
                 <td>
-                  {b.passenger ||
-                    b.user?.name ||
-                    b.tickets?.[0]?.passenger_name ||
-                    "Unknown"}
+                  <strong>{b.pnr_code || b.pnr || `#${b.id}`}</strong>
                 </td>
 
                 <td>
-                  {b.flight?.flight_code ||
-                    b.flight?.code ||
-                    b.flight?.flight_number ||
-                    `#${b.flight?.id || "N/A"}`}
+                  {b.passenger ||
+                    b.user?.name ||
+                    b.tickets?.[0]?.passenger_name ||
+                    "Guest Customer"}
+                </td>
+
+                <td>
+                  <div>
+                    <strong>
+                      {b.flight?.flight_number || b.flight?.flight_code || b.flight?.code || "N/A"}
+                    </strong>
+                  </div>
+                  <small className="text-muted">
+                    {b.flight?.departureAirport?.city || b.flight?.departure_airport?.city || ""}
+                    {b.flight?.departureAirport || b.flight?.arrivalAirport ? " → " : ""}
+                    {b.flight?.arrivalAirport?.city || b.flight?.arrival_airport?.city || ""}
+                  </small>
+                </td>
+
+                <td>
+                  <strong>
+                    {Number(b.total_amount || b.total_price || 0).toLocaleString("vi-VN")} ₫
+                  </strong>
                 </td>
 
                 <td>
                   <span
                     style={{
-                      padding: "4px 10px",
-                      borderRadius: "8px",
+                      padding: "5px 12px",
+                      borderRadius: "12px",
                       color: "white",
                       background: getStatusColor(b.status),
                       fontSize: "12px",
-                      textTransform: "capitalize",
+                      fontWeight: "600",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.5px",
                     }}
                   >
                     {b.status}
@@ -189,7 +204,7 @@ function Bookings() {
 
                 <td>
                   <Button
-                    variant="danger"
+                    variant="outline-danger"
                     size="sm"
                     onClick={() => deleteBooking(b.id)}
                   >
@@ -200,7 +215,7 @@ function Bookings() {
             ))
           ) : (
             <tr>
-              <td colSpan="5" className="text-center">
+              <td colSpan="7" className="text-center py-4 text-muted">
                 No bookings found
               </td>
             </tr>

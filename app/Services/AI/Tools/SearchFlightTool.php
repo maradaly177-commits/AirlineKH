@@ -454,12 +454,27 @@ class SearchFlightTool
                             $durationMinutes = (int) $flight->departure_time->diffInMinutes($flight->arrival_time);
                         }
 
+                        $num = (string) $flight->flight_number;
+                        $airlineName = match(true) {
+                            str_contains($num, 'VN') => 'Vietnam Airlines',
+                            str_contains($num, 'VJ') => 'VietJet Air',
+                            str_contains($num, 'QH') || str_contains($num, 'FB') => 'Bamboo Airways',
+                            str_contains($num, 'VU') => 'Vietravel Airlines',
+                            default => 'SkyLink Airline',
+                        };
+
                         return [
                             'id' =>
                                 $flight->id,
 
                             'flight_number' =>
                                 $flight->flight_number,
+
+                            'airline' =>
+                                $airlineName,
+
+                            'airline_name' =>
+                                $airlineName,
 
                             'origin' =>
                                 $flight
@@ -552,6 +567,15 @@ class SearchFlightTool
                             $durationMinutes = (int) $flight->departure_time->diffInMinutes($flight->arrival_time);
                         }
 
+                        $num = (string) $flight->flight_number;
+                        $airlineName = match(true) {
+                            str_contains($num, 'VN') => 'Vietnam Airlines',
+                            str_contains($num, 'VJ') => 'VietJet Air',
+                            str_contains($num, 'QH') || str_contains($num, 'FB') => 'Bamboo Airways',
+                            str_contains($num, 'VU') => 'Vietravel Airlines',
+                            default => 'SkyLink Airline',
+                        };
+
                         return [
 
                             'id' =>
@@ -559,6 +583,12 @@ class SearchFlightTool
 
                             'flight_number' =>
                                 $flight->flight_number,
+
+                            'airline' =>
+                                $airlineName,
+
+                            'airline_name' =>
+                                $airlineName,
 
                             'origin' =>
                                 $flight

@@ -41,7 +41,7 @@ class CheckInController extends Controller
 
             // 1. Validate Input (PNR code, tên hành khách)
             $validated = $request->validate([
-                'pnr_code' => 'required|string|size:6',
+                'pnr_code' => 'required|string|min:3|max:20',
                 'passenger_name' => 'required|string|max:255',
                 'email' => 'nullable|email|max:255',
             ]);
@@ -56,13 +56,22 @@ class CheckInController extends Controller
             $loggedInUser = $request->user('sanctum');
             $targetEmail = $request->input('email') ?? $loggedInUser?->email;
 
-            // 4. Dispatch job để gửi email Boarding Pass
-            SendBoardingPassEmailJob::dispatch($boardingPass['boarding_pass_id'], $targetEmail);
+            // 4. Gửi email Boarding Pass chạy ngầm (Non-blocking) sau khi response đã gửi về client
+            $bpId = $boardingPass['boarding_pass_id'] ?? null;
+            if ($bpId) {
+                register_shutdown_function(function () use ($bpId, $targetEmail) {
+                    try {
+                        SendBoardingPassEmailJob::dispatchSync($bpId, $targetEmail);
+                    } catch (\Throwable $e) {
+                        \Illuminate\Support\Facades\Log::warning("Boarding pass email background send error: " . $e->getMessage());
+                    }
+                });
+            }
 
-            // 4. Trả về kết quả Check-in thành công
+            // 5. Trả về kết quả Check-in TỨC THÌ cho người dùng
             return response()->json([
                 'status' => 'success',
-                'message' => 'Check-in thành công! Thẻ lên máy bay đã gửi đến email của bạn.',
+                'message' => 'Check-in thành công! Thẻ lên máy bay đã được tạo thành công.',
                 'data' => $boardingPass,
             ], 200);
 

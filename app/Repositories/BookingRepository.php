@@ -10,7 +10,9 @@ class BookingRepository implements BookingRepositoryInterface
     {
         return Booking::with([
             'user',
-            'flight',
+            'flight.departureAirport',
+            'flight.arrivalAirport',
+            'tickets',
             'payment'
         ])->latest()->get();
     }

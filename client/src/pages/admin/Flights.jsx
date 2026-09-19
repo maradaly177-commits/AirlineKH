@@ -39,9 +39,9 @@ function Flights() {
     arrival_airport_id: "",
     departure_time: "",
     arrival_time: "",
-    aircraft_id: "",
+    aircraft_id: "1",
     base_price: "",
-    available_seats: "",
+    available_seats: "180",
     status: "scheduled",
   };
 
@@ -189,12 +189,28 @@ function Flights() {
   };
 
   const statusBadge = (status) => {
-    const map = {
-      scheduled: "success",
-      delayed: "warning",
-      cancelled: "danger",
-    };
-    return <Badge bg={map[status] || "secondary"}>{status}</Badge>;
+    const s = String(status).toLowerCase();
+    switch (s) {
+      case "scheduled":
+      case "1":
+        return <Badge bg="success">Scheduled</Badge>;
+      case "delayed":
+      case "2":
+        return <Badge bg="warning" text="dark">Delayed</Badge>;
+      case "cancelled":
+      case "3":
+        return <Badge bg="danger">Cancelled</Badge>;
+      case "check_in":
+        return <Badge bg="info">Check-in</Badge>;
+      case "boarding":
+        return <Badge bg="primary">Boarding</Badge>;
+      case "in_flight":
+        return <Badge bg="dark">In Flight</Badge>;
+      case "arrived":
+        return <Badge bg="secondary">Arrived</Badge>;
+      default:
+        return <Badge bg="secondary">{status}</Badge>;
+    }
   };
 
   return (
@@ -314,13 +330,17 @@ function Flights() {
             </Col>
 
             <Col md={6}>
-              <Form.Label>Aircraft ID</Form.Label>
-              <Form.Control
+              <Form.Label>Aircraft</Form.Label>
+              <Form.Select
                 value={form.aircraft_id}
                 onChange={(e) =>
                   setForm({ ...form, aircraft_id: e.target.value })
                 }
-              />
+              >
+                <option value="1">ID 1 - Boeing 787</option>
+                <option value="2">ID 2 - Airbus A320neo</option>
+                <option value="3">ID 3 - Embraer 190</option>
+              </Form.Select>
             </Col>
 
             <Col md={6}>

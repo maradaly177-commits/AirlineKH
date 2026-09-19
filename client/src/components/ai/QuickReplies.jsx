@@ -9,7 +9,7 @@ const getQuickReplyDetails = (label) => {
       Icon: AirplaneTilt,
       iconColor: "text-blue-500",
       title: "Tìm chuyến bay",
-      description: "Tìm hành trình Hà Nội (HAN) → Đà Nẵng (DAD)",
+      description: "Tìm hành trình Hà Nội (HAN) → Đà Nẵng (DAD) ngày mai",
       iconBg: "bg-blue-50/70 border-blue-100/50"
     };
   }

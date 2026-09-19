@@ -39,6 +39,14 @@ const BambooAirwaysLogo = () => (
   </div>
 );
 
+const VietravelLogo = () => (
+  <div className="w-10 h-10 rounded-xl bg-[#003B7A] flex items-center justify-center shadow-xs shrink-0 p-1">
+    <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+      <path d="M10 28L20 10L30 28H23L20 22L17 28H10Z" fill="#F4B41A"/>
+    </svg>
+  </div>
+);
+
 const SkyLinkLogo = () => (
   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-xs shrink-0 text-white font-black text-lg">
     ✈
@@ -73,6 +81,13 @@ const AIRLINE_CONFIG = {
     badgeTag: "Bán chạy",
     badgeColor: "bg-amber-500 text-white",
     logo: <BambooAirwaysLogo />,
+  },
+  VU: {
+    name: "Vietravel Airlines",
+    rating: "4.2 (1.1k đánh giá)",
+    badgeTag: "Giá tốt nhất",
+    badgeColor: "bg-emerald-500 text-white",
+    logo: <VietravelLogo />,
   },
 };
 

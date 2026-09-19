@@ -140,7 +140,7 @@ export default function LoginPage() {
 
         setTimeout(() => {
           window.location.href = target;
-        }, 800);
+        }, 150);
       } else {
         setError(data.message || "Đăng nhập thất bại");
       }

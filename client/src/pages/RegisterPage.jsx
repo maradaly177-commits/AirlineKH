@@ -134,10 +134,10 @@ export default function RegisterPage() {
             sessionStorage.removeItem("auth_redirect");
             target = redirectParam;
           }
-          setTimeout(() => { window.location.href = target; }, 1000);
+          setTimeout(() => { window.location.href = target; }, 150);
         } else {
           setSuccess("Đăng ký thành công! Đang chuyển đến trang đăng nhập...");
-          setTimeout(() => navigate("/login"), 1500);
+          setTimeout(() => navigate("/login"), 200);
         }
       } else {
         if (data.errors) {
