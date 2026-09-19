@@ -397,11 +397,44 @@ export default function SeatSelection() {
     );
   };
 
+const AIRPORT_CITY_MAP = {
+  HAN: "Hà Nội",
+  SGN: "TP. Hồ Chí Minh",
+  DAD: "Đà Nẵng",
+  PQC: "Phú Quốc",
+  CXR: "Nha Trang",
+  HPH: "Hải Phòng",
+  VCA: "Cần Thơ",
+  UIH: "Quy Nhơn",
+  DLI: "Đà Lạt",
+  HUI: "Huế",
+  VCL: "Chu Lai",
+  THD: "Thanh Hóa",
+  VII: "Vinh",
+  VDH: "Đồng Hới",
+  PXU: "Pleiku",
+  TNN: "Tuy Hòa",
+  BMV: "Buôn Ma Thuột",
+  VCS: "Côn Đảo",
+  VDO: "Vân Đồn",
+  VKG: "Rạch Giá",
+  DIN: "Điện Biên",
+  CAH: "Cà Mau",
+};
+
   const selectedList = selectedSeats[bookingStage] || [];
-  const depCode = currentFlight?.departure_airport?.code || currentFlight?.departure_airport_id || "DAD";
-  const arrCode = currentFlight?.arrival_airport?.code || currentFlight?.arrival_airport_id || "PQC";
-  const depCity = currentFlight?.departure_airport?.city || "Đà Nẵng";
-  const arrCity = currentFlight?.arrival_airport?.city || "Phú Quốc";
+  const depCode = currentFlight?.departure_airport?.code || currentFlight?.origin || currentFlight?.fromCity || currentFlight?.departure_airport_id || "HAN";
+  const arrCode = currentFlight?.arrival_airport?.code || currentFlight?.destination || currentFlight?.toCity || currentFlight?.arrival_airport_id || "DAD";
+
+  const getCityName = (airportObj, codeFallback, defaultName) => {
+    if (airportObj?.city) return airportObj.city;
+    if (airportObj?.name) return airportObj.name;
+    const code = airportObj?.code || codeFallback;
+    return AIRPORT_CITY_MAP[code] || defaultName;
+  };
+
+  const depCity = getCityName(currentFlight?.departure_airport, depCode, "Hà Nội");
+  const arrCity = getCityName(currentFlight?.arrival_airport, arrCode, "Đà Nẵng");
   const flightNo = currentFlight?.flight_number || "VN7211";
 
   return (

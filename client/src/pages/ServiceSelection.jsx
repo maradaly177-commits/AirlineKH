@@ -30,7 +30,7 @@ const defaultMockServices = [
     weightTag: "20kg",
     iconType: "luggage20",
     tags: ["Áp dụng cho mọi hành khách", "Hỗ trợ tại sân bay"],
-    image: "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=600&auto=format&fit=crop"
+    image: "https://static.vecteezy.com/system/resources/previews/036/209/973/non_2x/ai-generated-flying-suitcase-on-blue-airplane-business-travel-mode-generated-by-ai-free-photo.jpg"
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const defaultMockServices = [
     weightTag: "30kg",
     iconType: "luggage30",
     tags: ["Áp dụng cho mọi hành khách", "Hỗ trợ tại sân bay"],
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=600&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -111,8 +111,8 @@ export default function ServiceSelection() {
   }, []);
 
   const fallbackImages = [
+    "https://static.vecteezy.com/system/resources/previews/036/209/973/non_2x/ai-generated-flying-suitcase-on-blue-airplane-business-travel-mode-generated-by-ai-free-photo.jpg",
     "https://images.unsplash.com/photo-1581553680321-4fffae59fccd?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop"
   ];

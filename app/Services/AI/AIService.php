@@ -130,11 +130,10 @@ PROMPT;
         }
 
         $candidateModels = array_values(array_filter(array_unique([
-            $this->model ?: 'gemini-3.1-flash-lite',
-            'gemini-3.1-flash-lite',
-            'gemini-2.5-flash',
-            'gemini-2.0-flash',
-            'gemini-1.5-flash',
+            $this->model ?: 'gemini-3.1-flash-lite-preview',
+            'gemini-3.1-flash-lite-preview',
+            'gemini-flash-latest',
+            'gemini-flash-lite-latest',
         ])));
 
         $lastError = null;
@@ -150,8 +149,9 @@ PROMPT;
                 $start = microtime(true);
 
                 $response = Http::acceptJson()
-                    ->connectTimeout(5)
-                    ->timeout(20)
+                    ->withoutVerifying()
+                    ->connectTimeout(10)
+                    ->timeout(25)
                     ->withQueryParameters(['key' => $this->apiKey])
                     ->post($url, $payload);
 
@@ -195,11 +195,10 @@ PROMPT;
         ];
 
         $candidateModels = array_values(array_filter(array_unique([
-            $this->model ?: 'gemini-3.1-flash-lite',
-            'gemini-3.1-flash-lite',
-            'gemini-2.5-flash',
-            'gemini-2.0-flash',
-            'gemini-1.5-flash',
+            $this->model ?: 'gemini-3.1-flash-lite-preview',
+            'gemini-3.1-flash-lite-preview',
+            'gemini-flash-latest',
+            'gemini-flash-lite-latest',
         ])));
 
         $response = null;
@@ -211,9 +210,10 @@ PROMPT;
             $maxAttempts = 3;
             for ($attempt = 1; $attempt <= $maxAttempts; $attempt++) {
                 $res = Http::withOptions(['stream' => true])
+                    ->withoutVerifying()
                     ->acceptJson()
-                    ->connectTimeout(5)
-                    ->timeout(20)
+                    ->connectTimeout(10)
+                    ->timeout(25)
                     ->withQueryParameters(['key' => $this->apiKey, 'alt' => 'sse'])
                     ->post($url, $payload);
 
