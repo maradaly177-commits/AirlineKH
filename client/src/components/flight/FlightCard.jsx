@@ -64,8 +64,8 @@ const AIRLINE_CONFIG = {
   VJ: {
     name: "VietJet Air",
     rating: "4.0 (756 đánh giá)",
-    badgeTag: null,
-    badgeColor: "",
+    badgeTag: "Giá rẻ nhất",
+    badgeColor: "bg-emerald-600 text-white",
     logo: <VietjetLogo />,
   },
   QH: {

@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 
 const providers = [
   { id: 1, name: "SkyLink Limousine", type: "Xe Sang Trọng (Mercedes, BMW)", price: "Từ 500.000đ", phone: "1900 6067", img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80", rating: 4.9 },
-  { id: 2, name: "Grab Airport", type: "Xe Phổ Thông (4-7 chỗ)", price: "Theo app", phone: "1900 0000", img: "https://images.unsplash.com/photo-1550567705-728109d94944?auto=format&fit=crop&w=600&q=80", rating: 4.8 },
-  { id: 3, name: "Taxi Nội Bài", type: "Xe Gia Đình", price: "Từ 250.000đ", phone: "0243 886 8888", img: "https://images.unsplash.com/photo-1512424072895-3bc63ce604db?auto=format&fit=crop&w=600&q=80", rating: 4.5 },
+  { id: 2, name: "Grab Airport", type: "Xe Phổ Thông (4-7 chỗ)", price: "Theo app", phone: "1900 0000", img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80", rating: 4.8 },
+  { id: 3, name: "Taxi Nội Bài", type: "Xe Gia Đình", price: "Từ 250.000đ", phone: "0243 886 8888", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=600&q=80", rating: 4.5 },
 ];
 
 export default function AirportTransfer() {

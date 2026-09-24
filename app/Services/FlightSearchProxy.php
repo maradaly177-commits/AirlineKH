@@ -103,15 +103,22 @@ class FlightSearchProxy
             ->get();
 
         // ── Bước 3: Proxy Intercept — Lazy Generation ────────────
-        // NẾU DB trống cho tuyến+ngày này → delegate sang Generator.
+        // NẾU DB chưa đủ ít nhất 5 chuyến bay cho tuyến+ngày này → delegate sang Generator.
         // Sau khi generate, data đã được persist vào DB.
-        // → Lần search tiếp theo sẽ hit Bước 2 mà không cần generate lại.
-        if ($flights->isEmpty()) {
-            $flights = $this->generator->generate(
+        // → MỌI NGÀY TRONG TƯƠNG LAI LUÔN ĐẢM BẢO CÓ TỪ 5 ĐẾN 15 CHUYẾN BAY.
+        if ($flights->count() < 5) {
+            $this->generator->generate(
                 $departureAirport,
                 $arrivalAirport,
                 $date
             );
+
+            // Re-fetch to get all flights including newly generated ones
+            $flights = Flight::where('departure_airport_id', $departureAirport->id)
+                ->where('arrival_airport_id', $arrivalAirport->id)
+                ->whereDate('departure_time', $date)
+                ->with(['departureAirport', 'arrivalAirport', 'aircraft'])
+                ->get();
         }
 
         // ── THÊM MỚI: Lọc bỏ các chuyến bay đã bay nếu ngày tìm là hôm nay ────────────

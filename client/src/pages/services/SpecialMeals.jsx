@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 const meals = [
   { id: 1, name: "Thực Đơn Chay (Vegan)", desc: "Không sử dụng thịt, trứng, sữa hay các sản phẩm từ động vật. Sử dụng nguyên liệu hữu cơ.", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" },
-  { id: 2, name: "Thực Đơn Trẻ Em", desc: "Các món ăn dễ tiêu hóa, nhiều màu sắc, không cay, kèm theo đồ chơi nhỏ xinh xắn.", img: "https://images.unsplash.com/photo-1563804452097-9e7ec78eb26b?auto=format&fit=crop&w=600&q=80" },
+  { id: 2, name: "Thực Đơn Trẻ Em", desc: "Các món ăn dễ tiêu hóa, nhiều màu sắc, không cay, kèm theo đồ chơi nhỏ xinh xắn.", img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80" },
   { id: 3, name: "Thực Đơn Hồi Giáo (Halal)", desc: "Tuân thủ nghiêm ngặt các quy định về thực phẩm Halal, được chứng nhận bởi cơ quan uy tín.", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80" },
   { id: 4, name: "Thực Đơn Kiêng Gluten", desc: "Không chứa lúa mì, lúa mạch hay các loại tinh bột có gluten, phù hợp cho người nhạy cảm.", img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80" },
 ];

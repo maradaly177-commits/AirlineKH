@@ -61,10 +61,33 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
     { id: 'VJ', name: 'VietJet Air', count: countAirlineFlights('VJ') || '2 chuyến', logo: <VietjetLogo /> },
   ];
 
+  const countAmenityFlights = (type) => {
+    if (!Array.isArray(allFlights) || allFlights.length === 0) return null;
+    if (type === 'direct') {
+      const c = allFlights.filter(f => f.stops === 0 || !f.transits || f.transits.length === 0).length;
+      return `${c} chuyến`;
+    }
+    if (type === 'baggage') {
+      const c = allFlights.filter(f => {
+        const fn = (f.flight_number || "").toUpperCase();
+        return !fn.startsWith('VJ');
+      }).length;
+      return `${c} chuyến`;
+    }
+    if (type === 'flexible') {
+      const c = allFlights.filter(f => {
+        const fn = (f.flight_number || "").toUpperCase();
+        return fn.startsWith('VN') || fn.startsWith('SK') || fn.startsWith('SL');
+      }).length;
+      return `${c} chuyến`;
+    }
+    return null;
+  };
+
   const amenities = [
-    { id: 'direct', label: 'Bay thẳng', count: '5 chuyến' },
-    { id: 'baggage', label: 'Có hành lý ký gửi', count: '14 chuyến' },
-    { id: 'flexible', label: 'Hoàn/hủy linh hoạt', count: '7 chuyến' },
+    { id: 'direct', label: 'Bay thẳng', count: countAmenityFlights('direct') || '5 chuyến' },
+    { id: 'baggage', label: 'Có hành lý ký gửi', count: countAmenityFlights('baggage') || '14 chuyến' },
+    { id: 'flexible', label: 'Hoàn/hủy linh hoạt', count: countAmenityFlights('flexible') || '7 chuyến' },
   ];
 
   return (
@@ -114,8 +137,8 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Giờ cất cánh</h3>
           <div className="flex flex-col space-y-1.5 w-full">
             {timeSlots.map((slot) => (
-              <label key={slot.id} className="flex items-center justify-between w-full cursor-pointer group select-none py-0.5">
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+              <label key={slot.id} className="flex flex-row items-center justify-between flex-nowrap w-full cursor-pointer group select-none py-0.5">
+                <div className="flex items-center gap-2 min-w-0 flex-1 pr-1">
                   <input 
                     type="checkbox" 
                     className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600 shrink-0"
@@ -131,7 +154,7 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
                     {slot.label}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-2 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full">
+                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-1.5 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full whitespace-nowrap">
                   {slot.count}
                 </span>
               </label>
@@ -144,8 +167,8 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Hãng hàng không</h3>
           <div className="flex flex-col space-y-1.5 w-full">
             {airlines.map((al) => (
-              <label key={al.id} className="flex items-center justify-between w-full cursor-pointer group select-none py-0.5">
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+              <label key={al.id} className="flex flex-row items-center justify-between flex-nowrap w-full cursor-pointer group select-none py-0.5">
+                <div className="flex items-center gap-2 min-w-0 flex-1 pr-1">
                   <input 
                     type="checkbox" 
                     className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600 shrink-0"
@@ -162,7 +185,7 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
                     {al.name}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-2 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full">
+                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-1.5 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full whitespace-nowrap">
                   {al.count}
                 </span>
               </label>
@@ -175,8 +198,8 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
           <h3 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Tiện ích</h3>
           <div className="flex flex-col space-y-1.5 w-full">
             {amenities.map((am) => (
-              <label key={am.id} className="flex items-center justify-between w-full cursor-pointer group select-none py-0.5">
-                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+              <label key={am.id} className="flex flex-row items-center justify-between flex-nowrap w-full cursor-pointer group select-none py-1">
+                <div className="flex items-center gap-2 min-w-0 flex-1 pr-1">
                   <input 
                     type="checkbox" 
                     className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 bg-slate-50 cursor-pointer accent-blue-600 shrink-0"
@@ -192,7 +215,7 @@ export default function FlightFilterSidebar({ filters, onFilterChange, allFlight
                     {am.label}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-2 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full">
+                <span className="text-[11px] text-slate-400 font-medium shrink-0 ml-1.5 bg-slate-50 border border-slate-100 px-2 py-0.5 rounded-full whitespace-nowrap">
                   {am.count}
                 </span>
               </label>

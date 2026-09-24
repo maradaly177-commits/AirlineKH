@@ -96,7 +96,7 @@ class FlightGeneratorService
                 ->with(['departureAirport', 'arrivalAirport', 'aircraft'])
                 ->get();
 
-            if ($existing->isNotEmpty()) {
+            if ($existing->count() >= 5) {
                 return $existing;
             }
 
