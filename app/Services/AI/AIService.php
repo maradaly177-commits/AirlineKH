@@ -246,23 +246,67 @@ PROMPT;
             }
         }
 
-        $lastUserMsg = '';
-        foreach ($messages as $msg) {
-            if (($msg['role'] ?? '') === 'user') {
-                $lastUserMsg = $msg['content'] ?? $lastUserMsg;
+        if ($hasToolExecutedInCurrentTurn) {
+            $lastUserMsg = '';
+            foreach ($messages as $msg) {
+                if (($msg['role'] ?? '') === 'user') {
+                    $lastUserMsg = $msg['content'] ?? $lastUserMsg;
+                }
             }
-        }
-        $q = mb_strtolower($lastUserMsg, 'UTF-8');
-        $introText = "Mình đã tìm được các chuyến bay phù hợp với yêu cầu của bạn từ cơ sở dữ liệu bên dưới 👇";
-        if (str_contains($q, 'rẻ nhất') || str_contains($q, 're nhat') || str_contains($q, 'thấp nhất')) {
-            $introText = "Chuyến bay có giá rẻ nhất phù hợp với yêu cầu của bạn là chuyến dưới đây 👇";
+            $q = mb_strtolower($lastUserMsg, 'UTF-8');
+            $introText = "Mình đã tìm được các chuyến bay phù hợp với yêu cầu của bạn từ cơ sở dữ liệu bên dưới 👇";
+            if (str_contains($q, 'rẻ nhất') || str_contains($q, 're nhat') || str_contains($q, 'thấp nhất')) {
+                $introText = "Chuyến bay có giá rẻ nhất phù hợp với yêu cầu của bạn là chuyến dưới đây 👇";
+            }
+
+            return [
+                'role' => 'assistant',
+                'content' => $introText,
+                'tool_calls' => [],
+            ];
         }
 
         return [
             'role' => 'assistant',
-            'content' => $introText,
+            'content' => $this->generateFallbackResponse($messages, $lastError),
             'tool_calls' => [],
         ];
+    }
+
+    protected function extractAirportsFromText(string $text, array $airports): array
+    {
+        $textLower = mb_strtolower($text, 'UTF-8');
+        $matches = [];
+
+        foreach ($airports as $name => $code) {
+            $pos = mb_strpos($textLower, $name, 0, 'UTF-8');
+            if ($pos !== false) {
+                $matches[] = [
+                    'pos' => $pos,
+                    'code' => $code,
+                ];
+            }
+        }
+
+        if (empty($matches)) {
+            return [null, null];
+        }
+
+        usort($matches, function ($a, $b) {
+            return $a['pos'] <=> $b['pos'];
+        });
+
+        $origin = $matches[0]['code'] ?? null;
+        $destination = null;
+
+        for ($i = 1; $i < count($matches); $i++) {
+            if ($matches[$i]['code'] !== $origin) {
+                $destination = $matches[$i]['code'];
+                break;
+            }
+        }
+
+        return [$origin, $destination];
     }
 
     protected function parseFlightIntent(array $messages): ?array
@@ -283,9 +327,24 @@ PROMPT;
 
         $q = mb_strtolower($lastUserMsg, 'UTF-8');
 
-        // Check if query is about flights
-        $isFlightQuery = str_contains($q, 'chuyến') || str_contains($q, 'vé') || str_contains($q, 'bay') || str_contains($q, 'tìm') || str_contains($q, 'rẻ nhất') || str_contains($q, 're nhat') || str_contains($q, 'sớm nhất') || str_contains($q, 'giá');
-        if (!$isFlightQuery) {
+        // Explicitly check for policy / knowledge base questions first
+        $isPolicyOrKnowledge = str_contains($q, 'hành lý') || str_contains($q, 'hanh ly') ||
+                               str_contains($q, 'ký gửi') || str_contains($q, 'kí gửi') ||
+                               str_contains($q, 'xách tay') || str_contains($q, 'xach tay') ||
+                               str_contains($q, 'suất ăn') || str_contains($q, 'suat an') ||
+                               str_contains($q, 'chỗ ngồi') || str_contains($q, 'cho ngoi') ||
+                               str_contains($q, 'trẻ em') || str_contains($q, 'tre em') ||
+                               str_contains($q, 'sơ sinh') || str_contains($q, 'so sinh') ||
+                               str_contains($q, 'thanh toán') || str_contains($q, 'thanh toan') ||
+                               str_contains($q, 'hộ chiếu') || str_contains($q, 'ho chieu') ||
+                               str_contains($q, 'đổi vé') || str_contains($q, 'doi ve') || str_contains($q, 'đổi ngày') || str_contains($q, 'doi ngay') ||
+                               str_contains($q, 'hủy vé') || str_contains($q, 'huy ve') || str_contains($q, 'hủy chuyến') || str_contains($q, 'huy chuyen') ||
+                               str_contains($q, 'hoàn vé') || str_contains($q, 'hoan ve') || str_contains($q, 'hoàn tiền') || str_contains($q, 'hoan tien') ||
+                               str_contains($q, 'check-in') || str_contains($q, 'checkin') || str_contains($q, 'thủ tục') ||
+                               str_contains($q, 'khuyến mãi') || str_contains($q, 'ưu đãi') ||
+                               str_contains($q, 'pnr') || str_contains($q, 'mã đặt chỗ');
+
+        if ($isPolicyOrKnowledge) {
             return null;
         }
 
@@ -299,30 +358,35 @@ PROMPT;
             'đà lạt' => 'DLI', 'da lat' => 'DLI', 'dli' => 'DLI',
         ];
 
-        $foundOrigin = null;
-        $foundDestination = null;
+        [$foundOrigin, $foundDestination] = $this->extractAirportsFromText($lastUserMsg, $airports);
 
-        foreach ($airports as $name => $code) {
-            if (str_contains($q, $name)) {
-                if (!$foundOrigin) {
-                    $foundOrigin = $code;
-                } else if ($code !== $foundOrigin && !$foundDestination) {
-                    $foundDestination = $code;
+        if (!$foundOrigin || !$foundDestination) {
+            for ($i = count($messages) - 1; $i >= 0; $i--) {
+                $msgContent = $messages[$i]['content'] ?? '';
+                if (!is_string($msgContent) || empty($msgContent)) {
+                    continue;
+                }
+                [$histOrigin, $histDest] = $this->extractAirportsFromText($msgContent, $airports);
+                if ($histOrigin && !$foundOrigin) {
+                    $foundOrigin = $histOrigin;
+                }
+                if ($histDest && !$foundDestination) {
+                    $foundDestination = $histDest;
+                }
+                if ($foundOrigin && $foundDestination) {
+                    break;
                 }
             }
         }
 
-        if (!$foundOrigin || !$foundDestination) {
-            $historyQ = mb_strtolower($fullHistoryText, 'UTF-8');
-            foreach ($airports as $name => $code) {
-                if (str_contains($historyQ, $name)) {
-                    if (!$foundOrigin) {
-                        $foundOrigin = $code;
-                    } else if ($code !== $foundOrigin && !$foundDestination) {
-                        $foundDestination = $code;
-                    }
-                }
-            }
+        $hasFlightKeyword = str_contains($q, 'chuyến bay') || str_contains($q, 'tim chuyen') || str_contains($q, 'vé bay') || str_contains($q, 'vé từ') || str_contains($q, 'rẻ nhất') || str_contains($q, 're nhat') || str_contains($q, 'sớm nhất') || str_contains($q, 'som nhat') || str_contains($q, 'bay') || str_contains($q, 'chuyến');
+
+        if (!$hasFlightKeyword && !$foundOrigin && !$foundDestination) {
+            return null;
+        }
+
+        if (!$foundOrigin && !$foundDestination) {
+            return null;
         }
 
         $origin = $foundOrigin ?: 'HAN';
@@ -696,18 +760,48 @@ PROMPT;
             }
         }
 
-        $query = mb_strtolower($lastUserMsg);
+        $query = mb_strtolower($lastUserMsg, 'UTF-8');
+
+        if (str_contains($query, 'hành lý') || str_contains($query, 'hanh ly') || str_contains($query, 'ký gửi') || str_contains($query, 'kí gửi') || str_contains($query, 'xách tay') || str_contains($query, 'xach tay')) {
+            return "🧳 **Quy định Hành lý SkyLink Airline:**\n\n" .
+                   "1. **Hành lý xách tay:** Miễn phí **7kg** kèm theo mỗi vé cho tất cả các hạng ghế.\n" .
+                   "2. **Hành lý ký gửi miễn phí:**\n" .
+                   "   - **Hạng vé Economy Standard (Phổ thông tiêu chuẩn):** Miễn phí **20kg** ký gửi.\n" .
+                   "   - **Hạng vé Business (Thương gia):** Miễn phí **30kg** ký gửi.\n" .
+                   "   - **Hạng vé Saver (Siêu tiết kiệm):** Chưa bao gồm hành lý ký gửi sẵn.\n\n" .
+                   "💡 *Mẹo:* Bạn có thể chọn mua thêm các gói hành lý ký gửi (15kg, 20kg, 25kg, 30kg) với giá ưu đãi trực tiếp tại Bước chọn dịch vụ (Services) khi đặt vé hoặc làm thủ tục trực tuyến nhé!";
+        }
+
+        if (str_contains($query, 'trẻ em') || str_contains($query, 'sơ sinh') || str_contains($query, 'em bé') || str_contains($query, 'tre em') || str_contains($query, 'so sinh')) {
+            return "👶 **Quy định Giá vé Trẻ em & Em bé:**\n\n" .
+                   "1. **Em bé (Dưới 2 tuổi):** Tính **10% giá vé người lớn** (em bé ngồi chung ghế với người lớn đi cùng).\n" .
+                   "2. **Trẻ em (Từ 2 đến dưới 12 tuổi):** Tính **75% giá vé người lớn** (có ghế ngồi riêng biệt).\n" .
+                   "3. **Hành khách từ 12 tuổi trở lên:** Áp dụng giá vé người lớn chuẩn.\n\n" .
+                   "Vui lòng mang theo Giấy khai sinh bản gốc/sao trích lục hoặc Hộ chiếu của bé khi làm thủ tục tại sân bay nhé!";
+        }
+
+        if (str_contains($query, 'đổi vé') || str_contains($query, 'hoàn vé') || str_contains($query, 'hủy vé') || str_contains($query, 'đổi ngày') || str_contains($query, 'doi ve') || str_contains($query, 'hoan ve')) {
+            return "🔄 **Chính sách Đổi vé & Hủy vé SkyLink:**\n\n" .
+                   "- **Thay đổi ngày/giờ bay:** Hỗ trợ trước giờ khởi hành tối thiểu 3 tiếng. Phí đổi: **350.000 VNĐ/chặng** + chênh lệch giá vé (nếu có).\n" .
+                   "- **Hoàn/Hủy vé:** Áp dụng cho hạng Thương gia (Business) có hoàn tiền (trừ phí quy định). Hạng Siêu tiết kiệm không áp dụng hoàn vé.\n" .
+                   "- **Sửa tên đệm/chính tả:** Hỗ trợ miễn phí hoặc phí nhỏ 100.000đ khi liên hệ Tổng đài CSKH.";
+        }
+
+        if (str_contains($query, 'checkin') || str_contains($query, 'check-in') || str_contains($query, 'thủ tục')) {
+            return "📱 **Check-in Online (Thủ tục trực tuyến):**\n\n" .
+                   "- Hệ thống mở thủ tục trực tuyến từ **24 giờ đến 60 phút** trước giờ khởi hành.\n" .
+                   "- Bạn truy cập mục **'Check-in Online'** trên thanh Menu, nhập Mã đặt chỗ (PNR) và Họ tên để tự chọn chỗ ngồi ưa thích và tải Thẻ lên máy bay (Boarding Pass) điện tử nhé!";
+        }
+
+        if (str_contains($query, 'thanh toán') || str_contains($query, 'pnr') || str_contains($query, 'hóa đơn') || str_contains($query, 'thanh toan')) {
+            return "💳 **Phương thức Thanh toán & Mã đặt chỗ (PNR):**\n\n" .
+                   "- Hỗ trợ thanh toán qua: Thẻ Visa/Mastercard, Ví MoMo, VNPAY-QR, Chuyển khoản ngân hàng.\n" .
+                   "- Mã đặt chỗ (PNR) và Vé điện tử sẽ được tự động gửi qua Email của bạn ngay trong 1-3 phút sau khi thanh toán thành công.\n" .
+                   "- Hóa đơn VAT điện tử sẽ gửi qua email trong 24h nếu chọn nhập thông tin xuất hóa đơn tại bước thanh toán.";
+        }
 
         if (str_contains($query, 'chuyến bay') || str_contains($query, 'vé') || str_contains($query, 'bay') || str_contains($query, 'giá')) {
             return "✈️ **Trợ lý SkyAI (Hãng hàng không SkyLink Airline):**\n\nHệ thống hiện đang lưu trữ đầy đủ lịch trình các chuyến bay nội địa và quốc tế. Bạn có thể sử dụng thanh tìm kiếm trực tiếp trên trang chủ để tra cứu thông tin giờ bay và đặt vé dễ dàng:\n- **Điểm đi & điểm đến:** Hà Nội (HAN), TP.HCM (SGN), Đà Nẵng (DAD), Phú Quốc (PQC)...\n- **Hạng vé:** Phổ thông (Economy), Thương gia (Business).\n\nChúc bạn chọn được hành trình ưng ý nhất cùng SkyLink Airline!";
-        }
-
-        if (str_contains($query, 'hành lý') || str_contains($query, 'ký gửi')) {
-            return "🧳 **Quy định Hành lý SkyLink Airline:**\n\n1. **Hành lý xách tay:** Tối đa **7kg** (miễn phí theo mỗi vé).\n2. **Hành lý ký gửi:** Bạn có thể linh hoạt chọn các gói 15kg, 20kg, 25kg hoặc 30kg trong quá trình đặt vé trực tuyến hoặc quản lý mã đặt chỗ.\n\nNếu có thắc mắc thêm, nhân viên hỗ trợ tại sân bay sẽ hướng dẫn chi tiết cho bạn nhé!";
-        }
-
-        if (str_contains($query, 'checkin') || str_contains($query, 'check-in') || str_contains($query, 'làm thủ tục')) {
-            return "📱 **Check-in Online (Thủ tục trực tuyến):**\n\n- Bạn có thể làm thủ tục trực tuyến từ **24 giờ đến 60 phút** trước giờ khởi hành.\n- Truy cập mục **'Check-in Online'** trên thanh Menu chính, nhập Mã đặt chỗ (PNR) và Họ tên hành khách để chọn chỗ ngồi và nhận Thẻ lên máy bay (Boarding Pass) điện tử nhé!";
         }
 
         return "✈️ **Trợ lý Trực tuyến SkyAI:**\n\nXin chào! Trợ lý SkyAI luôn sẵn sàng đồng hành cùng bạn. Hệ thống SkyLink Airline đang hỗ trợ các dịch vụ:\n- Tìm kiếm & Đặt vé máy bay trực tuyến\n- Quy định hành lý & Đổi/Hủy vé\n- Check-in Online & Chọn chỗ ngồi\n\nBạn cần hỗ trợ thêm thông tin nào, hãy đặt câu hỏi cho mình nhé!";
